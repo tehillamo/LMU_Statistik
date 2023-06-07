@@ -1,8 +1,13 @@
 ---
-title: "2-Way ANOVA"
-author: "Tehilla Mechera-Ostrovsky"
-date: "2023-06-02"
-output: html_document
+title: "Analysis of Variance - One-Way"
+description: |
+author:
+  - name: Tehilla Ostrovsky
+    url:
+    affiliation: LMU
+    affiliation_url:
+date: "`r Sys.Date()`"
+output: distill::distill_article
 ---
 
 Here is the data set. 
