@@ -12,9 +12,9 @@ navbar:
     - text: "Statistik II"
       href: statistik_ii.html
       menu:
-        - text: "Analyses of Variance - I"
+        - text: "AANOVA - I"
           href: anova_oneWay.html
-        - text: "Analyses of Variance - II"
+        - text: "ANOVA - II"
           href: anova_twoWay.html
         - text: "Linear Models"
           href: lm.html
