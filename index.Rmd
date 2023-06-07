@@ -15,9 +15,9 @@ site: distill::distill_website
 ---
  
 
-This website is dedicated ❤️ to all the amazing Schulpsychologie students, who will sit/sat a Statistik exam  @LMU!
+This website is dedicated ❤️ to all the **amazing Schulpsychologie students**, who will sit/sat a Statistik exam  @LMU!
 
-Enjoy the journey to understanding the core topics we cover in the course Statistik I and Statistik II! 
+Enjoy your journey to understanding the topics we cover in the course Statistik I and Statistik II! 
 
 
 Im very much looking forward to hear about your opinion (about this website and about the seminar)! 
