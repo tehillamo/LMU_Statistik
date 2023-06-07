@@ -1,0 +1,20 @@
+---
+title: "Willkommen!"
+#image: "herzl.jpg"
+color1: "#4CB848"
+color2: "#B8D989"
+angle: 130
+links:
+  - label: Moodle
+    url: "https://moodle.lmu.de/course/view.php?id=27869"
+  - label: Tehilla's Email
+    url: "mailto:Tehila.Mechera-Ostrovsky@psy.lmu.de"
+output:
+  postcards::solana
+site: distill::distill_website
+
+---
+ 
+This website is dedicated❤ to all the amazing Schulpsychologie students @LMU!
+
+Enjoy the journey to understanding core topics in Statistics! 

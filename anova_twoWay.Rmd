@@ -1,0 +1,341 @@
+---
+title: "2-Way ANOVA"
+author: "Tehilla Mechera-Ostrovsky"
+date: "2023-06-02"
+output: html_document
+---
+
+Here is the data set. 
+
+The two-way ANOVA will test whether the independent variables (type of training [Yoga vs. Cardio vs. HIIT] AND Gender of training [F vs. M]) have an effect on the dependent variable (well-being - score). But there are some other possible sources of variation in the data that we want to take into account.
+
+
+We are going to ask if there is an effect of type of training on participants' well being scores 
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+library(kableExtra)
+library(tidyverse)
+library(ggpubr)
+
+
+dat = data.frame("Happy_Score" = c(20, 75, 70, 55, 65, 35, 25, 65, 50, 55,
+                                   75, 40, 55, 77, 80, 70, 35, 50, 60, 80,
+                                   25, 35, 45, 76, 30, 30, 40, 65, 55, 15),
+                 "Sport_type" = c(rep("yoga", 10),
+                                  rep("cardio", 10),
+                                  rep("HIIT", 10)),
+                 "Gender" = c("m", "w", "w", "m", "w","m", "w", "w", "m", "w",
+                              "m", "w", "m", "w", "m", "m", "w", "m", "w", "m",
+                              "w", "w", "m", "m", "m", "w", "w", "m", "m", "m"))
+dat
+```
+
+#### I would always advice you to plot your data.
+
+```{r echo=FALSE, warning=FALSE}
+dat$Sport_type = as.factor(dat$Sport_type)
+dat$Gender = as.factor(dat$Gender)
+
+# the mean of wellbeing across all participants, who did Yoga
+mu_11 = mean(dat$Happy_Score[dat$Sport_type == "yoga"])
+
+# the mean of wellbeing across all participants, who did Cardio
+mu_12 = mean(dat$Happy_Score[dat$Sport_type == "cardio"])
+
+# the mean of wellbeing across all participants, who did HIIT
+mu_13 = mean(dat$Happy_Score[dat$Sport_type == "HIIT"])
+
+
+grand_mean_sport <- sum(mu_11, mu_12, mu_13)/3
+
+line_plot <-  ggline(dat, x = "Sport_type", y = "Happy_Score", 
+                     color = "Gender",
+                     add = c("mean_se", "dotplot"),
+                     palette = c("#6aa84f", "#FF8356"))+ 
+                     geom_hline(yintercept=grand_mean_sport, linetype="dashed", color = "red")
+
+box_plot <-  ggboxplot(dat, x = "Sport_type", 
+                       y = "Happy_Score", color = "Gender",
+                       palette = c("#6aa84f", "#FF8356"))+ 
+                       geom_hline(yintercept=grand_mean_sport, linetype="dashed", color = "red")
+
+
+
+ggarrange(box_plot, line_plot , 
+          labels = c("A", "B"),
+          ncol = 2, nrow = 1)
+```
+
+
+And here it is for the flipped plot: 
+```{r echo=FALSE, warning=FALSE}
+# the mean of wellbeing across all participants, who did HIIT
+mu_21 = mean(dat$Happy_Score[dat$Gender == "w"])
+
+# the mean of wellbeing across all participants, who did HIIT
+mu_22 = mean(dat$Happy_Score[dat$Gender == "m"])
+
+
+grand_mean_gender <- sum(mu_21, mu_22)/2
+
+
+line_plot_ii <-  ggline(dat, x = "Gender", y = "Happy_Score", 
+                     color = "Sport_type",
+                     add = c("mean_se", "dotplot"),
+                     palette = c("#00AFBB", "#E7B800", "lightpink"))+ 
+                     geom_hline(yintercept=grand_mean_gender, linetype="dashed", color = "red")
+
+box_plot_ii <-  ggboxplot(dat, x = "Gender", 
+                       y = "Happy_Score", color = "Sport_type",
+                       palette = c("#00AFBB", "#E7B800", "lightpink"))+ 
+                       geom_hline(yintercept=grand_mean_gender, linetype="dashed", color = "red")
+
+
+
+ggarrange(box_plot_ii, line_plot_ii, 
+          labels = c("A", "B"),
+          ncol = 2, nrow = 1)
+
+```
+
+
+```{r}
+mu_11_w = mean(dat$Happy_Score[dat$Sport_type == "yoga" & dat$Gender == "w"])
+mu_11_m = mean(dat$Happy_Score[dat$Sport_type == "yoga" & dat$Gender == "m"])
+
+mu_12_w = mean(dat$Happy_Score[dat$Sport_type == "cardio" & dat$Gender == "w"])
+mu_12_m = mean(dat$Happy_Score[dat$Sport_type == "cardio" & dat$Gender == "m"])
+
+mu_13_w = mean(dat$Happy_Score[dat$Sport_type == "HIIT" & dat$Gender == "w"])
+mu_13_m = mean(dat$Happy_Score[dat$Sport_type == "HIIT" & dat$Gender == "m"])
+
+
+```
+
+
+
+#### The statistical model's equation/notation is:
+
+$\color{red}{Y_{ijk} = \mu_{jk} + \alpha_{j} + \beta_{k} + \gamma_{jk} + \epsilon_{ijk}}$
+
+Looks scary, right?
+
+Lets break it down:
+
+  * Starting with the independent variable $\color{red}{Y_{ijk}}$. 
+    + $\color{red}{Y_{ijk}}$ is a **random variable**. It describes the PERSONAL Well-being score of person $i$ in the populations $j,k$. 
+    + $\color{red}{k}$, the population of **type of sports** ($\color{pink}{k=yoga}$, $\color{#00A99D}{k=cardio}$, $\color{Goldenrod}{k=HIIT}$). 
+    + $\color{red}{j}$ represents the population of **gender**, in which sport is done ($\color{#0071BC}{j=female}$, $\color{#3C8031}{j=male}$).
+   
+
+#### Lets define the number of levels in every group:    
+    
+```{r}
+k = 3 
+j = 2
+```
+    
+---
+
+
+#### $\alpha_{j}$ and $\beta_{k}$ are based on the means for each population and each level:
+
+Lets start with computing the means across all levels of all populations 
+
+```{r echo=FALSE, warning=FALSE}
+
+
+#dat[dat$Sport_type == "yoga",]
+
+dat_yoga <- dat_yoga <-  dat %>%
+  mutate_all(~cell_spec(.x, background = case_when(Sport_type == "yoga" ~ "lightpink",
+                                                   TRUE ~ "white"))) %>%
+  kable(escape = F) %>%
+  kable_styling()
+dat_yoga
+```
+
+```{r echo=FALSE, warning=FALSE}
+#dat[dat$Sport_type == "cardio",]
+
+dat_cardio <-  dat %>%
+  mutate_all(~cell_spec(.x, background = case_when(Sport_type == "cardio" ~ "#00AFBB",
+                                                   TRUE ~ "white"))) %>%
+  kable(escape = F) %>%
+  kable_styling()
+dat_cardio
+```
+
+
+```{r echo=FALSE, warning=FALSE}
+
+#dat[dat$Sport_type == "HIIT",]
+
+dat_hiit <-  dat %>%
+  mutate_all(~cell_spec(.x, background = case_when(Sport_type == "HIIT" ~ "#E7B800",
+                                                   TRUE ~ "white"))) %>%
+  kable(escape = F) %>%
+  kable_styling()
+dat_hiit
+```
+
+
+```{r echo=FALSE, warning=FALSE}
+# the mean of wellbeing across all female participants
+mu_21 = mean(dat$Happy_Score[dat$Gender == "w"])
+
+#dat[dat$Gender == "w",]
+
+
+dat_female <-  dat %>%
+  mutate_all(~cell_spec(.x, background = case_when(Gender == "w" ~ "#6495ED",
+                                                   TRUE ~ "white"))) %>%
+  kable(escape = F) %>%
+  kable_styling()
+dat_female
+
+```
+
+```{r echo=FALSE, warning=FALSE}
+# the mean of wellbeing across all male participants
+mu_22 = mean(dat$Happy_Score[dat$Gender == "m"])
+
+#dat[dat$Gender == "m",]
+
+
+dat_men <-  dat %>%
+  mutate_all(~cell_spec(.x, background = case_when(Gender == "m" ~ "#6aa84f",
+                                                   TRUE ~ "white"))) %>%
+  kable(escape = F) %>%
+  kable_styling()
+dat_men
+```
+
+
+
+---
+
+
+### We will start with stating our hypotheses:
+
+#### For factor 1: 
+
+$H_{0}:\alpha_{j} = 0$ for all $j$
+
+$H_{1}:\alpha_{j} ≠ 0$  for **at least** one $j$
+
+
+
+#### For factor 2:
+
+$H_{0}:\beta_{k} = 0$ for all $j$
+
+$H_{1}:\beta_{k} ≠ 0$  for **at least** one $j$
+
+
+#### For an interaction:
+
+$H_{0}:\gamma_{jk} = 0$ for all combinations of $jk$
+
+$H_{1}:\gamma_{jk} ≠ 0$ for **at least** one combinations of $jk$
+
+
+---
+
+#### We continue with running the statistical model.  
+
+*$$\color{red}{Y_{ijk} = \mu_{jk} + \alpha_{j} + \beta_{k} + \gamma_{jk} + \epsilon_{ijk}}$$*
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+mod_anova <-  aov(Happy_Score ~ Sport_type + Gender + Sport_type*Gender, 
+                          data = dat)
+sum_anova <- summary(mod_anova)
+sum_anova
+```
+
+
+---
+
+
+#### We finish with measuring the Effect sizes:
+
+
+#### $\color{red}{\eta^2}$.
+
+The effect size used for ANOVA. It easures the **proportion of the total variance** in a **dependent variable** that is associated with the membership of different groups defined by an independent variables. 
+
+Partial $\eta^2$ is a similar measure in which the effects of other independent variables and interactions are partialled out.
+
+##### Remember the calculation of $\eta^2$ for the one-factor anova?
+
+If not...  here it is: $\eta^2= \frac{\sigma^2_{zw}}{\sigma^2_{tot}}$
+
+In the two-factor anova we extend the above-written formula to a similar one. However, this time we have to consider the new parameters:
+  - $\sigma^2_{factor1}$
+  - $\sigma^2_{factor2}$
+  - $\sigma^2_{interaction}$
+  - $\sigma^2_{DV}$
+  
+--> 
+
+The overall effectsize $\eta^2_{tot} = \sigma^2_{factor1} + \sigma^2_{factor2} + \sigma^2_{interaction} + \sigma^2_{DV}$
+
+
+#### Partial $\color{red}{\eta^2}$.
+
+It measures the proportion of variance explained by a given variable of the total variance remaining **after accounting for variance explained by other variables** in the model.
+
+```{r}
+library(DescTools)
+EtaSq(mod_anova) 
+```
+
+Example of an interpretation of the results: 
+  + $\eta^2$ is the proportion of variance the treatment accounts for in the wellbeing of participants. In the case of the sport type, we see that 19.1% of the total variance of wellbeing is explained by sport participants did.  
+  + $\eta_{part}^2$ is the proportion of variance the treatment accounts for in the wellbeing of participants. In the case of the sport type, we see that 23.3% of the variance is explained by the sport type once the gender and the interaction effect are "taken out". 
+
+---
+
+
+#### F-distribution & Hypothesis testing 
+For two-way ANOVA, the ratio between the mean sum of squares of a specific factor and the mean of sum of squares of the residuals (i.e., the variability within) is testd. 
+
+
+#### Let's look at how the distribution and the critical values look like.
+
+We use the **pf()** to calculate the area under the curve for the interval [0,4.226] and the interval [4.226,+∞) of a F curve with with $v1=1$ and $v2=24$
+
+```{r}
+x = sum_anova[[1]][["F value"]][1]
+df_factor1 = 1
+df_inn = 24
+# interval $[0,1.5]
+pf(x, df1 = df_factor1, df2 = df_inn, lower.tail = TRUE)
+```
+
+```{r}
+x = sum_anova[[1]][["F value"]][1]
+df_factor1 = 1
+df_inn = 24
+pf(x, df1 = df_factor1, df2 = df_inn, lower.tail = FALSE)
+```
+
+
+```{r}
+library(latex2exp)
+x <- rf(100000, df1 = 2, df2 = 24)
+hist(x, 
+     breaks = 'Scott', 
+     freq = FALSE, 
+     xlim = c(0,5), 
+     ylim = c(0,1.5),
+     xlab = '', 
+     main = (TeX('Histogram for a $\\F$-distribution with $\\v_1 = 2$ and $\\v_2 = 24$ degrees of freedom (df)')), cex.main=0.9)
+
+curve(df(x, df1 = 1, df2 = 24), from = 0, to = 5, n = 5000, col= 'red', lwd=3, add = T)
+abline(v=4.227, col = "pink", lwd=2,  lty='dashed')
+abline(v=.321, col = "blue", lwd=2,  lty='dashed')
+abline(v=3.46, col = "green", lwd=2,  lty='dashed')
+```
+
+
+## Hope that was helpful. Let me know what you think and if you want me to add anything to make your life easier!
