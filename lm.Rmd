@@ -42,7 +42,7 @@ Linear models can be extended to include more than one independent variable, and
 
 $\color{red}{y{i} = a + \beta_{1} \times X_{1} + \beta_{2} \times X_{2} + … + \beta_{n} \times X_{n}}$
 
-<video width="500" height="300" controls><source src="img/CoordExmp.mp4" type="video/mp4"></video>
+<video width="500" height="300" float = "left" controls><source src="img/CoordExmp.mp4" type="video/mp4"></video>
 
 
 
