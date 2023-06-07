@@ -16,8 +16,6 @@ navbar:
           href: anova_oneWay.html
         - text: "Analyses of Variance - II"
           href: anova_twoWay.html
-        - text: "Basics in statistics - Linear Models"
-          href: Stat_basics_lm.html
-        - text: "Basics in statistics - Distributions"
-          href: Stat_basics_distr.html
+        - text: "Linear Models"
+          href: lm.html
 output: distill::distill_article
