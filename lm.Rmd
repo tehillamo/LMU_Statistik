@@ -11,7 +11,7 @@ date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
-Hello and welcome to my blog post about linear models in statistics! 
+### Welcome to the post about linear models in statistics! 
 
 Linear models are an essential tool in statistics used to model the relationship between a dependent variable and one or more independent variables. 
 
@@ -23,30 +23,187 @@ A linear model is a mathematical equation that represents a **linear** relations
 
 The simplest form of a linear model is a straight line equation of the form:
 
-$y_{i} = \beta_{0} + \beta_{1} \times X_{1}$
+$Y_{i} = \alpha_{0} + \beta_{1} \times X_{1}$
 
 Where $Y_{i}$ is the dependent variable and represent the *expected value* of all $y_{i}$ (all single data points) given a specific value of $X_{i}$ 
 
-What does this mean? Lets say that we want to predict the price of a rented flat, given the number of rooms it has. In this case, our **independent variable** $y$ represent all the sampled prices of rented flats we collected (as we already know, this is only a sample of rented flats) and $x$ represent the **dependent variable** all the number of rooms associated with those flats. 
 
-Lets say that I would like to know what is the predicted value of a flat, given that it has 3 rooms. In this case:
+### We are going to use a very simple example. We will try to fit a model that aims to predict the relationship between individuals height and weight. 
 
-$\mathbb{E}[Y_{(\$flat)}|X_{(\#rooms = 3)} = \beta_{0} + \beta_{1} \times x_{1}$
-
-$\beta_{0}$ is the intercept, which is the value of $Y$ when $X$ is zero.
-
-$\beta_{1}$ is the slope of the line, which represents the change in $Y$ for every unit increase in $X$, 
-
-Linear models can be extended to include more than one independent variable, and the equation becomes:
-
-
-$\color{red}{y{i} = a + \beta_{1} \times X_{1} + \beta_{2} \times X_{2} + … + \beta_{n} \times X_{n}}$
+### here is a fun illustration of the simple model:
 
 <video width="500" height="300" float = "left" controls><source src="img/CoordExmp.mp4" type="video/mp4"></video>
 
 
 
-Where Y is the dependent variable, X1, X2, …, Xn are the independent variables, a is the intercept, and b1, b2, …, bn are the slopes of the respective variables.
+### Let us look at a simple example with little number of data points (just so we can get the feeling of whats going on under the hood)
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+dat <-  data.frame(
+  "Height" = c(170, 180, 167, 165, 191),
+  "Weight" = c(60, 75, 59, 88, 91))
+dat
+```
+
+
+#### Here are the averages of both the weights and heights. We will need those to calculate the intercpet and the slope of the model. 
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+mean_weight <-  mean(dat$Weight)
+
+mean_height <-  mean(dat$Height)
+
+mean <- c(mean_weight, mean_height) 
+
+mean
+```
+
+
+#### Remember how I told you that I am a fan of plotting the data? 
+
+#### We will use a scatterplot this time.
+
+```{r}
+library(ggplot2)
+ggplot(data = dat, aes(y = Weight, x = Height)) +
+  geom_point(alpha = .7, color = "red") +
+  geom_hline(yintercept = mean_weight, color="blue", linetype = "dashed") +
+  geom_vline(xintercept = mean_height, color = "green", linetype = "dashed") + 
+  #geom_smooth(method = "lm") +
+  theme_classic() 
+```
+
+
+
+
+
+
+
+
+### Here is how $\beta$ calculated. 
+A quick reminder: 	β represents how much the regression line will rise or fall. 
+
+We interpret the $\beta$  as the average increase in the Dependent variable (AV) when we increase the independent variable (UV) by one unit. For Example, if we increase the Height by 1cm, the average predicted increase of weight is .....
+
+$$\frac{\sum_{i=1}^{n}(x_{i} -\hat{x})\times(y_{i}-\hat{y}))}{\sum_{i=1}^{n}(x_{1} - \hat{x})^2}$$
+
+Which can be also written as:
+
+
+$$\frac{cov(X,Y)}{S_{x}^2}$$
+
+
+
+#### Lets start!
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, }
+dat[,"xi - mean(x)"] <-  dat$Height - mean_height
+dat[,"yi - mean(y)"] <-  dat$Weight - mean_weight
+
+dat[, "sqr(xi - mean(x)"] <- (dat$Height - mean_height)**2
+dat[, "(xi - mean(x)) X (yi - mean(y))"] <-  dat[,"xi - mean(x)"] * dat[,"yi - mean(y)"] 
+
+dat
+```
+
+#### Now we have everything to compute the $cov(X, Y)$ and the $S_{X}^2$
+
+For $cov(X, Y)$ we just need to compute the sum of the **6th column**
+
+```{r}
+sum(dat[,"(xi - mean(x)) X (yi - mean(y))"])
+```
+For $S_{x}^2$ we just need to compute the sum of the **5th column**
+
+```{r}
+sum(dat[, "sqr(xi - mean(x)"])
+```
+
+
+#### The slope, is therefore, 0.
+
+```{r echo=FALSE}
+328.2/469.2
+```
+
+$\beta = \frac{328.2}{469.2} = .69$ 
+
+This means that, for every 1cm increase in height we expect to see an increase of .69KG. 
+
+
+
+### here is how $\alpha$ is calculated: 
+$$\overline{y} = \alpha_{0} + .69\times \overline{x}\beta$$
+
+We know both means of $x$ and $y$ (from the calculation above)
+
+
+If we rearrange the equation to solve for $\alpha_{0}$, we get 
+
+$$-\alpha_{0} = -\overline{y} + .69\times \overline{x}$$ 
+--> $$\alpha_{0} = \overline{y} - .69\times \overline{x}$$
+
+
+
+```{r}
+alpha_0 = mean_weight - .6994885*(mean_height)
+alpha_0
+```
+
+
+
+OK, enough with the hard, tiring work of calculating everything by hand.... for exactly this reason we have R (😃).
+
+We will use the function lm(), which which for Linear Model. We will wrap it with the function summary(), which provides us with the result summary of our model's results. 
+
+
+
+```{r}
+sum_lm <-  summary(lm(dat$Weight ~ dat$Height))
+sum_lm
+```
+
+
+
+Lets add this line to our scatterplot from before.
+
+```{r}
+ggplot(data = dat, aes(y = Weight, x = Height)) +
+  geom_point(alpha = .7, color = "red") +
+  geom_hline(yintercept = mean_weight, color="blue", linetype = "dashed") +
+  geom_vline(xintercept = mean_height, color = "green", linetype = "dashed") + 
+  geom_smooth(method = "lm") +
+  theme_classic() 
+```
+
+
+
+### Lastly, here is how the standard error term is calculated. This term tells us the distance between the data points with respect to their y values and the best fitting line.  
+
+$$\sigma^2 = S^2 = \frac{\sum_{i=1}^n(Y_{i} - \hat{Y})}{n-2}$$
+
+```{r}
+
+library(predict.lm)
+lm <-  lm(dat$Weight ~ dat$Height)
+dat[,"predicted_y"] <-  predict.lm(lm)
+
+dat[, "sqr(y-perd(y))"] <- (dat$Weight - dat$predicted_y)**2
+
+sum <- sum(dat[, "sqr(y-perd(y))"])
+
+sqrt(sum/3)
+
+
+
+```
+
+
+
+---
+
 
 Now let's move onto the interactive Shiny app plot. The plot allows you to visualize the relationship between two variables and fit a linear model to the data. To use the app, follow these steps:
 

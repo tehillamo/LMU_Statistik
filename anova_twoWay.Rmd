@@ -1,5 +1,5 @@
 ---
-title: "Analysis of Variance - One-Way"
+title: "Analysis of Variance - Two-Way"
 description: |
 author:
   - name: Tehilla Ostrovsky
