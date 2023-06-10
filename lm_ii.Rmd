@@ -1,0 +1,33 @@
+---
+title: "Multiple Linear regression"
+author: "Tehilla Mechera-Ostrovsky"
+date: "2023-06-10"
+output: html_document
+---
+
+
+Linear models can be extended to include more than one independent variable, and the equation becomes:
+
+
+$\color{red}{y{i} = a + \beta_{1} \times X_{1} + \beta_{2} \times X_{2} + … + \beta_{n} \times X_{n}}$
+
+Where $Y$ is the dependent variable, 
+
+$X_{1}$, $X_{2}$, …, $X_{n}$ are the independent variables, 
+
+$\alpha$ is the intercept, 
+
+and $\beta_{1}$,  $\beta_{2}$, …, $\beta_{n}$ are the slopes of the respective variables.
+
+
+
+
+somehting 
+
+```{r echo=FALSE}
+library(shiny)
+library(shinyjs)
+
+knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/app_new/?_ga=2.204656912.1891469921.1683464181-2121495814.1683277660", 
+  height = "600px")
+```

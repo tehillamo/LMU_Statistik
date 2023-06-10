@@ -184,13 +184,20 @@ ggplot(data = dat, aes(y = Weight, x = Height)) +
 
 $$\sigma^2 = S^2 = \frac{\sum_{i=1}^n(Y_{i} - \hat{Y})}{n-2}$$
 
-```{r}
 
-library(predict.lm)
+We need the predicted value for each person in our dataset. We will use the predict.lm() function that will output the predicted values fro every person based on the model lm(weight ~ Height.
+
+
+
+```{r}
 lm <-  lm(dat$Weight ~ dat$Height)
 dat[,"predicted_y"] <-  predict.lm(lm)
 
+dat[,"predicted_y"] 
+
 dat[, "sqr(y-perd(y))"] <- (dat$Weight - dat$predicted_y)**2
+
+dat[, "sqr(y-perd(y))"]
 
 sum <- sum(dat[, "sqr(y-perd(y))"])
 
@@ -200,12 +207,35 @@ sqrt(sum/3)
 
 ```
 
-
-
 ---
 
 
-Now let's move onto the interactive Shiny app plot. The plot allows you to visualize the relationship between two variables and fit a linear model to the data. To use the app, follow these steps:
+Here is how the t-distribution under the  $H_{0}$ looks like:
+
+```{r}
+library(latex2exp)
+x <- rt(100000, df = 3)
+hist(x, 
+     breaks = 'Scott', 
+     freq = FALSE, 
+     xlim = c(-5,5), 
+     ylim = c(0,0.4),
+     xlab = '', 
+     col = "lightgrey",
+     main = (TeX('Histogram for a $\\t$-distribution with 3 degrees of freedom (df)')), cex.main=0.9)
+
+curve(dt(x, df = 3), from = -5, to = 5, n = 5000, col = 'red', lwd = 3, add = T)
+abline(v = 0.721, col = "green", lwd = 2,  lty = 'dashed')
+abline(v = 0.387, col = "blue", lwd = 2,  lty = 'dashed')
+
+```
+
+---
+
+#### And a small toy-example for you to play around with 😉
+
+
+Let's move onto the interactive Shiny app plot. The plot allows you to visualize the relationship between two variables and fit a linear model to the data. To use the app, follow these steps:
 
 1. Choose the variables from the dropdown menu.
 
@@ -237,14 +267,6 @@ knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/Scatter_Linea
   height = "600px")
 ```
 
-somehting 
 
-```{r echo=FALSE}
-library(shiny)
-library(shinyjs)
-
-knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/app_new/?_ga=2.204656912.1891469921.1683464181-2121495814.1683277660", 
-  height = "600px")
-```
 
 In conclusion, linear models are a powerful tool in statistics, and the interactive Shiny app plot provides an excellent way to explore the concepts. With the app, you can experiment with different linear models and see how they fit the data. I hope you found this post informative and helpful, and please don't hesitate to leave any comments or questions below!

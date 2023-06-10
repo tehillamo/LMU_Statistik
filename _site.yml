@@ -16,6 +16,8 @@ navbar:
           href: anova_oneWay.html
         - text: "ANOVA - II"
           href: anova_twoWay.html
-        - text: "Linear Models"
+        - text: "Simple Linear Models"
           href: lm.html
+        - text: "Multiple Linear Models"
+          href: lm_ii.html
 output: distill::distill_article

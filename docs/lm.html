@@ -2120,7 +2120,8 @@ Statistik II
 <div class="nav-dropdown-content">
 <a href="anova_oneWay.html">AANOVA - I</a>
 <a href="anova_twoWay.html">ANOVA - II</a>
-<a href="lm.html">Linear Models</a>
+<a href="lm.html">Simple Linear Models</a>
+<a href="lm_ii.html">Multiple Linear Models</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2278,17 +2279,51 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 </div>
 <h3 id="lastly-here-is-how-the-standard-error-term-is-calculated.-this-term-tells-us-the-distance-between-the-data-points-with-respect-to-their-y-values-and-the-best-fitting-line.">Lastly, here is how the standard error term is calculated. This term tells us the distance between the data points with respect to their y values and the best fitting line.</h3>
 <p><span class="math display">\[\sigma^2 = S^2 = \frac{\sum_{i=1}^n(Y_{i} - \hat{Y})}{n-2}\]</span></p>
+<p>We need the predicted value for each person in our dataset. We will use the predict.lm() function that will output the predicted values fro every person based on the model lm(weight ~ Height.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dat</span><span class='op'>[</span>, <span class='st'>"sqr(y-perd(y))"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>-</span> <span class='va'>sum_lm</span><span class='op'>$</span><span class='va'>coefficients</span><span class='op'>[</span><span class='fl'>2</span>,<span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span><span class='op'>**</span><span class='fl'>2</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lm</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>~</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span></span>
+<span><span class='va'>dat</span><span class='op'>[</span>,<span class='st'>"predicted_y"</span><span class='op'>]</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/predict.lm.html'>predict.lm</a></span><span class='op'>(</span><span class='va'>lm</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>sum</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>[</span>, <span class='st'>"sqr(y-perd(y))"</span><span class='op'>]</span><span class='op'>)</span></span>
+<span><span class='va'>dat</span><span class='op'>[</span>,<span class='st'>"predicted_y"</span><span class='op'>]</span> </span></code></pre>
+</div>
+<pre><code>[1] 71.38235 78.37724 69.28389 67.88491 86.07161</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dat</span><span class='op'>[</span>, <span class='st'>"sqr(y-perd(y))"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>-</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>predicted_y</span><span class='op'>)</span><span class='op'>**</span><span class='fl'>2</span></span>
+<span></span>
+<span><span class='va'>dat</span><span class='op'>[</span>, <span class='st'>"sqr(y-perd(y))"</span><span class='op'>]</span></span></code></pre>
+</div>
+<pre><code>[1] 129.55796  11.40574 105.75834 404.61683  24.28902</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sum</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>[</span>, <span class='st'>"sqr(y-perd(y))"</span><span class='op'>]</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>sum</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>[1] 96.97358</code></pre>
+<pre><code>[1] 15.00697</code></pre>
 </div>
 <hr />
+<p>Here is how the t-distribution under the <span class="math inline">\(H_{0}\)</span> looks like:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://www.stefanom.io/latex2exp/'>latex2exp</a></span><span class='op'>)</span></span>
+<span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/TDist.html'>rt</a></span><span class='op'>(</span><span class='fl'>100000</span>, df <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>x</span>, </span>
+<span>     breaks <span class='op'>=</span> <span class='st'>'Scott'</span>, </span>
+<span>     freq <span class='op'>=</span> <span class='cn'>FALSE</span>, </span>
+<span>     xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>5</span>,<span class='fl'>5</span><span class='op'>)</span>, </span>
+<span>     ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0.4</span><span class='op'>)</span>,</span>
+<span>     xlab <span class='op'>=</span> <span class='st'>''</span>, </span>
+<span>     col <span class='op'>=</span> <span class='st'>"lightgrey"</span>,</span>
+<span>     main <span class='op'>=</span> <span class='op'>(</span><span class='fu'><a href='https://www.stefanom.io/latex2exp/reference/TeX.html'>TeX</a></span><span class='op'>(</span><span class='st'>'Histogram for a $\\t$-distribution with 3 degrees of freedom (df)'</span><span class='op'>)</span><span class='op'>)</span>, cex.main<span class='op'>=</span><span class='fl'>0.9</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/curve.html'>curve</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/TDist.html'>dt</a></span><span class='op'>(</span><span class='va'>x</span>, df <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>, from <span class='op'>=</span> <span class='op'>-</span><span class='fl'>5</span>, to <span class='op'>=</span> <span class='fl'>5</span>, n <span class='op'>=</span> <span class='fl'>5000</span>, col <span class='op'>=</span> <span class='st'>'red'</span>, lwd <span class='op'>=</span> <span class='fl'>3</span>, add <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>0.721</span>, col <span class='op'>=</span> <span class='st'>"green"</span>, lwd <span class='op'>=</span> <span class='fl'>2</span>,  lty <span class='op'>=</span> <span class='st'>'dashed'</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>0.387</span>, col <span class='op'>=</span> <span class='st'>"blue"</span>, lwd <span class='op'>=</span> <span class='fl'>2</span>,  lty <span class='op'>=</span> <span class='st'>'dashed'</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="lm_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<hr />
+<h4 id="and-a-small-toy-example-for-you-to-play-around-with">And a small toy-example for you to play around with 😉</h4>
 <p>Now let’s move onto the interactive Shiny app plot. The plot allows you to visualize the relationship between two variables and fit a linear model to the data. To use the app, follow these steps:</p>
 <ol type="1">
 <li><p>Choose the variables from the dropdown menu.</p></li>
@@ -2432,13 +2467,8 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 <iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/Scatter_Linear/?_ga=2.32885118.1162650381.1683277660-2121495814.1683277660" width="624" height="600px" data-external="1">
 </iframe>
 </div>
-<p>somehting</p>
-<div class="layout-chunk" data-layout="l-body">
-<iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/app_new/?_ga=2.204656912.1891469921.1683464181-2121495814.1683277660" width="624" height="600px" data-external="1">
-</iframe>
-</div>
 <p>In conclusion, linear models are a powerful tool in statistics, and the interactive Shiny app plot provides an excellent way to explore the concepts. With the app, you can experiment with different linear models and see how they fit the data. I hope you found this post informative and helpful, and please don’t hesitate to leave any comments or questions below!</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
