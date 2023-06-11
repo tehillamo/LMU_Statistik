@@ -1,8 +1,14 @@
 ---
-title: "Multiple Linear regression"
-author: "Tehilla Mechera-Ostrovsky"
-date: "2023-06-10"
-output: html_document
+title: "Multiple Linear Regression Analysis"
+description: |
+  Linear Regression
+author:
+  - name: Tehilla Ostrovsky
+    url: https://github.com 
+    affiliation: LMU
+    #affiliation_url: 
+date: "`r Sys.Date()`"
+output: distill::distill_article
 ---
 
 
