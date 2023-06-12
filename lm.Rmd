@@ -77,12 +77,13 @@ ggplot(data = dat, aes(y = Weight,x = Height)) +
 
 
 
-### Here is how $\beta$ calculated. 
+### How is the $\beta$ calculated?
+
 A quick reminder: 	β represents how much the regression line will rise or fall. 
 
 We interpret the $\beta$  as the average increase in the Dependent variable (AV) when we increase the independent variable (UV) by one unit. For Example, if we increase the Height by 1cm, the average predicted increase of weight is .....
 
-$$\frac{\sum_{i=1}^{n}(x_{i} -\hat{x})\times(y_{i}-\hat{y}))}{\sum_{i=1}^{n}(x_{1} - \hat{x})^2}$$
+$$\frac{\sum_{i=1}^{n}(x_{i} -\hat{x})\times(y_{i}-\hat{y})}{\sum_{i=1}^{n}(x_{1} - \hat{x})^2}$$
 
 Which can be also written as:
 
@@ -110,6 +111,7 @@ For $cov(X, Y)$ we just need to compute the sum of the **6th column**
 ```{r}
 sum(dat[,"(xi - mean(x)) X (yi - mean(y))"])
 ```
+
 For $S_{x}^2$ we just need to compute the sum of the **5th column**
 
 ```{r}
@@ -117,7 +119,7 @@ sum(dat[, "sqr(xi - mean(x)"])
 ```
 
 
-#### The slope, is therefore, 0.
+#### The slope, is therefore, 0.6994885
 
 ```{r echo=FALSE}
 328.2/469.2
@@ -129,8 +131,9 @@ This means that, for every 1cm increase in height we expect to see an increase o
 
 
 
-### here is how $\alpha$ is calculated: 
-$$\overline{y} = \alpha_{0} + .69\times \overline{x}\beta$$
+### How does the $\alpha$ calculated?
+
+$$\overline{y} = \alpha_{0} + .69\times \overline{x}$$
 
 We know both means of $x$ and $y$ (from the calculation above)
 
@@ -138,12 +141,15 @@ We know both means of $x$ and $y$ (from the calculation above)
 If we rearrange the equation to solve for $\alpha_{0}$, we get 
 
 $$-\alpha_{0} = -\overline{y} + .69\times \overline{x}$$ 
---> $$\alpha_{0} = \overline{y} - .69\times \overline{x}$$
+
+Lets rearrange the equation such that it will look nicer...
+
+$$\alpha_{0} = \overline{y} - .69\times \overline{x}$$
 
 
 
 ```{r}
-alpha_0 = mean_weight - .6994885*(mean_height)
+alpha_0 = mean_weight - .6994885 * (mean_height)
 alpha_0
 ```
 
@@ -159,6 +165,36 @@ We will use the function lm(), which which for Linear Model. We will wrap it wit
 sum_lm <-  summary(lm(dat$Weight ~ dat$Height))
 sum_lm
 ```
+According to the model output, the intercept and the slope are not significant. 
+
+According to the hypotheses of this mode, the intercept is compared against 0. That is, does -47.5307 is significantly different to 0. Looking at the estimated value itself it may seem odd that this value is not significant differernt to 0. To resolve this mysotory lets take a llok at the confidence intervals of the two:
+
+```{r}
+confint.lm(lm(dat$Weight ~ dat$Height))
+```
+### How is the cofidence interval calculated?
+
+For example: 95% C.I. for $\beta_{1}$: $$b_{1} ± t_{1-α/2, n-2} * se(b_{1})$$
+
+First we need to find the t value that "sits" at the lower and upper 2.5% of the t-distribution. We will use the function qt() and will provide us with the t value at 2.5% from a t-ditribution with 3 df. 
+
+```{r}
+t_value <-  qt(p = .975, df =3, lower.tail = TRUE)
+```
+
+
+we now have all the unknowns to arrive at the solution. Lets plug the numbers in and compare it to the 95% confidence interval we obtained above. 
+
+
+```{r}
+upper_CI <-  0.6995 + (t_value * 0.6928) 
+lower_CI <-  0.6995 - (t_value * 0.6928) 
+
+upper_CI
+lower_CI
+```
+
+Looking good!
 
 
 
@@ -282,3 +318,31 @@ knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/Scatter_Linea
 
 
 In conclusion, linear models are a powerful tool in statistics, and the interactive Shiny app plot provides an excellent way to explore the concepts. With the app, you can experiment with different linear models and see how they fit the data. I hope you found this post informative and helpful, and please don't hesitate to leave any comments or questions below!
+
+
+
+
+
+#### Homework solution:
+
+1) Here is the dataaset:
+```{r}
+dat_salary <-  data.frame("iq" = c(120, 110,  100, 135, 140),
+                          "salary(m)" = c(2500, 2300, 2400, 3000, 2100))
+```
+
+
+2) And the model's output:
+```{r}
+summary(lm(dat_salary$salary.m. ~ dat_salary$iq))
+```
+
+
+
+```{r}
+ggplot(dat_salary,  aes(x = iq, y = salary.m.)) +
+  geom_point(col = "blue", alpha = .4) + 
+  geom_smooth(method = "lm", col = "red") +
+  theme_minimal()
+```
+
