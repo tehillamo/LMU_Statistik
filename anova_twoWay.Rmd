@@ -16,6 +16,8 @@ The two-way ANOVA will test whether the independent variables (type of training 
 
 
 We are going to ask if there is an effect of type of training on participants' well being scores 
+
+
 ```{r echo = FALSE, warning=FALSE, message=FALSE}
 library(kableExtra)
 library(tidyverse)
@@ -250,9 +252,9 @@ $H_{1}:\gamma_{jk} ≠ 0$ for **at least** one combinations of $jk$
 
 *$$\color{red}{Y_{ijk} = \mu_{jk} + \alpha_{j} + \beta_{k} + \gamma_{jk} + \epsilon_{ijk}}$$*
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE}
 mod_anova <-  aov(Happy_Score ~ Sport_type + Gender + Sport_type*Gender, 
-                          data = dat)
+                  data = dat)
 sum_anova <- summary(mod_anova)
 sum_anova
 ```
@@ -275,14 +277,18 @@ Partial $\eta^2$ is a similar measure in which the effects of other independent 
 If not...  here it is: $\eta^2= \frac{\sigma^2_{zw}}{\sigma^2_{tot}}$
 
 In the two-factor anova we extend the above-written formula to a similar one. However, this time we have to consider the new parameters:
+  
   - $\sigma^2_{factor1}$
+  
   - $\sigma^2_{factor2}$
+  
   - $\sigma^2_{interaction}$
+  
   - $\sigma^2_{DV}$
   
---> 
+ 
 
-The overall effectsize $\eta^2_{tot} = \sigma^2_{factor1} + \sigma^2_{factor2} + \sigma^2_{interaction} + \sigma^2_{DV}$
+&#x21D2; The overall effectsize $\eta^2_{tot} = \sigma^2_{factor1} + \sigma^2_{factor2} + \sigma^2_{interaction} + \sigma^2_{DV}$
 
 
 #### Partial $\color{red}{\eta^2}$.
@@ -295,7 +301,9 @@ EtaSq(mod_anova)
 ```
 
 Example of an interpretation of the results: 
+
   + $\eta^2$ is the proportion of variance the treatment accounts for in the wellbeing of participants. In the case of the sport type, we see that 19.1% of the total variance of wellbeing is explained by sport participants did.  
+  
   + $\eta_{part}^2$ is the proportion of variance the treatment accounts for in the wellbeing of participants. In the case of the sport type, we see that 23.3% of the variance is explained by the sport type once the gender and the interaction effect are "taken out". 
 
 ---
@@ -325,22 +333,40 @@ pf(x, df1 = df_factor1, df2 = df_inn, lower.tail = FALSE)
 ```
 
 
-```{r}
-library(latex2exp)
-x <- rf(100000, df1 = 2, df2 = 24)
-hist(x, 
-     breaks = 'Scott', 
-     freq = FALSE, 
-     xlim = c(0,5), 
-     ylim = c(0,1.5),
-     xlab = '', 
-     main = (TeX('Histogram for a $\\F$-distribution with $\\v_1 = 2$ and $\\v_2 = 24$ degrees of freedom (df)')), cex.main=0.9)
+#### Here is the H0 F-distribution, from which we will infer whether  to accept the null hypothesis or not. 
 
-curve(df(x, df1 = 1, df2 = 24), from = 0, to = 5, n = 5000, col= 'red', lwd=3, add = T)
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+x <- rf(100000, df1 = 2, df2 = 24)
+x <-  round(x, digit = 2)
+cuts <-  quantile(x , c(0.000, .05, .95, .99999)) 
+
+
+library(latex2exp)
+
+my_hist = hist(x, breaks = 150, plot = F)
+
+ 
+# Color vector
+my_color= ifelse(my_hist$breaks <= 3.4, "lightgrey",
+          ifelse(my_hist$breaks >= 0, "red"))
+
+plot(my_hist, 
+     col = my_color, 
+     border = F,
+     freq = FALSE, 
+     main = (TeX('Histogram for a $\\F$-distribution with the following degrees of freedom: df1 = 2 and df2 = 24')),
+     xlab = "possible t values", 
+     xlim = c(0,5), 
+     ylim = c(0, 1.2),
+    cex.main = 0.9)
+
+curve(df(x, df1 = 2, df2 = 24),
+        from = 0, to = 5, n = 5000, 
+        col= 'red', lwd=3, add = T)
 abline(v=4.227, col = "pink", lwd=2,  lty='dashed')
 abline(v=.321, col = "blue", lwd=2,  lty='dashed')
 abline(v=3.46, col = "green", lwd=2,  lty='dashed')
+abline(v = cuts[3], col = "red", lwd=2)
+
 ```
 
-
-## Hope that was helpful. Let me know what you think and if you want me to add anything to make your life easier!

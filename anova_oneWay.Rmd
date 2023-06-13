@@ -87,7 +87,7 @@ let's say we want to test whether there is a significant difference in the mean 
 ```{r dogs, fig.align="center", out.height="50%", out.width = "50%", echo=FALSE}
 htmltools::div(
   style = "box-shadow: 5px 5px 6px grey;border: solid;border-color: #EEEEEE; border-width: 1px; height:250px; width:350px; display:block; margin-left: auto; margin-right: auto;",
-  htmltools::img(src = "dogs.jpg")
+  htmltools::img(src = "img/dogs.jpg")
 )
 ```
 

@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-06-12"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-06-12"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-06-13"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-06-13"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Simple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-12"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Simple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-13"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2098,7 +2098,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Simple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-12T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Simple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-13T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2142,7 +2142,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky <a href="https://github.com" class="uri">https://github.com</a> (LMU)
   
-<br/>2023-06-12
+<br/>2023-06-13
 </div>
 
 <div class="d-article">
@@ -2284,7 +2284,8 @@ dat$Height    -1.505342   2.904319</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>t_value</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/TDist.html'>qt</a></span><span class='op'>(</span>p <span class='op'>=</span> <span class='fl'>.975</span>, df <span class='op'>=</span><span class='fl'>3</span>, lower.tail <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p>we now have all the unknowns to arrive at the solution. Lets plug the numbers in and compare it to the 95% confidence interval we obtained above.</p>
+<h3 id="we-now-have-all-the-unknowns-to-arrive-at-the-solution.">We now have all the unknowns to arrive at the solution.</h3>
+<h3 id="lets-plug-the-numbers-in-and-compare-it-to-the-95-confidence-interval-we-obtained-above.">Lets plug the numbers in and compare it to the 95% confidence interval we obtained above.</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>upper_CI</span> <span class='op'>&lt;-</span>  <span class='fl'>0.6995</span> <span class='op'>+</span> <span class='op'>(</span><span class='va'>t_value</span> <span class='op'>*</span> <span class='fl'>0.6928</span><span class='op'>)</span> </span>
@@ -2529,12 +2530,24 @@ dat$Height    -1.505342   2.904319</code></pre>
 </ol>
 </div>
 <ol start="2" type="1">
-<li>And the model’s output:
+<li>And a plot, as per usual:</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat_salary</span>,  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>iq</span>, y <span class='op'>=</span> <span class='va'>salary.m.</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"blue"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="lm_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+</div>
+<ol start="3" type="1">
+<li>And the model’s output:</li>
+</ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat_salary</span><span class='op'>$</span><span class='va'>salary.m.</span> <span class='op'>~</span> <span class='va'>dat_salary</span><span class='op'>$</span><span class='va'>iq</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div></li>
-</ol>
+</div>
 <pre><code>
 Call:
 lm(formula = dat_salary$salary.m. ~ dat_salary$iq)
@@ -2551,15 +2564,6 @@ dat_salary$iq    3.304     11.441   0.289    0.792
 Residual standard error: 382.9 on 3 degrees of freedom
 Multiple R-squared:  0.02704,   Adjusted R-squared:  -0.2973 
 F-statistic: 0.08338 on 1 and 3 DF,  p-value: 0.7916</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat_salary</span>,  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>iq</span>, y <span class='op'>=</span> <span class='va'>salary.m.</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"blue"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
-</div>
-<p><img src="lm_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
 </div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

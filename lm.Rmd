@@ -183,7 +183,9 @@ t_value <-  qt(p = .975, df =3, lower.tail = TRUE)
 ```
 
 
-we now have all the unknowns to arrive at the solution. Lets plug the numbers in and compare it to the 95% confidence interval we obtained above. 
+### We now have all the unknowns to arrive at the solution. 
+
+### Lets plug the numbers in and compare it to the 95% confidence interval we obtained above. 
 
 
 ```{r}
@@ -332,11 +334,7 @@ dat_salary <-  data.frame("iq" = c(120, 110,  100, 135, 140),
 ```
 
 
-2) And the model's output:
-```{r}
-summary(lm(dat_salary$salary.m. ~ dat_salary$iq))
-```
-
+2) And a plot, as per usual:
 
 
 ```{r}
@@ -345,4 +343,15 @@ ggplot(dat_salary,  aes(x = iq, y = salary.m.)) +
   geom_smooth(method = "lm", col = "red") +
   theme_minimal()
 ```
+
+
+
+3) And the model's output:
+
+
+```{r}
+summary(lm(dat_salary$salary.m. ~ dat_salary$iq))
+```
+
+
 
