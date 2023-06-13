@@ -1,7 +1,7 @@
 ---
 title: "Statistik 1"
 description: |
-  A new article created using the Distill format.
+  This tab will contain the topics covered in the course Statistik I 
 author:
   - name: Tehilla Ostrovsky
     # url: https://example.com/norajones
