@@ -325,20 +325,22 @@ In conclusion, linear models are a powerful tool in statistics, and the interact
 
 
 
-#### Homework solution:
+### Homework solution:
 
-1) Here is the dataaset:
+#### Here is the dataaset:
 ```{r}
 dat_salary <-  data.frame("iq" = c(120, 110,  100, 135, 140),
-                          "salary(m)" = c(2500, 2300, 2400, 3000, 2100))
+                          "monthly salary" = c(2500, 2300, 2400, 3000, 2100))
+
+dat_salary
 ```
 
 
-2) And a plot, as per usual:
+#### Here is a plot of the data, as per usual:
 
 
 ```{r}
-ggplot(dat_salary,  aes(x = iq, y = salary.m.)) +
+ggplot(dat_salary,  aes(x = iq, y = monthly.salary)) +
   geom_point(col = "blue", alpha = .4) + 
   geom_smooth(method = "lm", col = "red") +
   theme_minimal()
@@ -346,11 +348,11 @@ ggplot(dat_salary,  aes(x = iq, y = salary.m.)) +
 
 
 
-3) And the model's output:
+#### And the model's output:
 
 
 ```{r}
-summary(lm(dat_salary$salary.m. ~ dat_salary$iq))
+summary(lm(dat_salary$monthly.salary ~ dat_salary$iq))
 ```
 
 

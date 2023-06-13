@@ -2519,38 +2519,40 @@ dat$Height    -1.505342   2.904319</code></pre>
 </iframe>
 </div>
 <p>In conclusion, linear models are a powerful tool in statistics, and the interactive Shiny app plot provides an excellent way to explore the concepts. With the app, you can experiment with different linear models and see how they fit the data. I hope you found this post informative and helpful, and please don’t hesitate to leave any comments or questions below!</p>
-<h4 id="homework-solution">Homework solution:</h4>
-<ol type="1">
-<li>Here is the dataaset:
+<h3 id="homework-solution">Homework solution:</h3>
+<h4 id="here-is-the-dataaset">Here is the dataaset:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dat_salary</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='st'>"iq"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>120</span>, <span class='fl'>110</span>,  <span class='fl'>100</span>, <span class='fl'>135</span>, <span class='fl'>140</span><span class='op'>)</span>,</span>
-<span>                          <span class='st'>"salary(m)"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2500</span>, <span class='fl'>2300</span>, <span class='fl'>2400</span>, <span class='fl'>3000</span>, <span class='fl'>2100</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div></li>
-</ol>
+<span>                          <span class='st'>"monthly salary"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2500</span>, <span class='fl'>2300</span>, <span class='fl'>2400</span>, <span class='fl'>3000</span>, <span class='fl'>2100</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>dat_salary</span></span></code></pre>
 </div>
-<ol start="2" type="1">
-<li>And a plot, as per usual:</li>
-</ol>
+<pre><code>   iq monthly.salary
+1 120           2500
+2 110           2300
+3 100           2400
+4 135           3000
+5 140           2100</code></pre>
+</div>
+<h4 id="here-is-a-plot-of-the-data-as-per-usual">Here is a plot of the data, as per usual:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat_salary</span>,  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>iq</span>, y <span class='op'>=</span> <span class='va'>salary.m.</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat_salary</span>,  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>iq</span>, y <span class='op'>=</span> <span class='va'>monthly.salary</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"blue"</span>, alpha <span class='op'>=</span> <span class='fl'>.4</span><span class='op'>)</span> <span class='op'>+</span> </span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="lm_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
 </div>
-<ol start="3" type="1">
-<li>And the model’s output:</li>
-</ol>
+<h4 id="and-the-models-output">And the model’s output:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat_salary</span><span class='op'>$</span><span class='va'>salary.m.</span> <span class='op'>~</span> <span class='va'>dat_salary</span><span class='op'>$</span><span class='va'>iq</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat_salary</span><span class='op'>$</span><span class='va'>monthly.salary</span> <span class='op'>~</span> <span class='va'>dat_salary</span><span class='op'>$</span><span class='va'>iq</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
-lm(formula = dat_salary$salary.m. ~ dat_salary$iq)
+lm(formula = dat_salary$monthly.salary ~ dat_salary$iq)
 
 Residuals:
        1        2        3        4        5 
@@ -2565,7 +2567,7 @@ Residual standard error: 382.9 on 3 degrees of freedom
 Multiple R-squared:  0.02704,   Adjusted R-squared:  -0.2973 
 F-statistic: 0.08338 on 1 and 3 DF,  p-value: 0.7916</code></pre>
 </div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
