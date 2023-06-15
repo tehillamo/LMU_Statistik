@@ -9,6 +9,7 @@ author:
     #affiliation_url: 
 date: "`r Sys.Date()`"
 output: distill::distill_article
+google_analytics: "G-T7V19FRHDE"
 ---
 
 ### Welcome to the post about linear models in statistics! 

@@ -12,6 +12,7 @@ links:
 output:
   postcards::solana
 site: distill::distill_website
+google_analytics: "G-T7V19FRHDE"
 ---
  
 
