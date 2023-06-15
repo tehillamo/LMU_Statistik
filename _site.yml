@@ -9,10 +9,13 @@ navbar:
       href: index.html
     - text: "Statistik I"
       href: statistik_i.html
+      menu:
+        - text: "Basics"
+          href: Basic_concepts.html
     - text: "Statistik II"
       href: statistik_ii.html
       menu:
-        - text: "AANOVA - I"
+        - text: "ANOVA - I"
           href: anova_oneWay.html
         - text: "ANOVA - II"
           href: anova_twoWay.html
@@ -20,6 +23,8 @@ navbar:
           href: lm.html
         - text: "Multiple Linear Models"
           href: lm_ii.html
+        - text: "Multiple Linear Models: Effectsize"
+          href: effectsize_lm.html
 google_analytics: "G-T7V19FRHDE"
 url: https://tehillamo.github.io/LMU_Statistik
 output: distill::distill_article

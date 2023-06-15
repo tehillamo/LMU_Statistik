@@ -1,0 +1,71 @@
+---
+title: "Basic Concepts worth knowing as a statistic student"
+description: |
+#   A new article created using the Distill format.
+# author:
+#   - name: Nora Jones 
+#     url: https://example.com/norajones
+#     affiliation: Spacely Sprockets
+#     affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+
+### Standard statistical practices for notation:
+
+In statistical notation, the use of **Greek** letters, Latin letters, and "hat" symbols (also known as caret or circumflex) follows certain conventions and standards. 
+
+These notations are used to represent different types of variables, parameters, and estimators in statistical formulas and equations.
+
+
+### Lets start with the Greeks:
+
+<div><center><img src = "img/greek_gods_cartoon.jpg" style="width:192px;height:122px;float:left;margin-left:50px"></img><img src = "img/greek-alphabet.jpg" style="width:192px;height:122px;"></img></center></div>
+
+Greek letters are commonly used to represent **population parameters** OR **random variables**. They often denote fixed, unknown quantities that describe a population. 
+
+Here are some commonly used Greek letters and their meanings in statistics:
+- μ (mu): Represents the population mean.
+
+- σ (sigma): Represents the population standard deviation.
+
+- θ (theta): Represents an unknown population parameter.
+
+- π (pi): Represents a population proportion.
+
+- ρ (rho): Represents a population correlation coefficient.
+
+Greek letters are also used to denote functions, such as the probability density function (pdf) or cumulative distribution function (CDF) of a random variable.
+
+### Now to the Latin ones:
+
+The Latin letters are typically used to represent **sample statistics** OR **observed values**. They are used when working with specific data sets or samples drawn from a population. They are often used when **calculating estimators** or **summarizing sample data**.
+
+
+Here are some commonly used Latin letters and their meanings in statistics:
+
+- $x$: Represents an **observed value** or a **random variable** from a **sample**.
+
+- $n$: Represents the **sample** size.
+
+- $s$: Represents the **sample** standard deviation.
+
+- $p$: Represents the **sample** proportion.
+
+
+### What does the hat on top of letters mean?
+
+"Hat" symbol (e.g., $\hat{x}$) is used to indicate an **estimator** or an **estimated value** **based on a sample**. In other words, the "hat" symbol is used to **distinguish estimated values from the true population values or observed sample values**.
+
+It is placed on top of a **Latin letter** to denote that it represents an **estimate rather than an observed value**. 
+
+For example:
+
+- $\hat{y}$ : Represents the estimated value of the dependent variable in regression analysis.
+
+- $\hat{p}$ : Represents the estimated proportion based on a sample.
+
+- $\hat{\beta}$ : Represents the estimated coefficient in regression analysis.
+
+

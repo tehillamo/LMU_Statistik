@@ -2084,6 +2084,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+  <script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-T7V19FRHDE"></script>
+  <script type="text/javascript" cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T7V19FRHDE');
+  </script>
   <!--/radix_placeholder_site_in_header-->
 
 
@@ -2106,7 +2113,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>
-<a href="statistik_i.html">Statistik I</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Statistik I
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Basic_concepts.html">Basics</a>
+</div>
+</div>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 Statistik II
@@ -2114,7 +2130,7 @@ Statistik II
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="anova_oneWay.html">AANOVA - I</a>
+<a href="anova_oneWay.html">ANOVA - I</a>
 <a href="anova_twoWay.html">ANOVA - II</a>
 <a href="lm.html">Simple Linear Models</a>
 <a href="lm_ii.html">Multiple Linear Models</a>
