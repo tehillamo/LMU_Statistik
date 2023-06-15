@@ -3,7 +3,6 @@ title: "LMU Statistik"
 description: |
   LMU Statistik
 output_dir: "docs"
-google_analytics: "G-05F4SM4G8C"
 navbar:
   right:
     - text: "Home"
@@ -21,4 +20,5 @@ navbar:
           href: lm.html
         - text: "Multiple Linear Models"
           href: lm_ii.html
+google_analytics: "G-05F4SM4G8C"
 output: distill::distill_article
