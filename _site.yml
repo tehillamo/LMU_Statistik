@@ -21,5 +21,5 @@ navbar:
         - text: "Multiple Linear Models"
           href: lm_ii.html
 google_analytics: "G-T7V19FRHDE"
-base_url: https://tehillamo.github.io/LMU_Statistik
+url: https://tehillamo.github.io/LMU_Statistik
 output: distill::distill_article
