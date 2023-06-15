@@ -3,6 +3,7 @@ title: "LMU Statistik"
 description: |
   LMU Statistik
 output_dir: "docs"
+google_analytics: "G-05F4SM4G8C"
 navbar:
   right:
     - text: "Home"
