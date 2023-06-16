@@ -69,3 +69,27 @@ For example:
 - $\hat{\beta}$ : Represents the **estimated slope coefficient** in regression analysis.
 
 
+
+---
+
+
+
+Mathematicians often use set notation to denote all values that can be taken by a variable or a range of values. The notation typically involves curly braces { } and a condition or rule specifying the characteristics of the values. Here are a few common notations:
+
+Set Builder Notation:
+
+- {x | condition} denotes a set of values "x" that satisfy the specified condition. For 
+example, {x | x > 0} represents the set of all positive real numbers.
+Interval Notation:
+
+- (a, b) represents an open interval that includes all real numbers greater than "a" and less than "b". For example, (0, 1) represents the interval between 0 and 1 (excluding the endpoints).
+
+- [a, b] represents a closed interval that includes all real numbers greater than or equal to "a" and less than or equal to "b". For example, [0, 1] represents the interval including both 0 and 1.
+
+- Enumeration Notation:
+{x₁, x₂, x₃, ...} denotes a set of specific values "x₁, x₂, x₃, ..." where the ellipsis (...) indicates that the sequence continues indefinitely.
+
+
+- i ∈ {1, 2, 3, ..., n}:
+This notation indicates that the index "i" belongs to the set of values {1, 2, 3, ..., n}. The ellipsis (...) represents a continuation of the sequence until "n". For example, if you have a dataset with 100 observations, the notation would be:
+i ∈ {1, 2, 3, ..., 100}.

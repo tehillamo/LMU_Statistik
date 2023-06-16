@@ -24,7 +24,7 @@ R-squared represents the proportion of variance in the dependent variable that c
 To compute $R^2$ for the regression model we need 3 pieces of information:
 
   1. the values of the observed dependent variable $y$ for each participant
-  2. the mean across all observed $y$ values: $\$
+  2. the mean across all observed $y$ values. 
   3. the predicted value of $y$ given the regression line. 
   
 
