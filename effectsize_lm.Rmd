@@ -29,16 +29,69 @@ One commonly used effect size in linear regression is R-squared (R²). This is t
   3. $\hat{y}$ the predicted value of $y$ given the regression line. 
   
   
-### **Here is the formula to compute the $R^2$: **
+### Here is the formula to compute the $R^2$:
 
 $R² = 1 - (QS_{residuen} / QS_{total})$
 
 ### As always, we try to break it down to better understadn the componennts and their effect in the resulted value of $R^2$.
 
-  1)  $QS_{residuen} = Σ(yᵢ - \hat{y})²$ SSR quantifies the amount of **unexplained or residual variation** in the dependent variable OR how far are the points from the regression line. 
+  1)  $QS_{residuen} = Σ(\hat{y} - \bar{y})²$ SSR quantifies the amount of **unexplained or residual variation** in the dependent variable OR how far are the points from the regression line. 
   2)  $QS_{total} = Σ(yᵢ - \bar{y})²$ is a measure of the **total variability** in the **dependent variable** OR how far away the observed y values are from the .
 
+## Example (which we discussed last week):
 
+The data set:
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+dat <-  data.frame(
+  "Height" = c(170, 180, 167, 165, 191),
+  "Weight" = c(60, 75, 59, 88, 91))
+dat
+```
+
+
+The model we fit: 
+
+```{r}
+sum_lm <-  summary(lm(dat$Weight ~ dat$Height))
+sum_lm
+```
+
+
+Great, here are the $y$ values: 
+
+```{r}
+y_values <- dat$Weight 
+y_values
+```
+
+
+And the $\bar{y}$ value: 
+
+```{r}
+mean_y <-  mean(dat$Weight)
+mean_y
+```
+
+And the $\hat{y}$ value: 
+
+```{r}
+predicted_y <-  predict.lm(lm(dat$Weight ~ dat$Height))
+predicted_y
+```
+
+
+We are now ready to calculate the $R^2$:
+
+```{r}
+qs_res <-  (predicted_y - mean_y)**2
+qs_res <-  sum(qs_res)
+qs_tot <- (y_values - mean_y)**2
+qs_tot <-  sum(qs_tot)
+r_squared <- qs_res / qs_tot
+
+r_squared
+```
 
 
 Note that R-squared ranges between 0 and 1. A value closer to 1 indicates a stronger relationship between the independent and dependent variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s). Conversely, a value closer to 0 indicates a weaker relationship.

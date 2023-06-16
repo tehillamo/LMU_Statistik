@@ -2175,15 +2175,86 @@ Statistik II
 <li><span class="math inline">\(\bar{y}\)</span> which is the mean across all observed <span class="math inline">\(\y\)</span> values.</li>
 <li><span class="math inline">\(\hat{y}\)</span> the predicted value of <span class="math inline">\(y\)</span> given the regression line.</li>
 </ol>
-<h3 id="here-is-the-formula-to-compute-the-r2"><strong>Here is the formula to compute the <span class="math inline">\(R^2\)</span>: </strong></h3>
+<h3 id="here-is-the-formula-to-compute-the-r2">Here is the formula to compute the <span class="math inline">\(R^2\)</span>:</h3>
 <p><span class="math inline">\(R² = 1 - (QS_{residuen} / QS_{total})\)</span></p>
 <h3 id="as-always-we-try-to-break-it-down-to-better-understadn-the-componennts-and-their-effect-in-the-resulted-value-of-r2.">As always, we try to break it down to better understadn the componennts and their effect in the resulted value of <span class="math inline">\(R^2\)</span>.</h3>
 <ol type="1">
-<li><span class="math inline">\(QS_{residuen} = Σ(yᵢ - \hat{y})²\)</span> SSR quantifies the amount of <strong>unexplained or residual variation</strong> in the dependent variable OR how far are the points from the regression line.</li>
+<li><span class="math inline">\(QS_{residuen} = Σ(\hat{y} - \bar{y})²\)</span> SSR quantifies the amount of <strong>unexplained or residual variation</strong> in the dependent variable OR how far are the points from the regression line.</li>
 <li><span class="math inline">\(QS_{total} = Σ(yᵢ - \bar{y})²\)</span> is a measure of the <strong>total variability</strong> in the <strong>dependent variable</strong> OR how far away the observed y values are from the .</li>
 </ol>
+<h2 id="example-which-we-discussed-last-week">Example (which we discussed last week):</h2>
+<p>The data set:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>  Height Weight
+1    170     60
+2    180     75
+3    167     59
+4    165     88
+5    191     91</code></pre>
+</div>
+<p>The model we fit:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sum_lm</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>~</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>sum_lm</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = dat$Weight ~ dat$Height)
+
+Residuals:
+      1       2       3       4       5 
+-11.382  -3.377 -10.284  20.115   4.928 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) -47.5307   121.1507  -0.392    0.721
+dat$Height    0.6995     0.6928   1.010    0.387
+
+Residual standard error: 15.01 on 3 degrees of freedom
+Multiple R-squared:  0.2536,    Adjusted R-squared:  0.00482 
+F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
+</div>
+<p>Great, here are the <span class="math inline">\(y\)</span> values:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>y_values</span> <span class='op'>&lt;-</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> </span>
+<span><span class='va'>y_values</span></span></code></pre>
+</div>
+<pre><code>[1] 60 75 59 88 91</code></pre>
+</div>
+<p>And the <span class="math inline">\(\bar{y}\)</span> value:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mean_y</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span><span class='op'>)</span></span>
+<span><span class='va'>mean_y</span></span></code></pre>
+</div>
+<pre><code>[1] 74.6</code></pre>
+</div>
+<p>And the <span class="math inline">\(\hat{y}\)</span> value:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>predicted_y</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/predict.lm.html'>predict.lm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>~</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>predicted_y</span></span></code></pre>
+</div>
+<pre><code>       1        2        3        4        5 
+71.38235 78.37724 69.28389 67.88491 86.07161 </code></pre>
+</div>
+<p>We are now ready to calculate the <span class="math inline">\(R^2\)</span>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>qs_res</span> <span class='op'>&lt;-</span>  <span class='op'>(</span><span class='va'>predicted_y</span> <span class='op'>-</span> <span class='va'>mean_y</span><span class='op'>)</span><span class='op'>**</span><span class='fl'>2</span></span>
+<span><span class='va'>qs_res</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>qs_res</span><span class='op'>)</span></span>
+<span><span class='va'>qs_tot</span> <span class='op'>&lt;-</span> <span class='op'>(</span><span class='va'>y_values</span> <span class='op'>-</span> <span class='va'>mean_y</span><span class='op'>)</span><span class='op'>**</span><span class='fl'>2</span></span>
+<span><span class='va'>qs_tot</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>qs_tot</span><span class='op'>)</span></span>
+<span><span class='va'>r_squared</span> <span class='op'>&lt;-</span> <span class='va'>qs_res</span> <span class='op'>/</span> <span class='va'>qs_tot</span></span>
+<span></span>
+<span><span class='va'>r_squared</span></span></code></pre>
+</div>
+<pre><code>[1] 0.2536148</code></pre>
+</div>
 <p>Note that R-squared ranges between 0 and 1. A value closer to 1 indicates a stronger relationship between the independent and dependent variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s). Conversely, a value closer to 0 indicates a weaker relationship.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
