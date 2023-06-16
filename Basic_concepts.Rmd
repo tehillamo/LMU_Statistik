@@ -1,5 +1,5 @@
 ---
-title: "Basic Concepts worth knowing as a statistic student"
+title: "Basic Concepts worth knowing as a statistics student"
 description: |
 #   A new article created using the Distill format.
 # author:
