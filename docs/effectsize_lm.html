@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>LMU Statistik: Effect Sizes in Linear Regresion Models</title>
+  <title>LMU Statistik: Effectsizes in Linear regression</title>
 
 
 
@@ -98,20 +98,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="LMU Statistik: Effect Sizes in Linear Regresion Models"/>
+  <meta property="og:title" content="LMU Statistik: Effectsizes in Linear regression"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="LMU Statistik"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="LMU Statistik: Effect Sizes in Linear Regresion Models"/>
+  <meta property="twitter:title" content="LMU Statistik: Effectsizes in Linear regression"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Effect Sizes in Linear Regresion Models"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-16"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Effectsizes in Linear regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-16"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Effect Sizes in Linear Regresion Models","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-16T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Effectsizes in Linear regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-16T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2147,7 +2147,7 @@ Statistik II
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Effect Sizes in Linear Regresion Models</h1>
+<h1>Effectsizes in Linear regression</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2160,6 +2160,20 @@ Statistik II
 </div>
 
 <div class="d-article">
+<h2 id="a-short-introduction-to-effect-sizes-and-their-role-in-linear-regression">A short introduction to effect sizes and their role in linear regression:</h2>
+<p>In linear regression analysis, effect sizes provide valuable information about the strength and direction of the relationship between the dependent variable and the independent variables. They quantify the magnitude of the effect of the independent variables on the outcome of interest.</p>
+<p>One commonly used effect size in linear regression is R-squared (R²).</p>
+<p>R-squared represents the proportion of variance in the dependent variable that can be explained by the independent variables in the regression model. It ranges from 0 to 1, with higher values indicating a stronger relationship between the variables. R-squared provides an overall measure of the goodness of fit of the regression model and helps assess the amount of variation in the dependent variable that is accounted for by the independent variables.</p>
+<h3 id="here-is-the-formula-to-compute-the-r2">here is the formula to compute the <span class="math inline">\(R^2\)</span></h3>
+<p>To compute <span class="math inline">\(R^2\)</span> for the regression model we need 3 pieces of information:</p>
+<ol type="1">
+<li>the values of the observed dependent variable <span class="math inline">\(y\)</span> for each participant</li>
+<li>the mean across all observed <span class="math inline">\(y\)</span> values: $$</li>
+<li>the predicted value of <span class="math inline">\(y\)</span> given the regression line.</li>
+</ol>
+<h4 id="the-total-sum-of-squares-sst-represents-the-total-variability-in-the-dependent-variable.-it-measures-how-much-the-dependent-variable-varies-without-considering-the-independent-variables.">The total sum of squares (SST) represents the total variability in the dependent variable. It measures how much the dependent variable varies without considering the independent variables.</h4>
+<p>To calculate SST, sum the squared differences between each observed dependent variable value (y) and the mean of the dependent variable (ȳ):</p>
+<p><span class="math display">\[SST = Σ(y - ȳ)²\]</span></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2168,6 +2182,15 @@ Statistik II
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
