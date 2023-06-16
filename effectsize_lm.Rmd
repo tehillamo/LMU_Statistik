@@ -31,14 +31,16 @@ One commonly used effect size in linear regression is R-squared (R²). This is t
   
 ### Here is the formula to compute the $R^2$:
 
-$R² = 1 - (QS_{residuen} / QS_{total})$
+$R² = \frac{\hat{\sigma_{\mu_{i}}}^2}{\hat{\sigma_{tot}}^2} = QS_{residuen} / QS_{total}$
+
+
 
 ### As always, we try to break it down to better understadn the componennts and their effect in the resulted value of $R^2$.
 
   1)  $QS_{residuen} = Σ(\hat{y} - \bar{y})²$ SSR quantifies the amount of **unexplained or residual variation** in the dependent variable OR how far are the points from the regression line. 
   2)  $QS_{total} = Σ(yᵢ - \bar{y})²$ is a measure of the **total variability** in the **dependent variable** OR how far away the observed y values are from the .
 
-## Example (which we discussed last week):
+## Example (which we worked through last week 😃):
 
 The data set:
 
