@@ -62,10 +62,10 @@ It is placed on top of a **Latin letter** to denote that it represents an **esti
 
 For example:
 
-- $\hat{y}$ : Represents the estimated value of the dependent variable in regression analysis.
+- $\hat{y}$ : Represents the **estimated value** of the **dependent variable** in regression analysis.
 
-- $\hat{p}$ : Represents the estimated proportion based on a sample.
+- $\hat{p}$ : Represents the **estimated proportion** based on a sample.
 
-- $\hat{\beta}$ : Represents the estimated coefficient in regression analysis.
+- $\hat{\beta}$ : Represents the **estimated slope coefficient** in regression analysis.
 
 
