@@ -26,15 +26,15 @@ These notations are used to represent different types of variables, parameters, 
 Greek letters are commonly used to represent **population parameters** OR **random variables**. They often denote fixed, unknown quantities that describe a population. 
 
 Here are some commonly used Greek letters and their meanings in statistics:
-- μ (mu): Represents the population mean.
+- μ (mu): Represents the **population mean**.
 
-- σ (sigma): Represents the population standard deviation.
+- σ (sigma): Represents the **population standard deviation**.
 
-- θ (theta): Represents an unknown population parameter.
+- θ (theta): Represents an unknown **population parameter**.
 
-- π (pi): Represents a population proportion.
+- π (pi): Represents a **population proportion**.
 
-- ρ (rho): Represents a population correlation coefficient.
+- ρ (rho): Represents a **population correlation coefficient**.
 
 Greek letters are also used to denote functions, such as the probability density function (pdf) or cumulative distribution function (CDF) of a random variable.
 
