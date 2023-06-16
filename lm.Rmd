@@ -257,7 +257,7 @@ cuts <-  quantile(x , c(0.000, .05, .95, .99999))
 my_variable = x
  
 # Calculate histogram, but do not draw it
-my_hist = hist(x , breaks = 150  , plot = F)
+my_hist = hist(x , breaks = 190  , plot = F)
 
  
 # Color vector
@@ -271,15 +271,26 @@ plot(my_hist,
      freq = FALSE, 
      main = (TeX('Histogram for a $\\t$-distribution with 3 degrees of freedom (df)')),
      xlab = "possible t values", 
-     xlim = c(-5,5), 
+     xlim = c(-6,6), 
+     ylim = c(0,.7), 
     cex.main=0.9)
 curve(dt(x, df = 3), from = -5, to = 5, n = 500, col = 'red', lwd = 1, add = T)
-abline(v = 0.721, col = "green", lwd = 2,  lty = 'dashed')
-abline(v = 0.387, col = "blue", lwd = 2,  lty = 'dashed')
+abline(v = -0.392, col = "darkgreen", lwd = 2,  lty = 'dashed')
+abline(v = 1.010, col = "blue", lwd = 2,  lty = 'dashed')
 abline(v = 2.273526, col = "red", lwd = 3)
-
-
+text(x = 2.2, y = .7, TeX('t value for $\\alpha$'), col = "blue")
+text(x = -1.6, y = .35,  TeX('t value for $\\beta$'),  col = "darkgreen")
+text(x = 3.2, y = .15, substitute(paste(bold("t critical"))),  col = "red")
 ```
+
+### A Note on t-values: 
+
+
+$t-value =  \frac{Estimated Parameter}{SF}$
+
+The estimate represents the effect or impact that the independent variable has on the dependent variable. The standard error, on the other hand, quantifies the uncertainty or variability associated with that estimate.
+
+By dividing the estimate by the standard error, we obtain the t-value. Essentially, the t-value tells us how many standard errors the estimate is away from zero. It helps us assess whether the estimate is statistically significant or just a result of random variation
 
 ---
 

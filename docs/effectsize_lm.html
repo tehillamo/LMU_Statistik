@@ -2162,18 +2162,27 @@ Statistik II
 <div class="d-article">
 <h2 id="a-short-introduction-to-effect-sizes-and-their-role-in-linear-regression">A short introduction to effect sizes and their role in linear regression:</h2>
 <p>In linear regression analysis, effect sizes provide valuable information about the strength and direction of the relationship between the dependent variable and the independent variables. They quantify the magnitude of the effect of the independent variables on the outcome of interest.</p>
-<p>One commonly used effect size in linear regression is R-squared (R²).</p>
-<p>R-squared represents the proportion of variance in the dependent variable that can be explained by the independent variables in the regression model. It ranges from 0 to 1, with higher values indicating a stronger relationship between the variables. R-squared provides an overall measure of the goodness of fit of the regression model and helps assess the amount of variation in the dependent variable that is accounted for by the independent variables.</p>
-<h3 id="here-is-the-formula-to-compute-the-r2">here is the formula to compute the <span class="math inline">\(R^2\)</span></h3>
-<p>To compute <span class="math inline">\(R^2\)</span> for the regression model we need 3 pieces of information:</p>
+<p>One commonly used effect size in linear regression is R-squared (R²). This is the effect size that you will find in your R-output when you calculate your linear regression in R (e.g., with the lm(AV ~ UV, data = datensatz))</p>
+<h3 id="important-facts-aboput-r-squared">Important facts aboput R squared</h3>
+<ul>
+<li><p><span class="math inline">\(R^2\)</span> represents the proportion of variance in the dependent variable that can be explained by the independent variables in the regression model.</p></li>
+<li><p><span class="math inline">\(R^2\)</span> ranges from 0 to 1, with higher values indicating a stronger relationship between the variables.</p></li>
+<li><p><span class="math inline">\(R^2\)</span> provides an overall measure of the goodness of fit of the regression model and helps assess the amount of variation in the dependent variable that is accounted for by the independent variables.</p></li>
+</ul>
+<h3 id="to-compute-r2-for-the-regression-model-we-need-3-pieces-of-information"><strong>To compute <span class="math inline">\(R^2\)</span> for the regression model we need 3 pieces of information:</strong></h3>
 <ol type="1">
-<li>the values of the observed dependent variable <span class="math inline">\(y\)</span> for each participant</li>
-<li>the mean across all observed <span class="math inline">\(y\)</span> values.</li>
-<li>the predicted value of <span class="math inline">\(y\)</span> given the regression line.</li>
+<li>The OBSERVED values of the observed dependent variable <span class="math inline">\(y\)</span> for each participant</li>
+<li><span class="math inline">\(\bar{y}\)</span> which is the mean across all observed <span class="math inline">\(\y\)</span> values.</li>
+<li><span class="math inline">\(\hat{y}\)</span> the predicted value of <span class="math inline">\(y\)</span> given the regression line.</li>
 </ol>
-<h4 id="the-total-sum-of-squares-sst-represents-the-total-variability-in-the-dependent-variable.-it-measures-how-much-the-dependent-variable-varies-without-considering-the-independent-variables.">The total sum of squares (SST) represents the total variability in the dependent variable. It measures how much the dependent variable varies without considering the independent variables.</h4>
-<p>To calculate SST, sum the squared differences between each observed dependent variable value (y) and the mean of the dependent variable (ȳ):</p>
-<p><span class="math display">\[SST = Σ(y - ȳ)²\]</span></p>
+<h3 id="here-is-the-formula-to-compute-the-r2"><strong>Here is the formula to compute the <span class="math inline">\(R^2\)</span>: </strong></h3>
+<p><span class="math inline">\(R² = 1 - (QS_{residuen} / QS_{total})\)</span></p>
+<h3 id="as-always-we-try-to-break-it-down-to-better-understadn-the-componennts-and-their-effect-in-the-resulted-value-of-r2.">As always, we try to break it down to better understadn the componennts and their effect in the resulted value of <span class="math inline">\(R^2\)</span>.</h3>
+<ol type="1">
+<li><span class="math inline">\(QS_{residuen} = Σ(yᵢ - \hat{y})²\)</span> SSR quantifies the amount of <strong>unexplained or residual variation</strong> in the dependent variable OR how far are the points from the regression line.</li>
+<li><span class="math inline">\(QS_{total} = Σ(yᵢ - \bar{y})²\)</span> is a measure of the <strong>total variability</strong> in the <strong>dependent variable</strong> OR how far away the observed y values are from the .</li>
+</ol>
+<p>Note that R-squared ranges between 0 and 1. A value closer to 1 indicates a stronger relationship between the independent and dependent variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s). Conversely, a value closer to 0 indicates a weaker relationship.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -91,5 +91,7 @@ Interval Notation:
 
 
 - i ∈ {1, 2, 3, ..., n}:
-This notation indicates that the index "i" belongs to the set of values {1, 2, 3, ..., n}. The ellipsis (...) represents a continuation of the sequence until "n". For example, if you have a dataset with 100 observations, the notation would be:
+This notation indicates that the index "i" belongs to the set of values {1, 2, 3, ..., n}. 
+
+- The ellipsis (...) represents a continuation of the sequence until "n". For example, if you have a dataset with 100 observations, the notation would be:
 i ∈ {1, 2, 3, ..., 100}.
