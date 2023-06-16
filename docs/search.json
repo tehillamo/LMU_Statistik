@@ -44,7 +44,7 @@
     },
     {
       "path": "effectsize_lm.html",
-      "title": "Effectsizes in Linear regression",
+      "title": "Effect Sizes in Linear Regresion Models",
       "author": [
         {
           "name": "Tehilla Ostrovsky",
@@ -52,8 +52,8 @@
         }
       ],
       "date": "`r Sys.Date()`",
-      "contents": "\nA short introduction to effect sizes and their role in linear regression:\nIn linear regression analysis, effect sizes provide valuable information about the strength and direction of the relationship between the dependent variable and the independent variables. They quantify the magnitude of the effect of the independent variables on the outcome of interest.\nOne commonly used effect size in linear regression is R-squared (R²).\nR-squared represents the proportion of variance in the dependent variable that can be explained by the independent variables in the regression model. It ranges from 0 to 1, with higher values indicating a stronger relationship between the variables. R-squared provides an overall measure of the goodness of fit of the regression model and helps assess the amount of variation in the dependent variable that is accounted for by the independent variables.\nhere is the formula to compute the \\(R^2\\)\nTo compute \\(R^2\\) for the regression model we need 3 pieces of information:\nthe values of the observed dependent variable \\(y\\) for each participant\nthe mean across all observed \\(y\\) values: $$\nthe predicted value of \\(y\\) given the regression line.\nThe total sum of squares (SST) represents the total variability in the dependent variable. It measures how much the dependent variable varies without considering the independent variables.\nTo calculate SST, sum the squared differences between each observed dependent variable value (y) and the mean of the dependent variable (ȳ):\n\\[SST = Σ(y - ȳ)²\\]\n\n\n\n",
-      "last_modified": "2023-06-16T08:46:42+02:00"
+      "contents": "\n\n\n\n",
+      "last_modified": "2023-06-16T08:50:52+02:00"
     },
     {
       "path": "index.html",
