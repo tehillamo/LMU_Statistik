@@ -51,41 +51,58 @@ dat <-  data.frame(
 dat
 ```
 
+### PLOTTING TIME !!
 
-The model we fit: 
 
-```{r}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(gridExtra)
+
+g_unstandardized <-  
+  ggplot(data = dat, aes(x = Height, y = Weight))+
+  geom_point(color = "darkgreen", size = 4)+
+  geom_smooth(method = "lm")+
+  theme_classic()
+
+g_unstandardized
+```
+
+
+### MODELLING TIME  
+
+- We start with running the model with the (good, old known) unstandardized variables
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 sum_lm <-  summary(lm(dat$Weight ~ dat$Height))
 sum_lm
 ```
 
 
-Great, here are the $y$ values: 
+### Great, here are the $y$ values: 
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 y_values <- dat$Weight 
 y_values
 ```
 
 
-And the $\bar{y}$ value: 
+### And the $\bar{y}$ value: 
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 mean_y <-  mean(dat$Weight)
 mean_y
 ```
 
-And the $\hat{y}$ value: 
+### And the $\hat{y}$ value: 
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 predicted_y <-  predict.lm(lm(dat$Weight ~ dat$Height))
 predicted_y
 ```
 
 
-We are now ready to calculate the $R^2$:
+### We are now ready to calculate the $\color{red}{R^2}$:
 
-```{r}
+```{r  warning=FALSE, message=FALSE}
 qs_res <-  (predicted_y - mean_y)**2
 qs_res <-  sum(qs_res)
 qs_tot <- (y_values - mean_y)**2
@@ -95,5 +112,111 @@ r_squared <- qs_res / qs_tot
 r_squared
 ```
 
+###  Interpretation of the $R^2$ effect size is: 
+In a simple linear regression, the $R^2$ provides insight into the proportion of variance in the dependent variable (AV) that can be explained by the independent variable (UV), indicating the **model's goodness of fit** *and* the **strength of the relationship between the variables**. 
 
-Note that R-squared ranges between 0 and 1. A value closer to 1 indicates a stronger relationship between the independent and dependent variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s). Conversely, a value closer to 0 indicates a weaker relationship.
+---
+
+## Another way to calculaet effect size for the estimated slope in Simple Linear Regression Models. 
+
+The method relies on the standardized data. 
+
+Lets see what changes in the relationship between the AV and the UV if we scale both (spoiler: absolutly nothing....):
+
+```{r warning=FALSE, message=FALSE}
+g_standardized <-  
+  ggplot(data = dat, aes(x = scale(Height), y = scale(Weight)))+
+  geom_point(color = "darkgreen", size = 4)+
+  geom_smooth(method = "lm")+
+  theme_classic()
+
+
+combined_plot <- grid.arrange(g_unstandardized, g_standardized, nrow = 1)
+```
+
+
+### The Advantages to This Method:
+
+A standardized beta allows for a direct comparison of the relative importance of different predictor variables within a regression model. Since both the predictor and criterion variables are standardized, the magnitude of the standardized beta represents the change in the criterion variable in terms of standard deviations when the predictor variable changes by one standard deviation.
+  
+  1) **Unit Independence**: The standardized beta is not influenced by the specific units of measurement used for the predictor and criterion variables. This makes it easier to compare the effects of different variables, even if they are measured on different scales or have different units.
+
+  2) **Generalizability**: The effect size ($\beta_{z}$) represents the magnitude of the relationship between the predictor and criterion variables in standardized units. This allows for better generalizability across different samples, populations, or studies, as it is not dependent on the specific measurement units used.
+  
+  3) **Comparability**: Standardized betas and effect sizes can be compared across different studies or analyses, providing a standardized measure of the strength of the relationships. This comparability facilitates meta-analyses or synthesis of results from multiple studies.
+
+
+
+
+### Here's a Step-by-Step Guide to Salculating $\beta_{z}$:
+
+
+  1) Compute the mean ($\hat{x}$) of the SCALED independent variable (UV).
+  
+```{r warning=FALSE, message=FALSE}
+scale_mean_x <-  mean(scale(dat$Height))
+
+scale_mean_x
+
+```
+  
+  2) Compute the mean ($\hat{y}$) of the SCALED dependent variable (AV).
+  
+```{r warning=FALSE, message=FALSE}
+scaled_mean_y <-  mean(scale(dat$Weight))
+
+scaled_mean_y
+
+```
+  
+  
+  3) Calculate the covariance between scaled (standardized) AV and the scaled  (standardized) UV using the formula:
+
+  $$cov(x,y) = \frac{\sum{(x_{i}-\hat{x})\times (y_{i}-\hat{y})}}{n-1}$$
+  
+```{r warning=FALSE, message=FALSE}
+cov <-  sum((scale.default(dat$Height) - scale_mean_x) * (scale(dat$Weight) - scaled_mean_y))
+cov <-  cov/3
+
+cov
+```
+
+  4)  Calculate the variance of UV using the formula:
+  $$var(x) = \frac{\sum{(x_{i}-\hat{x})^2}}{n-1}$$
+
+```{r  warning=FALSE, message=FALSE}
+var_x <-  sum((scale(dat$Height) - scale_mean_x)^2)
+
+var_x <-  var_x/3
+
+var_x
+```
+
+  5) Calculate the standardized beta ($\beta_{z}$)
+```{r warning=FALSE, message=FALSE}
+beta_z <-  cov/var_x
+beta_z
+```
+
+
+  6) Compare your results with R-output:
+```{r warning=FALSE, message=FALSE}
+summary(lm(scale(dat$Weight) ~ scale(dat$Height)))
+```
+  
+7) Note that the $R^2$ didnt change either!
+
+## Things to remember: 
+
+## R squre:
+
+1) Ranges between 0 and 1. 
+
+    1.1) A value closer to 1 indicates a stronger relationship between the independent (UV) and dependent (AV) variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s). 
+    
+    1.2) Conversely, a value closer to 0 indicates a weaker relationship.
+
+
+  2) The estimated value $r^2$ (which is the realised value of $R^2$) within the scope of the SLR (simple linear regression) is equivalent to the squared Pearson correlation.
+
+  3) $r^2$ is also referred to as the coefficient of determination.

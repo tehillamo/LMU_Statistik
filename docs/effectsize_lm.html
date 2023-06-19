@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-06-16"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-06-16"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-06-19"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-06-19"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Effectsizes in Linear regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-16"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Effectsizes in Linear regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-19"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Effectsizes in Linear regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-16T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Effectsizes in Linear regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-19T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2156,7 +2156,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-06-16
+<br/>2023-06-19
 </div>
 
 <div class="d-article">
@@ -2192,12 +2192,16 @@ Statistik II
 4    165     88
 5    191     91</code></pre>
 </div>
-<p>The model we fit:</p>
+<h3 id="plotting-time">PLOTTING TIME !!</h3>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sum_lm</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>~</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>sum_lm</span></span></code></pre>
+<p><img src="effectsize_lm_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
+<h3 id="modelling-time">MODELLING TIME</h3>
+<ul>
+<li>We start with running the model with the (good, old known) unstandardized variables
+<div class="layout-chunk" data-layout="l-body">
+</li>
+</ul>
 <pre><code>
 Call:
 lm(formula = dat$Weight ~ dat$Height)
@@ -2215,7 +2219,7 @@ Residual standard error: 15.01 on 3 degrees of freedom
 Multiple R-squared:  0.2536,    Adjusted R-squared:  0.00482 
 F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 </div>
-<p>Great, here are the <span class="math inline">\(y\)</span> values:</p>
+<h3 id="great-here-are-the-y-values">Great, here are the <span class="math inline">\(y\)</span> values:</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>y_values</span> <span class='op'>&lt;-</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> </span>
@@ -2223,7 +2227,7 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 </div>
 <pre><code>[1] 60 75 59 88 91</code></pre>
 </div>
-<p>And the <span class="math inline">\(\bar{y}\)</span> value:</p>
+<h3 id="and-the-bary-value">And the <span class="math inline">\(\bar{y}\)</span> value:</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mean_y</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span><span class='op'>)</span></span>
@@ -2231,7 +2235,7 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 </div>
 <pre><code>[1] 74.6</code></pre>
 </div>
-<p>And the <span class="math inline">\(\hat{y}\)</span> value:</p>
+<h3 id="and-the-haty-value">And the <span class="math inline">\(\hat{y}\)</span> value:</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>predicted_y</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/predict.lm.html'>predict.lm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>~</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span></span>
@@ -2240,7 +2244,7 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 <pre><code>       1        2        3        4        5 
 71.38235 78.37724 69.28389 67.88491 86.07161 </code></pre>
 </div>
-<p>We are now ready to calculate the <span class="math inline">\(R^2\)</span>:</p>
+<h3 id="we-are-now-ready-to-calculate-the-colorredr2">We are now ready to calculate the <span class="math inline">\(\color{red}{R^2}\)</span>:</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>qs_res</span> <span class='op'>&lt;-</span>  <span class='op'>(</span><span class='va'>predicted_y</span> <span class='op'>-</span> <span class='va'>mean_y</span><span class='op'>)</span><span class='op'>**</span><span class='fl'>2</span></span>
@@ -2253,8 +2257,133 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 </div>
 <pre><code>[1] 0.2536148</code></pre>
 </div>
-<p>Note that R-squared ranges between 0 and 1. A value closer to 1 indicates a stronger relationship between the independent and dependent variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s). Conversely, a value closer to 0 indicates a weaker relationship.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="interpretation-of-the-r2-effect-size-is">Interpretation of the <span class="math inline">\(R^2\)</span> effect size is:</h3>
+<p>In a simple linear regression, the <span class="math inline">\(R^2\)</span> provides insight into the proportion of variance in the dependent variable (AV) that can be explained by the independent variable (UV), indicating the <strong>model’s goodness of fit</strong> <em>and</em> the <strong>strength of the relationship between the variables</strong>.</p>
+<hr />
+<h2 id="another-way-to-calculaet-effect-size-for-the-estimated-slope-in-simple-linear-regression-models.">Another way to calculaet effect size for the estimated slope in Simple Linear Regression Models.</h2>
+<p>The method relies on the standardized data.</p>
+<p>Lets see what changes in the relationship between the AV and the UV if we scale both (spoiler: absolutly nothing….):</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>g_standardized</span> <span class='op'>&lt;-</span>  </span>
+<span>  <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>dat</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>Height</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>Weight</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'>geom_point</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"darkgreen"</span>, size <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>combined_plot</span> <span class='op'>&lt;-</span> <span class='fu'>grid.arrange</span><span class='op'>(</span><span class='va'>g_unstandardized</span>, <span class='va'>g_standardized</span>, nrow <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="effectsize_lm_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<h3 id="the-advantages-to-this-method">The Advantages to This Method:</h3>
+<p>A standardized beta allows for a direct comparison of the relative importance of different predictor variables within a regression model. Since both the predictor and criterion variables are standardized, the magnitude of the standardized beta represents the change in the criterion variable in terms of standard deviations when the predictor variable changes by one standard deviation.</p>
+<ol type="1">
+<li><p><strong>Unit Independence</strong>: The standardized beta is not influenced by the specific units of measurement used for the predictor and criterion variables. This makes it easier to compare the effects of different variables, even if they are measured on different scales or have different units.</p></li>
+<li><p><strong>Generalizability</strong>: The effect size (<span class="math inline">\(\beta_{z}\)</span>) represents the magnitude of the relationship between the predictor and criterion variables in standardized units. This allows for better generalizability across different samples, populations, or studies, as it is not dependent on the specific measurement units used.</p></li>
+<li><p><strong>Comparability</strong>: Standardized betas and effect sizes can be compared across different studies or analyses, providing a standardized measure of the strength of the relationships. This comparability facilitates meta-analyses or synthesis of results from multiple studies.</p></li>
+</ol>
+<h3 id="heres-a-step-by-step-guide-to-salculating-beta_z">Here’s a Step-by-Step Guide to Salculating <span class="math inline">\(\beta_{z}\)</span>:</h3>
+<ol type="1">
+<li>Compute the mean (<span class="math inline">\(\hat{x}\)</span>) of the SCALED independent variable (UV).</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scale_mean_x</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>scale_mean_x</span></span></code></pre>
+</div>
+<pre><code>[1] 4.996004e-16</code></pre>
+</div>
+<ol start="2" type="1">
+<li>Compute the mean (<span class="math inline">\(\hat{y}\)</span>) of the SCALED dependent variable (AV).</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>scaled_mean_y</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>scaled_mean_y</span></span></code></pre>
+</div>
+<pre><code>[1] 4.066192e-16</code></pre>
+</div>
+<ol start="3" type="1">
+<li>Calculate the covariance between scaled (standardized) AV and the scaled (standardized) UV using the formula:</li>
+</ol>
+<p><span class="math display">\[cov(x,y) = \frac{\sum{(x_{i}-\hat{x})\times (y_{i}-\hat{y})}}{n-1}\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cov</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale.default</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span> <span class='op'>-</span> <span class='va'>scale_mean_x</span><span class='op'>)</span> <span class='op'>*</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span><span class='op'>)</span> <span class='op'>-</span> <span class='va'>scaled_mean_y</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>cov</span> <span class='op'>&lt;-</span>  <span class='va'>cov</span><span class='op'>/</span><span class='fl'>3</span></span>
+<span></span>
+<span><span class='va'>cov</span></span></code></pre>
+</div>
+<pre><code>[1] 0.6714691</code></pre>
+</div>
+<ol start="4" type="1">
+<li>Calculate the variance of UV using the formula:
+<span class="math display">\[var(x) = \frac{\sum{(x_{i}-\hat{x})^2}}{n-1}\]</span></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>var_x</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span> <span class='op'>-</span> <span class='va'>scale_mean_x</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>var_x</span> <span class='op'>&lt;-</span>  <span class='va'>var_x</span><span class='op'>/</span><span class='fl'>3</span></span>
+<span></span>
+<span><span class='va'>var_x</span></span></code></pre>
+</div>
+<pre><code>[1] 1.333333</code></pre>
+</div>
+<ol start="5" type="1">
+<li>Calculate the standardized beta (<span class="math inline">\(\beta_{z}\)</span>)
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>beta_z</span> <span class='op'>&lt;-</span>  <span class='va'>cov</span><span class='op'>/</span><span class='va'>var_x</span></span>
+<span><span class='va'>beta_z</span></span></code></pre>
+</div></li>
+</ol>
+<pre><code>[1] 0.5036018</code></pre>
+</div>
+<ol start="6" type="1">
+<li>Compare your results with R-output:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span><span class='op'>)</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div></li>
+</ol>
+<pre><code>
+Call:
+lm(formula = scale(dat$Weight) ~ scale(dat$Height))
+
+Residuals:
+      1       2       3       4       5 
+-0.7566 -0.2245 -0.6836  1.3371  0.3276 
+attr(,&quot;scaled:center&quot;)
+[1] 74.6
+attr(,&quot;scaled:scale&quot;)
+[1] 15.04
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)       3.536e-17  4.461e-01    0.00    1.000
+scale(dat$Height) 5.036e-01  4.988e-01    1.01    0.387
+
+Residual standard error: 0.9976 on 3 degrees of freedom
+Multiple R-squared:  0.2536,    Adjusted R-squared:  0.00482 
+F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
+</div>
+<ol start="7" type="1">
+<li>Note that the <span class="math inline">\(R^2\)</span> didnt change either!</li>
+</ol>
+<h2 id="things-to-remember">Things to remember:</h2>
+<h2 id="r-squre">R squre:</h2>
+<ol type="1">
+<li><p>Ranges between 0 and 1.</p>
+<p>1.1) A value closer to 1 indicates a stronger relationship between the independent (UV) and dependent (AV) variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s).</p>
+<p>1.2) Conversely, a value closer to 0 indicates a weaker relationship.</p></li>
+<li><p>The estimated value <span class="math inline">\(r^2\)</span> (which is the realised value of <span class="math inline">\(R^2\)</span>) within the scope of the SLR (simple linear regression) is equivalent to the squared Pearson correlation.</p></li>
+<li><p><span class="math inline">\(r^2\)</span> is also referred to as the coefficient of determination.</p></li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
