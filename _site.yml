@@ -23,7 +23,7 @@ navbar:
           href: lm.html
         - text: "Multiple Linear Models"
           href: lm_ii.html
-        - text: "Multiple Linear Models: Effectsize"
+        - text: "Simple Linear Models: Effectsize"
           href: effectsize_lm.html
 google_analytics: "G-T7V19FRHDE"
 url: https://tehillamo.github.io/LMU_Statistik
