@@ -220,3 +220,5 @@ summary(lm(scale(dat$Weight) ~ scale(dat$Height)))
   2) The estimated value $r^2$ (which is the realised value of $R^2$) within the scope of the SLR (simple linear regression) is equivalent to the squared Pearson correlation.
 
   3) $r^2$ is also referred to as the coefficient of determination.
+  
+  4) Interpretation of the sandardized $\beta_{z}$: If the predictor variable  (AV) increases by one standard deviation, the criterion variable (UV), on average, increases by $\beta_{z}$ standard deviations.
