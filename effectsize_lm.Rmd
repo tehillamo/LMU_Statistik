@@ -1,5 +1,5 @@
 ---
-title: "Effectsizes in Linear regression"
+title: "Effectsize(s) in Simple Linear Regression"
 description: |
 author:
   - name: Tehilla Ostrovsky
@@ -221,4 +221,4 @@ summary(lm(scale(dat$Weight) ~ scale(dat$Height)))
 
   3) $r^2$ is also referred to as the coefficient of determination.
   
-  4) Interpretation of the sandardized $\beta_{z}$: If the predictor variable  (AV) increases by one standard deviation, the criterion variable (UV), on average, increases by $\beta_{z}$ standard deviations.
+  4) Interpretation of the standardized $\beta_{z}$: If the predictor variable  (AV) increases by one standard deviation, the criterion variable (UV), on average, increases by $\beta_{z}$ standard deviations.
