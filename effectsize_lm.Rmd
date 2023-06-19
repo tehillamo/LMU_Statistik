@@ -5,8 +5,8 @@ author:
   - name: Tehilla Ostrovsky
 date: "`r Sys.Date()`"
 output: distill::distill_article
+css: "my_css.css"
 ---
-
 
 ## A short introduction to effect sizes and their role in linear regression:
 
@@ -68,10 +68,14 @@ g_unstandardized
 ```
 
 
-### MODELLING TIME  
 
-- We start with running the model with the (good, old known) unstandardized variables
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+### MODELLING TIME!
+
+We start with running the model with the (good, old known) unstandardized variables
+
+
+```{r warning=FALSE, message=FALSE}
 sum_lm <-  summary(lm(dat$Weight ~ dat$Height))
 sum_lm
 ```
@@ -121,7 +125,7 @@ In a simple linear regression, the $R^2$ provides insight into the proportion of
 
 The method relies on the standardized data. 
 
-Lets see what changes in the relationship between the AV and the UV if we scale both (spoiler: absolutly nothing....):
+Lets see what changes in the relationship between the AV and the UV if we scale both (spoiler: absolutely nothing....):
 
 ```{r warning=FALSE, message=FALSE}
 g_standardized <-  
@@ -192,7 +196,8 @@ var_x <-  var_x/3
 var_x
 ```
 
-  5) Calculate the standardized beta ($\beta_{z}$)
+  5) Calculate the standardized beta ($\beta_{z}$):
+  
 ```{r warning=FALSE, message=FALSE}
 beta_z <-  cov/var_x
 beta_z
@@ -200,15 +205,34 @@ beta_z
 
 
   6) Compare your results with R-output:
+  
+  
 ```{r warning=FALSE, message=FALSE}
 summary(lm(scale(dat$Weight) ~ scale(dat$Height)))
 ```
   
-7) Note that the $R^2$ didnt change either!
+7) Note that the $R^2$ did not change either!
 
-## Things to remember: 
 
-## R squre:
+
+----
+
+
+<div>
+<div class="container_new">
+  <h5 class="title_new">
+    <span class="title-word title-word-1">Things</span>
+    <span class="title-word title-word-2">to</span>
+    <span class="title-word title-word-3">remember</span>
+    <span class="title-word title-word-4">about ${R^2}$</span>
+  </h5>
+</div>
+</div>
+
+---
+
+
+<!-- <div><h3>Things to remember about </h3></div> -->
 
 1) Ranges between 0 and 1. 
 

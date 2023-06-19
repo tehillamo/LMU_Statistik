@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Effectsize(s) in Simple Linear Regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-19"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","css"]}},"value":[{"type":"character","attributes":{},"value":["Effectsize(s) in Simple Linear Regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-19"]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"character","attributes":{},"value":["my_css.css"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2094,6 +2094,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
   <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="my_css.css" type="text/css"/>
 
 </head>
 
@@ -2135,7 +2136,7 @@ Statistik II
 <a href="anova_twoWay.html">ANOVA - II</a>
 <a href="lm.html">Simple Linear Models</a>
 <a href="lm_ii.html">Multiple Linear Models</a>
-<a href="effectsize_lm.html">Multiple Linear Models: Effectsize</a>
+<a href="effectsize_lm.html">Simple Linear Models: Effectsize</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2196,12 +2197,13 @@ Statistik II
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="effectsize_lm_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
-<h3 id="modelling-time">MODELLING TIME</h3>
-<ul>
-<li>We start with running the model with the (good, old known) unstandardized variables
+<h3 id="modelling-time">MODELLING TIME!</h3>
+<p>We start with running the model with the (good, old known) unstandardized variables</p>
 <div class="layout-chunk" data-layout="l-body">
-</li>
-</ul>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sum_lm</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span> <span class='op'>~</span> <span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>sum_lm</span></span></code></pre>
+</div>
 <pre><code>
 Call:
 lm(formula = dat$Weight ~ dat$Height)
@@ -2262,7 +2264,7 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 <hr />
 <h2 id="another-way-to-calculaet-effect-size-for-the-estimated-slope-in-simple-linear-regression-models.">Another way to calculaet effect size for the estimated slope in Simple Linear Regression Models.</h2>
 <p>The method relies on the standardized data.</p>
-<p>Lets see what changes in the relationship between the AV and the UV if we scale both (spoiler: absolutly nothing….):</p>
+<p>Lets see what changes in the relationship between the AV and the UV if we scale both (spoiler: absolutely nothing….):</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>g_standardized</span> <span class='op'>&lt;-</span>  </span>
@@ -2334,22 +2336,22 @@ F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 <pre><code>[1] 1.333333</code></pre>
 </div>
 <ol start="5" type="1">
-<li>Calculate the standardized beta (<span class="math inline">\(\beta_{z}\)</span>)
+<li>Calculate the standardized beta (<span class="math inline">\(\beta_{z}\)</span>):</li>
+</ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>beta_z</span> <span class='op'>&lt;-</span>  <span class='va'>cov</span><span class='op'>/</span><span class='va'>var_x</span></span>
 <span><span class='va'>beta_z</span></span></code></pre>
-</div></li>
-</ol>
+</div>
 <pre><code>[1] 0.5036018</code></pre>
 </div>
 <ol start="6" type="1">
-<li>Compare your results with R-output:
+<li>Compare your results with R-output:</li>
+</ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Weight</span><span class='op'>)</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>Height</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div></li>
-</ol>
+</div>
 <pre><code>
 Call:
 lm(formula = scale(dat$Weight) ~ scale(dat$Height))
@@ -2372,10 +2374,21 @@ Multiple R-squared:  0.2536,    Adjusted R-squared:  0.00482
 F-statistic: 1.019 on 1 and 3 DF,  p-value: 0.387</code></pre>
 </div>
 <ol start="7" type="1">
-<li>Note that the <span class="math inline">\(R^2\)</span> didnt change either!</li>
+<li>Note that the <span class="math inline">\(R^2\)</span> did not change either!</li>
 </ol>
-<h2 id="things-to-remember">Things to remember:</h2>
-<h2 id="r-squre">R squre:</h2>
+<hr />
+<div>
+<div class="container_new">
+<h5 class="title_new">
+<span class="title-word title-word-1">Things</span>
+<span class="title-word title-word-2">to</span>
+<span class="title-word title-word-3">remember</span>
+<span class="title-word title-word-4">about <span class="math inline">\({R^2}\)</span></span>
+</h5>
+</div>
+</div>
+<hr />
+<!-- <div><h3>Things to remember about </h3></div> -->
 <ol type="1">
 <li><p>Ranges between 0 and 1.</p>
 <p>1.1) A value closer to 1 indicates a stronger relationship between the independent (UV) and dependent (AV) variables, meaning that more of the variance in the dependent variable can be explained by the independent variable(s).</p>
