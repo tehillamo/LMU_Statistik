@@ -12,6 +12,29 @@ css: "my_css.css"
 
 In linear regression analysis, effect sizes provide valuable information about the strength and direction of the relationship between the dependent variable and the independent variables. They quantify the magnitude of the effect of the independent variables on the outcome of interest.
 
+
+Before we dive into the task of calculating the effect size for our linear models I must remind you of 4 assumptions we rely on for running linear models:
+
+1) Linearity: Linearity: The relationship between the dependent variable and the independent variables is assumed to be linear. This means that the effect of each independent variable on the dependent variable is constant and additive.
+2) Normality: The residuals (the differences between the observed values and the predicted values) are assumed to follow a normal distribution. This assumption implies that the errors are normally distributed with a mean of zero. 
+3) Homoscedasticity: The variance of the errors (residuals) is assumed to be constant across all levels of the independent variables. In other words, the spread or dispersion of the residuals should be roughly the same for all values of the independent variables.
+4) No outliers
+
+We shall discuss these at the end of this blog so you'll need to be patient 😃
+
+
+<div>
+<div class="container_new">
+  <h5 class="title_new">
+    <span class="title-word title-word-1">OK! </span>
+    <span class="title-word title-word-2">Back</span>
+    <span class="title-word title-word-3">to</span>
+    <span class="title-word title-word-4">Effect Sizes</span>
+  </h5>
+</div>
+</div>
+
+
 One commonly used effect size in linear regression is R-squared (R²). This is the effect size that you will find in your R-output when you calculate your linear regression in R (e.g., with the lm(AV ~ UV, data = datensatz))
 
 
@@ -76,9 +99,19 @@ We start with running the model with the (good, old known) unstandardized variab
 
 
 ```{r warning=FALSE, message=FALSE}
-sum_lm <-  summary(lm(dat$Weight ~ dat$Height))
+lm <-  lm(dat$Weight ~ dat$Height)
+sum_lm <-  summary(lm)
 sum_lm
 ```
+
+
+
+We continue with computing the confidence interval for the $\alpha$ and $\beta$
+
+```{r}
+confint(lm)
+```
+
 
 
 ### Great, here are the $y$ values: 
@@ -155,7 +188,7 @@ A standardized beta allows for a direct comparison of the relative importance of
 ### Here's a Step-by-Step Guide to Salculating $\beta_{z}$:
 
 
-  1) Compute the mean ($\hat{x}$) of the SCALED independent variable (UV).
+### 1) Compute the mean ($\hat{x}$) of the SCALED independent variable (UV).
   
 ```{r warning=FALSE, message=FALSE}
 scale_mean_x <-  mean(scale(dat$Height))
@@ -164,7 +197,7 @@ scale_mean_x
 
 ```
   
-  2) Compute the mean ($\hat{y}$) of the SCALED dependent variable (AV).
+### 2) Compute the mean ($\hat{y}$) of the SCALED dependent variable (AV).
   
 ```{r warning=FALSE, message=FALSE}
 scaled_mean_y <-  mean(scale(dat$Weight))
@@ -174,7 +207,7 @@ scaled_mean_y
 ```
   
   
-  3) Calculate the covariance between scaled (standardized) AV and the scaled  (standardized) UV using the formula:
+### 3) Calculate the covariance between scaled (standardized) AV and the scaled  (standardized) UV using the formula:
 
   $$cov(x,y) = \frac{\sum{(x_{i}-\hat{x})\times (y_{i}-\hat{y})}}{n-1}$$
   
@@ -185,7 +218,7 @@ cov <-  cov/3
 cov
 ```
 
-  4)  Calculate the variance of UV using the formula:
+### 4)  Calculate the variance of UV using the formula:
   $$var(x) = \frac{\sum{(x_{i}-\hat{x})^2}}{n-1}$$
 
 ```{r  warning=FALSE, message=FALSE}
@@ -196,7 +229,7 @@ var_x <-  var_x/3
 var_x
 ```
 
-  5) Calculate the standardized beta ($\beta_{z}$):
+### 5) Calculate the standardized beta ($\beta_{z}$):
   
 ```{r warning=FALSE, message=FALSE}
 beta_z <-  cov/var_x
@@ -204,15 +237,67 @@ beta_z
 ```
 
 
-  6) Compare your results with R-output:
+### 6) Compare your results with R-output:
   
   
 ```{r warning=FALSE, message=FALSE}
-summary(lm(scale(dat$Weight) ~ scale(dat$Height)))
+lm_z <-  lm(scale(dat$Weight) ~ scale(dat$Height))
+
+summary(lm_z)
 ```
   
-7) Note that the $R^2$ did not change either!
+### 7) Note that the $R^2$ did not change either!
 
+
+
+### We continue with computing the confidence interval for the $\alpha_{z}$ and $\beta_{z}$
+
+```{r}
+confint(lm_z)
+```
+
+
+<div>
+<div class="container_new">
+  <h5 class="title_new">
+    <span class="title-word title-word-1">Now</span>
+    <span class="title-word title-word-2">.</span>
+    <span class="title-word title-word-3">.</span>
+    <span class="title-word title-word-4">.</span>
+  </h5>
+</div>
+</div>
+
+
+We know that since we have "collected" only 5 observations, this experiment might suffer from low power 🥵🦾... We even have a good reason to believe so because the relationship between height and weight may hold in reality...
+
+We can determine the sample size we will need to achieve significant results 
+
+**BUT Careful!** this method is no magic! 🪄 we will only be likely to obtain significant results **only if there is, indeed, a relationship between height and weight**)
+
+We have to first calculate the 
+```{r}
+rho_squared = coef(lm_z)["scale(dat$Height)"]^2
+
+f_squared = rho_squared/(1-rho_squared)
+
+f_squared
+
+```
+
+We use the power calculation function pwr.f2.test(). It takes the following arguments: $u$ which is the number of predictors we have in our model. In a simple linear regression we always ahve only 1, $f2$ which is the effect size, f squared, which we calculated above. The other arguments are $sig.level$ that determines the significance level (Type I error probability) and $power$ represents the power we wish to achieve (1 minus Type II error probability)
+
+
+
+
+```{r}
+library(pwr)
+pwr.f2.test(u = 1, f2 = f_squared, sig.level = 0.005, power = 0.8)
+```
+
+Interpretation: Because 𝜈 = 𝑛 − 2 (we estimate 2 variables), we must add those 2 to know what the required sample (i.e., 𝑣 + 2). In our case, we will need 43 subjects (41.<img src = "img/half_subj.png" style = "height:30px; width:20px; margin-top:2px"></img> + <img src = "img/full_face.png" style = "height:30px; width:30px; margin-top:2px"></img><img src = "img/full_face.png" style = "height:30px; width:30px; margin-top:5px"></img>). 
+
+      
 
 
 ----
@@ -246,3 +331,7 @@ summary(lm(scale(dat$Weight) ~ scale(dat$Height)))
   3) $r^2$ is also referred to as the coefficient of determination.
   
   4) Interpretation of the standardized $\beta_{z}$: If the predictor variable  (AV) increases by one standard deviation, the criterion variable (UV), on average, increases by $\beta_{z}$ standard deviations.
+  
+  
+  
+  
