@@ -334,4 +334,6 @@ Interpretation: Because 𝜈 = 𝑛 − 2 (we estimate 2 variables), we must add
   
   
   
+# Back to the summptions I mentioned at the beginning of this blog:
+Cook's D(i) = $\frac{{\Delta \hat{y_i}^2}}{{p}} \times \frac{{h_{ii}}}{{(1 - h_{ii})}}$
   
