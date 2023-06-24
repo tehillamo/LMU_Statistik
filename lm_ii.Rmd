@@ -15,20 +15,66 @@ output: distill::distill_article
 Linear models can be extended to include more than one independent variable, and the equation becomes:
 
 
-$\color{red}{y{i} = a + \beta_{1} \times X_{1} + \beta_{2} \times X_{2} + … + \beta_{n} \times X_{n}}$
-
-Where $Y$ is the dependent variable, 
-
-$X_{1}$, $X_{2}$, …, $X_{n}$ are the independent variables, 
-
-$\alpha$ is the intercept, 
-
-and $\beta_{1}$,  $\beta_{2}$, …, $\beta_{n}$ are the slopes of the respective variables.
+$\color{red}{Y{i}} = \color{blue}{{\alpha}} + \color{green}{{\beta_{1} \times X_{1} + \beta_{2} \times X_{2} + … + \beta_{n} \times X_{n}} + \color{orange}{{\epsilon_{i}}}}$
 
 
+Where $\color{red}{Y_{i}}$ is the dependent variable (what we aim to predict). 
+
+$\color{blue}\alpha$ is the intercept (the point at which the regression line crosses the y axis).
 
 
-somehting 
+$\color{green}{{X_{1}, X_{2}, X_{n}}}$ are the independent variables (what we measure). 
+
+
+
+$\color{green}{{\beta_{1}, \beta_{2}, ..., \beta_{n}}}$ are the slopes of the respective independent variables (tells us how important the respective variable is).
+
+
+Since we also are interested in the distribution of the residuals, we also estimate $\color{orange}{{\sigma^2}}$, which represents the standard deviation of the error term $\color{orange}\epsilon$.
+
+
+### In MLR (Multiple Linear Regression) analysis we ask the followiing questions:
+
+  1) How much variance, relative to the total variability of the criterion, can all predictors explain together?
+  2) Which predictor has the largest predictive contribution?
+  3) What is the magnitude of the independent predictive contribution of a predictor?
+  4) Does the strength, direction, and interpretation of the effect of a predictor change when considering another predictor compared to the multiple regression?
+  
+  
+## We are going to use a fun(ny) example for this topic.  
+
+In a parallel universe, in which Psychology students party during the semester and prior to their exams a study was conducted...
+
+
+<img src = "img/student_alcohol.jpg" style = "height:200px; width:300px;border:10px outset silver; display: block; margin-left: auto; margin-right: auto; width: 50%;"></img>
+
+
+
+The researchers wanted to know if the amount of alcohol 🍺 consumed consumed a day prior to an exam but also the number of hours spent on preparation 📚📖 affected the student's exam results &#129351;.  
+  
+
+And so they asked students to confess about the amount of ml of alcohol (0 to &#8734;😂) they had the day before the exam and the number hours (0-100) they spent studying and how much they scored in the exam (0-💯%). 
+
+
+### Here is the data they obtained:
+
+```{r}
+set.seed(123)
+dat <-   data.frame(
+      "alcohol_ml" = round(rnorm(30, 20, 15), digit <-  1),
+      "study_h" = round(runif(30, 0, 100), digit <-  1),
+      "test_score" = round(rbeta(30, 2,2) * 100, digit <-  0)
+)
+
+dat
+
+```
+
+
+### In this parallel universe the rules are often different but plotting your data is as in ours, simply a must! 
+
+And so they did 
+
 
 ```{r echo=FALSE}
 library(shiny)
