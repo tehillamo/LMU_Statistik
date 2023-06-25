@@ -2170,7 +2170,7 @@ Statistik II
 <p><span class="math inline">\(\color{green}{{X_{1}, X_{2}, X_{n}}}\)</span> are the independent variables (what we measure).</p>
 <p><span class="math inline">\(\color{green}{{\beta_{1}, \beta_{2}, ..., \beta_{n}}}\)</span> are the slopes of the respective independent variables (tells us how important the respective variable is).</p>
 <p>Since we also are interested in the distribution of the residuals, we also estimate <span class="math inline">\(\color{orange}{{\sigma^2}}\)</span>, which represents the standard deviation of the error term <span class="math inline">\(\color{orange}\epsilon\)</span>.</p>
-<h3 id="in-mlr-multiple-linear-regression-analysis-we-ask-the-followiing-questions">In MLR (Multiple Linear Regression) analysis we ask the followiing questions:</h3>
+<h3 id="in-mlr-multiple-linear-regression-analysis-we-ask-the-following-questions">In MLR (Multiple Linear Regression) analysis we ask the following questions:</h3>
 <ol type="1">
 <li>How much variance, relative to the total variability of the criterion, can all predictors explain together?</li>
 <li>Which predictor has the largest predictive contribution?</li>
@@ -2182,18 +2182,11 @@ Statistik II
 <p><img src = "img/student_alcohol.jpg" style = "height:200px; width:300px;border:10px outset silver; display: block; margin-left: auto; margin-right: auto; width: 50%;"></img></p>
 <p>The researchers wanted to know if the amount of alcohol 🍺 consumed consumed a day prior to an exam but also the number of hours spent on preparation 📚📖 affected the student’s exam results 🥇.</p>
 <p>And so they asked students to confess about the amount of ml of alcohol (0 to ∞😂) they had the day before the exam and the number hours (0-100) they spent studying and how much they scored in the exam (0-💯%).</p>
+<h2 id="model-equation">Model Equation:</h2>
+<h3 id="therefore-the-model-equation-they-were-about-to-test-is">Therefore, the model equation they were about to test is:</h3>
+<p><span class="math inline">\(\color{red}{Test.Score_{i}} = \color{blue}{{\alpha}} + \color{green}{{\beta_{alcohol_ml} \times X_{1} + \beta_{Study.hours} \times X_{2}} + \color{orange}{{\epsilon_{i}}}}\)</span></p>
 <h3 id="here-is-the-data-they-obtained">Here is the data they obtained:</h3>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span></span>
-<span><span class='va'>dat</span> <span class='op'>&lt;-</span>   <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
-<span>      <span class='st'>"Alcohol.ml"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>0</span><span class='op'>)</span>,</span>
-<span>      <span class='st'>"Study.Hours"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>1</span>, <span class='fl'>50</span><span class='op'>)</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>0</span><span class='op'>)</span>,</span>
-<span>      <span class='st'>"Test.Results"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Beta.html'>rbeta</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>2</span>,<span class='fl'>1</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>0</span><span class='op'>)</span></span>
-<span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>dat</span></span></code></pre>
-</div>
 <pre><code>   Alcohol.ml Study.Hours Test.Results
 1          29          48           80
 2          79          45           55
@@ -2227,23 +2220,35 @@ Statistik II
 30         15          19           27</code></pre>
 </div>
 <h3 id="in-this-parallel-universe-the-rules-are-often-different-but-plotting-your-data-is-as-in-ours-simply-a-must">In this parallel universe the rules are often different but plotting your data is as in ours, simply a must!</h3>
-<p>And so they did</p>
+<p>And so they did!</p>
 <div class="layout-chunk" data-layout="l-body">
 <iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/3d_LMR/?showcase=0" width="624" height="600px" data-external="1">
 </iframe>
 </div>
 <h3 id="they-also-tested-three-assumptions-before-making-public-statements-about-their-results">They also tested three assumptions before making public statements about their results…</h3>
 <ol type="1">
-<li>They started off with the LINEARITY assumption. To examine this assumption they plotted the residuals of each UV (alcohol in ml and the number of hours spent on studying)</li>
+<li>They started off with the LINEARITY assumption. To examine this assumption they plotted the residuals of each UV (alcohol in ml and the number of hours spent on studying)
+1.1) First they ran the linear model to be able to tell something about the distribution of the residuals.</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mod</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Test.Results</span> <span class='op'>~</span> <span class='va'>Alcohol.ml</span> <span class='op'>+</span> <span class='va'>Study.Hours</span>, data <span class='op'>=</span> <span class='va'>dat</span><span class='op'>)</span></span>
+<span><span class='va'>mod</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = Test.Results ~ Alcohol.ml + Study.Hours, data = dat)
+
+Coefficients:
+(Intercept)   Alcohol.ml  Study.Hours  
+   61.45978      0.06621      0.13174  </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-forge.r-project.org/projects/car/'>car</a></span><span class='op'>)</span></span>
-<span><span class='va'>mod</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Test.Results</span> <span class='op'>~</span> <span class='va'>Alcohol.ml</span> <span class='op'>+</span> <span class='va'>Study.Hours</span>, data <span class='op'>=</span> <span class='va'>dat</span><span class='op'>)</span></span>
-<span></span>
 <span><span class='fu'><a href='https://rdrr.io/pkg/car/man/crPlots.html'>crPlots</a></span><span class='op'>(</span><span class='va'>mod</span>, ylab <span class='op'>=</span> <span class='st'>"residuals"</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="lm_ii_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<p><img src="lm_ii_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
 <p>The blue line represents a linear trend</p>
 <p>The pink line represents a flexible function that describes the data as closely as possible.</p>
@@ -2260,15 +2265,28 @@ Statistik II
 <span><span class='co'># Create a histogram with density line using ggplot2</span></span>
 <span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>stand_residuals</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>stand_resid</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"lightblue"</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, bins <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>geom_density</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"residuals (standardized)"</span>, y <span class='op'>=</span> <span class='st'>"Frequency / Density"</span>, </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"residuals (standardized)"</span>, y <span class='op'>=</span> <span class='st'>"Frequency"</span>, </span>
 <span>       title <span class='op'>=</span> <span class='st'>"Histogram to Examine Homoskedasticity"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="lm_ii_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<p><img src="lm_ii_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<p>This plot did not make them super happy….</p>
+<p>This plot did not make them super happy either….</p>
+<ol start="3" type="1">
+<li>lastly, they examined the presence of outliers:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cooks_dist</span> <span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/stats/influence.measures.html'>cooks.distance</a></span><span class='op'>(</span>model <span class='op'>=</span> <span class='va'>mod</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cooks_dist</span>, col<span class='op'>=</span><span class='st'>"lightblue"</span>, pch<span class='op'>=</span><span class='fl'>19</span>, cex<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span></span>
+<span><span class='co'>#add labels to every point</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>cooks_dist</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span><span class='op'>]</span>, labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>h<span class='op'>=</span><span class='fl'>4</span><span class='op'>/</span><span class='fl'>100</span><span class='op'>)</span></span></code></pre>
+</div>
+<img src="lm_ii_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></li>
+</ol>
+</div>
 <ol start="3" type="1">
 <li>They went on
 <div class="layout-chunk" data-layout="l-body">
@@ -2276,7 +2294,7 @@ Statistik II
 </iframe></li>
 </ol>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

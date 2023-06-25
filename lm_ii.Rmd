@@ -33,7 +33,7 @@ $\color{green}{{\beta_{1}, \beta_{2}, ..., \beta_{n}}}$ are the slopes of the re
 Since we also are interested in the distribution of the residuals, we also estimate $\color{orange}{{\sigma^2}}$, which represents the standard deviation of the error term $\color{orange}\epsilon$.
 
 
-### In MLR (Multiple Linear Regression) analysis we ask the followiing questions:
+### In MLR (Multiple Linear Regression) analysis we ask the following questions:
 
   1) How much variance, relative to the total variability of the criterion, can all predictors explain together?
   2) Which predictor has the largest predictive contribution?
@@ -55,12 +55,19 @@ The researchers wanted to know if the amount of alcohol 🍺 consumed consumed a
 
 And so they asked students to confess about the amount of ml of alcohol (0 to &#8734;😂) they had the day before the exam and the number hours (0-100) they spent studying and how much they scored in the exam (0-💯%). 
 
+## Model Equation: 
+
+### Therefore, the model equation they were about to test is:
+
+$\color{red}{Test.Score_{i}} = \color{blue}{{\alpha}} + \color{green}{{\beta_{alcohol_ml} \times X_{1} + \beta_{Study.hours} \times X_{2}} + \color{orange}{{\epsilon_{i}}}}$
+
+
 
 ### Here is the data they obtained:
 
-```{r}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 set.seed(123)
-dat <-   data.frame(
+dat <- data.frame(
       "Alcohol.ml" = round(runif(30, 0, 100), digit <-  0),
       "Study.Hours" = round(runif(30, 1, 50), digit <-  0),
       "Test.Results" = round(rbeta(30, 2,1) * 100, digit <-  0)
@@ -73,7 +80,7 @@ dat
 
 ### In this parallel universe the rules are often different but plotting your data is as in ours, simply a must! 
 
-And so they did 
+And so they did!
 
 
 ```{r echo=FALSE}
@@ -89,12 +96,17 @@ knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/3d_LMR/",
 
 
   1) They started off with the LINEARITY assumption. To examine this assumption they plotted the residuals of each UV (alcohol in ml and the number of hours spent on studying)
+    1.1) First they ran the linear model to be able to tell something about the distribution of the residuals. 
   
   
 ```{r}
-library(car)
 mod <-  lm(Test.Results ~ Alcohol.ml + Study.Hours, data = dat)
+mod
+```
 
+
+```{r}
+library(car)
 crPlots(mod, ylab = "residuals")
 ```
 The blue line represents a linear trend
@@ -113,14 +125,25 @@ stand_residuals <-  data.frame(
 # Create a histogram with density line using ggplot2
 ggplot(stand_residuals, aes(x = stand_resid)) +
   geom_histogram(fill = "lightblue", color = "black", bins = 15) +
-  geom_density(color = "red") +
   ylim(0, 5) +
-  labs(x = "residuals (standardized)", y = "Frequency / Density", 
+  labs(x = "residuals (standardized)", y = "Frequency", 
        title = "Histogram to Examine Homoskedasticity") +
   theme_classic()
 
 ```
-  This plot did not make them super happy.... 
+  This plot did not make them super happy either.... 
+ 
+ 
+  3) lastly, they examined the presence of outliers:
+```{r}
+cooks_dist <-cooks.distance(model = mod)
+
+plot(cooks_dist, col="lightblue", pch=19, cex=2)
+#add labels to every point
+text(x = cooks_dist[1:30], labels=c(1:30))
+abline(h=4/100)
+
+```
   
   
 
