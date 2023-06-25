@@ -2188,38 +2188,38 @@ Statistik II
 <h3 id="here-is-the-data-they-obtained">Here is the data they obtained:</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>   Alcohol.ml Study.Hours Test.Results
-1          29          48           80
-2          79          45           55
-3          41          35           90
-4          88          40           90
-5          94           2           89
-6           5          24           86
-7          53          38           83
-8          89          12           64
-9          55          17           55
-10         46          12           52
-11         96           8           39
-12         45          21           59
-13         68          21           19
-14         57          19           94
-15         10           8           51
-16         90           8           49
-17         25          12           88
-18          4          24           64
-19         33          14           75
-20         95          43           66
-21         89           3           65
-22         69          23           96
-23         64          40           58
-24         99           7           97
-25         66          28           84
-26         71          11           71
-27         54           7           74
-28         59          38           79
-29         29          45           47
-30         15          19           27</code></pre>
+1          24          14           54
+2          28           7           45
+3          46          19           47
+4          31          19           40
+5          31          18           39
+6          47          17           53
+7          35          16           54
+8          17           9           51
+9          23           7           59
+10         26           6           71
+11         42           3           45
+12         34           8           27
+13         34           3           60
+14         31          32           43
+15         24          22           43
+16         48           1           60
+17         35           6           47
+18         10           5           38
+19         37          18           52
+20         25           9           49
+21         19          13           50
+22         28          10           54
+23         20          10           46
+24         23          24           56
+25         24           8           48
+26         13          25           53
+27         38           5           61
+28         32          16           54
+29         19          11           47
+30         43          12           61</code></pre>
 </div>
-<h3 id="in-this-parallel-universe-the-rules-are-often-different-but-plotting-your-data-is-as-in-ours-simply-a-must">In this parallel universe the rules are often different but plotting your data is as in ours, simply a must!</h3>
+<h3 id="in-this-parallel-universe-the-rules-are-often-different-to-ours-but-plotting-your-data-is-just-like-in-our-universe-simply-a-must">In this parallel universe the rules are often different to ours but plotting your data is just like in our universe, simply a must!</h3>
 <p>And so they did!</p>
 <div class="layout-chunk" data-layout="l-body">
 <iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/3d_LMR/?showcase=0" width="624" height="600px" data-external="1">
@@ -2233,15 +2233,27 @@ Statistik II
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mod</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Test.Results</span> <span class='op'>~</span> <span class='va'>Alcohol.ml</span> <span class='op'>+</span> <span class='va'>Study.Hours</span>, data <span class='op'>=</span> <span class='va'>dat</span><span class='op'>)</span></span>
-<span><span class='va'>mod</span></span></code></pre>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
 lm(formula = Test.Results ~ Alcohol.ml + Study.Hours, data = dat)
 
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-24.732  -4.357   1.377   4.963  19.854 
+
 Coefficients:
-(Intercept)   Alcohol.ml  Study.Hours  
-   61.45978      0.06621      0.13174  </code></pre>
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  49.1341     6.0053   8.182 8.71e-09 ***
+Alcohol.ml    0.1263     0.1644   0.768    0.449    
+Study.Hours  -0.2118     0.2186  -0.969    0.341    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 8.708 on 27 degrees of freedom
+Multiple R-squared:  0.05882,   Adjusted R-squared:  -0.01089 
+F-statistic: 0.8437 on 2 and 27 DF,  p-value: 0.4411</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2287,7 +2299,7 @@ Coefficients:
 <img src="lm_ii_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></li>
 </ol>
 </div>
-<p>They concluded that they have too many obsticles on the way to a linear regression and deicded to wait to learn more about other possibilities before making any importnat conclusions.</p>
+<h3 id="following-their-diagnostic-measures-they-deicded-to-eplore-other-statistical-models-before-making-any-public-conclusions.">Following their diagnostic measures, they deicded to eplore other statistical models before making any public conclusions.</h3>
 <!-- ```{r echo=FALSE} -->
 <!-- knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/Bivariat_3d/",  -->
 <!--   height = "600px") -->
