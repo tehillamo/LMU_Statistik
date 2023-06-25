@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-06-24"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-06-24"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-06-25"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-06-25"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-24"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-25"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2105,7 +2105,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Multiple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-24T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Multiple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-25T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2159,7 +2159,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky <a href="https://github.com" class="uri">https://github.com</a> (LMU)
   
-<br/>2023-06-24
+<br/>2023-06-25
 </div>
 
 <div class="d-article">
@@ -2178,7 +2178,7 @@ Statistik II
 <li>Does the strength, direction, and interpretation of the effect of a predictor change when considering another predictor compared to the multiple regression?</li>
 </ol>
 <h2 id="we-are-going-to-use-a-funny-example-for-this-topic.">We are going to use a fun(ny) example for this topic.</h2>
-<p>In a parallel universe, in which Psychology students party during the semester and prior to their exams a study was conducted…</p>
+<p>In a parallel universe, in which Psychology students party during the semester and prior to their exams, a study was conducted…</p>
 <p><img src = "img/student_alcohol.jpg" style = "height:200px; width:300px;border:10px outset silver; display: block; margin-left: auto; margin-right: auto; width: 50%;"></img></p>
 <p>The researchers wanted to know if the amount of alcohol 🍺 consumed consumed a day prior to an exam but also the number of hours spent on preparation 📚📖 affected the student’s exam results 🥇.</p>
 <p>And so they asked students to confess about the amount of ml of alcohol (0 to ∞😂) they had the day before the exam and the number hours (0-100) they spent studying and how much they scored in the exam (0-💯%).</p>
@@ -2229,7 +2229,7 @@ Statistik II
 <h3 id="in-this-parallel-universe-the-rules-are-often-different-but-plotting-your-data-is-as-in-ours-simply-a-must">In this parallel universe the rules are often different but plotting your data is as in ours, simply a must!</h3>
 <p>And so they did</p>
 <div class="layout-chunk" data-layout="l-body">
-<iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/app_new/?_ga=2.204656912.1891469921.1683464181-2121495814.1683277660" width="624" height="600px" data-external="1">
+<iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/3d_LMR/?showcase=0" width="624" height="600px" data-external="1">
 </iframe>
 </div>
 <h3 id="they-also-tested-three-assumptions-before-making-public-statements-about-their-results">They also tested three assumptions before making public statements about their results…</h3>
@@ -2253,16 +2253,28 @@ Statistik II
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>stand_residuals</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/influence.measures.html'>rstandard</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='va'>stand_residuals</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
+<span>                    <span class='st'>"stand_resid"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/influence.measures.html'>rstandard</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>stand_residuals</span><span class='op'>)</span></span></code></pre>
+<span><span class='co'># Create a histogram with density line using ggplot2</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>stand_residuals</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>stand_resid</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"lightblue"</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, bins <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>geom_density</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"residuals (standardized)"</span>, y <span class='op'>=</span> <span class='st'>"Frequency / Density"</span>, </span>
+<span>       title <span class='op'>=</span> <span class='st'>"Histogram to Examine Homoskedasticity"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="lm_ii_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
 <p>This plot did not make them super happy….</p>
+<ol start="3" type="1">
+<li>They went on
 <div class="layout-chunk" data-layout="l-body">
 <iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/Bivariat_3d/?showcase=0" width="624" height="600px" data-external="1">
-</iframe>
+</iframe></li>
+</ol>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

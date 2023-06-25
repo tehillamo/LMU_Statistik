@@ -43,7 +43,7 @@ Since we also are interested in the distribution of the residuals, we also estim
   
 ## We are going to use a fun(ny) example for this topic.  
 
-In a parallel universe, in which Psychology students party during the semester and prior to their exams a study was conducted...
+In a parallel universe, in which Psychology students party during the semester and prior to their exams, a study was conducted...
 
 
 <img src = "img/student_alcohol.jpg" style = "height:200px; width:300px;border:10px outset silver; display: block; margin-left: auto; margin-right: auto; width: 50%;"></img>
@@ -80,7 +80,7 @@ And so they did
 library(shiny)
 library(shinyjs)
 
-knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/app_new/?_ga=2.204656912.1891469921.1683464181-2121495814.1683277660", 
+knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/3d_LMR/", 
   height = "600px")
 ```
 
@@ -106,6 +106,7 @@ When both lines are close to each other, the linearity assumption can be conside
   2) The next assumption they tested was the NORMALITY. They plotted a histogram of the residuals. Before plotting these, they remembered (of course) to standardize them.
   
 ```{r}
+library(ggplot2)
 stand_residuals <-  data.frame(
                     "stand_resid" = c(rstandard(mod)))
 
@@ -113,9 +114,9 @@ stand_residuals <-  data.frame(
 ggplot(stand_residuals, aes(x = stand_resid)) +
   geom_histogram(fill = "lightblue", color = "black", bins = 15) +
   geom_density(color = "red") +
-  ylim(0, 5)+
+  ylim(0, 5) +
   labs(x = "residuals (standardized)", y = "Frequency / Density", 
-       title = "Histogram to Examine Homoskedasticity")+
+       title = "Histogram to Examine Homoskedasticity") +
   theme_classic()
 
 ```
