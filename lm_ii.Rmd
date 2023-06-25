@@ -145,10 +145,11 @@ abline(h=4/100)
 
 ```
   
-  
+They concluded that they have too many obsticles on the way to a linear regression and deicded to wait to learn more about other possibilities before making any importnat conclusions. 
 
-  3) They went on 
-```{r echo=FALSE}
-knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/Bivariat_3d/", 
-  height = "600px")
-```
+
+
+<!-- ```{r echo=FALSE} -->
+<!-- knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/Bivariat_3d/",  -->
+<!--   height = "600px") -->
+<!-- ``` -->
