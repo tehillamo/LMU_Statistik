@@ -2187,44 +2187,44 @@ Statistik II
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span></span>
 <span><span class='va'>dat</span> <span class='op'>&lt;-</span>   <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
-<span>      <span class='st'>"alcohol_ml"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>20</span>, <span class='fl'>15</span><span class='op'>)</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>1</span><span class='op'>)</span>,</span>
-<span>      <span class='st'>"study_h"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>1</span><span class='op'>)</span>,</span>
-<span>      <span class='st'>"test_score"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Beta.html'>rbeta</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>2</span>,<span class='fl'>2</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>0</span><span class='op'>)</span></span>
+<span>      <span class='st'>"Alcohol.ml"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>0</span><span class='op'>)</span>,</span>
+<span>      <span class='st'>"Study.Hours"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>1</span>, <span class='fl'>50</span><span class='op'>)</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>0</span><span class='op'>)</span>,</span>
+<span>      <span class='st'>"Test.Results"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Beta.html'>rbeta</a></span><span class='op'>(</span><span class='fl'>30</span>, <span class='fl'>2</span>,<span class='fl'>1</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>100</span>, <span class='va'>digit</span> <span class='op'>&lt;-</span>  <span class='fl'>0</span><span class='op'>)</span></span>
 <span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>dat</span></span></code></pre>
 </div>
-<pre><code>   alcohol_ml study_h test_score
-1        11.6    66.5         21
-2        16.5     9.5         39
-3        43.4    38.4         37
-4        21.1    27.4         71
-5        21.9    81.5         48
-6        45.7    44.9         57
-7        26.9    81.0         49
-8         1.0    81.2         49
-9         9.7    79.4         84
-10       13.3    44.0         44
-11       38.4    75.4         87
-12       25.4    62.9         66
-13       26.0    71.0         53
-14       21.7     0.1         56
-15       11.7    47.5         61
-16       46.8    22.0         36
-17       27.5    38.0         41
-18       -9.5    61.3         23
-19       30.5    35.2         22
-20       12.9    11.1         59
-21        4.0    24.4         62
-22       16.7    66.8         51
-23        4.6    41.8         75
-24        9.1    78.8         94
-25       10.6    10.3         36
-26       -5.3    43.5          4
-27       32.6    98.5         77
-28       22.3    89.3         31
-29        2.9    88.6         31
-30       38.8    17.5         77</code></pre>
+<pre><code>   Alcohol.ml Study.Hours Test.Results
+1          29          48           80
+2          79          45           55
+3          41          35           90
+4          88          40           90
+5          94           2           89
+6           5          24           86
+7          53          38           83
+8          89          12           64
+9          55          17           55
+10         46          12           52
+11         96           8           39
+12         45          21           59
+13         68          21           19
+14         57          19           94
+15         10           8           51
+16         90           8           49
+17         25          12           88
+18          4          24           64
+19         33          14           75
+20         95          43           66
+21         89           3           65
+22         69          23           96
+23         64          40           58
+24         99           7           97
+25         66          28           84
+26         71          11           71
+27         54           7           74
+28         59          38           79
+29         29          45           47
+30         15          19           27</code></pre>
 </div>
 <h3 id="in-this-parallel-universe-the-rules-are-often-different-but-plotting-your-data-is-as-in-ours-simply-a-must">In this parallel universe the rules are often different but plotting your data is as in ours, simply a must!</h3>
 <p>And so they did</p>
@@ -2232,6 +2232,34 @@ Statistik II
 <iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/app_new/?_ga=2.204656912.1891469921.1683464181-2121495814.1683277660" width="624" height="600px" data-external="1">
 </iframe>
 </div>
+<h3 id="they-also-tested-three-assumptions-before-making-public-statements-about-their-results">They also tested three assumptions before making public statements about their results…</h3>
+<ol type="1">
+<li>They started off with the LINEARITY assumption. To examine this assumption they plotted the residuals of each UV (alcohol in ml and the number of hours spent on studying)</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-forge.r-project.org/projects/car/'>car</a></span><span class='op'>)</span></span>
+<span><span class='va'>mod</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Test.Results</span> <span class='op'>~</span> <span class='va'>Alcohol.ml</span> <span class='op'>+</span> <span class='va'>Study.Hours</span>, data <span class='op'>=</span> <span class='va'>dat</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/car/man/crPlots.html'>crPlots</a></span><span class='op'>(</span><span class='va'>mod</span>, ylab <span class='op'>=</span> <span class='st'>"residuals"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="lm_ii_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<p>The blue line represents a linear trend</p>
+<p>The pink line represents a flexible function that describes the data as closely as possible.</p>
+<p>When both lines are close to each other, the linearity assumption can be considered fulfilled (in our example the alcohol wins this competition).</p>
+<ol start="2" type="1">
+<li>The next assumption they tested was the NORMALITY. They plotted a histogram of the residuals. Before plotting these, they remembered (of course) to standardize them.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>stand_residuals</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/influence.measures.html'>rstandard</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>stand_residuals</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="lm_ii_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<p>This plot did not make them super happy….</p>
 <div class="layout-chunk" data-layout="l-body">
 <iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/Bivariat_3d/?showcase=0" width="624" height="600px" data-external="1">
 </iframe>
