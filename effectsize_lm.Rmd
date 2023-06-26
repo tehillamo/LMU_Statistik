@@ -335,5 +335,111 @@ Interpretation: Because 𝜈 = 𝑛 − 2 (we estimate 2 variables), we must add
   
   
 # Back to the summptions I mentioned at the beginning of this blog:
+
+1) Linearity. We will test this assumption with a simple scatter plot. To make the point here, I will create a new, richer data set.
+
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+# Load the required package
+library(mvtnorm)
+
+# Set the desired correlation coefficient
+correlation <- 0.6
+
+# Set the means and standard deviations for the variables
+mean1 <- 100
+sd1 <- 5
+mean2 <- 65
+sd2 <- 3
+
+# Set the desired sample size
+sample_size <- 100
+# Generate the correlation matrix
+cor_matrix <- matrix(c(1, correlation, correlation, 1), nrow = 2)
+# Generate the data based on the correlation matrix
+data <- rmvnorm(sample_size, mean = c(mean1, mean2), sigma = cor_matrix)
+
+dat_rich <- as.data.frame(data)
+
+colnames(dat_rich) <-  c("Height", "Weight")
+
+```
+
+
+### In order to examine those assumptions, we will runa. linear regression (we will need it to exmain the distribution of the residuals).
+
+
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+library(gridExtra)
+
+lm_2 <-  lm(Weight ~ Height, data = dat_rich)
+ 
+summary(lm_2)
+```
+
+
+### Lets plot all the figures we need to judge of the Linear regression assumptions are met. 
+
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(gridExtra)
+stand_res <-  as.data.frame(rstandard(lm_2))
+
+
+p_1 <-  ggplot(data = dat_rich, aes(x = Height, y = Weight)) +
+  geom_point(col = "lightblue", size = 3) +
+  geom_smooth(method = "lm", ) +
+  ggtitle("Linearity Assumption")+
+  theme_classic()
+
+
+
+predicted <-  as.data.frame(predict(lm_2, interval = "prediction", level = .95))
+predicted$stand_res <-  stand_res$`rstandard(lm_2)`
+
+p_2 <-   ggplot(data = predicted, aes(fit, stand_res))+
+  geom_point(col = "lightblue")+
+  ggtitle("Homoskedasticity Assumption") +
+  geom_hline(yintercept = 0) + 
+  xlab("Predicted Value of DV") +
+  ylab("Standardized Residuals") +
+  theme_classic()
+
+cook_dat <-  as.data.frame(round(cooks.distance(lm_2), digits = 3))
+cook_dat$id <-  cbind(1:sample_size)
+
+p_3 <-   ggplot(data = cook_dat, aes(x = id, y = `round(cooks.distance(lm_2), digits = 3)`))+
+  geom_point(col = "lightblue")+
+  ggtitle("Outliers Assumption") +
+  geom_hline(yintercept = 0.04) + 
+  xlab("Observation IDs") +
+  ylab("Cooks Distances") +
+  theme_classic()
+
+# Arrange the plots in a grid
+combined_plots <- grid.arrange(p_1, p_2, p_3, layout_matrix = rbind(c(1, NA), c(2, 3)), 
+                               heights = c(3,3), widths = c(5, 5))
+
+
+```
+
+
+### A quick reminder of the way Cooks Distance is computed:
+
 Cook's D(i) = $\frac{{\Delta \hat{y_i}^2}}{{p}} \times \frac{{h_{ii}}}{{(1 - h_{ii})}}$
   
+
+
+### And lastly, (for the statistics nurds among us....😉), here is the model with the standardized coefficients: 
+
+```{r warning=FALSE, message=FALSE}
+scaled_dat_rich <-  as.data.frame(round(scale(dat_rich), digits = 2))
+lm_z_2 <-  lm(scaled_dat_rich$Weight ~scaled_dat_rich$Height)
+
+summary(lm_z_2)
+
+confint.lm(lm_z_2)
+```
