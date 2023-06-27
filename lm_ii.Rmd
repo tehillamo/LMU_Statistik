@@ -116,7 +116,7 @@ And so they did!
 library(shiny)
 library(shinyjs)
 
-knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/3d_LMR/", 
+knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/de971490be754e3ba279fa31eb04b68e/", 
   height = "600px")
 ```
 
