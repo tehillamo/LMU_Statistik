@@ -67,11 +67,40 @@ $\color{red}{Test.Score_{i}} = \color{blue}{{\alpha}} + \color{green}{{\beta_{al
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 set.seed(123)
-dat <- data.frame(
-      "Alcohol.ml" = abs(round(rnorm(30, 30, 10), digit <-  0)),
-      "Study.Hours" = abs(round(rnorm(30, 10, 10), digit <-  0)),
-      "Test.Results" = abs(round(rnorm(30, 50, 10), digit <-  0))
-)
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+# Load the required package
+library(mvtnorm)
+
+# Set the desired correlation coefficient
+correlation <- 0.6
+
+# Set the means and standard deviations for the variables
+mean1 <- 100
+sd1 <- 5
+mean2 <- 65
+sd2 <- 3
+mean3 <- 65
+sd2 <- 3
+
+# Set the desired sample size
+sample_size <- 100
+# Generate the correlation matrix
+cor_matrix <- matrix(c(1, correlation, correlation, 
+                       correlation, 1, correlation, 
+                       correlation, correlation, 1), nrow = 3)
+# Generate the data based on the correlation matrix
+data <- rmvnorm(sample_size, mean = c(mean1, mean2, mean3), sigma = cor_matrix)
+data <- round(data, digits = 1)
+
+dat <- as.data.frame(data)
+
+
+
+colnames(dat) <-  c("Test_Score", "Drink_ml", "Hours_Studied")
+
+dat$Test_Score <-  ifelse(dat$Test_Score>100, 100, dat$Test_Score)
+
 
 dat
 

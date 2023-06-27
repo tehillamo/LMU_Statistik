@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-06-26"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-06-26"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-06-27"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-06-27"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","css"]}},"value":[{"type":"character","attributes":{},"value":["Effectsize(s) in Simple Linear Regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-26"]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"character","attributes":{},"value":["my_css.css"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","css"]}},"value":[{"type":"character","attributes":{},"value":["Effectsize(s) in Simple Linear Regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-06-27"]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"character","attributes":{},"value":["my_css.css"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2103,7 +2103,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Effectsize(s) in Simple Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-26T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Effectsize(s) in Simple Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-27T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2157,7 +2157,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-06-26
+<br/>2023-06-27
 </div>
 
 <div class="d-article">
@@ -2485,18 +2485,18 @@ lm(formula = Weight ~ Height, data = dat_rich)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--1.67964 -0.50972  0.09964  0.51650  2.11942 
+-2.41460 -0.62718 -0.05747  0.65679  2.06540 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  1.75967    7.03212    0.25    0.803    
-Height       0.63260    0.07029    9.00 1.79e-14 ***
+(Intercept)   1.9039     9.2164   0.207    0.837    
+Height        0.6325     0.0921   6.867 6.02e-10 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.713 on 98 degrees of freedom
-Multiple R-squared:  0.4525,    Adjusted R-squared:  0.4469 
-F-statistic: 80.99 on 1 and 98 DF,  p-value: 1.792e-14</code></pre>
+Residual standard error: 0.8906 on 98 degrees of freedom
+Multiple R-squared:  0.3249,    Adjusted R-squared:  0.318 
+F-statistic: 47.16 on 1 and 98 DF,  p-value: 6.025e-10</code></pre>
 </div>
 <h3 id="lets-plot-all-the-figures-we-need-to-judge-of-the-linear-regression-assumptions-are-met.">Lets plot all the figures we need to judge of the Linear regression assumptions are met.</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2557,25 +2557,25 @@ Call:
 lm(formula = scaled_dat_rich$Weight ~ scaled_dat_rich$Height)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--1.7531 -0.5313  0.1019  0.5391  2.2083 
+     Min       1Q   Median       3Q      Max 
+-2.23307 -0.57707 -0.05161  0.60687  1.91631 
 
 Coefficients:
                         Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)            -0.000602   0.074310  -0.008    0.994    
-scaled_dat_rich$Height  0.673298   0.074691   9.014 1.66e-14 ***
+(Intercept)            0.0003569  0.0826192   0.004    0.997    
+scaled_dat_rich$Height 0.5693236  0.0829973   6.860 6.26e-10 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.7431 on 98 degrees of freedom
-Multiple R-squared:  0.4533,    Adjusted R-squared:  0.4477 
-F-statistic: 81.26 on 1 and 98 DF,  p-value: 1.665e-14</code></pre>
+Residual standard error: 0.8262 on 98 degrees of freedom
+Multiple R-squared:  0.3244,    Adjusted R-squared:  0.3175 
+F-statistic: 47.05 on 1 and 98 DF,  p-value: 6.256e-10</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint.lm</a></span><span class='op'>(</span><span class='va'>lm_z_2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>                            2.5 %    97.5 %
-(Intercept)            -0.1480673 0.1468633
-scaled_dat_rich$Height  0.5250761 0.8215208</code></pre>
+(Intercept)            -0.1635982 0.1643121
+scaled_dat_rich$Height  0.4046183 0.7340290</code></pre>
 </div>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
