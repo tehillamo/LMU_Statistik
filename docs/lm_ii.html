@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-06-25"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-06-25"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-06-27"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-06-27"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-25"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-27"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2105,7 +2105,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Multiple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-25T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Multiple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-27T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2159,7 +2159,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky <a href="https://github.com" class="uri">https://github.com</a> (LMU)
   
-<br/>2023-06-25
+<br/>2023-06-27
 </div>
 
 <div class="d-article">
@@ -2187,42 +2187,112 @@ Statistik II
 <p><span class="math inline">\(\color{red}{Test.Score_{i}} = \color{blue}{{\alpha}} + \color{green}{{\beta_{alcohol_ml} \times X_{1} + \beta_{Study.hours} \times X_{2}} + \color{orange}{{\epsilon_{i}}}}\)</span></p>
 <h3 id="here-is-the-data-they-obtained">Here is the data they obtained:</h3>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>   Alcohol.ml Study.Hours Test.Results
-1          24          14           54
-2          28           7           45
-3          46          19           47
-4          31          19           40
-5          31          18           39
-6          47          17           53
-7          35          16           54
-8          17           9           51
-9          23           7           59
-10         26           6           71
-11         42           3           45
-12         34           8           27
-13         34           3           60
-14         31          32           43
-15         24          22           43
-16         48           1           60
-17         35           6           47
-18         10           5           38
-19         37          18           52
-20         25           9           49
-21         19          13           50
-22         28          10           54
-23         20          10           46
-24         23          24           56
-25         24           8           48
-26         13          25           53
-27         38           5           61
-28         32          16           54
-29         19          11           47
-30         43          12           61</code></pre>
+<pre><code>    Test_Score Drink_ml Hours_Studied
+1         99.9     65.1          66.2
+2        100.0     65.6          66.6
+3         99.9     63.8          64.1
+4        100.0     66.1          65.6
+5        100.0     65.1          64.6
+6        100.0     65.4          63.8
+7        100.0     64.5          64.1
+8         99.3     63.8          64.0
+9         99.2     63.5          65.1
+10       100.0     64.4          65.9
+11       100.0     65.1          65.9
+12       100.0     66.2          66.1
+13       100.0     65.0          64.9
+14        99.4     64.2          64.5
+15        99.8     67.0          66.4
+16        98.7     64.2          64.1
+17       100.0     65.2          65.4
+18       100.0     65.3          66.2
+19        99.8     65.9          63.9
+20       100.0     65.3          65.4
+21       100.0     64.6          64.7
+22        98.8     63.8          64.7
+23       100.0     65.4          66.0
+24       100.0     64.5          63.3
+25       100.0     64.4          64.5
+26       100.0     64.7          64.1
+27       100.0     64.9          65.0
+28       100.0     65.0          65.6
+29       100.0     65.6          66.0
+30       100.0     65.2          66.1
+31       100.0     65.9          65.7
+32        99.6     65.9          64.7
+33       100.0     67.0          65.8
+34        98.9     64.1          64.7
+35        99.4     64.3          64.0
+36        99.3     63.8          63.2
+37        99.7     65.6          64.6
+38       100.0     63.7          64.7
+39       100.0     65.5          65.3
+40        98.9     63.7          63.6
+41        99.7     64.0          64.3
+42       100.0     66.4          64.9
+43       100.0     64.9          64.2
+44       100.0     66.4          65.8
+45        99.3     64.0          63.0
+46       100.0     64.2          65.6
+47       100.0     64.4          65.8
+48        98.9     63.1          63.1
+49        98.0     63.6          63.1
+50       100.0     66.8          64.6
+51       100.0     66.0          65.7
+52        99.0     64.5          64.4
+53       100.0     65.1          65.9
+54        99.7     65.6          64.2
+55        99.6     67.5          65.2
+56       100.0     65.5          64.8
+57       100.0     65.4          65.1
+58       100.0     65.6          67.0
+59        99.0     63.8          64.5
+60       100.0     65.4          64.8
+61        99.3     65.8          64.7
+62        99.1     64.5          64.5
+63       100.0     65.6          66.0
+64        99.5     65.0          64.6
+65        99.5     63.8          63.6
+66       100.0     65.8          64.6
+67        99.7     64.4          66.5
+68       100.0     65.3          65.8
+69        99.3     64.2          64.0
+70        99.9     66.3          65.3
+71       100.0     65.6          66.2
+72        99.7     64.4          66.1
+73        99.0     63.9          63.5
+74        98.8     64.3          65.0
+75       100.0     65.9          65.2
+76        99.7     64.2          64.2
+77       100.0     64.9          66.8
+78        99.8     65.0          64.4
+79        99.0     63.6          64.3
+80       100.0     65.2          64.5
+81        99.6     64.7          66.0
+82        99.4     65.1          66.4
+83        99.3     63.5          64.0
+84       100.0     64.6          64.5
+85       100.0     65.4          66.4
+86       100.0     66.1          65.9
+87        99.3     63.4          64.1
+88        99.9     65.3          66.1
+89       100.0     67.0          66.0
+90        98.3     64.2          64.5
+91       100.0     66.3          66.1
+92        98.8     65.3          64.4
+93       100.0     65.2          65.5
+94        99.8     63.7          65.2
+95       100.0     64.9          65.1
+96       100.0     65.7          66.6
+97       100.0     65.4          66.1
+98       100.0     66.2          65.1
+99       100.0     66.2          67.3
+100       99.1     65.0          65.8</code></pre>
 </div>
 <h3 id="in-this-parallel-universe-the-rules-are-often-different-to-ours-but-plotting-your-data-is-just-like-in-our-universe-simply-a-must">In this parallel universe the rules are often different to ours but plotting your data is just like in our universe, simply a must!</h3>
 <p>And so they did!</p>
 <div class="layout-chunk" data-layout="l-body">
-<iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/3d_LMR/?showcase=0" width="624" height="600px" data-external="1">
+<iframe src="https://tehilla-mechera-ostrovsky.shinyapps.io/de971490be754e3ba279fa31eb04b68e/?showcase=0" width="624" height="600px" data-external="1">
 </iframe>
 </div>
 <h3 id="they-also-tested-three-assumptions-before-making-public-statements-about-their-results">They also tested three assumptions before making public statements about their results…</h3>
@@ -2232,28 +2302,28 @@ Statistik II
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mod</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Test.Results</span> <span class='op'>~</span> <span class='va'>Alcohol.ml</span> <span class='op'>+</span> <span class='va'>Study.Hours</span>, data <span class='op'>=</span> <span class='va'>dat</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>mod</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Test_Score</span> <span class='op'>~</span> <span class='va'>Drink_ml</span> <span class='op'>+</span> <span class='va'>Hours_Studied</span>, data <span class='op'>=</span> <span class='va'>dat</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>mod</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
-lm(formula = Test.Results ~ Alcohol.ml + Study.Hours, data = dat)
+lm(formula = Test_Score ~ Drink_ml + Hours_Studied, data = dat)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--24.732  -4.357   1.377   4.963  19.854 
+     Min       1Q   Median       3Q      Max 
+-1.16667 -0.13925  0.04314  0.22749  0.64136 
 
 Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  49.1341     6.0053   8.182 8.71e-09 ***
-Alcohol.ml    0.1263     0.1644   0.768    0.449    
-Study.Hours  -0.2118     0.2186  -0.969    0.341    
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   78.59565    2.81839  27.887  &lt; 2e-16 ***
+Drink_ml       0.18755    0.04572   4.102 8.52e-05 ***
+Hours_Studied  0.13691    0.04417   3.099  0.00254 ** 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 8.708 on 27 degrees of freedom
-Multiple R-squared:  0.05882,   Adjusted R-squared:  -0.01089 
-F-statistic: 0.8437 on 2 and 27 DF,  p-value: 0.4411</code></pre>
+Residual standard error: 0.3593 on 97 degrees of freedom
+Multiple R-squared:  0.3667,    Adjusted R-squared:  0.3537 
+F-statistic: 28.09 on 2 and 97 DF,  p-value: 2.38e-10</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2277,7 +2347,7 @@ F-statistic: 0.8437 on 2 and 27 DF,  p-value: 0.4411</code></pre>
 <span><span class='co'># Create a histogram with density line using ggplot2</span></span>
 <span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>stand_residuals</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>stand_resid</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"lightblue"</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, bins <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>10</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"residuals (standardized)"</span>, y <span class='op'>=</span> <span class='st'>"Frequency"</span>, </span>
 <span>       title <span class='op'>=</span> <span class='st'>"Histogram to Examine Homoskedasticity"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
@@ -2293,7 +2363,7 @@ F-statistic: 0.8437 on 2 and 27 DF,  p-value: 0.4411</code></pre>
 <span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cooks_dist</span>, col<span class='op'>=</span><span class='st'>"lightblue"</span>, pch<span class='op'>=</span><span class='fl'>19</span>, cex<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span></span>
 <span><span class='co'>#add labels to every point</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>cooks_dist</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span><span class='op'>]</span>, labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>30</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>cooks_dist</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span><span class='op'>]</span>, labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>h<span class='op'>=</span><span class='fl'>4</span><span class='op'>/</span><span class='fl'>100</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="lm_ii_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></li>

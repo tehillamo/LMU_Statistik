@@ -67,7 +67,7 @@ $\color{red}{Test.Score_{i}} = \color{blue}{{\alpha}} + \color{green}{{\beta_{al
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 set.seed(123)
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+
 
 # Load the required package
 library(mvtnorm)
@@ -129,7 +129,7 @@ knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/de971490be754
   
   
 ```{r}
-mod <-  lm(Test.Results ~ Alcohol.ml + Study.Hours, data = dat)
+mod <-  lm(Test_Score ~ Drink_ml + Hours_Studied, data = dat)
 summary(mod)
 ```
 
@@ -154,7 +154,7 @@ stand_residuals <-  data.frame(
 # Create a histogram with density line using ggplot2
 ggplot(stand_residuals, aes(x = stand_resid)) +
   geom_histogram(fill = "lightblue", color = "black", bins = 15) +
-  ylim(0, 5) +
+  ylim(0, 10) +
   labs(x = "residuals (standardized)", y = "Frequency", 
        title = "Histogram to Examine Homoskedasticity") +
   theme_classic()
@@ -169,7 +169,7 @@ cooks_dist <-cooks.distance(model = mod)
 
 plot(cooks_dist, col="lightblue", pch=19, cex=2)
 #add labels to every point
-text(x = cooks_dist[1:30], labels=c(1:30))
+text(x = cooks_dist[1:100], labels=c(1:100))
 abline(h=4/100)
 
 ```
