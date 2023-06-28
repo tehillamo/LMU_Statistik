@@ -3,13 +3,14 @@ title: "Distributions in Statistics"
 description: |
   An introduction to Distributions in Statistics.
 author:
-  - name: Nora Jones 
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
+  - name: Tehilla Ostrovsky
+    url: https://github.com 
+    affiliation: LMU
+    #affiliation_url: 
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
+
 
 Here is a list of distributions used in hypothesis testing, along with examples and their parameters:
 
