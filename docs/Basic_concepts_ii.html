@@ -2166,34 +2166,37 @@ Statistik II
 <div class="d-article">
 <p>Here is a list of distributions used in hypothesis testing, along with examples and their parameters:</p>
 <ol type="1">
-<li>Normal Distribution:
-Example: Testing the mean weight of a population.
-Parameters: Mean (μ) and standard deviation (σ).</li>
+<li>Normal Distribution:</li>
 </ol>
+<p>Example: Testing the mean weight of a population.</p>
+<p>Parameters: Mean (μ) and standard deviation (σ).</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="Basic_concepts_ii_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
 <ol start="2" type="1">
-<li>t-Distribution:
-Example: Testing the mean score of a small sample.
-Parameters: Degrees of freedom (df), which depend on the sample size.</li>
+<li>t-Distribution:</li>
 </ol>
+<p>Example: Testing the mean score of a small sample.</p>
+<p>Parameters: Degrees of freedom (df), which depend on the sample size.</p>
+<p>The t-distribution test is used to test the significance of <em>individual coefficients or variables</em> in a statistical model.</p>
+<p>It evaluates the null hypothesis that a specific coefficient is zero, indicating that the corresponding variable has no significant effect on the dependent variable.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="Basic_concepts_ii_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
 <ol start="3" type="1">
-<li>Chi-Square Distribution:
-Example: Testing the independence of categorical variables.
-Parameters: Degrees of freedom (df), which depend on the number of categories being compared.</li>
+<li>Chi-Square Distribution:</li>
 </ol>
+<p>Example: Testing the independence of categorical variables.</p>
+<p>Parameters: Degrees of freedom (df), which depend on the number of categories being compared.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="Basic_concepts_ii_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <ol start="4" type="1">
 <li>F-Distribution:</li>
 </ol>
-<p>Example: Testing the equality of variances in ANOVA OR in linear regression models.
-Parameters: Degrees of freedom for the numerator and denominator (<span class="math inline">\(df_1\)</span>, <span class="math inline">\(df_2\)</span>), which depend on the number of groups being compared.</p>
+<p>Example: Testing the equality of variances in ANOVA OR in linear regression models.</p>
+<p>Parameters: Degrees of freedom for the numerator and denominator (<span class="math inline">\(df_1\)</span>, <span class="math inline">\(df_2\)</span>), which depend on the number of groups being compared.</p>
+<p>In statistical analysis, an omnibus test examines the overall significance of a group of variables or model coefficients rather than evaluating them individually. This comparison among multiple parameters follows an F-distribution.</p>
 <p>In the F-distribution, there are two types of degrees of freedom:</p>
 <ul>
 <li>Numerator degrees of freedom (<span class="math inline">\(df_1\)</span>): This represents the degrees of freedom associated with the variability explained by the model or the effect of interest. In the context of a multiple linear regression, the numerator degrees of freedom are typically associated with the number of predictors or independent variables in the model.</li>
