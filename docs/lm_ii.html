@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-06-27"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-06-27"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-06-28"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-06-28"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-27"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-28"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2105,7 +2105,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Multiple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-27T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Multiple Linear Regression Analysis","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-28T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2159,7 +2159,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky <a href="https://github.com" class="uri">https://github.com</a> (LMU)
   
-<br/>2023-06-27
+<br/>2023-06-28
 </div>
 
 <div class="d-article">
@@ -2332,9 +2332,13 @@ F-statistic: 28.09 on 2 and 97 DF,  p-value: 2.38e-10</code></pre>
 </div>
 <p><img src="lm_ii_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
-<p>The blue line represents a linear trend</p>
+<p>The blue line represents a linear trend.</p>
 <p>The pink line represents a flexible function that describes the data as closely as possible.</p>
-<p>When both lines are close to each other, the linearity assumption can be considered fulfilled (in our example the alcohol wins this competition).</p>
+<p>When both lines are close to each other, the linearity assumption can be considered fulfilled (in our example, none of the variables win this competition).</p>
+<h2 id="again">Again,</h2>
+<p>The <span style="color: blue">blue dashed line</span> shows the <span style="color: blue">expected residuals if the relationship between the predictor and response variable was linear</span>.</p>
+<p>The <span style="color: #FF33AA">pink line</span> shows the <span style="color: #FF33AA">actual residuals.</span></p>
+<p><strong>If the two lines are significantly different, then this is evidence of a nonlinear relationship.</strong></p>
 <ol start="2" type="1">
 <li>The next assumption they tested was the NORMALITY. They plotted a histogram of the residuals. Before plotting these, they remembered (of course) to standardize them.</li>
 </ol>

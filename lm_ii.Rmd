@@ -138,11 +138,21 @@ summary(mod)
 library(car)
 crPlots(mod, ylab = "residuals")
 ```
-The blue line represents a linear trend
+The blue line represents a linear trend. 
 
 The pink line represents a flexible function that describes the data as closely as possible. 
 
-When both lines are close to each other, the linearity assumption can be considered fulfilled (in our example the alcohol wins this competition).
+When both lines are close to each other, the linearity assumption can be considered fulfilled (in our example, none of the variables win this competition).
+
+## Again, 
+
+The <span style="color: blue">blue dashed line</span> shows the  <span style="color: blue">expected residuals if the relationship between the predictor and response variable was linear</span>. 
+
+The <span style="color: #FF33AA">pink line</span> shows the <span style="color: #FF33AA">actual residuals.</span>
+
+
+**If the two lines are significantly different, then this is evidence of a nonlinear relationship.**
+
 
   2) The next assumption they tested was the NORMALITY. They plotted a histogram of the residuals. Before plotting these, they remembered (of course) to standardize them.
   

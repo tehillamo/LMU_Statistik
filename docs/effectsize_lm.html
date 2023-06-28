@@ -2485,18 +2485,18 @@ lm(formula = Weight ~ Height, data = dat_rich)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--2.41460 -0.62718 -0.05747  0.65679  2.06540 
+-1.82836 -0.42573  0.03499  0.46095  1.80204 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   1.9039     9.2164   0.207    0.837    
-Height        0.6325     0.0921   6.867 6.02e-10 ***
+(Intercept) 16.16856    6.24048   2.591    0.011 *  
+Height       0.48845    0.06242   7.826 5.96e-12 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.8906 on 98 degrees of freedom
-Multiple R-squared:  0.3249,    Adjusted R-squared:  0.318 
-F-statistic: 47.16 on 1 and 98 DF,  p-value: 6.025e-10</code></pre>
+Residual standard error: 0.6706 on 98 degrees of freedom
+Multiple R-squared:  0.3846,    Adjusted R-squared:  0.3783 
+F-statistic: 61.24 on 1 and 98 DF,  p-value: 5.96e-12</code></pre>
 </div>
 <h3 id="lets-plot-all-the-figures-we-need-to-judge-of-the-linear-regression-assumptions-are-met.">Lets plot all the figures we need to judge of the Linear regression assumptions are met.</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2558,24 +2558,24 @@ lm(formula = scaled_dat_rich$Weight ~ scaled_dat_rich$Height)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--2.23307 -0.57707 -0.05161  0.60687  1.91631 
+-2.14450 -0.49975  0.04432  0.53988  2.11433 
 
 Coefficients:
                         Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)            0.0003569  0.0826192   0.004    0.997    
-scaled_dat_rich$Height 0.5693236  0.0829973   6.860 6.26e-10 ***
+(Intercept)            8.604e-05  7.884e-02   0.001    0.999    
+scaled_dat_rich$Height 6.201e-01  7.921e-02   7.829 5.85e-12 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.8262 on 98 degrees of freedom
-Multiple R-squared:  0.3244,    Adjusted R-squared:  0.3175 
-F-statistic: 47.05 on 1 and 98 DF,  p-value: 6.256e-10</code></pre>
+Residual standard error: 0.7884 on 98 degrees of freedom
+Multiple R-squared:  0.3848,    Adjusted R-squared:  0.3785 
+F-statistic:  61.3 on 1 and 98 DF,  p-value: 5.854e-12</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint.lm</a></span><span class='op'>(</span><span class='va'>lm_z_2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>                            2.5 %    97.5 %
-(Intercept)            -0.1635982 0.1643121
-scaled_dat_rich$Height  0.4046183 0.7340290</code></pre>
+(Intercept)            -0.1563608 0.1565328
+scaled_dat_rich$Height  0.4629632 0.7773327</code></pre>
 </div>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
