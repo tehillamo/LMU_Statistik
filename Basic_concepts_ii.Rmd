@@ -105,7 +105,7 @@ Example: Testing the equality of variances in ANOVA OR in linear regression mode
 
 Parameters: Degrees of freedom for the numerator and denominator ($df_1$, $df_2$), which depend on the number of groups being compared.
 
-In statistical analysis, an omnibus test examines the overall significance of a group of variables or model coefficients rather than evaluating them individually. This comparison among multiple parameters follows an F-distribution. 
+In statistical analysis, an omnibus (the word "omnibus" comes from Latin and it means "for all" or "including everything) test examines the overall significance of a group of variables or model coefficients rather than evaluating them individually. This comparison among multiple parameters follows an F-distribution. 
 
 In the F-distribution, there are two types of degrees of freedom:
 
