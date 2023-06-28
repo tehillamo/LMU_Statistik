@@ -110,12 +110,12 @@ In statistical analysis, an omnibus (the word "omnibus" comes from Latin and it 
 In the F-distribution, there are two types of degrees of freedom:
 
    - Numerator degrees of freedom ($df_1$): This represents the degrees of freedom associated with the variability explained by the model or the effect of interest. In the context of a multiple linear regression, the numerator degrees of freedom are typically associated with the number of predictors or independent variables in the model.
-  2. Denominator degrees of freedom ($df_2$): This represents the degrees of freedom associated with the variability within the model or the residual error. In a multiple linear regression, the denominator degrees of freedom are often associated with the number of observations minus the number of predictors.
+   
+  - Denominator degrees of freedom ($df_2$): This represents the degrees of freedom associated with the variability within the model or the residual error. In a multiple linear regression, the denominator degrees of freedom are often associated with the number of observations minus the number of predictors.
   
 In summary: The F-distribution is used in hypothesis testing and significance testing in statistical analyses such as analysis of variance (ANOVA) and regression analysis. 
-    - The numerator and denominator degrees of freedom determine the shape and characteristics of the F-distribution. 
-    - The numerator degrees of freedom control the location of the distribution, while the denominator degrees of freedom affect the spread or width of the distribution.
-  
+
+ 
   
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 # Set the seed for reproducibility
