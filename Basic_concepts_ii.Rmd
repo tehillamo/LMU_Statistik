@@ -1,0 +1,168 @@
+---
+title: "Distributions in Statistics"
+description: |
+  An introduction to Distributions in Statistics.
+author:
+  - name: Nora Jones 
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+Here is a list of distributions used in hypothesis testing, along with examples and their parameters:
+
+1) Normal Distribution:
+Example: Testing the mean weight of a population.
+Parameters: Mean (μ) and standard deviation (σ).
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Set the seed for reproducibility
+set.seed(42)
+
+# Generate random numbers from a normal distribution
+data <- rnorm(1000, mean = 100, sd = 15)
+
+# Plot the distribution
+hist(data, freq = FALSE, col = "lightblue",
+     xlab = "IQ Scores", ylab = "Density",
+     main = "Normal Distribution with Mean 100 and SD 15")
+
+# Add a density curve to the plot
+curve(dnorm(x, mean = 100, sd = 15), add = TRUE, col = "darkblue", lwd = 2)
+
+```
+
+
+
+2) t-Distribution:
+Example: Testing the mean score of a small sample.
+Parameters: Degrees of freedom (df), which depend on the sample size.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Set the seed for reproducibility
+set.seed(42)
+
+# Generate random numbers from a t-distribution
+data <- rt(1000, df = 100)
+
+# Plot the distribution
+hist(data, freq = FALSE, col = "lightblue",
+     xlab = "Values", ylab = "Density",
+     main = "t-Distribution with Mean 0 and 100 degrees of freedom")
+
+# Add a density curve to the plot
+curve(dt(x, df = 100), add = TRUE, col = "darkblue", lwd = 2)
+
+```
+
+
+
+
+
+3) Chi-Square Distribution:
+Example: Testing the independence of categorical variables.
+Parameters: Degrees of freedom (df), which depend on the number of categories being compared.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Set the seed for reproducibility
+set.seed(42)
+
+# Generate random numbers from a chi-squared distribution
+data <- rchisq(1000, df = 3)
+
+# Plot the distribution
+hist(data, freq = FALSE, col = "lightblue",
+     xlab = "Values", ylab = "Density",
+     main = "Chi-Squared Distribution with 3 degrees of freedom")
+
+# Add a density curve to the plot
+curve(dchisq(x, df = 3), add = TRUE, col = "darkblue", lwd = 2)
+
+```
+
+
+
+
+
+4) F-Distribution:
+
+Example: Testing the equality of variances in ANOVA OR in linear regression models.
+Parameters: Degrees of freedom for the numerator and denominator ($df_1$, $df_2$), which depend on the number of groups being compared.
+
+In the F-distribution, there are two types of degrees of freedom:
+
+   - Numerator degrees of freedom ($df_1$): This represents the degrees of freedom associated with the variability explained by the model or the effect of interest. In the context of a multiple linear regression, the numerator degrees of freedom are typically associated with the number of predictors or independent variables in the model.
+  2. Denominator degrees of freedom ($df_2$): This represents the degrees of freedom associated with the variability within the model or the residual error. In a multiple linear regression, the denominator degrees of freedom are often associated with the number of observations minus the number of predictors.
+  
+In summary: The F-distribution is used in hypothesis testing and significance testing in statistical analyses such as analysis of variance (ANOVA) and regression analysis. 
+    - The numerator and denominator degrees of freedom determine the shape and characteristics of the F-distribution. 
+    - The numerator degrees of freedom control the location of the distribution, while the denominator degrees of freedom affect the spread or width of the distribution.
+  
+  
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Set the seed for reproducibility
+set.seed(42)
+
+# Generate random numbers from an F-distribution
+data <- rf(1000, df1 = 2, df2 = 100)
+
+# Plot the distribution
+hist(data, freq = FALSE, col = "lightblue",
+     xlab = "Values", ylab = "Density",
+     main = "F-Distribution with 2 numerator df and 100 denominator df")
+
+# Add a density curve to the plot
+curve(df(x, df1 = 2, df2 = 100), add = TRUE, col = "darkblue", lwd = 2)
+
+```
+  
+
+
+
+5) Binomial Distribution:
+Example: Testing the proportion of success/failure outcomes.
+Parameters: Number of trials (n) and probability of success (p).
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Set the seed for reproducibility
+set.seed(42)
+
+# Generate random numbers from a binomial distribution
+data <- rbinom(1000, size = 100, prob = 0.30)
+
+# Plot the distribution
+hist(data, freq = FALSE, col = "lightblue",
+     xlab = "Number of Successes", ylab = "Density",
+     main = "Binomial Distribution (100 Trials, 0.30 Probability of Success)")
+
+# Add a smooth curve to the plot
+x <- seq(0, max(data))
+smooth_density <- density(data, bw = "SJ")
+lines(smooth_density, col = "darkblue", lwd = 2)
+
+```
+
+
+
+6) Poisson Distribution:
+Example: Testing the occurrence of rare events.
+Parameter: Rate parameter (λ), which represents the average rate of event occurrence.
+
+
+7) Exponential Distribution:
+Example: Testing the time between events.
+Parameter: Rate parameter (λ), which represents the average rate of event occurrence.
+
+
+8) Gamma Distribution:
+Example: Testing the shape parameter of a distribution.
+Parameters: Shape parameter (α) and rate parameter (β), which determine the shape and scale of the distribution.
+
+
+
+
+
