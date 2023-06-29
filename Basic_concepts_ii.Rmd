@@ -12,13 +12,13 @@ output: distill::distill_article
 ---
 
 
-Here is a list of distributions used in hypothesis testing, along with examples and their parameters:
+Here is a list of distributions used in hypothesis testing, along with **Example**s and their **Parameters**:
 
 ## 1) Normal Distribution:
 
-Example: Testing the mean weight of a population.
+**Example**: Testing the mean weight of a population.
 
-Parameters: Mean (μ) and standard deviation (σ).
+**Parameters**: Mean (μ) and standard deviation (σ).
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -42,9 +42,9 @@ curve(dnorm(x, mean = 100, sd = 15), add = TRUE, col = "darkblue", lwd = 2)
 
 ## 2) t-Distribution:
 
-Example: Testing the mean score of a small sample.
+**Example**: Testing the mean score of a small sample.
 
-Parameters: Degrees of freedom (df), which depend on the sample size.
+**Parameters**: Degrees of freedom (df), which depend on the sample size.
 
 
 The t-distribution test is used to test the significance of *individual coefficients or variables* in a statistical model. 
@@ -74,9 +74,9 @@ curve(dt(x, df = 100), add = TRUE, col = "darkblue", lwd = 2)
 
 ## 3) Chi-Square Distribution:
 
-Example: Testing the independence of categorical variables.
+**Example**: Testing the independence of categorical variables.
 
-Parameters: Degrees of freedom (df), which depend on the number of categories being compared.
+**Parameters**: Degrees of freedom (df), which depend on the number of categories being compared.
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 # Set the seed for reproducibility
@@ -101,11 +101,11 @@ curve(dchisq(x, df = 3), add = TRUE, col = "darkblue", lwd = 2)
 
 ## 4) F-Distribution:
 
-Example: Testing the equality of variances in ANOVA OR in linear regression models.
+**Example**: Testing the equality of variances in ANOVA OR in linear regression models.
 
-Parameters: Degrees of freedom for the numerator and denominator ($df_1$, $df_2$), which depend on the number of groups being compared.
+**Parameters**: Degrees of freedom for the numerator and denominator ($df_1$, $df_2$), which depend on the number of groups being compared.
 
-In statistical analysis, an omnibus (the word "omnibus" comes from Latin and it means "for all" or "including everything) test examines the overall significance of a group of variables or model coefficients rather than evaluating them individually. This comparison among multiple parameters follows an F-distribution. 
+In statistical analysis, an omnibus (the word "omnibus" comes from Latin and it means "for all" or "including everything) test examines the overall significance of a group of variables or model coefficients rather than evaluating them individually. This comparison among multiple **Parameters** follows an F-distribution. 
 
 In the F-distribution, there are two types of degrees of freedom:
 
@@ -138,8 +138,10 @@ curve(df(x, df1 = 2, df2 = 100), add = TRUE, col = "darkblue", lwd = 2)
 
 
 ## 5) Binomial Distribution:
-Example: Testing the proportion of success/failure outcomes.
-Parameters: Number of trials (n) and probability of success (p).
+
+**Example**: Testing the proportion of success/failure outcomes.
+
+**Parameters**: Number of trials (n) and probability of success (p).
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -165,23 +167,23 @@ lines(smooth_density, col = "darkblue", lwd = 2)
 
 ## 6) Poisson Distribution:
 
-Example: Testing the occurrence of rare events.
+**Example**: Testing the occurrence of rare events.
 
 Parameter: Rate parameter (λ), which represents the average rate of event occurrence.
 
 
 ## 7) Exponential Distribution:
 
-Example: Testing the time between events.
+**Example**: Testing the time between events.
 
-Parameter: Rate parameter (λ), which represents the average rate of event occurrence.
+**Parameter**: Rate parameter (λ), which represents the average rate of event occurrence.
 
 
 ## 8) Gamma Distribution:
 
-Example: Testing the shape parameter of a distribution.
+**Example**: Testing the shape parameter of a distribution.
 
-Parameters: Shape parameter (α) and rate parameter (β), which determine the shape and scale of the distribution.
+**Parameters**: Shape parameter (α) and rate parameter (β), which determine the shape and scale of the distribution.
 
 
 
