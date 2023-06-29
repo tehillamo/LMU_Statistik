@@ -169,7 +169,7 @@ lines(smooth_density, col = "darkblue", lwd = 2)
 
 **Example**: Testing the occurrence of rare events.
 
-Parameter: Rate parameter (λ), which represents the average rate of event occurrence.
+**Parameter**: Rate parameter (λ), which represents the average rate of event occurrence.
 
 
 ## 7) Exponential Distribution:
