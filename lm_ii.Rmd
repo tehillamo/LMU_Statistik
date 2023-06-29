@@ -12,7 +12,7 @@ output: distill::distill_article
 ---
 
 
-Linear models can be extended to include more than one independent variable, and the equation becomes:
+## Linear models can be extended to include more than one independent variable, and the equation becomes:
 
 
 $\color{red}{Y{i}} = \color{blue}{{\alpha}} + \color{green}{{\beta_{1} \times X_{1} + \beta_{2} \times X_{2} + … + \beta_{n} \times X_{n}} + \color{orange}{{\epsilon_{i}}}}$
@@ -35,10 +35,10 @@ Since we also are interested in the distribution of the residuals, we also estim
 
 ### In MLR (Multiple Linear Regression) analysis we ask the following questions:
 
-  1) How much variance, relative to the total variability of the criterion, can all predictors explain together?
-  2) Which predictor has the largest predictive contribution?
-  3) What is the magnitude of the independent predictive contribution of a predictor?
-  4) Does the strength, direction, and interpretation of the effect of a predictor change when considering another predictor compared to the multiple regression?
+  ## 1) How much variance, relative to the total variability of the criterion, can all predictors explain together?
+  ## 2) Which predictor has the largest predictive contribution?
+  ## 3) What is the magnitude of the independent predictive contribution of a predictor?
+  ## 4) Does the strength, direction, and interpretation of the effect of a predictor change when considering another predictor compared to the multiple regression?
   
   
 ## We are going to use a fun(ny) example for this topic.  
@@ -109,7 +109,7 @@ dat
 
 ### In this parallel universe the rules are often different to ours but plotting your data is just like in our universe, simply a must! 
 
-And so they did!
+## And so they did!
 
 
 ```{r echo=FALSE}
@@ -121,10 +121,9 @@ knitr::include_app("https://tehilla-mechera-ostrovsky.shinyapps.io/de971490be754
 ```
 
 
-### They also tested three assumptions before making public statements about their results...
+# They did not forget to test the MLR assumptions before making public statements about their results...
 
-
-  1) They started off with the LINEARITY assumption. To examine this assumption they plotted the residuals of each UV (alcohol in ml and the number of hours spent on studying)
+## 1) They started off with the LINEARITY assumption. To examine this assumption they plotted the residuals of each UV (alcohol in ml and the number of hours spent on studying)
     1.1) First they ran the linear model to be able to tell something about the distribution of the residuals. 
   
   
@@ -154,7 +153,7 @@ The <span style="color: #FF33AA">pink line</span> shows the <span style="color: 
 **If the two lines are significantly different, then this is evidence of a nonlinear relationship.**
 
 
-  2) The next assumption they tested was the NORMALITY. They plotted a histogram of the residuals. Before plotting these, they remembered (of course) to standardize them.
+## 2) The next assumption they tested was the NORMALITY. They plotted a histogram of the residuals. Before plotting these, they remembered (of course) to standardize them.
   
 ```{r}
 library(ggplot2)
@@ -173,7 +172,7 @@ ggplot(stand_residuals, aes(x = stand_resid)) +
   This plot did not make them super happy either.... 
  
  
-  3) lastly, they examined the presence of outliers:
+## 3) lastly, they examined the presence of outliers:
 ```{r}
 cooks_dist <-cooks.distance(model = mod)
 
@@ -184,7 +183,7 @@ abline(h=4/100)
 
 ```
   
-### Following their diagnostic measures, they deicded to eplore other statistical models before making any public conclusions. 
+##
 
 
 
