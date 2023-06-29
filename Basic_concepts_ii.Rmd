@@ -14,7 +14,7 @@ output: distill::distill_article
 
 Here is a list of distributions used in hypothesis testing, along with examples and their parameters:
 
-1) Normal Distribution:
+## 1) Normal Distribution:
 
 Example: Testing the mean weight of a population.
 
@@ -40,7 +40,7 @@ curve(dnorm(x, mean = 100, sd = 15), add = TRUE, col = "darkblue", lwd = 2)
 
 
 
-2) t-Distribution:
+## 2) t-Distribution:
 
 Example: Testing the mean score of a small sample.
 
@@ -72,7 +72,7 @@ curve(dt(x, df = 100), add = TRUE, col = "darkblue", lwd = 2)
 
 
 
-3) Chi-Square Distribution:
+## 3) Chi-Square Distribution:
 
 Example: Testing the independence of categorical variables.
 
@@ -99,7 +99,7 @@ curve(dchisq(x, df = 3), add = TRUE, col = "darkblue", lwd = 2)
 
 
 
-4) F-Distribution:
+## 4) F-Distribution:
 
 Example: Testing the equality of variances in ANOVA OR in linear regression models.
 
@@ -137,7 +137,7 @@ curve(df(x, df1 = 2, df2 = 100), add = TRUE, col = "darkblue", lwd = 2)
 
 
 
-5) Binomial Distribution:
+## 5) Binomial Distribution:
 Example: Testing the proportion of success/failure outcomes.
 Parameters: Number of trials (n) and probability of success (p).
 
@@ -163,18 +163,24 @@ lines(smooth_density, col = "darkblue", lwd = 2)
 
 
 
-6) Poisson Distribution:
+## 6) Poisson Distribution:
+
 Example: Testing the occurrence of rare events.
+
 Parameter: Rate parameter (λ), which represents the average rate of event occurrence.
 
 
-7) Exponential Distribution:
+## 7) Exponential Distribution:
+
 Example: Testing the time between events.
+
 Parameter: Rate parameter (λ), which represents the average rate of event occurrence.
 
 
-8) Gamma Distribution:
+## 8) Gamma Distribution:
+
 Example: Testing the shape parameter of a distribution.
+
 Parameters: Shape parameter (α) and rate parameter (β), which determine the shape and scale of the distribution.
 
 
