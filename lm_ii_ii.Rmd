@@ -1,0 +1,385 @@
+---
+title: "Multiple Linear Regression Analysis - Part II"
+description: |
+  Linear Regression
+author:
+  - name: Tehilla Ostrovsky
+    url: https://github.com 
+    affiliation: LMU
+    #affiliation_url: 
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+## Introduction:
+
+While the traditional understanding of linear regression assumes continuous independent variables, there are scenarios where the independent variables (UV) may be discrete in nature. 
+
+In this blog post we will explore the concept of multiple linear regression with discrete variables and understand how it can be applied to real-world problems.
+
+
+## What are discrete variables? 
+A discrete variable is a type of variable that takes on specific, distinct values with no intermediate values possible between them. These values are typically counted or categorized rather than measured on a continuous scale
+
+## Can you give me some examples?
+  - Gender (e.g., either Male 🧍🏼‍♂️ vs Female🧍🏾‍♀️) 
+  - Ethnicity (e.g., Caucasian, African American, and Asian) 
+  - Occupation (e.g., "Engineer" 👩🏻‍💻 vs. "Teacher" 👨🏻‍🏫  vs. "Salesperson" 🧑🏽‍💼)  
+  
+  
+#### In case we are looking at the effect of such variables, you will need to modify the multiple linear regression model to account for them.
+
+
+## Cool, but how do I code the variables expressions?
+
+Well, depending on how many levels/groups there are, this may change. 
+
+
+
+## A case of a variable with two categorical expressions:
+
+In the case of a discrete predictor with **two categorical expressions (e.g., male vs. female)**, we first establish an arbitrary expression (e.g., male) as the reference category. This reference group will be coded with a 0. For example, if we decided that "male" is our reference group, we will insert 0 if the participant is a male and a 1 if they are identified as female. 
+
+
+So, we define a dummy variable $D_{i}$ as follows:
+
+$D_{i} = 1$, if the person is a female
+
+and
+
+$D_{i} = 0$, if the person is a male
+
+
+## A practical example:
+
+And here is an example of a data set, which includes information about a group of individuals, with each individual identified by a unique ID. 
+
+**ID column**: This variable represents the unique identifier assigned to each individual in the data set.
+
+**Gender Dummy column**: This dummy coded variable indicates whether each person has the color red. It takes a value of 1 if the person has the color red and 0 if not.
+
+**IQ column**: This variable represents the IQ scores of individuals. It provides a measure of intellectual ability or cognitive capacity, with higher values indicating higher IQ scores.
+
+
+**Happiness_Score column**: This variable represents the scores on happiness for each individual. It reflects the subjective assessment of happiness, with higher values indicating higher levels of self-reported happiness.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Load required library
+library(tidyverse)
+
+# Create the data frame
+data_2 <- data.frame(ID = 1:10,
+                   Gender_dummy = c(1, 0, 1, 0, 0, 1, 0, 0, 1, 0),
+                   IQ = c(120, 110, 125, 105, 95, 115, 100, 130, 125, 105),
+                   Happiness_Score = c(8, 7, 9, 6, 5, 8, 6, 9, 7, 6))
+
+# Print the data frame
+data_2 <- as.data.frame(data_2)
+
+data_2
+```
+
+## OK, but how does the linear model look like with a discrete variable with two expressions?
+
+## The general equation is:
+
+$$Y_{i} = \alpha + \beta_{1} \times D_{1i} +... + \beta_{2} \times D_{2i} +... +\beta_{k-1} \times D_{k-1}  + \epsilon_{i} $$
+
+### For our specific example, therefore, it will bw:
+
+  **1)** For the reference group (we decided on "male"), the model will be:
+
+$$Y_{i} = \alpha + \beta \times 0 + \epsilon_{i}$$
+$$ = \alpha + \epsilon_{i}$$
+
+It follows that **$\alpha$** is the predicted value for this group. 
+
+
+  **2)** For the second group (will be "female"), the model will be: 
+
+$$Y_{i} = \alpha + \beta \times 1 + \epsilon_{i}$$
+$$ = \alpha + \beta +\epsilon_{i}$$
+
+It follows that **$\alpha + \beta$** is the predicted value for this group. 
+
+
+It implies that:
+
+  - If $𝛽 < 0$, then the predicted value for individuals in the reference category is greater than in the other category.
+  - If $𝛽> 0$ , then the predicted value for individuals in the reference category is smaller than in the other category.
+  - If $𝛽 = 0$, then the predicted values for both categories are equal.
+  
+## Lets run a model to learn about it's output:
+
+```{r}
+model_2 <- lm(Happiness_Score ~ Gender_dummy, data = data_2)
+  
+summary(lm(Happiness_Score ~ Gender_dummy, data = data_2))
+
+confint(model_2)
+```
+### We can see the results and learn that:
+
+  - (intercept) = 6.5. 
+    
+    This is the predicted happiness value for males participants.
+    
+  - Gender_dummy = 1.5. 
+    
+    This is the predicted happiness value for females participants is 6.5. + (1 * 1.5) = 8. 
+    
+  - The p-value of the slope (Gender_dummy) is non-significant. 
+    
+    This implies that there is no difference in happiness between men and women.   
+    
+  - The confidence interval for the intercept is [5.37, 7.63], 
+  
+    which implies that, for males, the possible happiness scores lie between 5.37 and 7.63. 
+  
+  - The confidence interval for the slope is [-0.28, 3.28], 
+    
+    which implies that the plausible happiness scores for females lie between -0.28 and 3.28. 
+
+
+
+--- 
+
+## A case of a variable with more than two categorical expressions:
+
+Let's consider an example of a discrete variable with three categories: "Education Level".
+
+We'll define and code the categories as - "High School," 
+                                        - "Bachelor's Degree,"
+                                        - "Master's Degree."
+
+When we create dummy variables to represent these categories, we **assign a value of 1 if an individual belongs to that category and a value of 0 if they do not**.
+
+In the resulting data frame below, if a row has a 0 in both columns "Dummy_HS" and "Dummy_Bachelor" columns, it means that the person does not have a High School education nor a Bachelor's Degree. Essentially, they are not in either of those categories. Instead, they may have a different education level, such as a Master's Degree or some other qualification not represented in the dummy variables.
+
+Therefore, these rows with two zeros (as on rows 3, 6 and 8) indicate individuals who do not fall into the specified categories and should be understood as having a different education level or belonging to an unrepresented category (which is in this case the "high schools degree").
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Load required library
+library(tidyverse)
+
+# Create the data frame
+data <- data.frame(ID = 1:10,
+                   Education_Level = c("Bachelor's Degree", "High School", "Master's Degree", 
+                                       "High School", "Bachelor's Degree", "Master's Degree", 
+                                       "High School", "Master's Degree", "Bachelor's Degree", 
+                                       "High School"),
+                    IQ = c(120, 110, 125, 105, 95, 115, 100, 130, 125, 105),
+                   Happiness_Score = c(8, 7, 9, 6, 5, 8, 6, 9, 7, 6))
+
+# Define and code the dummy variables
+data <- data %>%
+  mutate(Dummy_HS = if_else(Education_Level == "Bachelor's Degree", 1, 0),
+         Dummy_Bachelor = if_else(Education_Level == "Master's Degree", 1, 0))
+
+# Print the data frame
+data_3 <-  as.data.frame(data)
+
+data_3
+
+```
+
+
+
+
+ 
+ 
+  
+### Lets discuss a dummy variable with **more than two** levels/expressions: 
+
+
+ 1) For the reference group (we decided on "high school"), the model will be:
+
+$$Y_{i} = \alpha + \beta_{bachelor} \times 0 + \beta_{masters} \times 0 + \epsilon_{i} $$
+$$ = \alpha + \epsilon_{i}$$
+
+It follows that **$\alpha$** is the predicted value for this group. 
+
+
+  2) For the second group (will be "Bachelor's Degree"), the model will be: 
+
+$$Y_{i} = \alpha + \beta_{bachelor} \times 1 + \beta_{masters} \times 0 + \epsilon_{i}$$
+$$ = \alpha + \beta_{bachelor} + \epsilon_{i}$$
+
+It follows that **$\alpha + \beta_{bachelor}$** is the predicted value for this group. 
+
+
+  3) For the third group (will be "Master's Degree"), the model will be: 
+
+$$Y_{i} = \alpha + \beta_{bachelor} \times 0 + \beta_{masters} \times 1 + \epsilon_{i}$$ 
+$$ = \alpha + \beta_{masters} + \epsilon_{i}$$
+
+It follows that **$\alpha + \beta_{masters}$** is the predicted value for this group.
+
+## Lets run a model to learn about it's output:
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Convert the variable into a factor
+data_3$Education_Level <- factor(data_3$Education_Level, levels = c("High School", 
+                                                          "Bachelor's Degree", 
+                                                          "Master's Degree"))
+
+# Display the levels of the categorical variable
+levels(data_3$Education_Level)
+
+model_3 <- lm(Happiness_Score ~ Education_Level, data = data_3)
+  
+summary(lm(Happiness_Score ~ Education_Level, data = data_3))
+
+confint(model_3)
+```
+
+
+  - (intercept) = 6.25. This is the predicted happiness value for participants with a high school degree.   
+ 
+  - **Education_LevelBachelor's Degree** = .417. 
+  
+    This is the predicted happiness value for participants with a BA degree 
+  $$= 6.25. + (1 * .417) = 6.667$$
+  
+  - **Education_LevelMaster's Degree** = 2.417. 
+    
+    This is the predicted happiness value for participants with a MA degree 
+    $$= 6.25. + (1 * 2.417) = 8.667$$
+
+
+
+## What about a model that combines both discrete and continous variables?
+
+### Great question!
+
+The following statistical model or analysis has two types of predictors: 
+
+  1) one predictor is discrete, meaning it has two possible manifestations or categories.
+  
+  2) a second predictor is continuous, meaning it takes on a range of numerical values.
+
+
+
+### We can use the dataset we have create before and add the IQ scores to predicts participant's hapiness.
+
+### The general model in this case will be:
+
+$$Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{education} \times D_{i} + \epsilon_{i} $$
+
+
+## The specifications of all the other models are:
+
+  **1)** For the **reference group**, which has a **high school** education, the regression model will be:
+
+$$Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{education} \times 0 + \epsilon_{i} $$
+
+Which implies that the predicted value of this group's happiness is 
+
+$$ = \alpha + \beta_{IQ} \times X_{i}$$
+
+
+
+  **2)** For the **second group**, which has a **becholar's degree** , the regression model will be:
+
+$$Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{becholar} \times 1 + \epsilon_{i} $$
+
+
+Which implies that the predicted value of this group's happiness is 
+
+$$ = \alpha + \beta_{IQ} \times X_{i} + \beta_{becholar} \times 1$$
+
+
+  **3)** For the **third group**, which has a **masters's degree** , the regression model will be:
+
+$$Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{masters} \times 1 + \epsilon_{i} $$
+
+Which  implies that the predicted value of this group's happiness is 
+
+$$ = \alpha + \beta_{IQ} \times X_{i} + \beta_{masters} \times 1$$
+
+
+
+## The last question for today is: 🥁
+
+### What about a good-old interaction effect?
+
+
+Lets revert back to our first above, including an interaction effect in a a linear regression model helps us to explore how the relationship between "gender" (reminder: 2 levels - male vs. female) and "happiness" changes, depending on the gender.  
+
+More specifically, in our data set we have gender and IQ as potential predictors. By including an interaction term, we can assess whether the relationship between gender and happiness differs for individuals with different IQ levels. It could show us, for example, that gender has a stronger positive effect on happiness for individuals with avergae IQ scores compared to those with lower/higher IQ scores. 
+
+Overall, the interaction term helps us understand if the relationship between gender and happiness is dependent on an individual's IQ level and if the two factors interact in influencing happiness.
+
+
+
+### Let us define the general model equation:
+ 
+$$Y_{i} = \alpha + \beta_{gender} \times D_{i} + \beta_{IQ} \times X_{i} + \beta_{interaction} \times (X_{i} \times D_{i})+ \epsilon_{i} $$
+
+
+  **1)** For the **reference group**, where $D_{i} = 0$, the model will be:
+  
+$$Y_{i} = \alpha + \beta_{gender} \times D_{i} + \beta_{IQ} \times X_{i} + \beta_{interaction} \times (X_{i} \times D_{i})+ \epsilon_{i} $$
+
+
+$$ = \alpha + \beta_{IQ} \times X_{i} + \beta_{gender} \times 0 + \beta_{interaction}(X_{i} \times 0) $$
+
+$$ = \alpha + \beta_{IQ} \times X_{i} + \epsilon_{i}$$
+
+
+Which implies that the predicted happiness value for the reference group is:
+
+$$= \alpha + \beta_{IQ} \times X_{i}$$
+
+  **2)** For the **second group**, where $D_{i} = 1$, the model will be:
+  
+  $$Y_{i} = \alpha + \beta_{gender} \times D_{i} + \beta_{IQ} \times X_{i} + \beta_{interaction} \times (X_{i} \times D_{i})+ \epsilon_{i} $$
+  
+$$ = \alpha + \beta_{IQ} \times X_{i} + \beta_{gender} \times 1 + \beta_{interaction}(X_{i} \times 1) $$
+
+
+$$ = (\alpha + \beta_{gender}) + (\beta_{IQ} + \beta_{interaction}) \times X_{i} + \epsilon_{i}$$
+
+Which implies that the predicted happiness value for the second group is:
+
+$$ = (\alpha + \beta_{gender}) + (\beta_{IQ} + \beta_{interaction}) \times X_{i}$$
+
+
+
+## Lets compute the model:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+model_int <- lm(Happiness_Score ~ Gender_dummy + IQ + (Gender_dummy * IQ), data = data_2)
+  
+summary(lm(Happiness_Score ~ Gender_dummy + IQ + (Gender_dummy * IQ), data = data_2))
+```
+
+
+
+### The interpretation of the parameters is as follows:
+
+  • $\alpha$: This is the y-intercept in the reference category. 
+  
+  It represents the predicted value for a participant without, who has an IQ of 0... Not really interpretable, isnt it?
+
+  • $\beta_{gender}$: This is the slope parameter in the reference category. 
+  
+  It indicates the expected increase in happiness when a male participant has an increase of 1 point on his IQ test.
+  
+•  $\beta_{IQ}$: This is the difference in intercepts between the two categories. 
+
+  It represents the expected difference in happiness between male and female when their IQ = 0. 
+
+• $\beta_{interaction}$: This is the difference in slope parameters between the reference and other category. 
+
+  It reflects the difference in the "effectiveness" of IQ for male vs. female participants on happiness.
+  
+• $\alpha + \beta_{IQ}$: This is the intercept in the female category. 
+
+  It represents the predicted value for female participants, who have IQ = 0. 
+
+• $\beta_{gender} + \alpha_{IQ}$: This is the slope parameter in the female category. 
+
+It indicates the expected increase in happiness when a female has an increase of 1 point on her IQ test.
