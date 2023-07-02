@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-06-30"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-06-30"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-07-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-07-02"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis - Part II"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-06-30"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Multiple Linear Regression Analysis - Part II"]},{"type":"character","attributes":{},"value":["Linear Regression\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]},{"type":"character","attributes":{},"value":["https://github.com"]},{"type":"character","attributes":{},"value":["LMU"]}]}]},{"type":"character","attributes":{},"value":["2023-07-02"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2105,7 +2105,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Multiple Linear Regression Analysis - Part II","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-06-30T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Multiple Linear Regression Analysis - Part II","description":"Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"https://github.com","affiliation":"LMU","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-07-02T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2161,7 +2161,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky <a href="https://github.com" class="uri">https://github.com</a> (LMU)
   
-<br/>2023-06-30
+<br/>2023-07-02
 </div>
 
 <div class="d-article">
@@ -2190,19 +2190,19 @@ Statistik II
 <p><strong>ID column</strong>: This variable represents the unique identifier assigned to each individual in the data set.</p>
 <p><strong>Gender Dummy column</strong>: This dummy coded variable indicates whether each person has the color red. It takes a value of 1 if the person has the color red and 0 if not.</p>
 <p><strong>IQ column</strong>: This variable represents the IQ scores of individuals. It provides a measure of intellectual ability or cognitive capacity, with higher values indicating higher IQ scores.</p>
-<p><strong>Happiness_Score column</strong>: This variable represents the scores on happiness for each individual. It reflects the subjective assessment of happiness, with higher values indicating higher levels of self-reported happiness.</p>
+<p>**Monthly Salary _Score column**: This variable represents the scores on Monthly Salary for each individual. It reflects the subjective assessment of Monthly Salary , with higher values indicating higher levels of self-reported Monthly Salary .</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>   ID Gender_dummy  IQ Happiness_Score
-1   1            1 120               8
-2   2            0 110               7
-3   3            1 125               9
-4   4            0 105               6
-5   5            0  95               5
-6   6            1 115               8
-7   7            0 100               6
-8   8            0 130               9
-9   9            1 125               7
-10 10            0 105               6</code></pre>
+<pre><code>   ID Gender_dummy  IQ Salary_month
+1   1            1 120            8
+2   2            0 110            7
+3   3            1 125            9
+4   4            0 105            6
+5   5            0  95            5
+6   6            1 115            8
+7   7            0 100            6
+8   8            0 130            9
+9   9            1 125            7
+10 10            0 105            6</code></pre>
 </div>
 <h2 id="ok-but-how-does-the-linear-model-look-like-with-a-discrete-variable-with-two-expressions">OK, but how does the linear model look like with a discrete variable with two expressions?</h2>
 <h2 id="the-general-equation-is">The general equation is:</h2>
@@ -2225,13 +2225,13 @@ Statistik II
 <h2 id="lets-run-a-model-to-learn-about-its-output">Lets run a model to learn about it’s output:</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>model_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Happiness_Score</span> <span class='op'>~</span> <span class='va'>Gender_dummy</span>, data <span class='op'>=</span> <span class='va'>data_2</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>model_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Salary_month</span> <span class='op'>~</span> <span class='va'>Gender_dummy</span>, data <span class='op'>=</span> <span class='va'>data_2</span><span class='op'>)</span></span>
 <span>  </span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Happiness_Score</span> <span class='op'>~</span> <span class='va'>Gender_dummy</span>, data <span class='op'>=</span> <span class='va'>data_2</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Salary_month</span> <span class='op'>~</span> <span class='va'>Gender_dummy</span>, data <span class='op'>=</span> <span class='va'>data_2</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
-lm(formula = Happiness_Score ~ Gender_dummy, data = data_2)
+lm(formula = Salary_month ~ Gender_dummy, data = data_2)
 
 Residuals:
    Min     1Q Median     3Q    Max 
@@ -2257,15 +2257,15 @@ Gender_dummy -0.2846719 3.284672</code></pre>
 <h3 id="we-can-see-the-results-and-learn-that">We can see the results and learn that:</h3>
 <ul>
 <li><p>(intercept) = 6.5.</p>
-<p>This is the predicted happiness value for males participants.</p></li>
+<p>This is the predicted Monthly Salary value for males participants.</p></li>
 <li><p>Gender_dummy = 1.5.</p>
-<p>This is the predicted happiness value for females participants is 6.5. + (1 * 1.5) = 8.</p></li>
+<p>This is the predicted Monthly Salary value for females participants is 6.5. + (1 * 1.5) = 8.</p></li>
 <li><p>The p-value of the slope (Gender_dummy) is non-significant.</p>
-<p>This implies that there is no difference in happiness between men and women.</p></li>
+<p>This implies that there is no difference in Monthly Salary between men and women.</p></li>
 <li><p>The confidence interval for the intercept is [5.37, 7.63],</p>
-<p>which implies that, for males, the possible happiness scores lie between 5.37 and 7.63.</p></li>
+<p>which implies that, for males, the possible Monthly Salary scores lie between 5.37 and 7.63.</p></li>
 <li><p>The confidence interval for the slope is [-0.28, 3.28],</p>
-<p>which implies that the plausible happiness scores for females lie between -0.28 and 3.28.</p></li>
+<p>which implies that the plausible Monthly Salary scores for females lie between -0.28 and 3.28.</p></li>
 </ul>
 <hr />
 <h2 id="a-case-of-a-variable-with-more-than-two-categorical-expressions">A case of a variable with more than two categorical expressions:</h2>
@@ -2277,17 +2277,17 @@ Gender_dummy -0.2846719 3.284672</code></pre>
 <p>In the resulting data frame below, if a row has a 0 in both columns “Dummy_HS” and “Dummy_Bachelor” columns, it means that the person does not have a High School education nor a Bachelor’s Degree. Essentially, they are not in either of those categories. Instead, they may have a different education level, such as a Master’s Degree or some other qualification not represented in the dummy variables.</p>
 <p>Therefore, these rows with two zeros (as on rows 3, 6 and 8) indicate individuals who do not fall into the specified categories and should be understood as having a different education level or belonging to an unrepresented category (which is in this case the “high schools degree”).</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>   ID   Education_Level  IQ Happiness_Score Dummy_HS Dummy_Bachelor
-1   1 Bachelor&#39;s Degree 120               8        1              0
-2   2       High School 110               7        0              0
-3   3   Master&#39;s Degree 125               9        0              1
-4   4       High School 105               6        0              0
-5   5 Bachelor&#39;s Degree  95               5        1              0
-6   6   Master&#39;s Degree 115               8        0              1
-7   7       High School 100               6        0              0
-8   8   Master&#39;s Degree 130               9        0              1
-9   9 Bachelor&#39;s Degree 125               7        1              0
-10 10       High School 105               6        0              0</code></pre>
+<pre><code>   ID   Education_Level  IQ Salary_month Dummy_HS Dummy_Bachelor
+1   1 Bachelor&#39;s Degree 120         8000        1              0
+2   2       High School 110         7000        0              0
+3   3   Master&#39;s Degree 125         9000        0              1
+4   4       High School 105         6000        0              0
+5   5 Bachelor&#39;s Degree  95         5000        1              0
+6   6   Master&#39;s Degree 115         4000        0              1
+7   7       High School 100         2500        0              0
+8   8   Master&#39;s Degree 130         9000        0              1
+9   9 Bachelor&#39;s Degree 125         3000        1              0
+10 10       High School 105         2000        0              0</code></pre>
 </div>
 <h3 id="lets-discuss-a-dummy-variable-with-more-than-two-levelsexpressions">Lets discuss a dummy variable with <strong>more than two</strong> levels/expressions:</h3>
 <ol type="1">
@@ -2313,39 +2313,39 @@ Gender_dummy -0.2846719 3.284672</code></pre>
 <pre><code>[1] &quot;High School&quot;       &quot;Bachelor&#39;s Degree&quot; &quot;Master&#39;s Degree&quot;  </code></pre>
 <pre><code>
 Call:
-lm(formula = Happiness_Score ~ Education_Level, data = data_3)
+lm(formula = Salary_month ~ Education_Level, data = data_3)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--1.66667 -0.25000  0.04167  0.33333  1.33333 
+    Min      1Q  Median      3Q     Max 
+-3333.3 -2218.8   645.8  1666.7  2666.7 
 
 Coefficients:
                                  Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept)                        6.2500     0.4661  13.409 3.01e-06
-Education_LevelBachelor&#39;s Degree   0.4167     0.7120   0.585   0.5768
-Education_LevelMaster&#39;s Degree     2.4167     0.7120   3.394   0.0115
-                                    
-(Intercept)                      ***
-Education_LevelBachelor&#39;s Degree    
-Education_LevelMaster&#39;s Degree   *  
+(Intercept)                        4375.0     1309.6   3.341   0.0124
+Education_LevelBachelor&#39;s Degree    958.3     2000.4   0.479   0.6465
+Education_LevelMaster&#39;s Degree     2958.3     2000.4   1.479   0.1827
+                                  
+(Intercept)                      *
+Education_LevelBachelor&#39;s Degree  
+Education_LevelMaster&#39;s Degree    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.9322 on 7 degrees of freedom
-Multiple R-squared:   0.64, Adjusted R-squared:  0.5372 
-F-statistic: 6.223 on 2 and 7 DF,  p-value: 0.02798</code></pre>
-<pre><code>                                      2.5 %   97.5 %
-(Intercept)                       5.1478164 7.352184
-Education_LevelBachelor&#39;s Degree -1.2669465 2.100280
-Education_LevelMaster&#39;s Degree    0.7330535 4.100280</code></pre>
+Residual standard error: 2619 on 7 degrees of freedom
+Multiple R-squared:  0.2405,    Adjusted R-squared:  0.02347 
+F-statistic: 1.108 on 2 and 7 DF,  p-value: 0.3819</code></pre>
+<pre><code>                                     2.5 %   97.5 %
+(Intercept)                       1278.308 7471.692
+Education_LevelBachelor&#39;s Degree -3771.941 5688.608
+Education_LevelMaster&#39;s Degree   -1771.941 7688.608</code></pre>
 </div>
 <ul>
-<li><p>(intercept) = 6.25. This is the predicted happiness value for participants with a high school degree.</p></li>
+<li><p>(intercept) = 6.25. This is the predicted Monthly Salary value for participants with a high school degree.</p></li>
 <li><p><strong>Education_LevelBachelor’s Degree</strong> = .417.</p>
-<p>This is the predicted happiness value for participants with a BA degree
+<p>This is the predicted Monthly Salary value for participants with a BA degree
 <span class="math display">\[= 6.25. + (1 * .417) = 6.667\]</span></p></li>
 <li><p><strong>Education_LevelMaster’s Degree</strong> = 2.417.</p>
-<p>This is the predicted happiness value for participants with a MA degree
+<p>This is the predicted Monthly Salary value for participants with a MA degree
 <span class="math display">\[= 6.25. + (1 * 2.417) = 8.667\]</span></p></li>
 </ul>
 <h2 id="what-about-a-model-that-combines-both-discrete-and-continous-variables">What about a model that combines both discrete and continous variables?</h2>
@@ -2361,40 +2361,40 @@ Education_LevelMaster&#39;s Degree    0.7330535 4.100280</code></pre>
 <h2 id="the-specifications-of-all-the-other-models-are">The specifications of all the other models are:</h2>
 <p><strong>1)</strong> For the <strong>reference group</strong>, which has a <strong>high school</strong> education, the regression model will be:</p>
 <p><span class="math display">\[Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{education} \times 0 + \epsilon_{i} \]</span></p>
-<p>Which implies that the predicted value of this group’s happiness is</p>
+<p>Which implies that the predicted value of this group’s Monthly Salary is</p>
 <p><span class="math display">\[ = \alpha + \beta_{IQ} \times X_{i}\]</span></p>
 <p><strong>2)</strong> For the <strong>second group</strong>, which has a <strong>becholar’s degree</strong> , the regression model will be:</p>
 <p><span class="math display">\[Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{becholar} \times 1 + \epsilon_{i} \]</span></p>
-<p>Which implies that the predicted value of this group’s happiness is</p>
+<p>Which implies that the predicted value of this group’s Monthly Salary is</p>
 <p><span class="math display">\[ = \alpha + \beta_{IQ} \times X_{i} + \beta_{becholar} \times 1\]</span></p>
 <p><strong>3)</strong> For the <strong>third group</strong>, which has a <strong>masters’s degree</strong> , the regression model will be:</p>
 <p><span class="math display">\[Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{masters} \times 1 + \epsilon_{i} \]</span></p>
-<p>Which implies that the predicted value of this group’s happiness is</p>
+<p>Which implies that the predicted value of this group’s Monthly Salary is</p>
 <p><span class="math display">\[ = \alpha + \beta_{IQ} \times X_{i} + \beta_{masters} \times 1\]</span></p>
 <h2 id="the-last-question-for-today-is">The last question for today is: 🥁</h2>
 <h3 id="what-about-a-good-old-interaction-effect">What about a good-old interaction effect?</h3>
-<p>Lets revert back to our first above, including an interaction effect in a a linear regression model helps us to explore how the relationship between “gender” (reminder: 2 levels - male vs. female) and “happiness” changes, depending on the gender.</p>
-<p>More specifically, in our data set we have gender and IQ as potential predictors. By including an interaction term, we can assess whether the relationship between gender and happiness differs for individuals with different IQ levels. It could show us, for example, that gender has a stronger positive effect on happiness for individuals with avergae IQ scores compared to those with lower/higher IQ scores.</p>
-<p>Overall, the interaction term helps us understand if the relationship between gender and happiness is dependent on an individual’s IQ level and if the two factors interact in influencing happiness.</p>
+<p>Lets revert back to our first above, including an interaction effect in a a linear regression model helps us to explore how the relationship between “gender” (reminder: 2 levels - male vs. female) and “Monthly Salary” changes, depending on the gender.</p>
+<p>More specifically, in our data set we have gender and IQ as potential predictors. By including an interaction term, we can assess whether the relationship between gender and Monthly Salary differs for individuals with different IQ levels. It could show us, for example, that gender has a stronger positive effect on Monthly Salary for individuals with avergae IQ scores compared to those with lower/higher IQ scores.</p>
+<p>Overall, the interaction term helps us understand if the relationship between gender and Monthly Salary is dependent on an individual’s IQ level and if the two factors interact in influencing Monthly Salary .</p>
 <h3 id="let-us-define-the-general-model-equation">Let us define the general model equation:</h3>
 <p><span class="math display">\[Y_{i} = \alpha + \beta_{gender} \times D_{i} + \beta_{IQ} \times X_{i} + \beta_{interaction} \times (X_{i} \times D_{i})+ \epsilon_{i} \]</span></p>
 <p><strong>1)</strong> For the <strong>reference group</strong>, where <span class="math inline">\(D_{i} = 0\)</span>, the model will be:</p>
 <p><span class="math display">\[Y_{i} = \alpha + \beta_{gender} \times D_{i} + \beta_{IQ} \times X_{i} + \beta_{interaction} \times (X_{i} \times D_{i})+ \epsilon_{i} \]</span></p>
 <p><span class="math display">\[ = \alpha + \beta_{IQ} \times X_{i} + \beta_{gender} \times 0 + \beta_{interaction}(X_{i} \times 0) \]</span></p>
 <p><span class="math display">\[ = \alpha + \beta_{IQ} \times X_{i} + \epsilon_{i}\]</span></p>
-<p>Which implies that the predicted happiness value for the reference group is:</p>
+<p>Which implies that the predicted Monthly Salary value for the reference group is:</p>
 <p><span class="math display">\[= \alpha + \beta_{IQ} \times X_{i}\]</span></p>
 <p><strong>2)</strong> For the <strong>second group</strong>, where <span class="math inline">\(D_{i} = 1\)</span>, the model will be:</p>
 <p><span class="math display">\[Y_{i} = \alpha + \beta_{gender} \times D_{i} + \beta_{IQ} \times X_{i} + \beta_{interaction} \times (X_{i} \times D_{i})+ \epsilon_{i} \]</span></p>
 <p><span class="math display">\[ = \alpha + \beta_{IQ} \times X_{i} + \beta_{gender} \times 1 + \beta_{interaction}(X_{i} \times 1) \]</span></p>
 <p><span class="math display">\[ = (\alpha + \beta_{gender}) + (\beta_{IQ} + \beta_{interaction}) \times X_{i} + \epsilon_{i}\]</span></p>
-<p>Which implies that the predicted happiness value for the second group is:</p>
+<p>Which implies that the predicted Monthly Salary value for the second group is:</p>
 <p><span class="math display">\[ = (\alpha + \beta_{gender}) + (\beta_{IQ} + \beta_{interaction}) \times X_{i}\]</span></p>
 <h2 id="lets-compute-the-model">Lets compute the model:</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>
 Call:
-lm(formula = Happiness_Score ~ Gender_dummy + IQ + (Gender_dummy * 
+lm(formula = Salary_month ~ Gender_dummy + IQ + (Gender_dummy * 
     IQ), data = data_2)
 
 Residuals:
@@ -2413,21 +2413,26 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 0.6152 on 6 degrees of freedom
 Multiple R-squared:  0.8656,    Adjusted R-squared:  0.7984 
 F-statistic: 12.88 on 3 and 6 DF,  p-value: 0.005034</code></pre>
+<pre><code>                       2.5 %     97.5 %
+(Intercept)     -11.51635046  0.4655030
+Gender_dummy     -9.30238066 36.3532281
+IQ                0.05642889  0.1672999
+Gender_dummy:IQ  -0.30170391  0.0779751</code></pre>
 </div>
 <h3 id="the-interpretation-of-the-parameters-is-as-follows">The interpretation of the parameters is as follows:</h3>
 <p>• <span class="math inline">\(\alpha\)</span>: This is the y-intercept in the reference category.</p>
-<p>It represents the predicted value for a participant without, who has an IQ of 0… Not really interpretable, isnt it?</p>
+<p>It represents the predicted salary for a participant without, who has an IQ of 0… Not really interpretable, is it?</p>
 <p>• <span class="math inline">\(\beta_{gender}\)</span>: This is the slope parameter in the reference category.</p>
-<p>It indicates the expected increase in happiness when a male participant has an increase of 1 point on his IQ test.</p>
+<p>It indicates the expected increase in Monthly Salary when a male participant has an increase of 1 point on his IQ test.</p>
 <p>• <span class="math inline">\(\beta_{IQ}\)</span>: This is the difference in intercepts between the two categories.</p>
-<p>It represents the expected difference in happiness between male and female when their IQ = 0.</p>
+<p>It represents the expected difference in Monthly Salary between male and female when their IQ = 0.</p>
 <p>• <span class="math inline">\(\beta_{interaction}\)</span>: This is the difference in slope parameters between the reference and other category.</p>
-<p>It reflects the difference in the “effectiveness” of IQ for male vs. female participants on happiness.</p>
+<p>It reflects the difference in the “effectiveness” of IQ for male vs. female participants on Monthly Salary .</p>
 <p>• <span class="math inline">\(\alpha + \beta_{IQ}\)</span>: This is the intercept in the female category.</p>
 <p>It represents the predicted value for female participants, who have IQ = 0.</p>
 <p>• <span class="math inline">\(\beta_{gender} + \alpha_{IQ}\)</span>: This is the slope parameter in the female category.</p>
-<p>It indicates the expected increase in happiness when a female has an increase of 1 point on her IQ test.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>It indicates the expected increase in Monthly Salary when a female has an increase of 1 point on her IQ test.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
