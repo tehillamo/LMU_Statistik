@@ -71,7 +71,7 @@ library(tidyverse)
 data_2 <- data.frame(ID = 1:10,
                    Gender_dummy = c(1, 0, 1, 0, 0, 1, 0, 0, 1, 0),
                    IQ = c(120, 110, 125, 105, 95, 115, 100, 130, 125, 105),
-                   Salary_month = c(8, 7, 9, 6, 5, 8, 6, 9, 7, 6))
+                   Salary_month = c(8000, 7000, 9000, 6000, 5000, 4000, 2500, 9000, 3000, 2000))
 
 # Print the data frame
 data_2 <- as.data.frame(data_2)
@@ -85,7 +85,7 @@ data_2
 
 $$Y_{i} = \alpha + \beta_{1} \times D_{1i} +... + \beta_{2} \times D_{2i} +... +\beta_{k-1} \times D_{k-1}  + \epsilon_{i} $$
 
-### For our specific example, therefore, it will bw:
+### For our specific example, therefore, it will be:
 
   **1)** For the reference group (we decided on "male"), the model will be:
 
@@ -103,7 +103,7 @@ $$ = \alpha + \beta +\epsilon_{i}$$
 It follows that **$\alpha + \beta$** is the predicted value for this group. 
 
 
-It implies that:
+It also implies that:
 
   - If $𝛽 < 0$, then the predicted value for individuals in the reference category is greater than in the other category.
   - If $𝛽> 0$ , then the predicted value for individuals in the reference category is smaller than in the other category.
@@ -120,25 +120,25 @@ confint(model_2)
 ```
 ### We can see the results and learn that:
 
-  - (intercept) = 6.5. 
+  - (intercept) = 5250.  
     
-    This is the predicted Monthly Salary  value for males participants.
+    This is the predicted Monthly Salary value for males participants.
     
-  - Gender_dummy = 1.5. 
+  - Gender_dummy = 750. 
     
-    This is the predicted Monthly Salary  value for females participants is 6.5. + (1 * 1.5) = 8. 
+    This is the predicted Monthly Salary value for females participants is 5250 + (1 * 750) = 6000.
     
   - The p-value of the slope (Gender_dummy) is non-significant. 
     
     This implies that there is no difference in Monthly Salary  between men and women.   
     
-  - The confidence interval for the intercept is [5.37, 7.63]. 
+  - The confidence interval for the intercept is [2631.835, 7868.165]. 
   
-    which implies that, for males, the possible Monthly Salary  scores lie between 5.37 and 7.63. 
+    which implies that, for males, the possible Monthly Salary scores lie between 2631.835 and 7868.165. 
   
-  - The confidence interval for the slope is [-0.28, 3.28]. 
+  - The confidence interval for the slope is [-3389.683, 4889.683]. 
     
-    which implies that the plausible Monthly Salary  scores for females lie between -0.28 and 3.28. 
+    which implies that the plausible Monthly Salary scores for females lie between -3389.683 and  4889.683. 
 
 
 
@@ -236,17 +236,19 @@ confint(model_3)
 ```
 
 
-  - (intercept) = 6.25. This is the predicted Monthly Salary  value for participants with a high school degree.   
+  - (intercept) = 4,375. 
+    
+    This is the predicted Monthly Salary  value for participants with a high school degree.   
  
-  - **Education_LevelBachelor's Degree** = .417. 
+  - **Education_LevelBachelor's Degree** = 958.3. 
   
-    This is the predicted Monthly Salary  value for participants with a BA degree 
-  $$= 6.25. + (1 * .417) = 6.667$$
+    This is the predicted Monthly Salary value for participants with a BA degree 
+  $$= 4,375 + (1 * 958.3) = 5,333.33$$
   
   - **Education_LevelMaster's Degree** = 2.417. 
     
     This is the predicted Monthly Salary  value for participants with a MA degree 
-    $$= 6.25. + (1 * 2.417) = 8.667$$
+    $$= 4,375.0 + (1 * 2958.3) = 7,333.3$$
 
 
 

@@ -2193,21 +2193,21 @@ Statistik II
 <p>**Monthly Salary _Score column**: This variable represents the scores on Monthly Salary for each individual. It reflects the subjective assessment of Monthly Salary , with higher values indicating higher levels of self-reported Monthly Salary .</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>   ID Gender_dummy  IQ Salary_month
-1   1            1 120            8
-2   2            0 110            7
-3   3            1 125            9
-4   4            0 105            6
-5   5            0  95            5
-6   6            1 115            8
-7   7            0 100            6
-8   8            0 130            9
-9   9            1 125            7
-10 10            0 105            6</code></pre>
+1   1            1 120         8000
+2   2            0 110         7000
+3   3            1 125         9000
+4   4            0 105         6000
+5   5            0  95         5000
+6   6            1 115         4000
+7   7            0 100         2500
+8   8            0 130         9000
+9   9            1 125         3000
+10 10            0 105         2000</code></pre>
 </div>
 <h2 id="ok-but-how-does-the-linear-model-look-like-with-a-discrete-variable-with-two-expressions">OK, but how does the linear model look like with a discrete variable with two expressions?</h2>
 <h2 id="the-general-equation-is">The general equation is:</h2>
 <p><span class="math display">\[Y_{i} = \alpha + \beta_{1} \times D_{1i} +... + \beta_{2} \times D_{2i} +... +\beta_{k-1} \times D_{k-1}  + \epsilon_{i} \]</span></p>
-<h3 id="for-our-specific-example-therefore-it-will-bw">For our specific example, therefore, it will bw:</h3>
+<h3 id="for-our-specific-example-therefore-it-will-be">For our specific example, therefore, it will be:</h3>
 <p><strong>1)</strong> For the reference group (we decided on “male”), the model will be:</p>
 <p><span class="math display">\[Y_{i} = \alpha + \beta \times 0 + \epsilon_{i}\]</span>
 <span class="math display">\[ = \alpha + \epsilon_{i}\]</span></p>
@@ -2216,7 +2216,7 @@ Statistik II
 <p><span class="math display">\[Y_{i} = \alpha + \beta \times 1 + \epsilon_{i}\]</span>
 <span class="math display">\[ = \alpha + \beta +\epsilon_{i}\]</span></p>
 <p>It follows that <strong><span class="math inline">\(\alpha + \beta\)</span></strong> is the predicted value for this group.</p>
-<p>It implies that:</p>
+<p>It also implies that:</p>
 <ul>
 <li>If <span class="math inline">\(𝛽 &lt; 0\)</span>, then the predicted value for individuals in the reference category is greater than in the other category.</li>
 <li>If <span class="math inline">\(𝛽&gt; 0\)</span> , then the predicted value for individuals in the reference category is smaller than in the other category.</li>
@@ -2235,43 +2235,43 @@ lm(formula = Salary_month ~ Gender_dummy, data = data_2)
 
 Residuals:
    Min     1Q Median     3Q    Max 
--1.500 -0.500 -0.250  0.375  2.500 
+ -3250  -2562    250   1938   3750 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    6.5000     0.4895  13.280 9.87e-07 ***
-Gender_dummy   1.5000     0.7739   1.938   0.0886 .  
+             Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)      5250       1135   4.624   0.0017 **
+Gender_dummy      750       1795   0.418   0.6871   
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 1.199 on 8 degrees of freedom
-Multiple R-squared:  0.3195,    Adjusted R-squared:  0.2345 
-F-statistic: 3.757 on 1 and 8 DF,  p-value: 0.0886</code></pre>
+Residual standard error: 2781 on 8 degrees of freedom
+Multiple R-squared:  0.02135,   Adjusted R-squared:  -0.101 
+F-statistic: 0.1745 on 1 and 8 DF,  p-value: 0.6871</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>model_2</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>                  2.5 %   97.5 %
-(Intercept)   5.3712744 7.628726
-Gender_dummy -0.2846719 3.284672</code></pre>
+<pre><code>                 2.5 %   97.5 %
+(Intercept)   2631.835 7868.165
+Gender_dummy -3389.683 4889.683</code></pre>
 </div>
 <h3 id="we-can-see-the-results-and-learn-that">We can see the results and learn that:</h3>
 <ul>
-<li><p>(intercept) = 6.5.</p>
+<li><p>(intercept) = 5250.</p>
 <p>This is the predicted Monthly Salary value for males participants.</p></li>
-<li><p>Gender_dummy = 1.5.</p>
-<p>This is the predicted Monthly Salary value for females participants is 6.5. + (1 * 1.5) = 8.</p></li>
+<li><p>Gender_dummy = 750.</p>
+<p>This is the predicted Monthly Salary value for females participants is 5250 + (1 * 750) = 6000.</p></li>
 <li><p>The p-value of the slope (Gender_dummy) is non-significant.</p>
 <p>This implies that there is no difference in Monthly Salary between men and women.</p></li>
-<li><p>The confidence interval for the intercept is [5.37, 7.63],</p>
-<p>which implies that, for males, the possible Monthly Salary scores lie between 5.37 and 7.63.</p></li>
-<li><p>The confidence interval for the slope is [-0.28, 3.28],</p>
-<p>which implies that the plausible Monthly Salary scores for females lie between -0.28 and 3.28.</p></li>
+<li><p>The confidence interval for the intercept is [2631.835, 7868.165].</p>
+<p>which implies that, for males, the possible Monthly Salary scores lie between 2631.835 and 7868.165.</p></li>
+<li><p>The confidence interval for the slope is [-3389.683, 4889.683].</p>
+<p>which implies that the plausible Monthly Salary scores for females lie between -3389.683 and 4889.683.</p></li>
 </ul>
 <hr />
 <h2 id="a-case-of-a-variable-with-more-than-two-categorical-expressions">A case of a variable with more than two categorical expressions:</h2>
 <p>Let’s consider an example of a discrete variable with three categories: “Education Level”.</p>
-<p>We’ll define and code the categories as - “High School,”
-- “Bachelor’s Degree,”
+<p>We’ll define and code the categories as - “High School”
+- “Bachelor’s Degree”
 - “Master’s Degree.”</p>
 <p>When we create dummy variables to represent these categories, we <strong>assign a value of 1 if an individual belongs to that category and a value of 0 if they do not</strong>.</p>
 <p>In the resulting data frame below, if a row has a 0 in both columns “Dummy_HS” and “Dummy_Bachelor” columns, it means that the person does not have a High School education nor a Bachelor’s Degree. Essentially, they are not in either of those categories. Instead, they may have a different education level, such as a Master’s Degree or some other qualification not represented in the dummy variables.</p>
@@ -2340,13 +2340,14 @@ Education_LevelBachelor&#39;s Degree -3771.941 5688.608
 Education_LevelMaster&#39;s Degree   -1771.941 7688.608</code></pre>
 </div>
 <ul>
-<li><p>(intercept) = 6.25. This is the predicted Monthly Salary value for participants with a high school degree.</p></li>
-<li><p><strong>Education_LevelBachelor’s Degree</strong> = .417.</p>
+<li><p>(intercept) = 4,375.</p>
+<p>This is the predicted Monthly Salary value for participants with a high school degree.</p></li>
+<li><p><strong>Education_LevelBachelor’s Degree</strong> = 958.3.</p>
 <p>This is the predicted Monthly Salary value for participants with a BA degree
-<span class="math display">\[= 6.25. + (1 * .417) = 6.667\]</span></p></li>
+<span class="math display">\[= 4,375 + (1 * 958.3) = 5,333.33\]</span></p></li>
 <li><p><strong>Education_LevelMaster’s Degree</strong> = 2.417.</p>
 <p>This is the predicted Monthly Salary value for participants with a MA degree
-<span class="math display">\[= 6.25. + (1 * 2.417) = 8.667\]</span></p></li>
+<span class="math display">\[= 4,375.0 + (1 * 2958.3) = 7,333.3\]</span></p></li>
 </ul>
 <h2 id="what-about-a-model-that-combines-both-discrete-and-continous-variables">What about a model that combines both discrete and continous variables?</h2>
 <h3 id="great-question">Great question!</h3>
@@ -2398,26 +2399,24 @@ lm(formula = Salary_month ~ Gender_dummy + IQ + (Gender_dummy *
     IQ), data = data_2)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--1.00000 -0.19068 -0.00847  0.16525  1.00000 
+    Min      1Q  Median      3Q     Max 
+-3545.5 -1429.5   639.8  1658.9  2454.5 
 
 Coefficients:
-                Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)     -5.52542    2.44836  -2.257  0.06483 . 
-Gender_dummy    13.52542    9.32923   1.450  0.19730   
-IQ               0.11186    0.02266   4.938  0.00261 **
-Gender_dummy:IQ -0.11186    0.07758  -1.442  0.19943   
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+                 Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)     -12059.32   10440.53  -1.155    0.292
+Gender_dummy       422.96   39782.57   0.011    0.992
+IQ                 161.02      96.61   1.667    0.147
+Gender_dummy:IQ    -15.56     330.84  -0.047    0.964
 
-Residual standard error: 0.6152 on 6 degrees of freedom
-Multiple R-squared:  0.8656,    Adjusted R-squared:  0.7984 
-F-statistic: 12.88 on 3 and 6 DF,  p-value: 0.005034</code></pre>
+Residual standard error: 2624 on 6 degrees of freedom
+Multiple R-squared:  0.3468,    Adjusted R-squared:  0.02017 
+F-statistic: 1.062 on 3 and 6 DF,  p-value: 0.4323</code></pre>
 <pre><code>                       2.5 %     97.5 %
-(Intercept)     -11.51635046  0.4655030
-Gender_dummy     -9.30238066 36.3532281
-IQ                0.05642889  0.1672999
-Gender_dummy:IQ  -0.30170391  0.0779751</code></pre>
+(Intercept)     -37606.38747 13487.7434
+Gender_dummy    -96921.48242 97767.3992
+IQ                 -75.37631   397.4102
+Gender_dummy:IQ   -825.09363   793.9688</code></pre>
 </div>
 <h3 id="the-interpretation-of-the-parameters-is-as-follows">The interpretation of the parameters is as follows:</h3>
 <p>• <span class="math inline">\(\alpha\)</span>: This is the y-intercept in the reference category.</p>
