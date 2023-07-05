@@ -179,7 +179,7 @@ cooks_dist <-cooks.distance(model = mod)
 plot(cooks_dist, col="lightblue", pch=19, cex=2)
 #add labels to every point
 text(x = cooks_dist[1:100], labels=c(1:100))
-abline(h=4/100)
+abline(h=4/sample_size)
 
 ```
   

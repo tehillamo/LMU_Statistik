@@ -14,6 +14,8 @@ navbar:
           href: Basic_concepts.html
         - text: "Statistical Tests - Distributions"
           href: Basic_concepts_ii.html
+        - text: "Statistical Tests - Decision Diagramm"
+          href: Decision_diagramm.html
     - text: "Statistik II"
       href: statistik_ii.html
       menu:
