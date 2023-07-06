@@ -50,7 +50,7 @@ and
 $D_{i} = 0$, if the person is a male
 
 
-## A practical example:
+### A practical example:
 
 And here is an example of a data set, which includes information about a group of individuals, with each individual identified by a unique ID. 
 
@@ -79,7 +79,7 @@ data_2 <- as.data.frame(data_2)
 data_2
 ```
 
-## OK, but how does the linear model look like with a discrete variable with two expressions?
+### How does the linear model look like with a discrete variable with two expressions?
 
 ## The general equation is:
 
@@ -109,7 +109,7 @@ It also implies that:
   - If $𝛽> 0$ , then the predicted value for individuals in the reference category is smaller than in the other category.
   - If $𝛽 = 0$, then the predicted values for both categories are equal.
   
-## Lets run a model to learn about it's output:
+### Lets run a model to learn about the estimated varibales and their interpretation:
 
 ```{r}
 model_2 <- lm(Salary_month ~ Gender_dummy, data = data_2)
@@ -120,31 +120,27 @@ confint(model_2)
 ```
 ### We can see the results and learn that:
 
-  - (intercept) = 5250.  
+1. $\alpha$(intercept) = **5,250**.  
     
-    This is the predicted Monthly Salary value for males participants.
+  - $\alpha$ represents the predicted Monthly Salary value for male participants.
     
-  - Gender_dummy = 750. 
+  - The confidence interval for the intercept is **[2631.835, 7868.165]**, which does not include the 0, indicating, alongside $p-value = .0017$ that there our predicted value for male participants is non-zero and that the plausible monthly salary for males lies between **2631.835** and **7868.165**. 
     
-    This is the predicted Monthly Salary value for females participants is 5250 + (1 * 750) = 6000.
+2. Gender_dummy ($\beta_{gender}$) = **750**. 
     
-  - The p-value of the slope (Gender_dummy) is non-significant. 
+  - This means that the predicted Monthly Salary value for females participants is ($\alpha + \beta_{gender}$) 5250 + (1 * 750) = **6,000**.
     
-    This implies that there is no difference in Monthly Salary  between men and women.   
-    
-  - The confidence interval for the intercept is [2631.835, 7868.165]. 
+  - $\beta_{gender}$ represents the difference in the predicted monthly salary fro females and males (the reference group). 
   
-    which implies that, for males, the possible Monthly Salary scores lie between 2631.835 and 7868.165. 
-  
-  - The confidence interval for the slope is [-3389.683, 4889.683]. 
-    
-    which implies that the plausible Monthly Salary scores for females lie between -3389.683 and  4889.683. 
+  - The confidence interval for the slope is **[-3389.683, 4889.683]**, which **does** include the 0, indicating, alongside $p-value = .687$ that there our predicted value for female participants could potentially be zero (which is inline with $H_{0}$) and that the plausible monthly salary for males lies between **-3389.683** and **4889.683**. 
+
+---
+
+## A case of a variable with MORE THAN two categorical expressions:
 
 
 
---- 
-
-## A case of a variable with more than two categorical expressions:
+### A practical example: 
 
 Let's consider an example of a discrete variable with three categories: "Education Level".
 
@@ -187,11 +183,7 @@ data_3
 
 
 
-
- 
- 
-  
-### Lets discuss a dummy variable with **more than two** levels/expressions: 
+### For our specific example, therefore, the equations will be:
 
 
  1) For the reference group (we decided on "high school"), the model will be:
@@ -217,7 +209,9 @@ $$ = \alpha + \beta_{masters} + \epsilon_{i}$$
 
 It follows that **$\alpha + \beta_{masters}$** is the predicted value for this group.
 
-## Lets run a model to learn about it's output:
+
+
+### Lets run a model to learn about the estimated varibales and their interpretation:
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 # Convert the variable into a factor
@@ -236,21 +230,31 @@ confint(model_3)
 ```
 
 
-  - (intercept) = 4,375. 
+1. $\alpha$(intercept) = **4,375**.  
     
-    This is the predicted Monthly Salary  value for participants with a high school degree.   
- 
-  - **Education_LevelBachelor's Degree** = 958.3. 
-  
-    This is the predicted Monthly Salary value for participants with a BA degree 
-  $$= 4,375 + (1 * 958.3) = 5,333.33$$
-  
-  - **Education_LevelMaster's Degree** = 2.417. 
+  - $\alpha$ represents the predicted Monthly Salary value for participants that have graduated Gymnasium.
     
-    This is the predicted Monthly Salary  value for participants with a MA degree 
-    $$= 4,375.0 + (1 * 2958.3) = 7,333.3$$
-
-
+  - The confidence interval for the intercept is **[1278.308, 7471.692]**, which does not include the 0, indicating, alongside $p-value = .0124$ that there our predicted value for participants, who graduated Gymnasium is non-zero and that the plausible monthly salary for those lies between **1278.308** and **7471.692**. 
+    
+   
+   
+2. Bachelor's degree ($\beta_{BA}$) = **958.3**. 
+    
+  - This means that the predicted Monthly Salary value for  participants, who have a BA degree is ($\alpha + \beta_{BA}$) 4,375 + (1 * 958.3) = **5,333.3**.
+    
+  - $\beta_{BA}$ represents the difference in the predicted monthly salary for participants, who have BA degree and those, who have graduated Gymnasium (the reference group). 
+  
+  - The confidence interval for this slope is **[-3771.941, 5688.608]**, which **does** include the 0, indicating, alongside $p-value = .6465$ that BA graduates do not differ in their salaries from those, who have a BA degree. Since this range includes a zero (which is inline with $H_{0}$) and the plausible monthly salary for BA graduates lies between **-3389.683** and **4889.683**, we can conclude that we will accept the $H_{0}$.  
+   
+   
+2. Bachelor's degree ($\beta_{MA}$) = **2958.3**. 
+    
+  - This means that the predicted Monthly Salary value for participants, who have a MA degree is ($\alpha + \beta_{MA}$) 4,375 + (1 * 2958.3) = **7,333.3**.
+    
+  - $\beta_{MA}$ represents the difference in the predicted monthly salary for participants, who have MA degree and those, who have graduated Gymnasium (the reference group). 
+  
+  - The confidence interval for this slope is **[-1771.941, 7688.608]**, which **does** include the 0, indicating, alongside $p-value = .1827$ that MA graduates do not differ in their salaries from those, who have a MA degree. Since this range includes a zero (which is inline with $H_{0}$) and the plausible monthly salary for MA graduates lies between **-1771.941** and **7688.608**, we can conclude that we will accept the $H_{0}$.  
+     
 
 ## What about a model that combines both discrete and continous variables?
 
@@ -264,14 +268,14 @@ The following statistical model or analysis has two types of predictors:
 
 
 
-### We can use the dataset we have create before and add the IQ scores to predicts participant's hapiness.
+### We can use the dataset we have create before and add the IQ scores to predicts participant's hapinness.
 
-### The general model in this case will be:
+### The full model in this case will be:
 
 $$Y_{i} = \alpha + \beta_{IQ} \times X_{i} + \beta_{education} \times D_{i} + \epsilon_{i} $$
 
 
-## The specifications of all the other models are:
+### The specifications of all the other models are:
 
   **1)** For the **reference group**, which has a **high school** education, the regression model will be:
 
@@ -305,7 +309,7 @@ $$ = \alpha + \beta_{IQ} \times X_{i} + \beta_{masters} \times 1$$
 
 ## The last question for today is: 🥁
 
-### What about a good-old interaction effect?
+### What about a good-old interaction effect between two independent variable (UVs)?
 
 
 Lets revert back to our first above, including an interaction effect in a a linear regression model helps us to explore how the relationship between "gender" (reminder: 2 levels - male vs. female) and "Monthly Salary " changes, depending on the gender.  
@@ -350,7 +354,7 @@ $$ = (\alpha + \beta_{gender}) + (\beta_{IQ} + \beta_{interaction}) \times X_{i}
 
 
 
-## Lets compute the model:
+### Lets run a model to learn about the estimated varibales and their interpretation:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 model_int <- lm(Salary_month ~ Gender_dummy + IQ + (Gender_dummy * IQ), data = data_2)
@@ -364,26 +368,13 @@ confint(model_int)
 
 ### The interpretation of the parameters is as follows:
 
-  • $\alpha$: This is the y-intercept in the reference category. 
+  • $\alpha$: This is the predicted value of $Y_i$ for people in the reference category. In the current category, it represents the predicted salary for male participants, when IQ equal 0... 
   
-  It represents the predicted salary for a participant without, who has an IQ of 0... Not really interpretable, is it?
+  • $\alpha + \beta_{gender}$: This is the intercept in the female category and it represents the predicted value for female participants, when their IQ equals 0....
 
-  • $\beta_{gender}$: This is the slope parameter in the reference category. 
+  • $\beta_{gender}$: This is the slope parameter for gender and it represents the expected increase in Monthly Salary for a male participant when IQ is increased by 1 point.
   
-  It indicates the expected increase in Monthly Salary when a male participant has an increase of 1 point on his IQ test.
+•  $\beta_{IQ}$: This is the slope parameter for IQ and it represents the expected difference in Monthly Salary between male and female participants when their IQ = 0. 
+
+• $\beta_{interaction}$: This is the difference in slope parameters between the reference category (male) and other category (female). It reflects the difference in the "contribution" of IQ for male vs. female participants on their Monthly Salary.
   
-•  $\beta_{IQ}$: This is the difference in intercepts between the two categories. 
-
-  It represents the expected difference in Monthly Salary between male and female when their IQ = 0. 
-
-• $\beta_{interaction}$: This is the difference in slope parameters between the reference and other category. 
-
-  It reflects the difference in the "effectiveness" of IQ for male vs. female participants on Monthly Salary .
-  
-• $\alpha + \beta_{IQ}$: This is the intercept in the female category. 
-
-  It represents the predicted value for female participants, who have IQ = 0. 
-
-• $\beta_{gender} + \alpha_{IQ}$: This is the slope parameter in the female category. 
-
-It indicates the expected increase in Monthly Salary  when a female has an increase of 1 point on her IQ test.
