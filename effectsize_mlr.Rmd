@@ -1,0 +1,235 @@
+---
+title: "Effectsize(s) and Collinearity in Multiple Linear Regression"
+description: |
+  Linear Regression
+author:
+  - name: Tehilla Ostrovsky
+    url: https://github.com 
+    affiliation: LMU
+    #affiliation_url: 
+date: "`r Sys.Date()`"
+output: distill::distill_article
+css: "my_css.css"
+---
+
+In this blog we will examine the effect sizes in MLR and the correlation of predictors (a.k.a. multicollinearity)
+
+
+First, to set the stage, lets remind ourselves of the general model equation:
+
+$$Y_{i} =𝛼+ \beta_{1} \times X_{i1} + \beta_{2} \times X_{i2} + ... + \beta_{n} \times X_{in} + \epsilon_{i}  \; \;  \; when \; \; \;  \epsilon \sim 𝑁(0,\sigma^2)$$
+
+
+
+• $\alpha$: The predicted value, when all other predictors are qual 0. 
+
+• $\beta_{1}, \beta_{2}, ..., \beta_{k}$: Slopes (Steigungsparameter, Regressionsgewichte), the expected change in the dependent variable (AV), when the predictor $X_{1}, X_{2} ... X_{k}$ increase by one unit, while keeping all other variables contstant. 
+
+• $\epsilon_{i}$ : Error term, describes the deviation of a randomly samples person $i$ from their predicted value.  
+
+
+
+### In multiple linear regression there are two types of effect sizes. 
+
+  1) The effect sizes that describes the strength of the linear relationship between the all variables and the Dependent variable (AV). This effect size is called $\rho^2$ and its estimator is:
+  
+  $$ \hat{\rho^2} = R^2 = \frac{\hat{\sigma^2_{\mu_{i}}}}{\sigma^2_{total}} = \frac{1/n \times \sum_{i=1}^{n} \times (\hat{Y_{i} - \bar{Y}})^2}{1/n \times \sum_{i=1}^{n} \times (Y_{i} - \bar{Y})^2}$$
+  
+  Note that the difference to simple linear regression, this effect size will refer to predicted value $\hat{Y_{i}}$ that are calculated based on **MULTIPLE independent variables** (mehrere UVs). That is the reason for its other known name **multiple correlation**, which is calculated as $\sqrt{\rho^2}$. 
+  
+### Lets take an example: 
+Let's denote the dependent variable as $Y$(happiness with the statistics lecture) and the predictor variables as $X_1$ (time spent learning) and $X_2$ (level of subjective belief in math skills).
+
+Our model equation, is, therefore, $$Y_{i} =𝛼+ \beta_{time.prep} \times X_{i1} + \beta_{subj.belief} \times X_{i2} + + \epsilon_{i}  \; \;  \; when \; \; \;  \epsilon \sim 𝑁(0,\sigma^2)$$
+
+### And here is this model's R-Output:
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Generate sample data
+n <- 100  # Number of observations
+time_spent <- runif(n, 0, 10)  # Time spent learning
+belief_math <- runif(n, 1, 5)  # Subjective belief in math skills
+happiness <- 2 + 0.5 * time_spent + 1.5 * belief_math + rnorm(n, 0, 1)  # Dependent variable (happiness)
+
+# Create a data frame
+data <- data.frame(time_spent, belief_math, happiness)
+
+# Perform multiple linear regression
+model <- lm(happiness ~ time_spent + belief_math, data=data)
+
+# Print the regression summary
+summary(model)
+```
+
+Note the "Multiple R-squared" value, which is .8177. 
+
+
+This value is interpreted as the percentage of variance of "happiness" that can be explained by "time_spent" and by "belief_math". 
+
+
+### And here is a plot of this data & model:
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Create scatter plot for time spent learning
+ggplot(data, aes(x=time_spent, y=happiness)) +
+  geom_point() +
+  geom_smooth(method="lm", formula = y ~ x, se=FALSE, color="blue") +
+  xlab("Time Spent Learning") +
+  ylab("Happiness with Statistics Lecture") +
+  ggtitle("Linear Relationship: Time Spent Learning")
+
+# Create scatter plot for belief in math skills
+ggplot(data, aes(x=belief_math, y=happiness)) +
+  geom_point() +
+  geom_smooth(method="lm", formula = y ~ x, se=FALSE, color="blue") +
+  xlab("Belief in Math Skills") +
+  ylab("Happiness with Statistics Lecture") +
+  ggtitle("Linear Relationship: Belief in Math Skills")
+```
+
+  2) The effect sizes that describes the strength of the linear relationship between the every single variable and the Dependent variable (AV).  A standardized effect size is called $\beta_{zj}$ and is similar to the $\beta_{z}$ discussed in the blog **"Effectsize(s) in Simple Linear Regression"**. 
+  
+  To calculate this effect size, one has to, first, z-Standardise all predictor variables (UVs) an the dependent variable (AV) and then calculate the model again. 
+  
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Create a data frame
+data_scale <- data.frame(scale(time_spent), scale(belief_math), scale(happiness))
+
+# Perform multiple linear regression
+model_scale <- lm(scale.happiness. ~ scale.time_spent. + scale.belief_math., data = data_scale)
+
+# Print the regression summary
+summary(model_scale)
+```
+### How shoul I understand these values?
+If a student will increase their time spent for studying by one standard deviation, holding their belief in math skills variable constant, their happiness with statistics class will increase on average by 0.6417 standard deviations
+  
+---
+
+
+
+
+## Multicollinearity
+
+Multicollinearity refers to a situation in multiple linear regression where two or more predictor variables are highly correlated with each other. 
+
+It indicates a strong linear relationship between the predictor variables, which can cause issues in the regression analysis.
+
+In the context of the example with the variables "time spent learning" and "belief in math skills" as predictor variables for happiness with the statistics lecture, multicollinearity would occur if these two variables are highly correlated. That is, for example, when those students, who have a strong belief in their math skills will also very likely to spend much time preparing for this lecture and vice versa for those students with less belief in their math skills. 
+
+For example, let's consider a dataset with 100 observations. Here are the correlation coefficients between the predictor variables:
+
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# Calculate the correlation matrix
+cor_matrix <- cor(data[, c("time_spent", "belief_math", "happiness")])
+
+# Print the correlation matrix
+print(cor_matrix)
+```
+
+
+### The dangers in running a multiple (or any) linear regression without checking for multicoliniarity
+
+  1) Affects the estimated standard errors for the $\beta$ (i.e., slopes, Steigungsparameter) negatively 
+  
+  2) As a result, multicollinearity also has a negative impact on the confidence intervals and hypothesis tests for the slope parameters:
+  
+• Larger confidence intervals
+
+• Lower power of hypothesis tests
+
+### The parameter that are NOT affected by multicoliniarity are: 
+
+  • Confidence intervals for $\rho^2$
+  
+  • Omnibustest for multiple linear regression
+  
+  
+### What to do to examine if we have a multicoliniarity in our model?
+
+  1) **Variance Inflation Factor (VIF)**  - VIF helps us understand how much the variance (or uncertainty) of one predictor variable is increased due to its correlation with other predictor variables in the model. 
+  
+   - A high VIF value indicates a high degree of multicollinearity and suggests that the variable's contribution to the regression model may be unreliable.
+   
+   The formula to compute VIF is 
+   $$VIF_{j} = \frac{1}{1-\color{red}{r_{j}^2}} \; \;  \; when \; \; \;  j =  time \;spent, belief \;math  \; skills$$
+   
+   $$\color{red}{r_{j}^2} = the \; estimated \; variance \; explained \; by \; one \; predictor \; through \; all \; other \; predictor \; variables$$
+
+
+
+In other words, the variance inflation factor (VIF) of a predictor (e.g., time spent on studying) indicates **by what factor the variance of the estimated coefficient $\hat{beta}_{j}$ (e.g., $\hat{beta}_{time \; spent \; studying}$) is larger relative to the other predictor .
+
+
+• The larger the VIF of a regression weight, the worse the estimator for that particular regression weight.
+
+
+<div>
+<div class="container_new">
+  <h5 class="title_new">
+    <span class="title-word title-word-1">Important</span>
+    <span class="title-word title-word-2">To </span>
+    <span class="title-word title-word-3">Note</span>
+    <span class="title-word title-word-4">!!</span>
+  </h5>
+</div>
+</div>
+
+### The negative effects of collinearity can be mitigated by large sample sizes through decreasing the standard error (thereby increasing the precision of the estimated parameters) of the variables.
+
+Here is an example:
+
+```{r}
+library(car)  # for the vif() function
+
+# Set the seed for reproducibility
+set.seed(123)
+
+# Generate a sample dataset with correlated predictor variables
+n_small <- 50  # Small sample size
+n_large <- 5000  # Large sample size
+
+# Generate correlated predictor variables
+x1 <- rnorm(n_large)
+x2 <- 0.8 * x1 + rnorm(n_large, sd = 0.2)
+
+# Generate the response variable
+y <- 2 * x1 + 3 * x2 + rnorm(n_large)
+
+# Function to calculate VIF for a given dataset and predictor variables
+calculate_vif <- function(data, predictors) {
+  vif_values <- vif(lm(as.formula(paste("y ~", paste(predictors, collapse = "+"))), data = data))
+  return(vif_values)
+}
+
+# Calculate VIF for the small sample size
+predictors <- c("x1", "x2")
+vif_small <- calculate_vif(data.frame(x1[1:n_small], x2[1:n_small], y[1:n_small]), predictors)
+cat("VIF values (small sample size):", vif_small, "\n")
+
+# Calculate VIF for the large sample size
+vif_large <- calculate_vif(data.frame(x1, x2, y), predictors)
+cat("VIF values (large sample size):", vif_large, "\n")
+
+# Fit linear regression models with different sample sizes
+model_small <- lm(y[1:n_small] ~ x1[1:n_small] + x2[1:n_small])
+model_large <- lm(y ~ x1 + x2)
+
+# Calculate standard errors of the coefficients
+se_small <- summary(model_small)$coefficients[, "Std. Error"]
+se_large <- summary(model_large)$coefficients[, "Std. Error"]
+
+# Print the standard errors
+cat("Standard errors (small sample size):", se_small, "\n")
+cat("Standard errors (large sample size):", se_large, "\n")
+
+```
+
+
+#### With a larger sample size, the estimates of the regression coefficients tend to have lower standard errors, which means they become more precise. Consequently, the effects of multicollinearity on the significance and interpretation of the coefficients may become less pronounced.
