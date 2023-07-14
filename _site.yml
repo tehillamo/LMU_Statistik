@@ -19,6 +19,8 @@ navbar:
     - text: "Statistik II"
       href: statistik_ii.html
       menu:
+        - text: "Q & A - Summary"
+          href: q_a_summary.html
         - text: "ANOVA - I"
           href: anova_oneWay.html
         - text: "ANOVA - II"

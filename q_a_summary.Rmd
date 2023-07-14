@@ -1,0 +1,21 @@
+---
+title: "Q & A  - Summary "
+description: |
+author:
+  - name: Tehilla Ostrovsky
+    url: https://github.com 
+    affiliation: LMU
+    #affiliation_url: 
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+
+Here is the summary of your questions and answers 
+
+<center>
+
+<iframe src="img/Summary_QA.pdf" style = "height:820px;">
+</iframe>
+
+</center>
