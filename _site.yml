@@ -10,8 +10,12 @@ navbar:
     - text: "Statistik I"
       href: statistik_i.html
       menu:
-        - text: "Basics"
+        - text: "Basic Concepts"
           href: Basic_concepts.html
+        - text: "Basics in R"
+          href: Basic_R.html
+        - text: "Basics in R - Part 2"
+          href: Basic_R_2.html
         - text: "Statistical Tests - Distributions"
           href: Basic_concepts_ii.html
         - text: "Statistical Tests - Decision Diagramm"
