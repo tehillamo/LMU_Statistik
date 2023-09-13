@@ -1,0 +1,35 @@
+---
+title: "Basic Concepts in R - Part 4"
+description: |
+#   A new article created using the Distill format.
+author:
+  - name: Tehilla Ostrovsky 
+#     url: https://example.com/norajones
+#     affiliation: Spacely Sprockets
+#     affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+
+## Session I: 
+
+<div style = "color:grey">
+1.1. Get to know R \& R studio (basic use, interface)
+
+1.2. Learn about types of variables in R.
+</div>
+
+<div style="color:red">
+1.3. Create scripts and save them in R projects (project's folder)
+</div>
+
+<div style = "color:grey">
+1.4. Get to know TidyTuesday
+    
+1.5. Read in data sets
+
+</div>
+
+
+----
