@@ -223,10 +223,13 @@ Verlauf Tab: Zeigt ein Protokoll aller Befehle, die du ausgeführt hast. Du kann
 4. **Dateien/Grafiken/Pakete/Hilfe Fenster:**
 
 
-Dateien Tab: Ermöglicht dir die Navigation durch dein Computersystem, ähnlich wie ein Datei-Explorer. Du kannst Skripte öffnen und speichern, Daten importieren und Verzeichnisse verwalten.
-Grafiken Tab: Jedes Mal, wenn du ein Visualisierungselement (wie eine Grafik oder ein Diagramm) erstellst, erscheint es hier. Du kannst auch zwischen mehreren Grafiken zoomen, exportieren oder navigieren.
-Pakete Tab: Zeigt eine Liste aller installierten R-Pakete an. Von hier aus kannst du: Ein Paket in den Speicher laden, indem du das Kästchen neben seinem Namen ankreuzt. Neue Pakete installieren oder bestehende aktualisieren.
-Hilfe Tab: Immer wenn du Details über eine bestimmte Funktion oder ein Paket benötigst, kannst du den Hilfe-Tab verwenden. Wenn du ?Funktionsname in die Konsole eingibst (z. B. ?mean), wird auch die Hilfeseite für diese Funktion in diesem Fenster aufgerufen.
+  - **Dateien Tab**: Ermöglicht dir die Navigation durch dein Computersystem, ähnlich wie ein Datei-Explorer. Du kannst Skripte öffnen und speichern, Daten importieren und Verzeichnisse verwalten.
+
+  - **Grafiken Tab**: Jedes Mal, wenn du ein Visualisierungselement (wie eine Grafik oder ein Diagramm) erstellst, erscheint es hier. Du kannst auch zwischen mehreren Grafiken zoomen, exportieren oder navigieren.
+  
+  - **Pakete Tab**: Zeigt eine Liste aller installierten R-Pakete an. Von hier aus kannst du: Ein Paket in den Speicher laden, indem du das Kästchen neben seinem Namen ankreuzt. Neue Pakete installieren oder bestehende aktualisieren.
+  
+  - **Hilfe Tab**: Immer wenn du Details über eine bestimmte Funktion oder ein Paket benötigst, kannst du den Hilfe-Tab verwenden. Wenn du ?Funktionsname in die Konsole eingibst (z. B. ?mean), wird auch die Hilfeseite für diese Funktion in diesem Fenster aufgerufen.
 
 ![R Interface](Img/R_interface.png)
 
