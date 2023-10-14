@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-10-12"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-10-12"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-10-14"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-10-14"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R - Part 2"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-12"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R - Part 2"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R - Part 2","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-12T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R - Part 2","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-14T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2124,6 +2124,7 @@ Statistik I
 <a href="Basic_concepts.html">Basic Concepts</a>
 <a href="Basic_R.html">Basics in R - Download R &amp; R Studio</a>
 <a href="Basic_R_Project.html">Basics in R - Create Project</a>
+<a href="Basic_R_Introduction.html">Basics in R - Variables &amp; Functions</a>
 <a href="Basic_R_2.html">Basics in R - Part 2</a>
 <a href="Basic_R_3.html">Basics in R - Part 3</a>
 <a href="Basic_R_4.html">Basics in R - Part 4</a>
@@ -2166,7 +2167,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-10-12
+<br/>2023-10-14
 </div>
 
 <div class="d-article">
@@ -2183,120 +2184,7 @@ Statistik II
 <p>1.5. Read in data sets</p>
 </div>
 <hr />
-<h2 id="understanding-the-basic-concepts-in-r-and-in-programming-in-general">Understanding the basic concepts in R (and in programming in general)</h2>
-<ol type="1">
-<li><strong>Variables</strong>: In R, a variable allows you to store data values. Think of it as a named storage that our programs can manipulate. The stored value can be a number, text, a series of numbers, or any other type of data.</li>
-</ol>
-<p>Example:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_variable</span> <span class='op'>&lt;-</span> <span class='fl'>10</span></span>
-<span><span class='va'>my_variable</span></span></code></pre>
-</div>
-<pre><code>[1] 10</code></pre>
-</div>
-<p>2.<strong>Name Assignments</strong>:
-In R, you use the &lt;- symbol for assignments. This symbol is known as the assignment operator. The value on the right gets assigned to the name on the left.</p>
-<p>Example:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"Tehilla"</span></span></code></pre>
-</div>
-</div>
-<ol start="3" type="1">
-<li><strong>Where to See Stored Variables</strong>:
-When you’re using R or RStudio, you can view the variables you’ve defined in a couple of ways:</li>
-</ol>
-<ul>
-<li><p>In the R console, just type the variable’s name and press enter. For example, typing name would output “Tehilla”.</p></li>
-<li><p>In RStudio, the Environment pane (usually located in the top-right corner) displays a list of all current variables, their type, and their value.</p></li>
-</ul>
-<p><a href="img/R_Interface_3.png">Where to See Stored Variables</a></p>
-<ol start="4" type="1">
-<li><strong>Vectors</strong>:
-A vector is a basic data structure in R that contains elements of the same type. This could be numeric, character, logical, etc.</li>
-</ol>
-<p>The c() function is used to concatenate values into a vector.</p>
-<p>Example:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>numeric_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
-<span><span class='va'>character_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"cherry"</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<pre><code>4.1. Types of Variables:
-In R, variables can hold data of various types. These types are fundamental and determine the kind of operations you can perform on the data. Here&#39;s a rundown of the most common data types (or modes) in R:
-
-  4.1.1 1. Numeric: Represents numbers and can be either integer or double (decimal numbers).
-  Example:
-  </code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>5</span>    <span class='co'># numeric, specifically an integer</span></span>
-<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>5.5</span>  <span class='co'># numeric, specifically a double</span></span></code></pre>
-</div>
-</div>
-<pre><code>    4.1.2. Character: Represents strings (text). Strings in R are enclosed by either single or double quotes.
-    Example:
-    </code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"John Doe"</span></span>
-<span><span class='va'>name</span></span></code></pre>
-</div>
-<pre><code>[1] &quot;John Doe&quot;</code></pre>
-</div>
-<pre><code>    4.1.3. 3. Logical: Represents boolean values: TRUE or FALSE. Often a result of logical conditions or operations.
-    Example:
-    </code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>flag</span> <span class='op'>&lt;-</span> <span class='cn'>TRUE</span></span>
-<span><span class='va'>flag</span></span></code></pre>
-</div>
-<pre><code>[1] TRUE</code></pre>
-</div>
-<pre><code>  4.1.4. Integer: A subtype of numeric. It specifically represents integer numbers. To specifically define an integer, you can use the L suffix.
-  Example:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>count</span> <span class='op'>&lt;-</span> <span class='fl'>23L</span></span>
-<span><span class='va'>count</span></span></code></pre>
-</div>
-<pre><code>[1] 23</code></pre>
-</div>
-<pre><code>  4.1.5. Factor: Categorical data is often represented as factors in R. Factors can be ordered (like &quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;) or unordered (like &quot;Male&quot;, &quot;Female&quot;). While the data might look like characters, factors are stored as integers, and a separate lookup table holds the character values.
-  Example: 
-  </code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gender</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Male"</span>, <span class='st'>"Female"</span>, <span class='st'>"Female"</span>, <span class='st'>"Male"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>gender</span></span></code></pre>
-</div>
-<pre><code>[1] Male   Female Female Male  
-Levels: Female Male</code></pre>
-</div>
-<pre><code>4.1.6. Lists: A special type that can hold different types of elements, including vectors, functions, or even other lists.
-Example:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Alice"</span>, age <span class='op'>=</span> <span class='fl'>25</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>85</span>, <span class='fl'>90</span>, <span class='fl'>92</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>my_list</span></span></code></pre>
-</div>
-<pre><code>$name
-[1] &quot;Alice&quot;
-
-$age
-[1] 25
-
-$scores
-[1] 85 90 92</code></pre>
-</div>
-<figure>
-<img src="img/R_Interface_4.png" alt="Vectors" />
-<figcaption aria-hidden="true">Vectors</figcaption>
-</figure>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
