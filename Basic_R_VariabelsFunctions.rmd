@@ -176,15 +176,26 @@ In this example, the mean function will add up the numbers (5 + 10 + 15 + 20 + 2
 
 Functions can also generate data and objects. For example, there are functions that create random numbers.
 
+Here are few examples: 
+
+1. The seq() function generates a sequence between two numbers.
+
+```{r}
+seq(from = 1, to = 10, by = 1)
+seq(from = 1, to = 10, length.out = 5)
+```
+
+2. The rnorm() function randomly draws 20 values from the normal distribution with a mean of 0 and a standard deviation of 1.
+
 ```{r}
 rnorm(n = 20, mean = 0, sd = 1) # randomly draws 20 values from the normal distribution with a mean of 0 and SD of 1
 ```
 
-Functions can also generate graphics from objects.
+3. Functions can also generate graphics from objects. Creates a histogram from the vector of normally distributed variables.
 
 ```{r}
 normally_distributed <- rnorm(n = 20, mean = 0, sd = 1)
-hist(normally_distributed) # creates a histogram from the vector of normally distributed variables
+hist(normally_distributed) 
 ```
 
 
@@ -364,13 +375,25 @@ In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 2
 
 Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.
 
+Hier sind einige Beispiele:
+
+1. Die seq()-Funktion erzeugt eine Sequenz zwischen zwei Zahlen.
+
 ```{r}
-rnorm(n = 20, mean = 0, sd = 1) # zieht zufällig 20 Werte aus der Normalverteilung mit einem Mittelwert von 0 und einer Standardabweichung von 1
+seq(from = 1, to = 10, by = 1)
+seq(from = 1, to = 10, length.out = 5)
 ```
 
-Funktionen können auch Grafiken aus Objekten generieren.
+
+2. Die rnorm() Funktion zieht zufällig 20 Werte aus der Normalverteilung mit einem Mittelwert von 0 und einer Standardabweichung von 1. 
+
+```{r}
+rnorm(n = 20, mean = 0, sd = 1) 
+```
+
+3. The hist() function creates a histogram from the vector of normally distributed variables. This is an example of how functions can also generate graphics from objects.
 
 ```{r}
 normalverteilt <- rnorm(n = 20, mean = 0, sd = 1)
-hist(normalverteilt) # erstellt ein Histogramm aus dem Vektor der normalverteilten Variablen
+hist(normalverteilt) 
 ```
