@@ -16,6 +16,8 @@ navbar:
           href: Basic_R.html
         - text: "Basics in R - Create Project"
           href: Basic_R_Project.html
+        - text: "Basics in R - Variables & Functions"
+          href: Basic_R_Introduction.html
         - text: "Basics in R - Part 2"
           href: Basic_R_2.html
         - text: "Basics in R - Part 3"
