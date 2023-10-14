@@ -229,6 +229,7 @@ Wenn ein Objekt jedoch ein 'string' ist, eine Zeichenkette, können Sie es nicht
 
 Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.
 
+
 ```{r}
 age_obj <- 35
 age_obj_2 <- 1
@@ -395,9 +396,13 @@ zahlen <- c(5, 10, 15, 20, 25)
 zahlen
 ```
 
-Tatsächlich werden wir in R die Funktion "mean" verwenden, um den Durchschnitt oder arithmetischen Mittelwert einer Menge numerischer Werte zu berechnen. 
+Tatsächlich werden wir in R die Funktion "mean" verwenden, um den Durchschnitt oder arithmetischen 
 
-Sie summiert alle Zahlen in einem Datensatz auf und teilt dann diese Summe durch die Gesamtanzahl der Zahlen. 
+Mittelwert einer Menge numerischer Werte zu berechnen. 
+
+Sie summiert alle Zahlen in einem Datensatz 
+
+auf und teilt dann diese Summe durch die Gesamtanzahl der Zahlen. 
 
 Dadurch erhalten Sie einen einzigen Wert, der die zentrale Tendenz oder den typischen Wert der Daten darstellt.
 
