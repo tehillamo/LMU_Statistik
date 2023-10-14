@@ -203,13 +203,17 @@ hist(normally_distributed)
 
 # Deutsch
 
-# Wie R funktioniert
+# Wie funktioniert R?
 
 In R gibt es im Wesentlichen nur zwei Dinge: Objekte und Funktionen.
 
 ## Objekte
 
-Objekte sind Daten. Dies können beispielsweise Datensätze sein, aber auch einzelne Zahlen, ganze Modelle oder sogar Listen von verschiedenen Objekten. Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.
+Objekte sind Daten. Dies können beispielsweise Datensätze sein, aber auch einzelne Zahlen, ganze Modelle 
+
+oder sogar Listen von verschiedenen Objekten. 
+
+Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.
 
 ```{r}
 tehilla <- 54
@@ -217,8 +221,13 @@ tehilla
 ```
 
 
+Objekte haben auch Eigenschaften, die bestimmen, welche Funktionen (siehe unten) auf sie angewendet werden können. 
 
-Objekte haben auch Eigenschaften, die bestimmen, welche Funktionen (siehe unten) auf sie angewendet werden können. Wenn ein Objekt beispielsweise vom Typ 'numeric' ist, können Sie es zu anderen 'numeric'-Objekten hinzufügen. Wenn ein Objekt jedoch ein 'string' ist, eine Zeichenkette, können Sie es nicht hinzufügen. Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.
+Wenn ein Objekt beispielsweise vom Typ 'numeric' ist, können Sie es zu anderen 'numeric'-Objekten hinzufügen. 
+
+Wenn ein Objekt jedoch ein 'string' ist, eine Zeichenkette, können Sie es nicht hinzufügen. 
+
+Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.
 
 ```{r}
 age_obj <- 35
@@ -229,7 +238,11 @@ Ich_werde_nächstes_Jahr_X_sein
 ```
 
 
-**Variablen**: In R ermöglicht es eine Variable, Datenwerte zu speichern. Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können. Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein.
+**Variablen**: In R ermöglicht es eine Variable, Datenwerte zu speichern. 
+
+Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können. 
+
+Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein.
 
 Beispiel:
 
@@ -239,7 +252,11 @@ meine_variable
 ```
 
 
-**Zuweisungen**: In R verwenden Sie das <- Symbol für Zuweisungen. Dieses Symbol wird als Zuweisungsoperator bezeichnet. Der Wert auf der rechten Seite wird dem Namen auf der linken Seite zugewiesen.
+**Zuweisungen**: In R verwenden Sie das <- Symbol für Zuweisungen. 
+
+Dieses Symbol wird als Zuweisungsoperator bezeichnet. 
+
+Der Wert auf der rechten Seite wird dem Namen auf der linken Seite zugewiesen.
 
 
 Beispiel:
@@ -250,9 +267,11 @@ name <- "Tehilla"
 ```
 
 **Wo Sie gespeicherte Variablen sehen können**:
+
 Wenn Sie R oder RStudio verwenden, können Sie die von Ihnen definierten Variablen auf verschiedene Arten anzeigen:
 
 In der R-Konsole geben Sie einfach den Namen der Variablen ein und drücken Sie Enter. Wenn Sie beispielsweise 'name' eingeben, wird "Tehilla" ausgegeben.
+
 In RStudio zeigt das Environment-Fenster (normalerweise oben rechts) eine Liste aller aktuellen Variablen, ihres Typs und ihres Werts an.
 
 
@@ -262,7 +281,9 @@ In RStudio zeigt das Environment-Fenster (normalerweise oben rechts) eine Liste 
 #### Arten von R-Objekten
 
     1. Vektoren:
+    
     Ein Vektor ist eine grundlegende Datenstruktur in R, die Elemente des gleichen Typs enthält. Dies kann numerisch, character, logisch usw. sein.
+    
     Die Funktion c() wird verwendet, um Werte zu einem Vektor zusammenzuführen.
 
     Beispiel:
@@ -272,17 +293,25 @@ numerischer_vektor <- c(1, 2, 3, 4, 5)
 character_vektor <- c("Apfel", "Banane", "Kirsche")
 ```
 
-In R können Variablen Daten verschiedener Typen speichern. Diese Typen sind grundlegend und bestimmen die Art der Operationen, die auf die Daten angewendet werden können. Hier ist eine Übersicht über die häufigsten Datentypen (oder modes) in R:
+In R können Variablen Daten verschiedener Typen speichern. 
+
+Diese Typen sind grundlegend und bestimmen die Art der Operationen, die auf die Daten angewendet werden können. 
+
+Hier ist eine Übersicht über die häufigsten Datentypen (oder modes) in R:
 
     1.1 Numerisch: Stellt Zahlen dar und kann entweder Ganzzahlen oder Dezimalzahlen sein.
   
     Beispiel:
+    
 ```{r}
 x <- 5    # numerisch, speziell eine Ganzzahl
 y <- 5.5  # numerisch, speziell eine Dezimalzahl
 ```
   
-    1.2 Character: Stellt Zeichenketten (Text) dar. Zeichenketten in R sind entweder von einfachen oder doppelten Anführungszeichen umschlossen.
+    1.2 Character: Stellt Zeichenketten (Text) dar. 
+    
+    Zeichenketten in R sind entweder von einfachen oder doppelten Anführungszeichen umschlossen.
+    
     Beispiel:
     
 ```{r}
@@ -291,7 +320,11 @@ name
 ```
     
     
-    1.3 Logisch: Stellt boolesche Werte dar: TRUE oder FALSE. Oft das Ergebnis logischer Bedingungen oder Operationen.
+    1.3 Logisch: Stellt boolesche Werte dar: TRUE oder FALSE. 
+    
+    Oft das Ergebnis logischer Bedingungen oder Operationen.
+    
+    
     Beispiel:
     
 
@@ -301,7 +334,9 @@ flag
 ```
 
 
-    1.4 Ganzzahl: Ein Untertyp von numerisch. Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden.
+    1.4 Ganzzahl: Ein Untertyp von numerisch. 
+    
+    Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden.
   
     Beispiel:
 ```{r}
@@ -310,7 +345,11 @@ anzahl
 ```
 
 
-    1.5 Faktor: Kategoriale Daten werden oft als Faktoren in R dargestellt. Faktoren können geordnet sein (wie "Niedrig", "Mittel", "Hoch") oder ungeordnet (wie "Männlich", "Weiblich"). Obwohl die Daten wie Zeichenketten aussehen können, werden Faktoren als Ganzzahlen gespeichert, und eine separate Lookup-Tabelle enthält die Zeichenwerte.
+    1.5 Faktor: Kategoriale Daten werden oft als Faktoren in R dargestellt. 
+    
+    Faktoren können geordnet sein (wie "Niedrig", "Mittel", "Hoch") oder ungeordnet (wie "Männlich", "Weiblich"). 
+    
+    Obwohl die Daten wie Zeichenketten aussehen können, werden Faktoren als Ganzzahlen gespeichert, und eine separate Lookup-Tabelle enthält die Zeichenwerte.
   
     Beispiel: 
   
@@ -336,7 +375,11 @@ meine_liste
 
 ## Functions
 
-Funktionen verändern Objekte auf bestimmte Art und Weisen. Eine Funktion kann fast alles sein. Für die Statistik benötigen wir vor allem Funktionen, die Daten transformieren (z.B., Zuordnen von Zeichenketten zu bestimmten Werten, Erstellen neuer Variablen, Laden von Datensätzen, Speichern von Datensätzen usw.) und Funktionen, die statistische Berechnungen durchführen (z.B., Berechnung von Mittelwerten, Durchführung von Regressionen usw.).
+Funktionen verändern Objekte auf bestimmte Art und Weisen. 
+
+Eine Funktion kann fast alles sein. 
+
+Für die Statistik benötigen wir vor allem Funktionen, die Daten transformieren (z.B., Zuordnen von Zeichenketten zu bestimmten Werten, Erstellen neuer Variablen, Laden von Datensätzen, Speichern von Datensätzen usw.) und Funktionen, die statistische Berechnungen durchführen (z.B., Berechnung von Mittelwerten, Durchführung von Regressionen usw.).
 
 ![functions](img/Functions_cartoon.png)
 
@@ -352,7 +395,11 @@ zahlen <- c(5, 10, 15, 20, 25)
 zahlen
 ```
 
-Tatsächlich werden wir in R die Funktion "mean" verwenden, um den Durchschnitt oder arithmetischen Mittelwert einer Menge numerischer Werte zu berechnen. Sie summiert alle Zahlen in einem Datensatz auf und teilt dann diese Summe durch die Gesamtanzahl der Zahlen. Dadurch erhalten Sie einen einzigen Wert, der die zentrale Tendenz oder den typischen Wert der Daten darstellt.
+Tatsächlich werden wir in R die Funktion "mean" verwenden, um den Durchschnitt oder arithmetischen Mittelwert einer Menge numerischer Werte zu berechnen. 
+
+Sie summiert alle Zahlen in einem Datensatz auf und teilt dann diese Summe durch die Gesamtanzahl der Zahlen. 
+
+Dadurch erhalten Sie einen einzigen Wert, der die zentrale Tendenz oder den typischen Wert der Daten darstellt.
 
 ```{r}
 # Den Mittelwert berechnen
@@ -362,9 +409,11 @@ durchschnitt <- mean(zahlen)
 print(durchschnitt)
 ```
 
-In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 25) addieren und die Summe durch die Gesamtanzahl (in diesem Fall 5) teilen, was zu einem Durchschnitt von 15 führt.
+In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 25) addieren und die 
+Summe durch die Gesamtanzahl (in diesem Fall 5) teilen, was zu einem Durchschnitt von 15 führt.
 
-Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.
+Funktionen können auch Daten und Objekte generieren. 
+Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.
 
 Hier sind einige Beispiele:
 
@@ -376,7 +425,9 @@ seq(from = 1, to = 10, length.out = 5)
 ```
 
 
-2. Die rnorm() Funktion zieht zufällig 20 Werte aus der Normalverteilung mit einem Mittelwert von 0 und einer Standardabweichung von 1. 
+2. Die rnorm() Funktion zieht zufällig 20 Werte aus der Normalverteilung
+
+mit einem Mittelwert von 0 und einer Standardabweichung von 1. 
 
 ```{r}
 rnorm(n = 20, mean = 0, sd = 1) 
