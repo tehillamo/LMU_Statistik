@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>LMU Statistik: Basic Concepts in R: Create Your First R Project</title>
+  <title>LMU Statistik: Basic Concepts in R: Objects &amp; Functions</title>
 
 
 
@@ -98,20 +98,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="LMU Statistik: Basic Concepts in R: Create Your First R Project"/>
+  <meta property="og:title" content="LMU Statistik: Basic Concepts in R: Objects &amp; Functions"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="LMU Statistik"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="LMU Statistik: Basic Concepts in R: Create Your First R Project"/>
+  <meta property="twitter:title" content="LMU Statistik: Basic Concepts in R: Objects &amp; Functions"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Create Your First R Project"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Objects & Functions"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R: Create Your First R Project","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-14T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R: Objects & Functions","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-14T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2157,7 +2157,7 @@ Statistik II
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Basic Concepts in R: Create Your First R Project</h1>
+<h1>Basic Concepts in R: Objects &amp; Functions</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2170,196 +2170,374 @@ Statistik II
 </div>
 
 <div class="d-article">
-<p><strong>English</strong></p>
-<h1 id="create-your-first-project-in-r">Create Your first project in R</h1>
-<p><strong>Why?</strong></p>
-<p>By using projects, you can ensure that your workspace (i.e., your loaded data, scripts, and other files) remains specific to that project. This approach keeps things clean and avoids potential mix-ups between different tasks or datasets.</p>
-<p><strong>How?</strong></p>
-<p>Step-by-step guide to create a project in RStudio:</p>
-<ol type="1">
-<li><strong>Launch RStudio</strong>: Begin by opening the RStudio application.</li>
-</ol>
+<h1 id="english">English</h1>
+<h2 id="how-r-works">How R Works?</h2>
+<p>In R, there are (essentially) only two things: objects and functions.</p>
+<h2 id="objects">Objects</h2>
+<p>Objects are data. These can be datasets, for example, but also individual numbers, entire models, or even lists of different objects. Objects always have a name and are called by that name.”</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>tehilla</span> <span class='op'>&lt;-</span> <span class='fl'>54</span></span>
+<span><span class='va'>tehilla</span></span></code></pre>
+</div>
+<pre><code>[1] 54</code></pre>
+</div>
+<p>Objects also have properties that determine which functions (see more below) can be applied to them. For example, if an object is of type ‘numeric,’ you can add it to other ‘numeric’ objects. However, if an object is a ‘string,’ which is a character string, you cannot add it. Many error messages result from attempting to apply functions to an incompatible data type.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>age_obj</span> <span class='op'>&lt;-</span> <span class='fl'>35</span></span>
+<span><span class='va'>age_obj_2</span> <span class='op'>&lt;-</span> <span class='fl'>1</span></span>
+<span><span class='va'>I_will_be_X_next_year</span> <span class='op'>&lt;-</span>  <span class='va'>age_obj</span> <span class='op'>+</span> <span class='va'>age_obj_2</span></span>
+<span><span class='va'>I_will_be_X_next_year</span></span></code></pre>
+</div>
+<pre><code>[1] 36</code></pre>
+</div>
+<p><strong>Variables</strong>: In R, a variable allows you to store data values. Think of it as a named storage that our programs can manipulate. The stored value can be a number, text, a series of numbers, or any other type of data.</p>
+<p>Example:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_variable</span> <span class='op'>&lt;-</span> <span class='fl'>10</span></span>
+<span><span class='va'>my_variable</span></span></code></pre>
+</div>
+<pre><code>[1] 10</code></pre>
+</div>
+<p><strong>Assignments</strong>:
+In R, you use the &lt;- symbol for assignments. This symbol is known as the assignment operator. The value on the right gets assigned to the name on the left.</p>
+<p>Example:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"Tehilla"</span></span></code></pre>
+</div>
+</div>
+<p><strong>Where to See Stored Variables</strong>:
+When you’re using R or RStudio, you can view the variables you’ve defined in a couple of ways:</p>
 <ul>
-<li>Go to the Projects Menu: In the top-right corner of RStudio, you’ll see a small box (which might say “Project: (None)” if you haven’t used projects before).</li>
-<li>Click on this box to open a dropdown menu.</li>
+<li><p>In the R console, just type the variable’s name and press enter. For example, typing name would output “Tehilla”.</p></li>
+<li><p>In RStudio, the Environment pane (usually located in the top-right corner) displays a list of all current variables, their type, and their value.</p></li>
 </ul>
-<ol start="2" type="1">
-<li><strong>Create a New Project</strong>: Select New Project from the dropdown. This will initiate a new dialog box.</li>
-</ol>
 <figure>
-<img src="img/R_Interface_2.png" alt="Create New Project" />
-<figcaption aria-hidden="true">Create New Project</figcaption>
+<img src="img/R_Interface_3.png" alt="Stored Variables in R" />
+<figcaption aria-hidden="true">Stored Variables in R</figcaption>
 </figure>
-<ol start="4" type="1">
-<li><strong>Choose a Project Type</strong>: You’ll have three options here:
-<ul>
-<li>New Directory: Create a brand-new project in a new directory.</li>
-<li>Existing Directory: Turn an existing directory into a project.</li>
-<li>Version Control: If you’re using Git, SVN, or another version control system, you can clone a repository as a project.</li>
-</ul></li>
-</ol>
-<p><strong>For this guide, let’s select, for simplicity, new directory.</strong></p>
-<ol start="5" type="1">
-<li><strong>Select a Directory Type</strong>: You’ll be presented with a few options:
-<ul>
-<li>New Project: A basic project.</li>
-<li>R Package: If you’re developing an R package.</li>
-<li>Shiny Web Application: If you’re making a Shiny app.
-Typically, for general data analysis tasks, New Project is the one you’d choose.</li>
-</ul></li>
-<li><strong>Name and Choose Location</strong>:</li>
-</ol>
-<ul>
-<li>Directory Name: Give your project a name. This will also be the name of the directory/folder that RStudio creates.</li>
-<li>Create project as a subdirectory of: Browse your file system to choose where you’d like the project directory to be located.</li>
-<li>Optionally, you can also choose to create a new R script, use packrat (for dependency management), or open in a new session.</li>
-</ul>
-<ol start="7" type="1">
-<li><strong>Create the Project</strong>:</li>
-</ol>
-<p>Once you’ve filled everything out, click the Create Project button. RStudio will now make a new directory in your chosen location, and inside that directory, it will create a file with the .Rproj extension. This file holds settings specific to your project.</p>
-<p>You’re Now in Your New Project: Notice that your working directory has changed (you can confirm with getwd() in the console). Also, any scripts, data, or plots you now create will be associated with this project.</p>
-<ol start="8" type="1">
-<li><strong>Closing &amp; Opening Projects</strong>: When you close RStudio with an open project, the next time you open that .Rproj file, RStudio will remember your workspace, open scripts, and other settings. It’s a great way to pick up where you left off!</li>
-</ol>
-<h1 id="homework">Homework</h1>
+<h4 id="types-of-r-objects">Types of R Objects</h4>
 <ol type="1">
-<li>Create your first project</li>
-<li>Save it in the correct directory</li>
-<li>Add a script named “Stat_I_project”</li>
-<li>Check out this <a href="https://github.com/rfordatascience/tidytuesday">Github-Repo</a> and choose the topic you are interested in to explore.</li>
+<li><strong>Vectors</strong>:
+A vector is a basic data structure in R that contains elements of the same type. This could be numeric, character, logical, etc.</li>
 </ol>
-<!-- ![TidyTuesday - Navigation](Img/TidyTuesday.mov) -->
-<video video loop muted autoplay control width="300" height="400" name="TidyTuesday">
-<source src="Img/TidyTuesday.mov">
-</video>
-<h1 id="create-your-first-project-in-r-1">Create Your first project in R</h1>
-<p><strong>Why?</strong></p>
-<p>By using projects, you can ensure that your workspace (i.e., your loaded data, scripts, and other files) remains specific to that project. This approach keeps things clean and avoids potential mix-ups between different tasks or datasets.</p>
-<p><strong>How?</strong></p>
-<p>Step-by-step guide to create a project in RStudio:</p>
-<ol type="1">
-<li><strong>Launch RStudio</strong>: Begin by opening the RStudio application.</li>
-</ol>
-<ul>
-<li>Go to the Projects Menu: In the top-right corner of RStudio, you’ll see a small box (which might say “Project: (None)” if you haven’t used projects before).</li>
-<li>Click on this box to open a dropdown menu.</li>
-</ul>
-<ol start="2" type="1">
-<li><strong>Create a New Project</strong>: Select New Project from the dropdown. This will initiate a new dialog box.</li>
-</ol>
+<p>The c() function is used to concatenate values into a vector.</p>
+<p>Example:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>numeric_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span><span class='va'>character_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"cherry"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>In R, variables can hold data of various types. These types are fundamental and determine the kind of operations you can perform on the data. Here’s a rundown of the most common data types (or modes) in R:</p>
+<pre><code>  1.1 Numeric: Represents numbers and can be either integer or double (decimal numbers).
+  Example:
+  </code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>5</span>    <span class='co'># numeric, specifically an integer</span></span>
+<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>5.5</span>  <span class='co'># numeric, specifically a double</span></span></code></pre>
+</div>
+</div>
+<pre><code>    1.2. Character: Represents strings (text). Strings in R are enclosed by either single or double quotes.
+    Example:
+    </code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"John Doe"</span></span>
+<span><span class='va'>name</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;John Doe&quot;</code></pre>
+</div>
+<pre><code>    1.3. Logical: Represents boolean values: TRUE or FALSE. Often a result of logical conditions or operations.
+    Example:
+    </code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>flag</span> <span class='op'>&lt;-</span> <span class='cn'>TRUE</span></span>
+<span><span class='va'>flag</span></span></code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+</div>
+<pre><code>    1.4. Integer: A subtype of numeric. It specifically represents integer numbers. To specifically define an integer, you can use the L suffix.
+  Example:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>count</span> <span class='op'>&lt;-</span> <span class='fl'>23L</span></span>
+<span><span class='va'>count</span></span></code></pre>
+</div>
+<pre><code>[1] 23</code></pre>
+</div>
+<pre><code>  1.5. Factor: Categorical data is often represented as factors in R. Factors can be ordered (like &quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;) or unordered (like &quot;Male&quot;, &quot;Female&quot;). While the data might look like characters, factors are stored as integers, and a separate lookup table holds the character values.
+  Example: 
+  </code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gender</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Male"</span>, <span class='st'>"Female"</span>, <span class='st'>"Female"</span>, <span class='st'>"Male"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>gender</span></span></code></pre>
+</div>
+<pre><code>[1] Male   Female Female Male  
+Levels: Female Male</code></pre>
+</div>
+<pre><code> 1.6. Lists: A special type that can hold different types of elements, including vectors, functions, or even other lists.
+Example:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Alice"</span>, age <span class='op'>=</span> <span class='fl'>25</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>85</span>, <span class='fl'>90</span>, <span class='fl'>92</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>my_list</span></span></code></pre>
+</div>
+<pre><code>$name
+[1] &quot;Alice&quot;
+
+$age
+[1] 25
+
+$scores
+[1] 85 90 92</code></pre>
+</div>
 <figure>
-<img src="img/R_Interface_2.png" alt="Create New Project" />
-<figcaption aria-hidden="true">Create New Project</figcaption>
+<img src="img/R_Interface_4.png" alt="Vectors" />
+<figcaption aria-hidden="true">Vectors</figcaption>
 </figure>
-<ol start="3" type="1">
-<li><strong>Choose a Project Type</strong>: You’ll have three options here:
-<ul>
-<li>New Directory: Create a brand-new project in a new directory.</li>
-<li>Existing Directory: Turn an existing directory into a project.</li>
-<li>Version Control: If you’re using Git, SVN, or another version control system, you can clone a repository as a project.</li>
-</ul></li>
-</ol>
-<p><strong>For this guide, let’s select New Directory for simplicity.</strong></p>
-<ol start="4" type="1">
-<li><strong>Select a Directory Type</strong>: You’ll be presented with a few options:
-<ul>
-<li>New Project: A basic project.</li>
-<li>R Package: If you’re developing an R package.</li>
-<li>Shiny Web Application: If you’re making a Shiny app.
-Typically, for general data analysis tasks, New Project is the one you’d choose.</li>
-</ul></li>
-<li><strong>Name and Choose Location</strong>:</li>
-</ol>
-<ul>
-<li>Directory Name: Give your project a name. This will also be the name of the directory/folder that RStudio creates.</li>
-<li>Create project as a subdirectory of: Browse your file system to choose where you’d like the project directory to be located.</li>
-<li>Optionally, you can also choose to create a new R script, use packrat (for dependency management), or open in a new session.</li>
-</ul>
-<ol start="6" type="1">
-<li><strong>Create the Project</strong>:</li>
-</ol>
-<p>Once you’ve filled everything out, click the Create Project button. RStudio will now make a new directory in your chosen location, and inside that directory, it will create a file with the .Rproj extension. This file holds settings specific to your project.</p>
-<p>You’re Now in Your New Project: Notice that your working directory has changed (you can confirm with getwd() in the console). Also, any scripts, data, or plots you now create will be associated with this project.</p>
-<ol start="7" type="1">
-<li><strong>Closing &amp; Opening Projects</strong>: When you close RStudio with an open project, the next time you open that .Rproj file, RStudio will remember your workspace, open scripts, and other settings. It’s a great way to pick up where you left off!</li>
-</ol>
+<h1 id="functions">Functions</h1>
+<p>Functions alter objects in specific ways. A function can be almost anything. For statistics, we mainly need functions that transform data (e.g., mapping strings to specific values, creating new variables, loading datasets, saving datasets, etc.) and functions that perform statistical calculations (e.g., calculating means, performing regressions, etc.).</p>
+<figure>
+<img src="img/Functions_cartoon.png" alt="functions" />
+<figcaption aria-hidden="true">functions</figcaption>
+</figure>
+<p><strong>Example</strong>:</p>
+<p>Here is an innocent vector… It’s about to change its form by being passed into a function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create a numeric vector</span></span>
+<span><span class='va'>numbers</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>15</span>, <span class='fl'>20</span>, <span class='fl'>25</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='co'># The function c() is used very often. It combines elements into a vector.</span></span>
+<span><span class='va'>numbers</span></span></code></pre>
+</div>
+<pre><code>[1]  5 10 15 20 25</code></pre>
+</div>
+<p>In fact, we will use the “mean” function in R to calculate the average or arithmetic mean of a set of numeric values. It adds up all the numbers in a dataset and then divides that sum by the total count of numbers. This provides you with a single value that represents the central tendency or typical value of the data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Calculate the mean</span></span>
+<span><span class='va'>average</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>numbers</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Print the result</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>average</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] 15</code></pre>
+</div>
+<p>In this example, the mean function will add up the numbers (5 + 10 + 15 + 20 + 25) and divide the sum by the total count (5 in this case), resulting in an average of 15.</p>
+<p>Functions can also generate data and objects. For example, there are functions that create random numbers.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='co'># randomly draws 20 values from the normal distribution with a mean of 0 and SD of 1</span></span></code></pre>
+</div>
+<pre><code> [1]  0.37309722 -1.00369329 -1.99048167 -0.12759806 -1.18618389
+ [6]  1.24385982 -0.31408063 -0.53189298 -2.86218859  0.71001995
+[11]  2.35591873  0.33181933  0.90482781 -1.39441432 -0.62193244
+[16] -0.33462347 -0.09460639  0.61454341 -0.11213166  1.85548719</code></pre>
+</div>
+<p>Functions can also generate graphics from objects.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>normally_distributed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>normally_distributed</span><span class='op'>)</span> <span class='co'># creates a histogram from the vector of normally distributed variables</span></span></code></pre>
+</div>
+<p><img src="Basic_R_Introduction_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
 <hr />
-<h1 id="deutsch"><strong>Deutsch</strong></h1>
-<h2 id="erstelle-dein-erstes-projekt-in-r">Erstelle dein erstes Projekt in R</h2>
-<p><strong>Warum?</strong></p>
-<p>Durch die Verwendung von Projekten kannst du sicherstellen, dass dein Arbeitsbereich (d.h. deine geladenen Daten, Skripte und andere Dateien) spezifisch für dieses Projekt bleibt. Dieser Ansatz hält alles übersichtlich und verhindert mögliche Verwechslungen zwischen verschiedenen Aufgaben oder Datensätzen.</p>
-<p><strong>Wie?</strong></p>
-<p>Schritt-für-Schritt Anleitung zur Erstellung eines Projekts in RStudio:</p>
-<ol type="1">
-<li><strong>RStudio starten</strong>: Beginne, indem du die RStudio-Anwendung öffnest.</li>
-</ol>
-<ul>
-<li><p>Gehe zum Projekte-Menü: In der oberen rechten Ecke von RStudio siehst du ein kleines Feld (welches “Projekt: (Keines)” anzeigen könnte, wenn du zuvor noch keine Projekte verwendet hast).</p></li>
-<li><p>Klicke auf dieses Feld, um ein Dropdown-Menü zu öffnen.</p></li>
-</ul>
-<ol start="2" type="1">
-<li><p><strong>Ein neues Projekt erstellen</strong>: Wähle Neues Projekt aus dem Dropdown aus. Dadurch wird ein neues Dialogfeld geöffnet.
-Neues Projekt erstellen</p></li>
-<li><p><strong>Wähle einen Projekttyp</strong>: Du hast hier drei Optionen:</p></li>
-</ol>
-<ul>
-<li><p>Neues Verzeichnis: Erstelle ein brandneues Projekt in einem neuen Verzeichnis.</p></li>
-<li><p><strong>Vorhandenes Verzeichnis</strong>: Verwandle ein bestehendes Verzeichnis in ein Projekt.</p></li>
-<li><p><strong>Versionskontrolle</strong>: Wenn du Git, SVN oder ein anderes Versionskontrollsystem verwendest, kannst du ein Repository als Projekt klonen.</p></li>
-</ul>
-<h3 id="für-diesen-leitfaden-wählen-wir-aus-gründen-der-einfachheit-neues-verzeichnis.">Für diesen Leitfaden wählen wir aus Gründen der Einfachheit Neues Verzeichnis.</h3>
-<ol start="4" type="1">
-<li><strong>Wähle einen Verzeichnistyp</strong>: Dir werden einige Optionen angezeigt:</li>
-</ol>
-<ul>
-<li><p><strong>Neues Projekt</strong>: Ein Basisprojekt.</p></li>
-<li><p><strong>R Paket</strong>: Wenn du ein R-Paket entwickelst.</p></li>
-</ul>
-<p>-<strong>Shiny Webanwendung</strong>: Wenn du eine Shiny-App erstellst.Normalerweise würdest du für allgemeine Datenanalyseaufgaben Neues Projekt wählen.</p>
-<ol start="5" type="1">
-<li><strong>Name und Standort wählen</strong>:</li>
-</ol>
-<ul>
-<li><p>Verzeichnisname: Gib deinem Projekt einen Namen. Dies wird auch der Name des von RStudio erstellten Verzeichnisses/Ordners sein.</p></li>
-<li><p>Erstelle das Projekt als Unterordner von: Durchsuche dein Dateisystem, um den gewünschten Standort für das Projektverzeichnis auszuwählen.</p></li>
-<li><p>Optional kannst du auch ein neues R-Skript erstellen, Packrat verwenden (zur Abhängigkeitsverwaltung) oder in einer neuen Sitzung öffnen.</p></li>
-</ul>
-<ol start="6" type="1">
-<li><strong>Das Projekt erstellen</strong>:
-Nachdem du alles ausgefüllt hast, klicke auf den Button Projekt erstellen. RStudio wird nun in deinem gewählten Ort ein neues Verzeichnis erstellen und in diesem Verzeichnis eine Datei mit der Erweiterung .Rproj erstellen. Diese Datei enthält projektspezifische Einstellungen.</li>
-</ol>
-<p>Du bist jetzt in deinem neuen Projekt: Beachte, dass sich dein Arbeitsverzeichnis geändert hat (du kannst dies mit getwd() in der Konsole bestätigen). Auch alle Skripte, Daten oder Plots, die du jetzt erstellst, werden diesem Projekt zugeordnet.</p>
-<ol start="7" type="1">
-<li><strong>Projekte schließen &amp; öffnen</strong>: Wenn du RStudio mit einem geöffneten Projekt schließt, wird RStudio bei der nächsten Öffnung dieser .Rproj-Datei deinen Arbeitsbereich, offene Skripte und andere Einstellungen wiederherstellen. Es ist eine großartige Möglichkeit, dort weiterzumachen, wo du aufgehört hast!</li>
-</ol>
-<h1 id="hausaufgaben">Hausaufgaben</h1>
-<ol type="1">
-<li>Erstelle dein erstes Projekt</li>
-<li>Speichere es im richtigen Verzeichnis</li>
-<li>Füge ein Skript mit dem Namen “Stat_I_project” hinzu</li>
-<li>Sieh dir dieses <a href="https://github.com/rfordatascience/tidytuesday">Github-Repo</a> an und wähle das Thema aus, das dich interessiert, um es zu erkunden.</li>
-</ol>
-<!-- ![TidyTuesday - Navigation](Img/TidyTuesday.mov) -->
-<video video loop muted autoplay control width="300" height="400" name="TidyTuesday">
-<source src="Img/TidyTuesday.mov">
-</video>
-<h2 id="terminology">Terminology:</h2>
-<p><strong>Github repo</strong></p>
-<p><strong>English</strong> - A GitHub repo (repository) is like a folder for your project on the website GitHub. It holds all the files, history, and changes related to that project so others can see, use, or help improve it.</p>
-<p><strong>Deutsch</strong> - A GitHub repo (Repository) ist wie ein Ordner für dein Projekt auf der Webseite GitHub. Er beinhaltet alle Dateien, den Verlauf und Änderungen des Projekts, sodass andere es sehen, verwenden oder helfen können, es zu verbessern.</p>
-<ol start="2" type="1">
-<li>TidyTuesday</li>
-</ol>
-<p><strong>English</strong>
-Tidy Tuesday is a weekly data project aimed at the R community, primarily on Twitter. It provides data enthusiasts with a weekly dataset which they can explore, visualize, and analyze using the R programming language. The initiative encourages participants to share their findings and visualizations on Twitter using the hashtag #TidyTuesday.
-: The idea is to promote both learning in data visualization and R programming, as well as community engagement. Each week’s dataset is diverse, ranging from topics like sports, science, economics, and more. The datasets are often “tidy,” meaning they adhere to a specific structure that’s optimized for analysis with the tidyverse set of packages in R.</p>
-<p>The datasets and challenges are shared via the “rfordatascience” GitHub repository, which is why you often see references to their GitHub repo when discussing Tidy Tuesday.</p>
-<p><strong>Deutsch</strong>:</p>
-<p>Tidy Tuesday ist ein wöchentliches Datenprojekt, das sich an die R-Community richtet, hauptsächlich auf Twitter. Es bietet Datenbegeisterten wöchentlich einen Datensatz, den sie mithilfe der R-Programmiersprache erkunden, visualisieren und analysieren können. Die Initiative ermutigt die Teilnehmer dazu, ihre Erkenntnisse und Visualisierungen auf Twitter unter Verwendung des Hashtags #TidyTuesday zu teilen.</p>
-<p>Die Idee besteht darin, sowohl das Lernen in der Datenvisualisierung als auch in der R-Programmierung zu fördern als auch die Gemeinschaftsbeteiligung zu unterstützen. Der Datensatz der Woche ist vielfältig und reicht von Themen wie Sport, Wissenschaft, Wirtschaft und mehr. Die Datensätze sind oft “ordentlich”, was bedeutet, dass sie einer spezifischen Struktur folgen, die für die Analyse mit dem Set von tidyverse-Paketen in R optimiert ist.</p>
-<p>Die Datensätze und Herausforderungen werden über das GitHub-Repository “rfordatascience” geteilt, weshalb Sie häufig Verweise auf ihr GitHub-Repo sehen, wenn Sie über Tidy Tuesday sprechen.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h1 id="deutsch">Deutsch</h1>
+<h1 id="wie-r-funktioniert">Wie R funktioniert</h1>
+<p>In R gibt es im Wesentlichen nur zwei Dinge: Objekte und Funktionen.</p>
+<h2 id="objekte">Objekte</h2>
+<p>Objekte sind Daten. Dies können beispielsweise Datensätze sein, aber auch einzelne Zahlen, ganze Modelle oder sogar Listen von verschiedenen Objekten. Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>tehilla</span> <span class='op'>&lt;-</span> <span class='fl'>54</span></span>
+<span><span class='va'>tehilla</span></span></code></pre>
+</div>
+<pre><code>[1] 54</code></pre>
+</div>
+<p>Objekte haben auch Eigenschaften, die bestimmen, welche Funktionen (siehe unten) auf sie angewendet werden können. Wenn ein Objekt beispielsweise vom Typ ‘numeric’ ist, können Sie es zu anderen ‘numeric’-Objekten hinzufügen. Wenn ein Objekt jedoch ein ‘string’ ist, eine Zeichenkette, können Sie es nicht hinzufügen. Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>age_obj</span> <span class='op'>&lt;-</span> <span class='fl'>35</span></span>
+<span><span class='va'>age_obj_2</span> <span class='op'>&lt;-</span> <span class='fl'>1</span></span>
+<span><span class='va'>Ich_werde_nächstes_Jahr_X_sein</span> <span class='op'>&lt;-</span>  <span class='va'>age_obj</span> <span class='op'>+</span> <span class='va'>age_obj_2</span></span>
+<span><span class='va'>Ich_werde_nächstes_Jahr_X_sein</span></span></code></pre>
+</div>
+<pre><code>[1] 36</code></pre>
+</div>
+<p><strong>Variablen</strong>: In R ermöglicht es eine Variable, Datenwerte zu speichern. Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können. Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein.</p>
+Beispiel:
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>meine_variable</span> <span class='op'>&lt;-</span> <span class='fl'>10</span></span>
+<span><span class='va'>meine_variable</span></span></code></pre>
+</div>
+<pre><code>[1] 10</code></pre>
+</div>
+<p><strong>Zuweisungen</strong>: In R verwenden Sie das &lt;- Symbol für Zuweisungen. Dieses Symbol wird als Zuweisungsoperator bezeichnet. Der Wert auf der rechten Seite wird dem Namen auf der linken Seite zugewiesen.</p>
+<p>Beispiel:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"Tehilla"</span></span></code></pre>
+</div>
+</div>
+<p><strong>Wo Sie gespeicherte Variablen sehen können</strong>:
+Wenn Sie R oder RStudio verwenden, können Sie die von Ihnen definierten Variablen auf verschiedene Arten anzeigen:</p>
+<p>In der R-Konsole geben Sie einfach den Namen der Variablen ein und drücken Sie Enter. Wenn Sie beispielsweise ‘name’ eingeben, wird “Tehilla” ausgegeben.
+In RStudio zeigt das Environment-Fenster (normalerweise oben rechts) eine Liste aller aktuellen Variablen, ihres Typs und ihres Werts an.</p>
+<figure>
+<img src="img/R_Interface_3.png" alt="Stored Variables in R" />
+<figcaption aria-hidden="true">Stored Variables in R</figcaption>
+</figure>
+<h4 id="arten-von-r-objekten">Arten von R-Objekten</h4>
+<pre><code>1. Vektoren:
+Ein Vektor ist eine grundlegende Datenstruktur in R, die Elemente des gleichen Typs enthält. Dies kann numerisch, character, logisch usw. sein.
+Die Funktion c() wird verwendet, um Werte zu einem Vektor zusammenzuführen.
+
+Beispiel:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>numerischer_vektor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span><span class='va'>character_vektor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Apfel"</span>, <span class='st'>"Banane"</span>, <span class='st'>"Kirsche"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>In R können Variablen Daten verschiedener Typen speichern. Diese Typen sind grundlegend und bestimmen die Art der Operationen, die auf die Daten angewendet werden können. Hier ist eine Übersicht über die häufigsten Datentypen (oder modes) in R:</p>
+<pre><code>1.1 Numerisch: Stellt Zahlen dar und kann entweder Ganzzahlen oder Dezimalzahlen sein.
+
+Beispiel:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>5</span>    <span class='co'># numerisch, speziell eine Ganzzahl</span></span>
+<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>5.5</span>  <span class='co'># numerisch, speziell eine Dezimalzahl</span></span></code></pre>
+</div>
+</div>
+<pre><code>1.2 Character: Stellt Zeichenketten (Text) dar. Zeichenketten in R sind entweder von einfachen oder doppelten Anführungszeichen umschlossen.
+Beispiel:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"John Doe"</span></span>
+<span><span class='va'>name</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;John Doe&quot;</code></pre>
+</div>
+<pre><code>1.3 Logisch: Stellt boolesche Werte dar: TRUE oder FALSE. Oft das Ergebnis logischer Bedingungen oder Operationen.
+Beispiel:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>flag</span> <span class='op'>&lt;-</span> <span class='cn'>TRUE</span></span>
+<span><span class='va'>flag</span></span></code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+</div>
+<pre><code>1.4 Ganzzahl: Ein Untertyp von numerisch. Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden.
+
+Beispiel:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>anzahl</span> <span class='op'>&lt;-</span> <span class='fl'>23L</span></span>
+<span><span class='va'>anzahl</span></span></code></pre>
+</div>
+<pre><code>[1] 23</code></pre>
+</div>
+<pre><code>1.5 Faktor: Kategoriale Daten werden oft als Faktoren in R dargestellt. Faktoren können geordnet sein (wie &quot;Niedrig&quot;, &quot;Mittel&quot;, &quot;Hoch&quot;) oder ungeordnet (wie &quot;Männlich&quot;, &quot;Weiblich&quot;). Obwohl die Daten wie Zeichenketten aussehen können, werden Faktoren als Ganzzahlen gespeichert, und eine separate Lookup-Tabelle enthält die Zeichenwerte.
+
+Beispiel: </code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>geschlecht</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Männlich"</span>, <span class='st'>"Weiblich"</span>, <span class='st'>"Weiblich"</span>, <span class='st'>"Männlich"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>geschlecht</span></span></code></pre>
+</div>
+<pre><code>[1] Männlich Weiblich Weiblich Männlich
+Levels: Männlich Weiblich</code></pre>
+</div>
+<pre><code> 1.6 Listen: Ein spezieller Typ, der verschiedene Arten von Elementen wie Vektoren, Funktionen oder sogar andere Listen enthalten kann.
+
+Beispiel:</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>meine_liste</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Alice"</span>, alter <span class='op'>=</span> <span class='fl'>25</span>, punkte <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>85</span>, <span class='fl'>90</span>, <span class='fl'>92</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>meine_liste</span></span></code></pre>
+</div>
+<pre><code>$name
+[1] &quot;Alice&quot;
+
+$alter
+[1] 25
+
+$punkte
+[1] 85 90 92</code></pre>
+</div>
+<figure>
+<img src="img/R_Interface_4.png" alt="Vectors" />
+<figcaption aria-hidden="true">Vectors</figcaption>
+</figure>
+<hr />
+<h1 id="functions-1">Functions:</h1>
+<h4 id="the-way-to-maniupulate-objects.">The way to maniupulate objects.</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>6</span>,<span class='fl'>8</span><span class='op'>)</span> <span class='co'># die Funktion c() braucht man sehr oft. Sie fügt Elemente␣ ↪zu einem Vektor zusammen</span></span>
+<span><span class='va'>vector</span></span></code></pre>
+</div>
+<pre><code>[1] 1 4 6 8</code></pre>
+</div>
+<h2 id="functions-2">Functions</h2>
+<p>Funktionen verändern Objekte auf bestimmte Art und Weisen. Eine Funktion kann fast alles sein. Für die Statistik benötigen wir vor allem Funktionen, die Daten transformieren (z.B., Zuordnen von Zeichenketten zu bestimmten Werten, Erstellen neuer Variablen, Laden von Datensätzen, Speichern von Datensätzen usw.) und Funktionen, die statistische Berechnungen durchführen (z.B., Berechnung von Mittelwerten, Durchführung von Regressionen usw.).</p>
+<figure>
+<img src="img/Functions_cartoon.png" alt="functions" />
+<figcaption aria-hidden="true">functions</figcaption>
+</figure>
+<p><strong>Beispiel</strong>:</p>
+<p>Hier ist ein unschuldiger Vektor… Er wird gleich seine Form ändern, indem er an eine Funktion übergeben wird.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Einen numerischen Vektor erstellen</span></span>
+<span><span class='va'>zahlen</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>15</span>, <span class='fl'>20</span>, <span class='fl'>25</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Die Funktion c() wird sehr oft verwendet. Sie fügt Elemente zu einem Vektor zusammen.</span></span>
+<span><span class='va'>zahlen</span></span></code></pre>
+</div>
+<pre><code>[1]  5 10 15 20 25</code></pre>
+</div>
+<p>Tatsächlich werden wir in R die Funktion “mean” verwenden, um den Durchschnitt oder arithmetischen Mittelwert einer Menge numerischer Werte zu berechnen. Sie summiert alle Zahlen in einem Datensatz auf und teilt dann diese Summe durch die Gesamtanzahl der Zahlen. Dadurch erhalten Sie einen einzigen Wert, der die zentrale Tendenz oder den typischen Wert der Daten darstellt.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Den Mittelwert berechnen</span></span>
+<span><span class='va'>durchschnitt</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>zahlen</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Das Ergebnis ausgeben</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>durchschnitt</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] 15</code></pre>
+</div>
+<p>In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 25) addieren und die Summe durch die Gesamtanzahl (in diesem Fall 5) teilen, was zu einem Durchschnitt von 15 führt.</p>
+<p>Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='co'># zieht zufällig 20 Werte aus der Normalverteilung mit einem Mittelwert von 0 und einer Standardabweichung von 1</span></span></code></pre>
+</div>
+<pre><code> [1]  0.8081778 -0.0330360  0.2868713  0.1552218  0.3887404  0.4610319
+ [7] -0.5561168 -1.0793696 -0.3641644 -1.5433180  0.3077077 -1.1842075
+[13] -1.5233469 -0.9412946 -0.5393158 -1.5000407  2.8523395  0.6895947
+[19]  0.3243702  0.2840283</code></pre>
+</div>
+<p>Funktionen können auch Grafiken aus Objekten generieren.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>normalverteilt</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>normalverteilt</span><span class='op'>)</span> <span class='co'># erstellt ein Histogramm aus dem Vektor der normalverteilten Variablen</span></span></code></pre>
+</div>
+<p><img src="Basic_R_Introduction_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

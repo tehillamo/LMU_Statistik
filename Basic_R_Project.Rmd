@@ -210,12 +210,21 @@ Du bist jetzt in deinem neuen Projekt: Beachte, dass sich dein Arbeitsverzeichni
 **English** - A GitHub repo (repository) is like a folder for your project on the website GitHub. It holds all the files, history, and changes related to that project so others can see, use, or help improve it.
 
 
-
 **Deutsch** - A GitHub repo (Repository) ist wie ein Ordner für dein Projekt auf der Webseite GitHub. Er beinhaltet alle Dateien, den Verlauf und Änderungen des Projekts, sodass andere es sehen, verwenden oder helfen können, es zu verbessern.
 
-2. TidyTuesday
-Tidy Tuesday is a weekly data project aimed at the R community, primarily on Twitter. It provides data enthusiasts with a weekly dataset which they can explore, visualize, and analyze using the R programming language. The initiative encourages participants to share their findings and visualizations on Twitter using the hashtag #TidyTuesday.
 
-The idea is to promote both learning in data visualization and R programming, as well as community engagement. Each week's dataset is diverse, ranging from topics like sports, science, economics, and more. The datasets are often "tidy," meaning they adhere to a specific structure that's optimized for analysis with the tidyverse set of packages in R.
+2. TidyTuesday
+
+**English**
+Tidy Tuesday is a weekly data project aimed at the R community, primarily on Twitter. It provides data enthusiasts with a weekly dataset which they can explore, visualize, and analyze using the R programming language. The initiative encourages participants to share their findings and visualizations on Twitter using the hashtag #TidyTuesday.
+: The idea is to promote both learning in data visualization and R programming, as well as community engagement. Each week's dataset is diverse, ranging from topics like sports, science, economics, and more. The datasets are often "tidy," meaning they adhere to a specific structure that's optimized for analysis with the tidyverse set of packages in R.
 
 The datasets and challenges are shared via the "rfordatascience" GitHub repository, which is why you often see references to their GitHub repo when discussing Tidy Tuesday.
+
+**Deutsch**:
+
+Tidy Tuesday ist ein wöchentliches Datenprojekt, das sich an die R-Community richtet, hauptsächlich auf Twitter. Es bietet Datenbegeisterten wöchentlich einen Datensatz, den sie mithilfe der R-Programmiersprache erkunden, visualisieren und analysieren können. Die Initiative ermutigt die Teilnehmer dazu, ihre Erkenntnisse und Visualisierungen auf Twitter unter Verwendung des Hashtags #TidyTuesday zu teilen.
+
+Die Idee besteht darin, sowohl das Lernen in der Datenvisualisierung als auch in der R-Programmierung zu fördern als auch die Gemeinschaftsbeteiligung zu unterstützen. Der Datensatz der Woche ist vielfältig und reicht von Themen wie Sport, Wissenschaft, Wirtschaft und mehr. Die Datensätze sind oft "ordentlich", was bedeutet, dass sie einer spezifischen Struktur folgen, die für die Analyse mit dem Set von tidyverse-Paketen in R optimiert ist.
+
+Die Datensätze und Herausforderungen werden über das GitHub-Repository "rfordatascience" geteilt, weshalb Sie häufig Verweise auf ihr GitHub-Repo sehen, wenn Sie über Tidy Tuesday sprechen.
