@@ -232,6 +232,7 @@ Ich_werde_nächstes_Jahr_X_sein
 **Variablen**: In R ermöglicht es eine Variable, Datenwerte zu speichern. Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können. Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein.
 
 Beispiel:
+
 ```{r}
 meine_variable <- 10
 meine_variable
@@ -331,16 +332,6 @@ meine_liste
 ![Vectors](img/R_Interface_4.png)
 
 ----
-
-# Functions:
-
-#### The way to maniupulate objects. 
-
-
-```{r}
-vector <- c(1,4,6,8) # die Funktion c() braucht man sehr oft. Sie fügt Elemente␣ ↪zu einem Vektor zusammen
-vector
-```
 
 
 ## Functions
