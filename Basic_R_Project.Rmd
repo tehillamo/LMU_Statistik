@@ -63,12 +63,56 @@ You're Now in Your New Project: Notice that your working directory has changed (
 8. **Closing & Opening Projects**: When you close RStudio with an open project, the next time you open that .Rproj file, RStudio will remember your workspace, open scripts, and other settings. It's a great way to pick up where you left off!
 
 
+## Create Scripts Within Your Project
+Now lets create our first script and save it. 
 
-# Homework
-1. Create your first project 
-2. Save it in the correct directory
-3. Add a script named "Stat_I_project"
-4. Check out this [Github-Repo](https://github.com/rfordatascience/tidytuesday) and choose the topic you are interested in to explore. 
+1. 
+
+![R Script: First Step](img/Create_Script_1.png)
+
+
+2. 
+
+![R Script: Second Step](img/Create_Script_2.png)
+
+3.
+
+![R Script: Third Step](img/Create_Script_3.png)
+
+4. 
+
+![R Script: Fourth Step](img/Create_Script_4.png)
+
+5. 
+
+![R Script: Fifth Step](img/Create_Script_5.png)
+
+
+6. 
+
+![R Script: Sixth Step](img/Create_Script_6.png)
+
+7. 
+
+![R Script: Seventh Step](img/Create_Script_7.png)
+
+
+Or as a video:
+
+<!-- ![R Script: .mov](img/create_script.mov) -->
+
+<video width="520" height="440" controls>
+  <source src="img/create_script.mov" type="video/mp4">
+</video>
+
+
+
+----
+<!-- # Homework -->
+<!-- 1. Create your first project  -->
+<!-- 2. Save it in the correct directory -->
+<!-- 3. Add a script named "Stat_I_project" -->
+<!-- 4. Check out this [Github-Repo](https://github.com/rfordatascience/tidytuesday) and choose the topic you are interested in to explore.  -->
 
 
 <!-- ![TidyTuesday - Navigation](Img/TidyTuesday.mov) -->
@@ -188,11 +232,53 @@ Du bist jetzt in deinem neuen Projekt: Beachte, dass sich dein Arbeitsverzeichni
 7. **Projekte schließen & öffnen**: Wenn du RStudio mit einem geöffneten Projekt schließt, wird RStudio bei der nächsten Öffnung dieser .Rproj-Datei deinen Arbeitsbereich, offene Skripte und andere Einstellungen wiederherstellen. Es ist eine großartige Möglichkeit, dort weiterzumachen, wo du aufgehört hast!
 
 
-# Hausaufgaben
-1. Erstelle dein erstes Projekt
-2. Speichere es im richtigen Verzeichnis
-3. Füge ein Skript mit dem Namen "Stat_I_project" hinzu
-4. Sieh dir dieses [Github-Repo](https://github.com/rfordatascience/tidytuesday) an und wähle das Thema aus, das dich interessiert, um es zu erkunden.
+
+## Create Scripts Within Your Project
+Now lets create our first script and save it. 
+
+1. 
+
+![R Script: First Step](img/Create_Script_1.png)
+
+
+2. 
+
+![R Script: Second Step](img/Create_Script_2.png)
+
+3.
+
+![R Script: Third Step](img/Create_Script_3.png)
+
+4. 
+
+![R Script: Fourth Step](img/Create_Script_4.png)
+
+5. 
+
+![R Script: Fifth Step](img/Create_Script_5.png)
+
+
+6. 
+
+![R Script: Sixth Step](img/Create_Script_6.png)
+
+7. 
+
+![R Script: Seventh Step](img/Create_Script_7.png)
+
+
+Or as a video:
+
+<!-- ![R Script: .mov](img/create_script.mov) -->
+
+<video width="520" height="440" controls>
+  <source src="img/create_script.mov" type="video/mp4">
+</video>
+<!-- # Hausaufgaben -->
+<!-- 1. Erstelle dein erstes Projekt -->
+<!-- 2. Speichere es im richtigen Verzeichnis -->
+<!-- 3. Füge ein Skript mit dem Namen "Stat_I_project" hinzu -->
+<!-- 4. Sieh dir dieses [Github-Repo](https://github.com/rfordatascience/tidytuesday) an und wähle das Thema aus, das dich interessiert, um es zu erkunden. -->
 
 
 <!-- ![TidyTuesday - Navigation](Img/TidyTuesday.mov) -->

@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-10-14"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-10-14"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-10-15"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-10-15"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Create Your First R Project"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-14"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Create Your First R Project"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R: Create Your First R Project","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-14T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R: Create Your First R Project","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-15T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2124,7 +2124,7 @@ Statistik I
 <a href="Basic_concepts.html">Basic Concepts</a>
 <a href="Basic_R.html">Basics in R - Download R &amp; R Studio</a>
 <a href="Basic_R_Project.html">Basics in R - Create Project</a>
-<a href="Basic_R_Introduction.html">Basics in R - Variables &amp; Functions</a>
+<a href="Basic_R_VariabelsFunctions.html">Basics in R - Variables &amp; Functions</a>
 <a href="Basic_R_2.html">Basics in R - Part 2</a>
 <a href="Basic_R_3.html">Basics in R - Part 3</a>
 <a href="Basic_R_4.html">Basics in R - Part 4</a>
@@ -2167,7 +2167,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-10-14
+<br/>2023-10-15
 </div>
 
 <div class="d-article">
@@ -2223,69 +2223,148 @@ Typically, for general data analysis tasks, New Project is the one you’d choos
 <ol start="8" type="1">
 <li><strong>Closing &amp; Opening Projects</strong>: When you close RStudio with an open project, the next time you open that .Rproj file, RStudio will remember your workspace, open scripts, and other settings. It’s a great way to pick up where you left off!</li>
 </ol>
-<h1 id="homework">Homework</h1>
+<h2 id="create-scripts-within-your-project">Create Scripts Within Your Project</h2>
+<p>Now lets create our first script and save it.</p>
 <ol type="1">
-<li>Create your first project</li>
-<li>Save it in the correct directory</li>
-<li>Add a script named “Stat_I_project”</li>
-<li>Check out this <a href="https://github.com/rfordatascience/tidytuesday">Github-Repo</a> and choose the topic you are interested in to explore.</li>
-</ol>
-<!-- ![TidyTuesday - Navigation](Img/TidyTuesday.mov) -->
-<video video loop muted autoplay control width="300" height="400" name="TidyTuesday">
-<source src="Img/TidyTuesday.mov">
-</video>
-<h1 id="create-your-first-project-in-r-1">Create Your first project in R</h1>
-<p><strong>Why?</strong></p>
-<p>By using projects, you can ensure that your workspace (i.e., your loaded data, scripts, and other files) remains specific to that project. This approach keeps things clean and avoids potential mix-ups between different tasks or datasets.</p>
-<p><strong>How?</strong></p>
-<p>Step-by-step guide to create a project in RStudio:</p>
-<ol type="1">
-<li><strong>Launch RStudio</strong>: Begin by opening the RStudio application.</li>
-</ol>
-<ul>
-<li>Go to the Projects Menu: In the top-right corner of RStudio, you’ll see a small box (which might say “Project: (None)” if you haven’t used projects before).</li>
-<li>Click on this box to open a dropdown menu.</li>
-</ul>
-<ol start="2" type="1">
-<li><strong>Create a New Project</strong>: Select New Project from the dropdown. This will initiate a new dialog box.</li>
+<li></li>
 </ol>
 <figure>
-<img src="img/R_Interface_2.png" alt="Create New Project" />
-<figcaption aria-hidden="true">Create New Project</figcaption>
+<img src="img/Create_Script_1.png" alt="R Script: First Step" />
+<figcaption aria-hidden="true">R Script: First Step</figcaption>
+</figure>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_2.png" alt="R Script: Second Step" />
+<figcaption aria-hidden="true">R Script: Second Step</figcaption>
 </figure>
 <ol start="3" type="1">
-<li><strong>Choose a Project Type</strong>: You’ll have three options here:
-<ul>
-<li>New Directory: Create a brand-new project in a new directory.</li>
-<li>Existing Directory: Turn an existing directory into a project.</li>
-<li>Version Control: If you’re using Git, SVN, or another version control system, you can clone a repository as a project.</li>
-</ul></li>
+<li></li>
 </ol>
-<p><strong>For this guide, let’s select New Directory for simplicity.</strong></p>
+<figure>
+<img src="img/Create_Script_3.png" alt="R Script: Third Step" />
+<figcaption aria-hidden="true">R Script: Third Step</figcaption>
+</figure>
 <ol start="4" type="1">
-<li><strong>Select a Directory Type</strong>: You’ll be presented with a few options:
-<ul>
-<li>New Project: A basic project.</li>
-<li>R Package: If you’re developing an R package.</li>
-<li>Shiny Web Application: If you’re making a Shiny app.
-Typically, for general data analysis tasks, New Project is the one you’d choose.</li>
-</ul></li>
-<li><strong>Name and Choose Location</strong>:</li>
+<li></li>
 </ol>
-<ul>
-<li>Directory Name: Give your project a name. This will also be the name of the directory/folder that RStudio creates.</li>
-<li>Create project as a subdirectory of: Browse your file system to choose where you’d like the project directory to be located.</li>
-<li>Optionally, you can also choose to create a new R script, use packrat (for dependency management), or open in a new session.</li>
-</ul>
+<figure>
+<img src="img/Create_Script_4.png" alt="R Script: Fourth Step" />
+<figcaption aria-hidden="true">R Script: Fourth Step</figcaption>
+</figure>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_5.png" alt="R Script: Fifth Step" />
+<figcaption aria-hidden="true">R Script: Fifth Step</figcaption>
+</figure>
 <ol start="6" type="1">
-<li><strong>Create the Project</strong>:</li>
+<li></li>
 </ol>
-<p>Once you’ve filled everything out, click the Create Project button. RStudio will now make a new directory in your chosen location, and inside that directory, it will create a file with the .Rproj extension. This file holds settings specific to your project.</p>
-<p>You’re Now in Your New Project: Notice that your working directory has changed (you can confirm with getwd() in the console). Also, any scripts, data, or plots you now create will be associated with this project.</p>
+<figure>
+<img src="img/Create_Script_6.png" alt="R Script: Sixth Step" />
+<figcaption aria-hidden="true">R Script: Sixth Step</figcaption>
+</figure>
 <ol start="7" type="1">
-<li><strong>Closing &amp; Opening Projects</strong>: When you close RStudio with an open project, the next time you open that .Rproj file, RStudio will remember your workspace, open scripts, and other settings. It’s a great way to pick up where you left off!</li>
+<li></li>
 </ol>
-<hr />
+<figure>
+<img src="img/Create_Script_7.png" alt="R Script: Seventh Step" />
+<figcaption aria-hidden="true">R Script: Seventh Step</figcaption>
+</figure>
+<p>Or as a video:</p>
+<!-- ![R Script: .mov](img/create_script.mov) -->
+<video width="520" height="440" controls>
+<source src="img/create_script.mov" type="video/mp4">
+</video>
+<table style="width:7%;">
+<colgroup>
+<col style="width: 6%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><!-- # Homework -->
+<!-- 1. Create your first project  -->
+<!-- 2. Save it in the correct directory -->
+<!-- 3. Add a script named "Stat_I_project" -->
+<!-- 4. Check out this [Github-Repo](https://github.com/rfordatascience/tidytuesday) and choose the topic you are interested in to explore.  --></td>
+</tr>
+<tr class="even">
+<td><!-- ![TidyTuesday - Navigation](Img/TidyTuesday.mov) --></td>
+</tr>
+<tr class="odd">
+<td><video video loop muted autoplay control width="300" height="400" name="TidyTuesday">
+<source src="Img/TidyTuesday.mov">
+</video></td>
+</tr>
+<tr class="even">
+<td># Create Your first project in R</td>
+</tr>
+<tr class="odd">
+<td><strong>Why?</strong></td>
+</tr>
+<tr class="even">
+<td>By using projects, you can ensure that your workspace (i.e., your loaded data, scripts, and other files) remains specific to that project. This approach keeps things clean and avoids potential mix-ups between different tasks or datasets.</td>
+</tr>
+<tr class="odd">
+<td><strong>How?</strong></td>
+</tr>
+<tr class="even">
+<td>Step-by-step guide to create a project in RStudio:</td>
+</tr>
+<tr class="odd">
+<td>1. <strong>Launch RStudio</strong>: Begin by opening the RStudio application.</td>
+</tr>
+<tr class="even">
+<td>- Go to the Projects Menu: In the top-right corner of RStudio, you’ll see a small box (which might say “Project: (None)” if you haven’t used projects before).
+- Click on this box to open a dropdown menu.</td>
+</tr>
+<tr class="odd">
+<td>2. <strong>Create a New Project</strong>: Select New Project from the dropdown. This will initiate a new dialog box.</td>
+</tr>
+<tr class="even">
+<td><img src="img/R_Interface_2.png" alt="Create New Project" /></td>
+</tr>
+<tr class="odd">
+<td>3. <strong>Choose a Project Type</strong>: You’ll have three options here:
+- New Directory: Create a brand-new project in a new directory.
+- Existing Directory: Turn an existing directory into a project.
+- Version Control: If you’re using Git, SVN, or another version control system, you can clone a repository as a project.</td>
+</tr>
+<tr class="even">
+<td><strong>For this guide, let’s select New Directory for simplicity.</strong></td>
+</tr>
+<tr class="odd">
+<td>4. <strong>Select a Directory Type</strong>: You’ll be presented with a few options:
+- New Project: A basic project.
+- R Package: If you’re developing an R package.
+- Shiny Web Application: If you’re making a Shiny app.
+Typically, for general data analysis tasks, New Project is the one you’d choose.</td>
+</tr>
+<tr class="even">
+<td>5. <strong>Name and Choose Location</strong>:</td>
+</tr>
+<tr class="odd">
+<td>- Directory Name: Give your project a name. This will also be the name of the directory/folder that RStudio creates.
+- Create project as a subdirectory of: Browse your file system to choose where you’d like the project directory to be located.
+- Optionally, you can also choose to create a new R script, use packrat (for dependency management), or open in a new session.</td>
+</tr>
+<tr class="even">
+<td>6. <strong>Create the Project</strong>:</td>
+</tr>
+<tr class="odd">
+<td>Once you’ve filled everything out, click the Create Project button. RStudio will now make a new directory in your chosen location, and inside that directory, it will create a file with the .Rproj extension. This file holds settings specific to your project.</td>
+</tr>
+<tr class="even">
+<td>You’re Now in Your New Project: Notice that your working directory has changed (you can confirm with getwd() in the console). Also, any scripts, data, or plots you now create will be associated with this project.</td>
+</tr>
+<tr class="odd">
+<td>7. <strong>Closing &amp; Opening Projects</strong>: When you close RStudio with an open project, the next time you open that .Rproj file, RStudio will remember your workspace, open scripts, and other settings. It’s a great way to pick up where you left off!</td>
+</tr>
+</tbody>
+</table>
 <h1 id="deutsch"><strong>Deutsch</strong></h1>
 <h2 id="erstelle-dein-erstes-projekt-in-r">Erstelle dein erstes Projekt in R</h2>
 <p><strong>Warum?</strong></p>
@@ -2334,13 +2413,67 @@ Nachdem du alles ausgefüllt hast, klicke auf den Button Projekt erstellen. RStu
 <ol start="7" type="1">
 <li><strong>Projekte schließen &amp; öffnen</strong>: Wenn du RStudio mit einem geöffneten Projekt schließt, wird RStudio bei der nächsten Öffnung dieser .Rproj-Datei deinen Arbeitsbereich, offene Skripte und andere Einstellungen wiederherstellen. Es ist eine großartige Möglichkeit, dort weiterzumachen, wo du aufgehört hast!</li>
 </ol>
-<h1 id="hausaufgaben">Hausaufgaben</h1>
+<h2 id="create-scripts-within-your-project-1">Create Scripts Within Your Project</h2>
+<p>Now lets create our first script and save it.</p>
 <ol type="1">
-<li>Erstelle dein erstes Projekt</li>
-<li>Speichere es im richtigen Verzeichnis</li>
-<li>Füge ein Skript mit dem Namen “Stat_I_project” hinzu</li>
-<li>Sieh dir dieses <a href="https://github.com/rfordatascience/tidytuesday">Github-Repo</a> an und wähle das Thema aus, das dich interessiert, um es zu erkunden.</li>
+<li></li>
 </ol>
+<figure>
+<img src="img/Create_Script_1.png" alt="R Script: First Step" />
+<figcaption aria-hidden="true">R Script: First Step</figcaption>
+</figure>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_2.png" alt="R Script: Second Step" />
+<figcaption aria-hidden="true">R Script: Second Step</figcaption>
+</figure>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_3.png" alt="R Script: Third Step" />
+<figcaption aria-hidden="true">R Script: Third Step</figcaption>
+</figure>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_4.png" alt="R Script: Fourth Step" />
+<figcaption aria-hidden="true">R Script: Fourth Step</figcaption>
+</figure>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_5.png" alt="R Script: Fifth Step" />
+<figcaption aria-hidden="true">R Script: Fifth Step</figcaption>
+</figure>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_6.png" alt="R Script: Sixth Step" />
+<figcaption aria-hidden="true">R Script: Sixth Step</figcaption>
+</figure>
+<ol start="7" type="1">
+<li></li>
+</ol>
+<figure>
+<img src="img/Create_Script_7.png" alt="R Script: Seventh Step" />
+<figcaption aria-hidden="true">R Script: Seventh Step</figcaption>
+</figure>
+<p>Or as a video:</p>
+<!-- ![R Script: .mov](img/create_script.mov) -->
+<video width="520" height="440" controls>
+<source src="img/create_script.mov" type="video/mp4">
+</video>
+<!-- # Hausaufgaben -->
+<!-- 1. Erstelle dein erstes Projekt -->
+<!-- 2. Speichere es im richtigen Verzeichnis -->
+<!-- 3. Füge ein Skript mit dem Namen "Stat_I_project" hinzu -->
+<!-- 4. Sieh dir dieses [Github-Repo](https://github.com/rfordatascience/tidytuesday) an und wähle das Thema aus, das dich interessiert, um es zu erkunden. -->
 <!-- ![TidyTuesday - Navigation](Img/TidyTuesday.mov) -->
 <video video loop muted autoplay control width="300" height="400" name="TidyTuesday">
 <source src="Img/TidyTuesday.mov">
