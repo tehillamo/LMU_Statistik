@@ -2169,7 +2169,9 @@ Statistik II
 </div>
 
 <div class="d-article">
-<h1 id="english">English</h1>
+<div style="border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px">
+English
+</div>
 <h2 id="how-r-works">How R Works?</h2>
 <p>In R, there are (essentially) only two things: objects and functions.</p>
 <h2 id="objects">Objects</h2>
@@ -2349,136 +2351,195 @@ $scores
 </div>
 <p><img src="Basic_R_Introduction_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
-<hr />
-<h1 id="deutsch">Deutsch</h1>
-<h1 id="wie-r-funktioniert">Wie R funktioniert</h1>
-<p>In R gibt es im Wesentlichen nur zwei Dinge: Objekte und Funktionen.</p>
-<h2 id="objekte">Objekte</h2>
-<p>Objekte sind Daten. Dies können beispielsweise Datensätze sein, aber auch einzelne Zahlen, ganze Modelle oder sogar Listen von verschiedenen Objekten. Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>tehilla</span> <span class='op'>&lt;-</span> <span class='fl'>54</span></span>
-<span><span class='va'>tehilla</span></span></code></pre>
-</div>
-<pre><code>[1] 54</code></pre>
-</div>
-<p>Objekte haben auch Eigenschaften, die bestimmen, welche Funktionen (siehe unten) auf sie angewendet werden können. Wenn ein Objekt beispielsweise vom Typ ‘numeric’ ist, können Sie es zu anderen ‘numeric’-Objekten hinzufügen. Wenn ein Objekt jedoch ein ‘string’ ist, eine Zeichenkette, können Sie es nicht hinzufügen. Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>age_obj</span> <span class='op'>&lt;-</span> <span class='fl'>35</span></span>
-<span><span class='va'>age_obj_2</span> <span class='op'>&lt;-</span> <span class='fl'>1</span></span>
-<span><span class='va'>Ich_werde_nächstes_Jahr_X_sein</span> <span class='op'>&lt;-</span>  <span class='va'>age_obj</span> <span class='op'>+</span> <span class='va'>age_obj_2</span></span>
-<span><span class='va'>Ich_werde_nächstes_Jahr_X_sein</span></span></code></pre>
-</div>
-<pre><code>[1] 36</code></pre>
-</div>
-<p><strong>Variablen</strong>: In R ermöglicht es eine Variable, Datenwerte zu speichern. Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können. Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein.</p>
-Beispiel:
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>meine_variable</span> <span class='op'>&lt;-</span> <span class='fl'>10</span></span>
-<span><span class='va'>meine_variable</span></span></code></pre>
-</div>
-<pre><code>[1] 10</code></pre>
-</div>
-<p><strong>Zuweisungen</strong>: In R verwenden Sie das &lt;- Symbol für Zuweisungen. Dieses Symbol wird als Zuweisungsoperator bezeichnet. Der Wert auf der rechten Seite wird dem Namen auf der linken Seite zugewiesen.</p>
-<p>Beispiel:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"Tehilla"</span></span></code></pre>
-</div>
-</div>
-<p><strong>Wo Sie gespeicherte Variablen sehen können</strong>:
-Wenn Sie R oder RStudio verwenden, können Sie die von Ihnen definierten Variablen auf verschiedene Arten anzeigen:</p>
-<p>In der R-Konsole geben Sie einfach den Namen der Variablen ein und drücken Sie Enter. Wenn Sie beispielsweise ‘name’ eingeben, wird “Tehilla” ausgegeben.
-In RStudio zeigt das Environment-Fenster (normalerweise oben rechts) eine Liste aller aktuellen Variablen, ihres Typs und ihres Werts an.</p>
-<figure>
-<img src="img/R_Interface_3.png" alt="Stored Variables in R" />
-<figcaption aria-hidden="true">Stored Variables in R</figcaption>
-</figure>
-<h4 id="arten-von-r-objekten">Arten von R-Objekten</h4>
-<pre><code>1. Vektoren:
+<table style="width:8%;">
+<colgroup>
+<col style="width: 8%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td># Wie R funktioniert</td>
+</tr>
+<tr class="odd">
+<td>In R gibt es im Wesentlichen nur zwei Dinge: Objekte und Funktionen.</td>
+</tr>
+<tr class="even">
+<td>## Objekte</td>
+</tr>
+<tr class="odd">
+<td>Objekte sind Daten. Dies können beispielsweise Datensätze sein, aber auch einzelne Zahlen, ganze Modelle oder sogar Listen von verschiedenen Objekten. Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>[1] 54</code></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>Objekte haben auch Eigenschaften, die bestimmen, welche Funktionen (siehe unten) auf sie angewendet werden können. Wenn ein Objekt beispielsweise vom Typ ‘numeric’ ist, können Sie es zu anderen ‘numeric’-Objekten hinzufügen. Wenn ein Objekt jedoch ein ‘string’ ist, eine Zeichenkette, können Sie es nicht hinzufügen. Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>[1] 36</code></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Variablen</strong>: In R ermöglicht es eine Variable, Datenwerte zu speichern. Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können. Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein.</td>
+</tr>
+<tr class="even">
+<td>Beispiel:</td>
+</tr>
+<tr class="odd">
+<td><code>[1] 10</code></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Zuweisungen</strong>: In R verwenden Sie das &lt;- Symbol für Zuweisungen. Dieses Symbol wird als Zuweisungsoperator bezeichnet. Der Wert auf der rechten Seite wird dem Namen auf der linken Seite zugewiesen.</td>
+</tr>
+<tr class="even">
+<td>Beispiel:</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Wo Sie gespeicherte Variablen sehen können</strong>:
+Wenn Sie R oder RStudio verwenden, können Sie die von Ihnen definierten Variablen auf verschiedene Arten anzeigen:</td>
+</tr>
+<tr class="even">
+<td>In der R-Konsole geben Sie einfach den Namen der Variablen ein und drücken Sie Enter. Wenn Sie beispielsweise ‘name’ eingeben, wird “Tehilla” ausgegeben.
+In RStudio zeigt das Environment-Fenster (normalerweise oben rechts) eine Liste aller aktuellen Variablen, ihres Typs und ihres Werts an.</td>
+</tr>
+<tr class="odd">
+<td><img src="img/R_Interface_3.png" alt="Stored Variables in R" /></td>
+</tr>
+<tr class="even">
+<td>#### Arten von R-Objekten</td>
+</tr>
+<tr class="odd">
+<td>1. Vektoren:
 Ein Vektor ist eine grundlegende Datenstruktur in R, die Elemente des gleichen Typs enthält. Dies kann numerisch, character, logisch usw. sein.
-Die Funktion c() wird verwendet, um Werte zu einem Vektor zusammenzuführen.
-
-Beispiel:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>numerischer_vektor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
-<span><span class='va'>character_vektor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Apfel"</span>, <span class='st'>"Banane"</span>, <span class='st'>"Kirsche"</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<p>In R können Variablen Daten verschiedener Typen speichern. Diese Typen sind grundlegend und bestimmen die Art der Operationen, die auf die Daten angewendet werden können. Hier ist eine Übersicht über die häufigsten Datentypen (oder modes) in R:</p>
-<pre><code>1.1 Numerisch: Stellt Zahlen dar und kann entweder Ganzzahlen oder Dezimalzahlen sein.
-
-Beispiel:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>5</span>    <span class='co'># numerisch, speziell eine Ganzzahl</span></span>
-<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>5.5</span>  <span class='co'># numerisch, speziell eine Dezimalzahl</span></span></code></pre>
-</div>
-</div>
-<pre><code>1.2 Character: Stellt Zeichenketten (Text) dar. Zeichenketten in R sind entweder von einfachen oder doppelten Anführungszeichen umschlossen.
-Beispiel:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"John Doe"</span></span>
-<span><span class='va'>name</span></span></code></pre>
-</div>
-<pre><code>[1] &quot;John Doe&quot;</code></pre>
-</div>
-<pre><code>1.3 Logisch: Stellt boolesche Werte dar: TRUE oder FALSE. Oft das Ergebnis logischer Bedingungen oder Operationen.
-Beispiel:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>flag</span> <span class='op'>&lt;-</span> <span class='cn'>TRUE</span></span>
-<span><span class='va'>flag</span></span></code></pre>
-</div>
-<pre><code>[1] TRUE</code></pre>
-</div>
-<pre><code>1.4 Ganzzahl: Ein Untertyp von numerisch. Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden.
-
-Beispiel:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>anzahl</span> <span class='op'>&lt;-</span> <span class='fl'>23L</span></span>
-<span><span class='va'>anzahl</span></span></code></pre>
-</div>
-<pre><code>[1] 23</code></pre>
-</div>
-<pre><code>1.5 Faktor: Kategoriale Daten werden oft als Faktoren in R dargestellt. Faktoren können geordnet sein (wie &quot;Niedrig&quot;, &quot;Mittel&quot;, &quot;Hoch&quot;) oder ungeordnet (wie &quot;Männlich&quot;, &quot;Weiblich&quot;). Obwohl die Daten wie Zeichenketten aussehen können, werden Faktoren als Ganzzahlen gespeichert, und eine separate Lookup-Tabelle enthält die Zeichenwerte.
-
-Beispiel: </code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>geschlecht</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Männlich"</span>, <span class='st'>"Weiblich"</span>, <span class='st'>"Weiblich"</span>, <span class='st'>"Männlich"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>geschlecht</span></span></code></pre>
-</div>
-<pre><code>[1] Männlich Weiblich Weiblich Männlich
-Levels: Männlich Weiblich</code></pre>
-</div>
-<pre><code> 1.6 Listen: Ein spezieller Typ, der verschiedene Arten von Elementen wie Vektoren, Funktionen oder sogar andere Listen enthalten kann.
-
-Beispiel:</code></pre>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>meine_liste</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Alice"</span>, alter <span class='op'>=</span> <span class='fl'>25</span>, punkte <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>85</span>, <span class='fl'>90</span>, <span class='fl'>92</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>meine_liste</span></span></code></pre>
-</div>
-<pre><code>$name
-[1] &quot;Alice&quot;
-
-$alter
-[1] 25
-
-$punkte
-[1] 85 90 92</code></pre>
-</div>
-<figure>
-<img src="img/R_Interface_4.png" alt="Vectors" />
-<figcaption aria-hidden="true">Vectors</figcaption>
-</figure>
-<hr />
+Die Funktion c() wird verwendet, um Werte zu einem Vektor zusammenzuführen.</td>
+</tr>
+<tr class="even">
+<td>Beispiel:</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>In R können Variablen Daten verschiedener Typen speichern. Diese Typen sind grundlegend und bestimmen die Art der Operationen, die auf die Daten angewendet werden können. Hier ist eine Übersicht über die häufigsten Datentypen (oder modes) in R:</td>
+</tr>
+<tr class="even">
+<td>1.1 Numerisch: Stellt Zahlen dar und kann entweder Ganzzahlen oder Dezimalzahlen sein.</td>
+</tr>
+<tr class="odd">
+<td>Beispiel:</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>1.2 Character: Stellt Zeichenketten (Text) dar. Zeichenketten in R sind entweder von einfachen oder doppelten Anführungszeichen umschlossen.
+Beispiel:</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>[1] "John Doe"</code></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>1.3 Logisch: Stellt boolesche Werte dar: TRUE oder FALSE. Oft das Ergebnis logischer Bedingungen oder Operationen.
+Beispiel:</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>[1] TRUE</code></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>1.4 Ganzzahl: Ein Untertyp von numerisch. Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden.</td>
+</tr>
+<tr class="even">
+<td>Beispiel:</td>
+</tr>
+<tr class="odd">
+<td><code>[1] 23</code></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>1.5 Faktor: Kategoriale Daten werden oft als Faktoren in R dargestellt. Faktoren können geordnet sein (wie “Niedrig”, “Mittel”, “Hoch”) oder ungeordnet (wie “Männlich”, “Weiblich”). Obwohl die Daten wie Zeichenketten aussehen können, werden Faktoren als Ganzzahlen gespeichert, und eine separate Lookup-Tabelle enthält die Zeichenwerte.</td>
+</tr>
+<tr class="even">
+<td>Beispiel:</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><code>[1] Männlich Weiblich Weiblich Männlich Levels: Männlich Weiblich</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td>1.6 Listen: Ein spezieller Typ, der verschiedene Arten von Elementen wie Vektoren, Funktionen oder sogar andere Listen enthalten kann.</td>
+</tr>
+<tr class="odd">
+<td>Beispiel:</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>```
+$name
+[1] “Alice”</td>
+</tr>
+<tr class="even">
+<td>$alter
+[1] 25</td>
+</tr>
+<tr class="odd">
+<td>$punkte
+[1] 85 90 92
+```</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><img src="img/R_Interface_4.png" alt="Vectors" /></td>
+</tr>
+</tbody>
+</table>
 <h1 id="functions-1">Functions:</h1>
 <h4 id="the-way-to-maniupulate-objects.">The way to maniupulate objects.</h4>
 <div class="layout-chunk" data-layout="l-body">
@@ -2536,7 +2597,7 @@ $punkte
 </div>
 <p><img src="Basic_R_Introduction_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
 </div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
