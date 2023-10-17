@@ -89,22 +89,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ---
 
+<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> Englisch </div>
 
 # What is R? 
 
-**English**: R is a powerful and open-source programming language and environment designed specifically for statistical computing and graphics. R has grown to be the tool of choice for statisticians, data scientists, and researchers worldwide.
-
-**Deutsch**: R ist eine kostenfreie Software-Umgebung für statistische Datenanalyse und Graphiken. Es beruht auf einer Implementation der Sprache S. Anfänglich wurde R von Ross Ihaka und Robert Gentleman (Univ. Auckland) entwickelt und wird seit Mitte der 90er Jahre von einem Entwickler-Kollektiv (R-Core) betreut.
+**R** is a powerful and open-source programming language and environment designed specifically for statistical computing and graphics. R has grown to be the tool of choice for statisticians, data scientists, and researchers worldwide.
 
 
-# What is R Studio 
+# What is R Studio?
 
-**English**: While not part of R itself, RStudio is a popular integrated development environment (IDE) for R, which provides a more user-friendly interface, debugging tools, and other useful features to make working with R easier and more efficient.
-
-
-**Deutsch**: Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte Entwicklungsumgebung (IDE) für R. Sie bietet eine benutzerfreundlichere Oberfläche, Debugging-Tools und andere nützliche Funktionen, um die Arbeit mit R einfacher und effizienter zu gestalten
-
-
+While not part of R itself, RStudio is a popular integrated development environment (IDE) for R, which provides a more user-friendly interface, debugging tools, and other useful features to make working with R easier and more efficient.
 
 ![R base: The Ugly Friend of R Studio? ](img/r_rstudio.png)
 
@@ -113,9 +107,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1. Click on this [link](https://cran.r-project.org)
 
-**English**: The top of the web page provides three links for downloading R, depending on your operating system: **Windows, Mac, or Linux**. If, for example, you install R on Windows, click the “Download R for Windows” link.
+The top of the web page provides three links for downloading R, depending on your operating system: **Windows, Mac, or Linux**. If, for example, you install R on Windows, click the “Download R for Windows” link.
 
-**Deutsch**: Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn Sie zum Beispiel R auf Windows installieren möchten, klicken Sie auf den Link „Download R for Windows“.
+Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn Sie zum Beispiel R auf Windows installieren möchten, klicken Sie auf den Link „Download R for Windows“.
 
 
 ![R-Base Download Page](Img/R-Cran.png)
@@ -123,7 +117,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 2. Click the “base” link. 
 
-**English**: Next, click the first link at the top of the new page. 
+Next, click the first link at the top of the new page. 
 
 This link should say something like “Download R 3.0.3 for Windows” except the 3.0.3 will be replaced by the most current version of R. 
 
@@ -137,45 +131,25 @@ The wizard will install R into your program files folders and place a shortcut i
 Note that you’ll need to have all of the appropriate administration privileges to install new software on your machine.
 
 
-**German**: Klicke zuerst auf den ersten Link ganz oben auf der neuen Seite. 
-
-Der Link wird so etwas wie „R X.0.3 für Windows herunterladen“ anzeigen, aber die X.0.3 wird durch **die neueste Version von R** ersetzt sein.
-
-Wenn du auf den Link klickst, wird ein Installationsprogramm heruntergeladen. Dieses Programm installiert die aktuellste R-Version für dein Betriebssystem.
-
-Starte dieses Programm und folge dem Installationsassistenten. 
-
-R wird in deinem Programmdateien-Ordner installiert werden und ein Verknüpfung im Startmenü erstellen. 
-
-Beachte, dass du alle notwendigen Administrationsrechte benötigst, um neue Software auf deinem Computer zu installieren. 
-
-
 
 # Install R Studio 
 
-**English**: You can download RStudio for free [here](https://posit.co/products/open-source/rstudio/). 
+You can download RStudio for free [here](https://posit.co/products/open-source/rstudio/). 
 
 Just click the “Download RStudio” button and follow the simple instructions that follow. 
 
-**German**: Du kannst RStudio hier kostenlos herunterladen: [here](https://posit.co/products/open-source/rstudio/).
-
-Klicke einfach auf den „RStudio herunterladen“-Button und folge den einfachen Anweisungen, die danach kommen.
 
 
 ![R-Studio Download Page](Img/R-Studio.png)
 
-**English**:Once you’ve installed RStudio, you can open it like any other program on your computer—usually by clicking an icon on your desktop.
+Once you’ve installed RStudio, you can open it like any other program on your computer—usually by clicking an icon on your desktop.
 
 ## Now That we Have R Studio Installed, Lets Get to Know Its Environment 
-
-**Deutsch**: Nachdem du RStudio installiert hast, kannst du es wie jedes andere Programm auf deinem Computer öffnen – normalerweise durch Klicken auf ein Symbol auf deinem Desktop.
-
-## Jetzt, da wir R Studio installiert haben, lass uns seine Umgebung kennenlernen.
 
 ![R Interface](Img/R_interface.png)
 
 
-**English**: When you start using R, you'll typically interact with the following:
+## When you start using R, you'll typically interact with the following:
 
 1. **Source (Script) Pane**:
 
@@ -255,9 +229,59 @@ You can visualize data, explore plots, and ensure everything is on track.
 
 
 ![View Tabs = Checking the Dish](img/tastingDish.png)
+----------------------
+<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> Deutsch </div>
 
 
-**Deutsch**:
+# What is R?
+
+**R** ist eine kostenfreie Software für statistische Datenanalyse und Graphiken. Es beruht auf einer Implementation der Sprache S. Anfänglich wurde R von Ross Ihaka und Robert Gentleman (Univ. Auckland) entwickelt und wird seit Mitte der 90er Jahre von einem Entwickler-Kollektiv (R-Core) betreut.
+
+
+
+# What is R Studio?
+
+Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte Entwicklungsumgebung (IDE) für R. Sie bietet eine benutzerfreundlichere Oberfläche, Debugging-Tools und andere nützliche Funktionen, um die Arbeit mit R einfacher und effizienter zu gestalten
+
+
+![R base: The Ugly Friend of R Studio? ](img/r_rstudio.png)
+
+
+# Lets Download R 
+
+1. Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn Sie zum Beispiel R auf Windows installieren möchten, klicken Sie auf den Link „Download R for Windows“.
+
+
+![R-Base Download Page](Img/R-Cran.png)
+
+
+2. Klicke zuerst auf den ersten Link ganz oben auf der neuen Seite. 
+
+Der Link wird so etwas wie „R X.0.3 für Windows herunterladen“ anzeigen, aber die X.0.3 wird durch **die neueste Version von R** ersetzt sein.
+
+Wenn du auf den Link klickst, wird ein Installationsprogramm heruntergeladen. Dieses Programm installiert die aktuellste R-Version für dein Betriebssystem.
+
+Starte dieses Programm und folge dem Installationsassistenten. 
+
+R wird in deinem Programmdateien-Ordner installiert werden und ein Verknüpfung im Startmenü erstellen. 
+
+Beachte, dass du alle notwendigen Administrationsrechte benötigst, um neue Software auf deinem Computer zu installieren. 
+
+
+# Install R Studio 
+Du kannst RStudio hier kostenlos herunterladen: [here](https://posit.co/products/open-source/rstudio/).
+
+Klicke einfach auf den „RStudio herunterladen“-Button und folge den einfachen Anweisungen, die danach kommen.
+
+
+![R-Studio Download Page](Img/R-Studio.png)
+
+
+Nachdem du RStudio installiert hast, kannst du es wie jedes andere Programm auf deinem Computer öffnen – normalerweise durch Klicken auf ein Symbol auf deinem Desktop.
+
+## Jetzt, da wir R Studio installiert haben, lass uns seine Umgebung kennenlernen.
+
+![R Interface](Img/R_interface.png)
 
 
 Wenn du anfängst, R zu nutzen, wirst du typischerweise mit den folgenden Elementen interagieren:
@@ -328,7 +352,7 @@ Hier werden Ihre "Zutaten" (Daten) und "Küchenwerkzeuge" (Funktionen) gespeiche
 
   - **Grafiken Tab**: Jedes Mal, wenn du ein Visualisierungselement (wie eine Grafik oder ein Diagramm) erstellst, erscheint es hier. Du kannst auch zwischen mehreren Grafiken zoomen, exportieren oder navigieren.
   
-  - **Pakete Tab**: Zeigt eine Liste aller installierten R-Pakete an. Von hier aus kannst du: Ein Paket in den Speicher laden, indem du das Kästchen neben seinem Namen ankreuzt. Neue Pakete installieren oder bestehende aktualisieren.
+  - **Packages Tab**: Zeigt eine Liste aller installierten R-Pakete an. Von hier aus kannst du: Ein Paket in den Speicher laden, indem du das Kästchen neben seinem Namen ankreuzt. Neue Pakete installieren oder bestehende aktualisieren.
   
   - **Hilfe Tab**: Immer wenn du Details über eine bestimmte Funktion oder ein Paket benötigst, kannst du den Hilfe-Tab verwenden. Wenn du ?Funktionsname in die Konsole eingibst (z. B. ?mean), wird auch die Hilfeseite für diese Funktion in diesem Fenster aufgerufen.
   
@@ -342,9 +366,6 @@ In RStudio ermöglichen Ihnen die Ansichtsregisterkarten (z. B. Datenanzeige, Pl
 Sie können Daten visualisieren, Diagramme erkunden und sicherstellen, dass alles wie geplant verläuft.
 
 ![Ansichtsregisterkarten = Überprüfung des Gerichts](img/tastingDish.png)
-
-
-
 
 
 

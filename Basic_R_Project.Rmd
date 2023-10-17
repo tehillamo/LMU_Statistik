@@ -11,7 +11,7 @@ date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
-**English**
+<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> English </div>
 
 # Create Your first project in R 
 
@@ -170,10 +170,10 @@ You're Now in Your New Project: Notice that your working directory has changed (
 
 7. **Closing & Opening Projects**: When you close RStudio with an open project, the next time you open that .Rproj file, RStudio will remember your workspace, open scripts, and other settings. It's a great way to pick up where you left off!
 
----
+------
 
 
-# **Deutsch**
+<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> Deutsch </div>
 
 ## Erstelle dein erstes Projekt in R
 
