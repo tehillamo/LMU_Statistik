@@ -89,7 +89,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ---
 
-<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> Englisch </div>
+<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> English </div>
 
 # What is R? 
 

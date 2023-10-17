@@ -11,7 +11,7 @@ date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
-# English
+<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> English </div>
 
 
 ## How R Works? 
@@ -244,7 +244,7 @@ hist(normally_distributed)
 
 -----
 
-# Deutsch
+<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> Deutsch </div>
 
 # Wie funktioniert R?
 
