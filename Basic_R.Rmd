@@ -241,7 +241,7 @@ You can visualize data, explore plots, and ensure everything is on track.
 
 # What is R Studio?
 
-Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte Entwicklungsumgebung (IDE) für R. du bietet eine benutzerfreundlichere Oberfläche, Debugging-Tools und andere nützliche Funktionen, um die Arbeit mit R einfacher und effizienter zu gestalten
+Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte Entwicklungsumgebung (IDE) für R. Sie bietet eine benutzerfreundlichere Oberfläche, Debugging-Tools und andere nützliche Funktionen, um die Arbeit mit R einfacher und effizienter zu gestalten
 
 
 ![R base: The Ugly Friend of R Studio? ](img/r_rstudio.png)
