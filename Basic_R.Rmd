@@ -98,7 +98,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # What is R Studio?
 
-While not part of R itself, RStudio is a popular integrated development environment (IDE) for R, which provides a more user-friendly interface, debugging tools, and other useful features to make working with R easier and more efficient.
+While not part of R itself, RStudio is a popular integrated development environment (IDE) for R, which provides a more user-friendly interface, debugging tools, and other useful features to make working with R eadur and more efficient.
 
 ![R base: The Ugly Friend of R Studio? ](img/r_rstudio.png)
 
@@ -109,7 +109,7 @@ While not part of R itself, RStudio is a popular integrated development environm
 
 The top of the web page provides three links for downloading R, depending on your operating system: **Windows, Mac, or Linux**. If, for example, you install R on Windows, click the “Download R for Windows” link.
 
-Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn Sie zum Beispiel R auf Windows installieren möchten, klicken Sie auf den Link „Download R for Windows“.
+Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn du zum Beispiel R auf Windows installieren möchten, klicken du auf den Link „Download R for Windows“.
 
 
 ![R-Base Download Page](Img/R-Cran.png)
@@ -241,7 +241,7 @@ You can visualize data, explore plots, and ensure everything is on track.
 
 # What is R Studio?
 
-Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte Entwicklungsumgebung (IDE) für R. Sie bietet eine benutzerfreundlichere Oberfläche, Debugging-Tools und andere nützliche Funktionen, um die Arbeit mit R einfacher und effizienter zu gestalten
+Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte Entwicklungsumgebung (IDE) für R. du bietet eine benutzerfreundlichere Oberfläche, Debugging-Tools und andere nützliche Funktionen, um die Arbeit mit R einfacher und effizienter zu gestalten
 
 
 ![R base: The Ugly Friend of R Studio? ](img/r_rstudio.png)
@@ -249,7 +249,7 @@ Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte
 
 # Lets Download R 
 
-1. Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn Sie zum Beispiel R auf Windows installieren möchten, klicken Sie auf den Link „Download R for Windows“.
+1. Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn du zum Beispiel R auf Windows installieren möchten, klicken du auf den Link „Download R for Windows“.
 
 
 ![R-Base Download Page](Img/R-Cran.png)
@@ -293,13 +293,13 @@ Hier schreibst und bearbeitest du deine R-Skripte oder R Markdown-Dokumente.
 
 Skripte sind im Wesentlichen Abfolgen von R-Befehlen, die du ausführen möchtest (analog zum Rezept).
 
-Du kannst einzelne Zeilen oder Code-Blöcke ausführen, indem du sie markierst und Ctrl+Enter drückst (Cmd+Enter bei macOS).
+Du kannst einzelne Zeilen oder Code-Blöcke ausführen, indem du du markierst und Ctrl+Enter drückst (Cmd+Enter bei macOS).
 
 
 #### ANALOGIE
 Beim Kochen ist ein Kochbuch Ihre Informationsquelle für die Zubereitung eines Gerichts.
 
-Ähnlich verhält es sich mit einem R-Skript, das wie Ihr Kochbuch für die Datenanalyse ist. Es enthält eine Reihe von Anweisungen (Code), denen Sie folgen, um verschiedene Aufgaben und Analysen durchzuführen.
+Ähnlich verhält es sich mit einem R-Skript, das wie Ihr Kochbuch für die Datenanalyse ist. Es enthält eine Reihe von Anweisungen (Code), denen du folgen, um verschiedene Aufgaben und Analysen durchzuführen.
 
 ![R-Skript = Kochbuch](img/cookBook.png)
 
@@ -307,7 +307,7 @@ Beim Kochen ist ein Kochbuch Ihre Informationsquelle für die Zubereitung eines 
 2. **Konsole Fenster**:
 
 
-Dies ist das Herz der R-Umgebung. Hier kannst du R-Befehle eingeben und sie in Echtzeit ausführen sehen.
+Dies ist das Herz der R-Umgebung. Hier kannst du R-Befehle eingeben und du in Echtzeit ausführen sehen.
 
 Jeder im Skriptfenster ausgeführte Code wird auch hier ausgeführt und die Ergebnisse werden hier angezeigt.
 
@@ -317,9 +317,9 @@ Du wirst auch Nachrichten, Fehler und andere Ausgaben in diesem Fenster sehen.
 
 In einer Küche ist der Arbeitsbereich des Kochs der Ort, an dem das eigentliche Kochen und Experimentieren stattfindet.
 
-In RStudio ist die Konsole Ihr Arbeitsbereich, in dem Sie direkt mit R interagieren können.
+In RStudio ist die Konsole Ihr Arbeitsbereich, in dem du direkt mit R interagieren können.
 
-Hier können Sie Befehle ausführen, mit Code experimentieren und sofortige Ergebnisse sehen, genauso wie ein Koch, der mit Zutaten und Kochutensilien arbeitet.
+Hier können du Befehle ausführen, mit Code experimentieren und sofortige Ergebnisse sehen, genauso wie ein Koch, der mit Zutaten und Kochutensilien arbeitet.
 
 ![Console = Arbeitsbereich des Kochs:](img/workspace.png)
 
@@ -330,16 +330,16 @@ Umgebung Tab: Zeigt eine Liste aller Variablen (einschließlich Datenrahmen, Vek
 
 Das ist super praktisch, um zu sehen, welche Daten du geladen hast und welche Variablen du erstellt hast. 
 
-Du kannst auf Datenrahmen und Matrizen im Umgebung-Tab klicken, um sie in einem rasterähnlichen Gitter anzusehen.
+Du kannst auf Datenrahmen und Matrizen im Umgebung-Tab klicken, um du in einem rasterähnlichen Gitter anzusehen.
 
 
 #### ANALOGIE
 
-Beim Kochen sammeln Sie Zutaten und verwenden verschiedene Küchenwerkzeuge wie Töpfe, Pfannen und Besteck.
+Beim Kochen sammeln du Zutaten und verwenden verschiedene Küchenwerkzeuge wie Töpfe, Pfannen und Besteck.
 
-In R besteht die Umgebung aus Variablen, Daten und Funktionen, die Sie geladen oder erstellt haben.
+In R besteht die Umgebung aus Variablen, Daten und Funktionen, die du geladen oder erstellt haben.
 
-Hier werden Ihre "Zutaten" (Daten) und "Küchenwerkzeuge" (Funktionen) gespeichert, die Sie für Ihre Analyse verwenden.
+Hier werden Ihre "Zutaten" (Daten) und "Küchenwerkzeuge" (Funktionen) gespeichert, die du für Ihre Analyse verwenden.
 
 ![Umgebung = Zutaten und Küchenwerkzeuge](img/ingridients.png)
 
@@ -350,20 +350,20 @@ Hier werden Ihre "Zutaten" (Daten) und "Küchenwerkzeuge" (Funktionen) gespeiche
 
   - **Dateien Tab**: Ermöglicht dir die Navigation durch dein Computersystem, ähnlich wie ein Datei-Explorer. Du kannst Skripte öffnen und speichern, Daten importieren und Verzeichnisse verwalten.
 
-  - **Grafiken Tab**: Jedes Mal, wenn du ein Visualisierungselement (wie eine Grafik oder ein Diagramm) erstellst, erscheint es hier. Du kannst auch zwischen mehreren Grafiken zoomen, exportieren oder navigieren.
+  - **Grafiken Tab**: Jedes Mal, wenn du ein Visualidurungselement (wie eine Grafik oder ein Diagramm) erstellst, erscheint es hier. Du kannst auch zwischen mehreren Grafiken zoomen, exportieren oder navigieren.
   
-  - **Packages Tab**: Zeigt eine Liste aller installierten R-Pakete an. Von hier aus kannst du: Ein Paket in den Speicher laden, indem du das Kästchen neben seinem Namen ankreuzt. Neue Pakete installieren oder bestehende aktualisieren.
+  - **Packages Tab**: Zeigt eine Liste aller installierten R-Pakete an. Von hier aus kannst du: Ein Paket in den Speicher laden, indem du das Kästchen neben seinem Namen ankreuzt. Neue Pakete installieren oder bestehende aktualiduren.
   
   - **Hilfe Tab**: Immer wenn du Details über eine bestimmte Funktion oder ein Paket benötigst, kannst du den Hilfe-Tab verwenden. Wenn du ?Funktionsname in die Konsole eingibst (z. B. ?mean), wird auch die Hilfeseite für diese Funktion in diesem Fenster aufgerufen.
   
   
 #### ANALOGIE
 
-Beim Kochen überprüfen Sie regelmäßig den Fortschritt des Gerichts, um zu sehen, ob es sich wie erwartet entwickelt.
+Beim Kochen überprüfen du regelmäßig den Fortschritt des Gerichts, um zu sehen, ob es sich wie erwartet entwickelt.
 
 In RStudio ermöglichen Ihnen die Ansichtsregisterkarten (z. B. Datenanzeige, Plot-Anzeige), die Zwischenergebnisse Ihrer Analyse zu inspizieren, ähnlich wie beim Überprüfen Ihres Gerichts während des Kochens.
 
-Sie können Daten visualisieren, Diagramme erkunden und sicherstellen, dass alles wie geplant verläuft.
+du können Daten visualiduren, Diagramme erkunden und sicherstellen, dass alles wie geplant verläuft.
 
 ![Ansichtsregisterkarten = Überprüfung des Gerichts](img/tastingDish.png)
 
