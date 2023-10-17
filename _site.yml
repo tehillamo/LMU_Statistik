@@ -10,8 +10,8 @@ navbar:
     - text: "Statistik I"
       href: statistik_i.html
       menu:
-        - text: "Basic Concepts"
-          href: Basic_concepts.html
+        # - text: "Basic Concepts"
+        #   href: Basic_concepts.html
         - text: "Basics in R - Download R & R Studio"
           href: Basic_R.html
         - text: "Basics in R - Create Project"
