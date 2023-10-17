@@ -200,6 +200,10 @@ Schritt-für-Schritt Anleitung zur Erstellung eines Projekts in RStudio:
 Neues Projekt erstellen
 
 
+![Create New Project](Img/R_Interface_2.png)
+
+
+
 3. **Wähle einen Projekttyp**: Du hast hier drei Optionen:
 
   - Neues Verzeichnis: Erstelle ein brandneues Projekt in einem neuen Verzeichnis.
