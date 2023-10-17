@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-10-15"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-10-15"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-10-17"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-10-17"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Download R & R-Studio"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Download R & R-Studio"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-17"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R: Download R & R-Studio","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-15T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R: Download R & R-Studio","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-17T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2125,11 +2125,8 @@ Statistik I
 <a href="Basic_R.html">Basics in R - Download R &amp; R Studio</a>
 <a href="Basic_R_Project.html">Basics in R - Create Project</a>
 <a href="Basic_R_VariabelsFunctions.html">Basics in R - Variables &amp; Functions</a>
-<a href="Basic_R_2.html">Basics in R - Part 2</a>
-<a href="Basic_R_3.html">Basics in R - Part 3</a>
-<a href="Basic_R_4.html">Basics in R - Part 4</a>
+<a href="Basic_R_2.html">Basics in R - Types of Data &amp; Indexing</a>
 <a href="Basic_concepts_ii.html">Statistical Tests - Distributions</a>
-<a href="Decision_diagramm.html">Statistical Tests - Decision Diagramm</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2147,6 +2144,7 @@ Statistik II
 <a href="lm_ii_ii.html">Multiple Linear Models - Part II</a>
 <a href="effectsize_lm.html">Simple Linear Models: Effectsize</a>
 <a href="effectsize_mlr.html">Multiple Linear Models: Effectsize</a>
+<a href="Decision_diagramm.html">Statistical Tests - Decision Diagramm</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2167,20 +2165,20 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-10-15
+<br/>2023-10-17
 </div>
 
 <div class="d-article">
-<h2 id="session-i">Session I:</h2>
-<div style="color:red">
-<p>1.1. Get to know R &amp; R studio (basic use, interface)</p>
-</div>
-<div style="color:grey">
-<p>1.2. Learn about types of variables in R.</p>
-<p>1.3. Create scripts and save them in R projects (project’s folder)</p>
-<p>1.4. Get to know TidyTuesday</p>
-<p>1.5. Read in data sets</p>
-</div>
+<!-- ## Session I:  -->
+<!-- <div style = "color:red"> -->
+<!-- 1.1. Get to know R \& R studio (basic use, interface) -->
+<!-- </div> -->
+<!-- <div style = "color:grey"> -->
+<!-- 1.2. Learn about types of variables in R. -->
+<!-- 1.3. Create scripts and save them in R projects (project's folder) -->
+<!-- 1.4. Get to know TidyTuesday -->
+<!-- 1.5. Read in data sets -->
+<!-- </div> -->
 <!-- --- -->
 <!-- title: 'Übung 1: Einführung in R' -->
 <!-- output: -->
@@ -2215,16 +2213,20 @@ Statistik II
 <hr />
 <h1 id="what-is-r">What is R?</h1>
 <p><strong>English</strong>: R is a powerful and open-source programming language and environment designed specifically for statistical computing and graphics. R has grown to be the tool of choice for statisticians, data scientists, and researchers worldwide.</p>
-<p><strong>Deutsch</strong>: R ist eine kostenfreie Software-Umgebung für statistische Datenanalyse und Graphiken. Es beruht auf einer Implementation der Sprache S. Anfänglich wurde R von Ross Ihaka und Robert Gentleman (Univ. Auckland) entwickelt und wird seit Mitte der 90er Jahre von einem Entwickler-Kollektiv (R-Core) betreut. Informationen zu R</p>
+<p><strong>Deutsch</strong>: R ist eine kostenfreie Software-Umgebung für statistische Datenanalyse und Graphiken. Es beruht auf einer Implementation der Sprache S. Anfänglich wurde R von Ross Ihaka und Robert Gentleman (Univ. Auckland) entwickelt und wird seit Mitte der 90er Jahre von einem Entwickler-Kollektiv (R-Core) betreut.</p>
 <h1 id="what-is-r-studio">What is R Studio</h1>
 <p><strong>English</strong>: While not part of R itself, RStudio is a popular integrated development environment (IDE) for R, which provides a more user-friendly interface, debugging tools, and other useful features to make working with R easier and more efficient.</p>
 <p><strong>Deutsch</strong>: Obwohl nicht direkt ein Teil von R selbst, ist RStudio eine beliebte integrierte Entwicklungsumgebung (IDE) für R. Sie bietet eine benutzerfreundlichere Oberfläche, Debugging-Tools und andere nützliche Funktionen, um die Arbeit mit R einfacher und effizienter zu gestalten</p>
+<figure>
+<img src="img/r_rstudio.png" alt="R base: The Ugly Friend of R Studio?" />
+<figcaption aria-hidden="true">R base: The Ugly Friend of R Studio?</figcaption>
+</figure>
 <h1 id="lets-download-r">Lets Download R</h1>
 <ol type="1">
-<li>Click on this link: </li>
+<li>Click on this <a href="https://cran.r-project.org">link</a></li>
 </ol>
-<p><strong>English</strong>: The top of the web page provides three links for downloading* R, depending on your operating system: <strong>Windows, Mac, or Linux</strong>. If, for example, you install R on Windows, click the “Download R for Windows” link.</p>
-<p><strong>Deutsch</strong>: Oben auf der Webseite sind drei Links zum Herunterladen* von R verfügbar, abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn Sie zum Beispiel R auf Windows installieren möchten, klicken Sie auf den Link „Download R for Windows“.</p>
+<p><strong>English</strong>: The top of the web page provides three links for downloading R, depending on your operating system: <strong>Windows, Mac, or Linux</strong>. If, for example, you install R on Windows, click the “Download R for Windows” link.</p>
+<p><strong>Deutsch</strong>: Oben auf der Webseite sind drei Links zum Herunterladen von R , abhängig von Ihrem Betriebssystem: Windows, Mac oder Linux. Wenn Sie zum Beispiel R auf Windows installieren möchten, klicken Sie auf den Link „Download R for Windows“.</p>
 <figure>
 <img src="img/R-Cran.png" alt="R-Base Download Page" />
 <figcaption aria-hidden="true">R-Base Download Page</figcaption>
@@ -2232,13 +2234,18 @@ Statistik II
 <ol start="2" type="1">
 <li>Click the “base” link.</li>
 </ol>
-<p><strong>English</strong>: Next, click the first link at the top of the new page. This link should say something like “Download R 3.0.3 for Windows” except the 3.0.3 will be replaced by the most current version of R.</p>
+<p><strong>English</strong>: Next, click the first link at the top of the new page.</p>
+<p>This link should say something like “Download R 3.0.3 for Windows” except the 3.0.3 will be replaced by the most current version of R.</p>
 <p>The link downloads an installer program, which installs the most up-to-date version of R for your operation system.</p>
-<p>Run this program and step through the installation wizard that appears.
-The wizard will install R into your program files folders and place a shortcut in your Start menu. Note that you’ll need to have all of the appropriate administration privileges to install new software on your machine.</p>
-<p><strong>German</strong>: Klicke zuerst auf den ersten Link ganz oben auf der neuen Seite”, sagt der Anleiter. “Der Link wird so etwas wie „R 3.0.3 für Windows herunterladen“ anzeigen, aber die 3.0.3 wird durch die neueste Version von R ersetzt sein.”</p>
-<p>Er fährt fort: “Wenn du auf den Link klickst, wird ein Installationsprogramm heruntergeladen. Dieses Programm installiert die aktuellste R-Version für dein Betriebssystem.</p>
-<p>Starte dieses Programm und folge dem Installationsassistenten, der erscheint. Der Assistent wird R in deinem Programmdateien-Ordner installieren und ein Verknüpfung im Startmenü erstellen. Beachte, dass du alle notwendigen Administrationsrechte benötigst, um neue Software auf deinem Computer zu installieren</p>
+<p>Run this program and step through the installation wizard that appears.</p>
+<p>The wizard will install R into your program files folders and place a shortcut in your Start menu.</p>
+<p>Note that you’ll need to have all of the appropriate administration privileges to install new software on your machine.</p>
+<p><strong>German</strong>: Klicke zuerst auf den ersten Link ganz oben auf der neuen Seite.</p>
+<p>Der Link wird so etwas wie „R X.0.3 für Windows herunterladen“ anzeigen, aber die X.0.3 wird durch <strong>die neueste Version von R</strong> ersetzt sein.</p>
+<p>Wenn du auf den Link klickst, wird ein Installationsprogramm heruntergeladen. Dieses Programm installiert die aktuellste R-Version für dein Betriebssystem.</p>
+<p>Starte dieses Programm und folge dem Installationsassistenten.</p>
+<p>R wird in deinem Programmdateien-Ordner installiert werden und ein Verknüpfung im Startmenü erstellen.</p>
+<p>Beachte, dass du alle notwendigen Administrationsrechte benötigst, um neue Software auf deinem Computer zu installieren.</p>
 <h1 id="install-r-studio">Install R Studio</h1>
 <p><strong>English</strong>: You can download RStudio for free <a href="https://posit.co/products/open-source/rstudio/">here</a>.</p>
 <p>Just click the “Download RStudio” button and follow the simple instructions that follow.</p>
@@ -2252,26 +2259,52 @@ The wizard will install R into your program files folders and place a shortcut i
 <h2 id="now-that-we-have-r-studio-installed-lets-get-to-know-its-environment">Now That we Have R Studio Installed, Lets Get to Know Its Environment</h2>
 <p><strong>Deutsch</strong>: Nachdem du RStudio installiert hast, kannst du es wie jedes andere Programm auf deinem Computer öffnen – normalerweise durch Klicken auf ein Symbol auf deinem Desktop.</p>
 <h2 id="jetzt-da-wir-r-studio-installiert-haben-lass-uns-seine-umgebung-kennenlernen.">Jetzt, da wir R Studio installiert haben, lass uns seine Umgebung kennenlernen.</h2>
-<hr />
+<figure>
+<img src="img/r_interface.png" alt="R Interface" />
+<figcaption aria-hidden="true">R Interface</figcaption>
+</figure>
 <p><strong>English</strong>: When you start using R, you’ll typically interact with the following:</p>
 <ol type="1">
 <li><strong>Source (Script) Pane</strong>:</li>
 </ol>
-<p>This is where you’ll write and edit your R scripts or R Markdown documents.
-Scripts are essentially sequences of R commands that you want to run.
+<p>This is where you’ll write and edit your R scripts or R Markdown documents.</p>
+<p>Scripts are essentially sequences of R commands that you want to run.
 You can run individual lines or chunks of code by highlighting them and pressing Ctrl+Enter (Cmd+Enter on macOS).</p>
+<h4 id="analogy">ANALOGY</h4>
+<p>In cooking, a recipe book is your source of instructions for preparing a dish.</p>
+<p>Similarly, an R script is like your recipe book for data analysis. It contains a set of instructions (code) that you follow to perform various tasks and analyses.</p>
+<figure>
+<img src="img/cookBook.png" alt="R script = Recipe Book" />
+<figcaption aria-hidden="true">R script = Recipe Book</figcaption>
+</figure>
 <ol start="2" type="1">
 <li><strong>Console Pane</strong>:</li>
 </ol>
-<p>This is the heart of the R environment. Here, you can type R commands and see them executed in real-time.
-Any code executed from the script pane will also run and display results here.
-You’ll also see messages, errors, and other outputs in this window.</p>
+<p>This is the heart of the R environment. Here, you can type R commands and see them executed in real-time.</p>
+<p>Any code executed from the script pane will also run and display results here.</p>
+<p>You’ll also see messages, errors, and other outputs in this window.</p>
+<h4 id="analogy-1">ANALOGY</h4>
+<p>In a kitchen, the chef’s workspace is where all the actual cooking and experimentation take place.</p>
+<p>In RStudio, the console is your workspace where you can interact with R directly.</p>
+<p>It’s where you can run commands, experiment with code, and see immediate results, just like a chef working with ingredients and cooking utensils.</p>
+<figure>
+<img src="img/workspace.png" alt="Console = Chef’s Workspace:" />
+<figcaption aria-hidden="true">Console = Chef’s Workspace:</figcaption>
+</figure>
 <ol start="3" type="1">
 <li><strong>Environment/History Pane</strong>:</li>
 </ol>
-<p>Environment Tab: Displays a list of all the variables (including data frames, vectors, values) currently in memory. This is super handy to see what data you’ve loaded and the variables you’ve created.
-You can click on data frames and matrices in the environment tab to view them in a spreadsheet-like grid.
-History Tab: Shows a log of all the commands you’ve executed. You can re-run any command from here by selecting and pressing Enter.</p>
+<p>Environment Tab: Displays a list of all the variables (including data frames, vectors, values) currently in memory. This is super handy to see what data you’ve loaded and the variables you’ve created.</p>
+<p>You can click on data frames and matrices in the environment tab to view them in a spreadsheet-like grid.</p>
+<p>History Tab: Shows a log of all the commands you’ve executed. You can re-run any command from here by selecting and pressing Enter.</p>
+<h4 id="analogy-2">ANALOGY</h4>
+<p>When cooking, you gather ingredients and use various cooking tools such as pots, pans, and utensils.</p>
+<p>In R, the environment consists of variables, data, and functions that you’ve loaded or created.</p>
+<p>It’s where your “ingredients” (data) and “cooking tools” (functions) are stored for use in your analysis.</p>
+<figure>
+<img src="img/ingridients.png" alt="Environment = Ingredients and Cooking Tools" />
+<figcaption aria-hidden="true">Environment = Ingredients and Cooking Tools</figcaption>
+</figure>
 <ol start="4" type="1">
 <li><strong>Files/Plots/Packages/Help Pane</strong>:</li>
 </ol>
@@ -2282,25 +2315,59 @@ Packages Tab: Provides a list of all the installed R packages. From here, you ca
 Install new packages or update existing ones.</p></li>
 <li><p><em>Help Tab</em>: Whenever you need details about a specific function or package, you can use the help tab. Typing ?function_name into the console (e.g., ?mean) will also bring up the help page for that function in this pane.</p></li>
 </ul>
+<h4 id="analogy-3">ANALOGY</h4>
+<p>In cooking, you periodically check the dish’s progress to see if it’s turning out as expected.</p>
+<p>In RStudio, the view tabs (e.g., data viewer, plot viewer) allow you to inspect the intermediate results of your analysis, much like checking on your dish while it’s cooking.</p>
+<p>You can visualize data, explore plots, and ensure everything is on track.</p>
+<figure>
+<img src="img/tastingDish.png" alt="View Tabs = Checking the Dish" />
+<figcaption aria-hidden="true">View Tabs = Checking the Dish</figcaption>
+</figure>
 <p><strong>Deutsch</strong>:</p>
 <p>Wenn du anfängst, R zu nutzen, wirst du typischerweise mit den folgenden Elementen interagieren:</p>
 <ol type="1">
-<li><strong>Quellcode</strong> (Skript) Fenster:</li>
+<li><strong>Quellcode / Skript</strong> Fenster:</li>
 </ol>
 <p>Hier schreibst und bearbeitest du deine R-Skripte oder R Markdown-Dokumente.</p>
-<p>Skripte sind im Wesentlichen Abfolgen von R-Befehlen, die du ausführen möchtest.</p>
+<p>Skripte sind im Wesentlichen Abfolgen von R-Befehlen, die du ausführen möchtest (analog zum Rezept).</p>
 <p>Du kannst einzelne Zeilen oder Code-Blöcke ausführen, indem du sie markierst und Ctrl+Enter drückst (Cmd+Enter bei macOS).</p>
+<h4 id="analogie">ANALOGIE</h4>
+<p>Beim Kochen ist ein Kochbuch Ihre Informationsquelle für die Zubereitung eines Gerichts.</p>
+<p>Ähnlich verhält es sich mit einem R-Skript, das wie Ihr Kochbuch für die Datenanalyse ist. Es enthält eine Reihe von Anweisungen (Code), denen Sie folgen, um verschiedene Aufgaben und Analysen durchzuführen.</p>
+<figure>
+<img src="img/cookBook.png" alt="R-Skript = Kochbuch" />
+<figcaption aria-hidden="true">R-Skript = Kochbuch</figcaption>
+</figure>
 <ol start="2" type="1">
 <li><strong>Konsole Fenster</strong>:</li>
 </ol>
-<p>Dies ist das Herz der R-Umgebung. Hier kannst du R-Befehle eingeben und sie in Echtzeit ausführen sehen.
-Jeder im Skriptfenster ausgeführte Code wird auch hier ausgeführt und die Ergebnisse werden hier angezeigt.
-Du wirst auch Nachrichten, Fehler und andere Ausgaben in diesem Fenster sehen.</p>
+<p>Dies ist das Herz der R-Umgebung. Hier kannst du R-Befehle eingeben und sie in Echtzeit ausführen sehen.</p>
+<p>Jeder im Skriptfenster ausgeführte Code wird auch hier ausgeführt und die Ergebnisse werden hier angezeigt.</p>
+<p>Du wirst auch Nachrichten, Fehler und andere Ausgaben in diesem Fenster sehen.</p>
+<h4 id="analogie-1">ANALOGIE</h4>
+<p>In einer Küche ist der Arbeitsbereich des Kochs der Ort, an dem das eigentliche Kochen und Experimentieren stattfindet.</p>
+<p>In RStudio ist die Konsole Ihr Arbeitsbereich, in dem Sie direkt mit R interagieren können.</p>
+<p>Hier können Sie Befehle ausführen, mit Code experimentieren und sofortige Ergebnisse sehen, genauso wie ein Koch, der mit Zutaten und Kochutensilien arbeitet.</p>
+<figure>
+<img src="img/workspace.png" alt="Console = Arbeitsbereich des Kochs:" />
+<figcaption aria-hidden="true">Console = Arbeitsbereich des Kochs:</figcaption>
+</figure>
 <ol start="3" type="1">
-<li><p><strong>Umgebung/Verlauf Fenster</strong>:
-Umgebung Tab: Zeigt eine Liste aller Variablen (einschließlich Datenrahmen, Vektoren, Werte), die gerade im Speicher sind. Das ist super praktisch, um zu sehen, welche Daten du geladen hast und welche Variablen du erstellt hast. Du kannst auf Datenrahmen und Matrizen im Umgebung-Tab klicken, um sie in einem rasterähnlichen Gitter anzusehen.
-Verlauf Tab: Zeigt ein Protokoll aller Befehle, die du ausgeführt hast. Du kannst jeden Befehl von hier aus ausführen, indem du ihn auswählst und Enter drückst.</p></li>
-<li><p><strong>Dateien/Grafiken/Pakete/Hilfe Fenster:</strong></p></li>
+<li><strong>Umgebung/Verlauf Fenster</strong>:
+Umgebung Tab: Zeigt eine Liste aller Variablen (einschließlich Datenrahmen, Vektoren, Werte), die gerade im Speicher sind.</li>
+</ol>
+<p>Das ist super praktisch, um zu sehen, welche Daten du geladen hast und welche Variablen du erstellt hast.</p>
+<p>Du kannst auf Datenrahmen und Matrizen im Umgebung-Tab klicken, um sie in einem rasterähnlichen Gitter anzusehen.</p>
+<h4 id="analogie-2">ANALOGIE</h4>
+<p>Beim Kochen sammeln Sie Zutaten und verwenden verschiedene Küchenwerkzeuge wie Töpfe, Pfannen und Besteck.</p>
+<p>In R besteht die Umgebung aus Variablen, Daten und Funktionen, die Sie geladen oder erstellt haben.</p>
+<p>Hier werden Ihre “Zutaten” (Daten) und “Küchenwerkzeuge” (Funktionen) gespeichert, die Sie für Ihre Analyse verwenden.</p>
+<figure>
+<img src="img/ingridients.png" alt="Umgebung = Zutaten und Küchenwerkzeuge" />
+<figcaption aria-hidden="true">Umgebung = Zutaten und Küchenwerkzeuge</figcaption>
+</figure>
+<ol start="4" type="1">
+<li><strong>Dateien/Grafiken/Pakete/Hilfe Fenster:</strong></li>
 </ol>
 <ul>
 <li><p><strong>Dateien Tab</strong>: Ermöglicht dir die Navigation durch dein Computersystem, ähnlich wie ein Datei-Explorer. Du kannst Skripte öffnen und speichern, Daten importieren und Verzeichnisse verwalten.</p></li>
@@ -2308,9 +2375,13 @@ Verlauf Tab: Zeigt ein Protokoll aller Befehle, die du ausgeführt hast. Du kann
 <li><p><strong>Pakete Tab</strong>: Zeigt eine Liste aller installierten R-Pakete an. Von hier aus kannst du: Ein Paket in den Speicher laden, indem du das Kästchen neben seinem Namen ankreuzt. Neue Pakete installieren oder bestehende aktualisieren.</p></li>
 <li><p><strong>Hilfe Tab</strong>: Immer wenn du Details über eine bestimmte Funktion oder ein Paket benötigst, kannst du den Hilfe-Tab verwenden. Wenn du ?Funktionsname in die Konsole eingibst (z. B. ?mean), wird auch die Hilfeseite für diese Funktion in diesem Fenster aufgerufen.</p></li>
 </ul>
+<h4 id="analogie-3">ANALOGIE</h4>
+<p>Beim Kochen überprüfen Sie regelmäßig den Fortschritt des Gerichts, um zu sehen, ob es sich wie erwartet entwickelt.</p>
+<p>In RStudio ermöglichen Ihnen die Ansichtsregisterkarten (z. B. Datenanzeige, Plot-Anzeige), die Zwischenergebnisse Ihrer Analyse zu inspizieren, ähnlich wie beim Überprüfen Ihres Gerichts während des Kochens.</p>
+<p>Sie können Daten visualisieren, Diagramme erkunden und sicherstellen, dass alles wie geplant verläuft.</p>
 <figure>
-<img src="img/r_interface.png" alt="R Interface" />
-<figcaption aria-hidden="true">R Interface</figcaption>
+<img src="img/tastingDish.png" alt="Ansichtsregisterkarten = Überprüfung des Gerichts" />
+<figcaption aria-hidden="true">Ansichtsregisterkarten = Überprüfung des Gerichts</figcaption>
 </figure>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

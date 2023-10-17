@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-10-15"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-10-15"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-10-17"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-10-17"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R - Types of Data"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R - Types of Data"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-17"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R - Types of Data","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-15T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R - Types of Data","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-17T00:00:00.000+02:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2125,11 +2125,8 @@ Statistik I
 <a href="Basic_R.html">Basics in R - Download R &amp; R Studio</a>
 <a href="Basic_R_Project.html">Basics in R - Create Project</a>
 <a href="Basic_R_VariabelsFunctions.html">Basics in R - Variables &amp; Functions</a>
-<a href="Basic_R_2.html">Basics in R - Part 2</a>
-<a href="Basic_R_3.html">Basics in R - Part 3</a>
-<a href="Basic_R_4.html">Basics in R - Part 4</a>
+<a href="Basic_R_2.html">Basics in R - Types of Data &amp; Indexing</a>
 <a href="Basic_concepts_ii.html">Statistical Tests - Distributions</a>
-<a href="Decision_diagramm.html">Statistical Tests - Decision Diagramm</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2147,6 +2144,7 @@ Statistik II
 <a href="lm_ii_ii.html">Multiple Linear Models - Part II</a>
 <a href="effectsize_lm.html">Simple Linear Models: Effectsize</a>
 <a href="effectsize_mlr.html">Multiple Linear Models: Effectsize</a>
+<a href="Decision_diagramm.html">Statistical Tests - Decision Diagramm</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2167,11 +2165,207 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-10-15
+<br/>2023-10-17
 </div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="this-session-well-explore-the-evolution-of-data-structures-from-the-simplest-building-block-to-the-versatile-and-powerful-lists.">This session, we’ll explore the evolution of data structures, from the simplest building block to the versatile and powerful lists.</h2>
+<p>This is going to be a useful guide for beginners looking to grasp the basics in programming, join us on this educational journey.</p>
+<h2 id="in-this-blog-post-we-will-explore">In this blog post, we will explore:</h2>
+<p><span style="color: red;">
+1. Creating and Working with Vectors:</span> How to declare and manipulate vectors to store data efficiently.</p>
+<p><span style="color: red;">
+2. Binding Data:</span> Techniques for combining vectors into larger datasets, including cbind and rbind.</p>
+<p><span style="color: red;">
+3. Matrices in Action:</span> Practical examples of using matrices for numerical operations and data analysis.</p>
+<p><span style="color: red;">
+4. Unlocking the Power of Lists:</span> An in-depth exploration of lists, including creating, modifying, and navigating through nested lists.</p>
+<p><span style="color: red;">
+5. Real-World Use Cases:</span> Demonstrations of how these data structures are applied in programming and data analysis.</p>
+<h1 id="single-values-the-foundation">Single Values: The Foundation</h1>
+<p>In our last blog post, we discussed objects in R that were assigned a single value, whether factor type (e.g., your name or gender) or a numerical value such as a = 1 or a logical type (e.g., rain_tomorrow = FALSE). These single values serve as the building blocks of more complex data structures. They represent individual pieces of information and can take on various data types, depending on the context.</p>
+<p>Here’s a brief recap:</p>
+<ol type="1">
+<li><strong>Factor Values</strong>: Factors are used to represent categorical data with distinct levels.</li>
+</ol>
+<p>For example, you might have a factor variable for “gender” with levels “Male,” “Female,” and “Non-binary.”</p>
+<ol start="2" type="1">
+<li><strong>Numerical Values</strong>: Numerical values are used for storing numeric data, such as integers or floating-point numbers.</li>
+</ol>
+<p>They allow you to perform mathematical operations and calculations.</p>
+<ol start="3" type="1">
+<li><strong>Logical Values</strong>: Logical values, often represented as TRUE or FALSE, are used to handle binary decisions or conditions.</li>
+</ol>
+<p>They are essential for control flow and conditional statements in programming.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Single value examples</span></span>
+<span><span class='va'>age</span> <span class='op'>&lt;-</span> <span class='fl'>30</span></span>
+<span><span class='va'>name</span> <span class='op'>&lt;-</span> <span class='st'>"John"</span></span>
+<span><span class='va'>temperature</span> <span class='op'>&lt;-</span> <span class='fl'>25.5</span></span>
+<span></span>
+<span><span class='co'># Printing single values</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"Name:"</span>, <span class='va'>name</span>, <span class='st'>"\n"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Name: John </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"Age:"</span>, <span class='va'>age</span>, <span class='st'>"\n"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Age: 30 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"Temperature:"</span>, <span class='va'>temperature</span>, <span class='st'>"\n"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Temperature: 25.5 </code></pre>
+</div>
+<p><span style="color: red;"> These single values are versatile and useful on their own, but as we venture further into data manipulation and analysis, we’ll discover how they can be combined and structured into more complex data structures like vectors, matrices, and lists.</span></p>
+<h1 id="indexing-in-r-navigating-your-data">Indexing in R: Navigating Your Data</h1>
+<p>Before we dive into the world of vectors, it’s essential to understand the concept of indexing in R.</p>
+<p>Indexing allows us to access specific elements within data structures, such as vectors, matrices, and lists.</p>
+<p>Think of indexing as a way to pinpoint and retrieve exactly what you need from your data.</p>
+<p>In R, indexing starts at 1, which means the first element in a data structure is accessed using index 1, the second element with index 2, and so on.</p>
+<p>Additionally, negative indices can be used to exclude elements from a data structure, and logical vectors can be used to filter elements based on certain conditions.</p>
+<p>Here’s a brief overview of indexing in R:</p>
+<ol type="1">
+<li><strong>Single Indexing</strong>: Access a single element using its position in the data structure.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"cherry"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my_vector</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>  <span class='co'># Accesses the second element, "banana"</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;banana&quot;</code></pre>
+</div>
+<ol start="2" type="1">
+<li><strong>Multiple Indexing</strong>: Access multiple elements by specifying a vector of indices.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"cherry"</span><span class='op'>)</span></span>
+<span><span class='va'>indices</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my_vector</span><span class='op'>[</span><span class='va'>indices</span><span class='op'>]</span><span class='op'>)</span>  <span class='co'># Accesses the first and third elements, "apple" and "cherry"</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;apple&quot;  &quot;cherry&quot;</code></pre>
+</div>
+<ol start="3" type="1">
+<li><strong>Negative Indexing</strong>: Exclude elements using negative indices.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"cherry"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my_vector</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>  <span class='co'># Excludes the second element, "banana"</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;apple&quot;  &quot;cherry&quot;</code></pre>
+</div>
+<ol start="4" type="1">
+<li><strong>Logical Indexing</strong>: Filter elements based on logical conditions.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>30</span>, <span class='fl'>40</span>, <span class='fl'>50</span><span class='op'>)</span></span>
+<span><span class='va'>condition</span> <span class='op'>&lt;-</span> <span class='va'>my_vector</span> <span class='op'>&gt;</span> <span class='fl'>25</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>my_vector</span><span class='op'>[</span><span class='va'>condition</span><span class='op'>]</span><span class='op'>)</span>  <span class='co'># Selects elements greater than 25, i.e., 30, 40, and 50</span></span></code></pre>
+</div>
+<pre><code>[1] 30 40 50</code></pre>
+</div>
+<h4 id="now-that-we-have-a-good-grasp-of-indexing-lets-explore-the-world-of-vectors-and-see-how-indexing-plays-a-crucial-role-in-working-with-them-effectively.">Now that we have a good grasp of indexing, let’s explore the world of vectors and see how indexing plays a crucial role in working with them effectively.</h4>
+<h1 id="vectors-bridging-the-gap">Vectors: Bridging the Gap</h1>
+<p>Enter vectors, an array-like structure that allows us to store multiple single values of the same data type within a single variable.</p>
+<p>Vectors provide a seamless way to work with lists of data, enabling us to perform operations on them collectively.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating vectors</span></span>
+<span><span class='va'>numbers</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
+<span><span class='va'>fruits</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"apple"</span>, <span class='st'>"banana"</span>, <span class='st'>"cherry"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Accessing elements of a vector</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>numbers</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>    <span class='co'># Prints the second element (2)</span></span></code></pre>
+</div>
+<pre><code>[1] 2</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>fruits</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span>     <span class='co'># Prints "cherry"</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;cherry&quot;</code></pre>
+</div>
+<h1 id="matrices-two-dimensional-arrays">Matrices: Two-Dimensional Arrays</h1>
+<p>Matrices are the next step in our journey.</p>
+<p>These two-dimensional data structures consist of rows and columns, providing a structured way to represent data.</p>
+<p>Matrices are especially useful for numerical computations, statistical analysis, and linear algebra.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Combining vectors using cbind and rbind</span></span>
+<span><span class='va'>vector1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span></span>
+<span><span class='va'>vector2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Combining by columns (cbind)</span></span>
+<span><span class='va'>combined_col</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>vector1</span>, <span class='va'>vector2</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Combining by rows (rbind)</span></span>
+<span><span class='va'>combined_row</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>vector1</span>, <span class='va'>vector2</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>combined_col</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>     vector1 vector2
+[1,] &quot;1&quot;     &quot;A&quot;    
+[2,] &quot;2&quot;     &quot;B&quot;    
+[3,] &quot;3&quot;     &quot;C&quot;    </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>combined_row</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>        [,1] [,2] [,3]
+vector1 &quot;1&quot;  &quot;2&quot;  &quot;3&quot; 
+vector2 &quot;A&quot;  &quot;B&quot;  &quot;C&quot; </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating matrices</span></span>
+<span><span class='va'>matrix1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>, nrow <span class='op'>=</span> <span class='fl'>2</span>, ncol <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>  <span class='co'># 2x3 matrix</span></span>
+<span><span class='va'>matrix2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>, <span class='fl'>8</span>, <span class='fl'>9</span><span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>3</span>, ncol <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>  <span class='co'># 3x1 matrix</span></span>
+<span></span>
+<span><span class='co'># Matrix multiplication</span></span>
+<span><span class='va'>result_matrix</span> <span class='op'>&lt;-</span> <span class='va'>matrix1</span> <span class='op'><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></span> <span class='va'>matrix2</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>matrix1</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>matrix2</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>     [,1]
+[1,]    7
+[2,]    8
+[3,]    9</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>result_matrix</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>     [,1]
+[1,]   76
+[2,]  100</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating lists</span></span>
+<span><span class='va'>student1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Alice"</span>, age <span class='op'>=</span> <span class='fl'>22</span>, grades <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>85</span>, <span class='fl'>90</span>, <span class='fl'>78</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>student2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Bob"</span>, age <span class='op'>=</span> <span class='fl'>24</span>, grades <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>76</span>, <span class='fl'>88</span>, <span class='fl'>92</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Creating a list of students</span></span>
+<span><span class='va'>students</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>student1</span>, <span class='va'>student2</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Accessing elements of a list</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>students</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>$</span><span class='va'>name</span><span class='op'>)</span>  <span class='co'># Accessing the name of the first student</span></span></code></pre>
+</div>
+<pre><code>[1] &quot;Alice&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>students</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>$</span><span class='va'>grades</span><span class='op'>)</span>  <span class='co'># Accessing the grades of the second student</span></span></code></pre>
+</div>
+<pre><code>[1] 76 88 92</code></pre>
+</div>
+<h1 id="lists-the-ultimate-data-structure">Lists: The Ultimate Data Structure</h1>
+<p>Finally, we arrive at the pinnacle of data structures: lists.</p>
+<p>Lists are versatile collections that can store heterogeneous data types, including vectors, matrices, and even other lists.</p>
+<p>They allow us to create complex, nested data structures, making them invaluable in data analysis, data manipulation, and managing large-scale projects.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

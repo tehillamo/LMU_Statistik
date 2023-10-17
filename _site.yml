@@ -20,16 +20,14 @@ navbar:
         #   href: Basic_R_introduction.html
         - text: "Basics in R - Variables & Functions"
           href: Basic_R_VariabelsFunctions.html
-        - text: "Basics in R - Part 2"
+        - text: "Basics in R - Types of Data & Indexing"
           href: Basic_R_2.html
-        - text: "Basics in R - Part 3"
-          href: Basic_R_3.html
-        - text: "Basics in R - Part 4"
-          href: Basic_R_4.html
+        # - text: "Basics in R - Part 3"
+        #   href: Basic_R_3.html
+        # - text: "Basics in R - Part 4"
+        #   href: Basic_R_4.html
         - text: "Statistical Tests - Distributions"
           href: Basic_concepts_ii.html
-        - text: "Statistical Tests - Decision Diagramm"
-          href: Decision_diagramm.html
     - text: "Statistik II"
       href: statistik_ii.html
       menu:
@@ -49,6 +47,8 @@ navbar:
           href: effectsize_lm.html
         - text: "Multiple Linear Models: Effectsize"
           href: effectsize_mlr.html
+        - text: "Statistical Tests - Decision Diagramm"
+          href: Decision_diagramm.html
 google_analytics: "G-T7V19FRHDE"
 url: https://tehillamo.github.io/LMU_Statistik
 output: distill::distill_article
