@@ -96,6 +96,11 @@ knitr::opts_chunk$set(echo = TRUE)
 **R** is a powerful and open-source programming language and environment designed specifically for statistical computing and graphics. R has grown to be the tool of choice for statisticians, data scientists, and researchers worldwide.
 
 
+# Why use R?
+R is a powerful open-source software developed specifically for statistical calculations and data visualization. For example, to examine the relationship between the number of hours students spend on their studies per week and their semester-end grades.
+ 
+ 
+ 
 # What is R Studio?
 
 While not part of R itself, RStudio is a popular integrated development environment (IDE) for R, which provides a more user-friendly interface, debugging tools, and other useful features to make working with R eadur and more efficient.
@@ -236,6 +241,10 @@ You can visualize data, explore plots, and ensure everything is on track.
 # What is R?
 
 **R** ist eine kostenfreie Software für statistische Datenanalyse und Graphiken. Es beruht auf einer Implementation der Sprache S. Anfänglich wurde R von Ross Ihaka und Robert Gentleman (Univ. Auckland) entwickelt und wird seit Mitte der 90er Jahre von einem Entwickler-Kollektiv (R-Core) betreut.
+
+# Why use R?
+
+R ist eine leistungsstarke Open-Source-Software, die speziell für statistische Berechnungen und Datenvisualisierung entwickelt wurde. Zum Beispiel, um den Zusammenhang zwischen der Anzahl der Stunden, die Studenten pro Woche für ihr Studium aufgewendet haben, und ihren Semesterendnoten zu untersuchen.
 
 
 
