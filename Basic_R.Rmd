@@ -242,6 +242,7 @@ You can visualize data, explore plots, and ensure everything is on track.
 
 **R** ist eine kostenfreie Software für statistische Datenanalyse und Graphiken. Es beruht auf einer Implementation der Sprache S. Anfänglich wurde R von Ross Ihaka und Robert Gentleman (Univ. Auckland) entwickelt und wird seit Mitte der 90er Jahre von einem Entwickler-Kollektiv (R-Core) betreut.
 
+
 # Why use R?
 
 R ist eine leistungsstarke Open-Source-Software, die speziell für statistische Berechnungen und Datenvisualisierung entwickelt wurde. Zum Beispiel, um den Zusammenhang zwischen der Anzahl der Stunden, die Studenten pro Woche für ihr Studium aufgewendet haben, und ihren Semesterendnoten zu untersuchen.
