@@ -11,330 +11,362 @@ date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
-<div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> English </div>
+<!-- <div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> English </div> -->
 
 
-## How R Works? 
+<!-- ## How R Works?  -->
 
-In R, there are (essentially) only two things: objects and functions.
+<!-- In R, there are (essentially) only two things: objects and functions. -->
 
-## Objects
+<!-- **Assignments**: -->
+<!-- In R, you use the '=' or '=' symbol for assignments. This symbol is known as the assignment operator. The value on the right gets assigned to the name on the left. -->
 
-Objects are data. These can be datasets, for example, but also individual numbers, entire models, or even lists of different objects. Objects always have a name and are called by that name."
+<!-- Example: -->
 
-```{r}
-tehilla <- 54
-tehilla
-```
+<!-- ```{r} -->
+<!-- name = "Tehilla" -->
+<!-- ``` -->
 
 
-Objects also have properties that determine which functions (see more below) can be applied to them. For example, if an object is of type 'numeric,' you can add it to other 'numeric' objects. However, if an object is a 'string,' which is a character string, you cannot add it. Many error messages result from attempting to apply functions to an incompatible data type.
+<!-- ## Objects -->
 
-```{r}
-age_obj <- 35
-age_obj_2 <- 1
-I_will_be_X_next_year <-  age_obj + age_obj_2
-I_will_be_X_next_year
-```
+<!-- Objects are data. These can be datasets, for example, but also individual numbers, entire models, or even lists of different objects. Objects always have a name and are called by that name. Here is an example:  -->
 
+<!-- ```{r} -->
+<!-- tehilla = 154 -->
+<!-- tehilla -->
+<!-- ``` -->
 
-**Variables**: In R, a variable allows you to store data values. Think of it as a named storage that our programs can manipulate. The stored value can be a number, text, a series of numbers, or any other type of data.
 
-Example:
+<!-- Objects also have properties that determine which functions (see more below) can be applied to them. For example, if an object is of type 'numeric,' you can add it to other 'numeric' objects. However, if an object is a 'string,' which is a character string, you cannot add it. Many error messages result from attempting to apply functions to an incompatible data type. -->
 
-```{r}
-my_variable <- 10
-my_variable
-```
-
-
-**Assignments**:
-In R, you use the <- symbol for assignments. This symbol is known as the assignment operator. The value on the right gets assigned to the name on the left.
-
-Example:
-
-```{r}
-name <- "Tehilla"
-```
-
-
-**Where to See Stored Variables**:
-When you're using R or RStudio, you can view the variables you've defined in a couple of ways:
-  
-  - In the R console, just type the variable's name and press enter. For example, typing name would output "Tehilla".
-  
-  - In RStudio, the Environment pane (usually located in the top-right corner) displays a list of all current variables, their type, and their value.
-  
-  
-![Stored Variables in R ](img/R_Interface_3.png)
-
-
-
-## Types of R Objects 
-
-1. **Vectors**:
-A vector is a basic data structure in R that contains elements of the same type. This could be numeric, character, logical, etc.
-
-The c() function is used to concatenate values into a vector.
-
-Example:
-
-```{r}
-numeric_vector <- c(1, 2, 3, 4, 5)
-character_vector <- c("apple", "banana", "cherry")
-```
-
-
-In R, variables can hold data of various types. These types are fundamental and determine the kind of operations you can perform on the data. Here's a rundown of the most common data types (or modes) in R:
-    
-      1.1 Numeric: Represents numbers and can be either integer or double (decimal numbers).
-      Example:
-      
-```{r}
-x <- 5    # numeric, specifically an integer
-y <- 5.5  # numeric, specifically a double
-z <- x*y  # numeric, specifically a double. a multiplication of x and y
-typeof(z)
-```
-        
-        1.2. Character: Represents strings (text). 
-        
-        Strings in R are enclosed by either single or double quotes.
-        
-        Example:
-        
-```{r}
-name <- "John Doe"
-name
 
-name_empty <- "insert your name"
-name_empty
-```
 
-        1.3. Logical: Represents boolean values: TRUE or FALSE. 
-        
-        Often a result of logical conditions or operations.
-        
-        Example:
-        
-```{r}
-flag <- TRUE
-flag
+<!-- **Variables**: In R, a variable allows you to store data values. Think of it as a named storage that our programs can manipulate. The stored value can be a number, text, a series of numbers, or any other type of data. -->
 
-is_dog_a_cat <-  FALSE
-is_dog_a_cat
-```
-        
+<!-- Example: -->
 
-        1.4. Integer: A subtype of numeric. 
-        
-        It specifically represents integer numbers. 
-        
-        To specifically define an integer, you can use the L suffix.
-      
-      Example:
+<!-- ```{r} -->
+<!-- my_variable = 10 -->
+<!-- my_variable -->
 
-```{r}
-count <- 23L
-count
-```
-      
-      1.5. Factor: Categorical data is often represented as factors in R.
-      
-      Factors can be ordered (like "Low", "Medium", "High") or unordered (like "Male", "Female"). 
-      
-      While the data might look like characters, factors are stored 
-      
-      as integers, and a separate lookup table holds the character values.
-      
-      
-      Example: 
-      
-```{r}
-gender <- factor(c("Male", "Female", "Female", "Male"))
-gender
-```
-      
-     1.6. Lists: A special type that can hold different types of elements, including vectors, 
-     
-     functions, or even other lists.
-    
-    
-    Example:
-    
-```{r}
-my_list <- list(name = "Alice", age = 25, scores = c(85, 90, 92))
-my_list
-```
-    
+<!-- age_obj = 35 -->
+<!-- age_obj_2 = 1 -->
+<!-- I_will_be_X_next_year =  age_obj + age_obj_2 -->
+<!-- I_will_be_X_next_year -->
+<!-- ``` -->
 
-![Vectors](img/R_Interface_4.png)
 
 
-# Functions 
+<!-- **Where to See Stored Variables**: -->
+<!-- When you're using R or RStudio, you can view the variables you've defined in a couple of ways: -->
 
-Functions alter objects in specific ways. 
+<!--   - In the R console, just type the variable's name and press enter. For example, typing name would output "Tehilla". -->
 
-A function can be almost anything. For statistics, we mainly need functions that transform data (e.g., mapping strings to specific values, creating new variables, loading datasets, saving datasets, etc.) and functions that perform statistical calculations (e.g., calculating means, 
+<!--   - In RStudio, the Environment pane (usually located in the top-right corner) displays a list of all current variables, their type, and their value. -->
 
-performing regressions, etc.).
 
+<!-- ![Stored Variables in R ](img/R_Interface_3.png) -->
 
-![functions](img/Functions_cartoon.png)
 
-**Example**: 
 
-Here is an innocent vector... It's about to change its form by being passed into a function. 
+<!-- ## Types of R Objects  -->
 
-```{r}
-# Create a numeric vector
-numbers <- c(5, 10, 15, 20, 25) 
+<!-- 1. **Vectors**: -->
+<!-- A vector is a basic data structure in R that contains elements of the same type. This could be numeric, character, logical, etc. -->
 
-# The function c() is used very often. It combines elements into a vector.
-numbers
-```
+<!-- The c() function is used to concatenate values into a vector. -->
 
+<!-- Example: -->
 
+<!-- ```{r} -->
+<!-- numeric_vector = c(1, 2, 3, 4, 5) -->
+<!-- character_vector = c("apple", "banana", "cherry") -->
+<!-- ``` -->
 
-In fact, we will use the "mean" function in R to calculate the average or arithmetic mean of a set of numeric values. It adds up all the numbers in a dataset and then divides that sum by the total count of numbers. 
 
-This provides you with a single value that represents the central tendency or typical value of the data. 
+<!-- In R, variables can hold data of various types. These types are fundamental and determine the kind of operations you can perform on the data. Here's a rundown of the most common data types (or modes) in R: -->
 
-```{r}
-# Calculate the mean
-average <- mean(numbers)
+<!--       1.1 Numeric: Represents numbers and can be either integer or double (decimal numbers). -->
+<!--       Example: -->
 
-# Print the result
-print(average)
+<!-- ```{r} -->
+<!-- x = 5    # numeric, specifically an integer -->
+<!-- y = 5.5  # numeric, specifically a double -->
+<!-- z = x*y  # numeric, specifically a double. a multiplication of x and y -->
 
-```
+<!-- typeof(x) -->
+<!-- typeof(z) -->
+<!-- ``` -->
 
+<!--         1.2. Character: Represents strings (text).  -->
 
-In this example, the mean function will add up the numbers (5 + 10 + 15 + 20 + 25) and divide the sum by the total count (5 in this case), resulting in an average of 15.
+<!--         Strings in R are enclosed by either single or double quotes. -->
 
+<!--         Example: -->
 
-Functions can also generate data and objects. For example, there are functions that create random numbers.
+<!-- ```{r} -->
+<!-- name = "John Doe" -->
+<!-- name -->
 
-Here are few examples: 
+<!-- name_empty = "insert your name" -->
+<!-- name_empty -->
+<!-- ``` -->
 
-1. The seq() function generates a sequence between two numbers.
+<!--         1.3. Logical: Represents boolean values: TRUE or FALSE.  -->
 
-```{r}
-seq(from = 1, to = 10, by = 1)
-seq(from = 1, to = 10, length.out = 5)
-```
+<!--         Often a result of logical conditions or operations. -->
 
-2. The rnorm() function randomly draws 20 values from the normal 
+<!--         Example: -->
 
-distribution with a mean of 0 and a standard deviation of 1.
+<!-- ```{r} -->
+<!-- flag = TRUE -->
+<!-- flag -->
 
-```{r}
-rnorm(n = 20, mean = 0, sd = 1) 
-```
+<!-- is_dog_a_cat =  FALSE -->
+<!-- is_dog_a_cat -->
 
-3. Functions can also generate graphics from objects. 
 
-Creates a histogram from the vector of normally distributed variables.
+<!-- 3>5 -->
+<!-- 3==3 # what would happen if we used a single = sign? -->
+<!-- 3<5 -->
+<!-- ``` -->
 
-```{r}
-normally_distributed <- rnorm(n = 20, mean = 0, sd = 1)
-hist(normally_distributed) 
-```
+
+<!--         1.4. Integer: A subtype of numeric.  -->
+
+<!--         It specifically represents integer numbers.  -->
+
+<!--         To specifically define an integer, you can use the L suffix. -->
+
+<!--       Example: -->
+
+<!-- ```{r} -->
+<!-- count = 23L -->
+<!-- count -->
+<!-- ``` -->
+
+<!--       1.5. Factor: Categorical data is often represented as factors in R. -->
+
+<!--       Factors can be ordered (like "Low", "Medium", "High") or unordered (like "Male", "Female").  -->
+
+<!--       While the data might look like characters, factors are stored  -->
+
+<!--       as integers, and a separate lookup table holds the character values. -->
+
+
+<!--       Example:  -->
+
+<!-- ```{r} -->
+<!-- my_gender = "Female" -->
+<!-- gender = factor(c("Male", "Female", "Female", "Male")) -->
+<!-- gender -->
+<!-- ``` -->
+
+<!--      1.6. Lists: A special type that can hold different types of elements, including vectors,  -->
+
+<!--      functions, or even other lists. -->
+
+
+<!--     Example: -->
+
+<!-- ```{r} -->
+<!-- my_list = list(name = "Alice", age = 25, scores = c(85, 90, 92)) -->
+<!-- my_list -->
+
+<!-- my_list$name -->
+<!-- ``` -->
+
+
+<!-- ## Lets practice what we have learnt so far.... -->
+<!-- 1. create a vector with the following numbers 10, 20, 30, 40, 50 and save it as 'vec' -->
+<!-- 2. multiply the 'vec' vector by 2.5 and save the multiplied vector as "mult_vec" -->
+<!-- 3. find out of these are equal to vec_check = c(25, 50, 70, 100, 125) -->
+<!-- 4. which of the elements in the vector is wrong?  -->
+<!-- 5. change the new vector to output only "TRUE". -->
+<!-- 7. add another number to the original vector 'vec'. change 'vec_check' to output only "TRUE".  -->
+
+
+
+
+<!-- ![Vectors](img/R_Interface_4.png) -->
+
+
+<!-- # Functions  -->
+
+<!-- Functions alter objects in specific ways.  -->
+
+<!-- A function can be almost anything. For statistics, we mainly need functions that transform data (e.g., mapping strings to specific values, creating new variables, loading datasets, saving datasets, etc.) and functions that perform statistical calculations (e.g., calculating means,  -->
+
+<!-- performing regressions, etc.). -->
+
+
+<!-- ![functions](img/Functions_cartoon.png) -->
+
+<!-- **Example**:  -->
+
+<!-- Here is an innocent vector... It's about to change its form by being passed into a function.  -->
+
+<!-- ```{r} -->
+<!-- # Create a numeric vector -->
+<!-- numbers = c(5, 10, 15, 20, 25)  -->
+
+<!-- # The function c() is used very often. It combines elements into a vector. -->
+<!-- numbers -->
+<!-- ``` -->
+
+
+
+<!-- In fact, we will use the "mean" function in R to calculate the average or arithmetic mean of a set of numeric values. It adds up all the numbers in a dataset and then divides that sum by the total count of numbers.  -->
+
+<!-- This provides you with a single value that represents the central tendency or typical value of the data.  -->
+
+<!-- ```{r} -->
+<!-- # Calculate the mean -->
+<!-- average = mean(numbers) -->
+
+<!-- # Print the result. print is another function... -->
+<!-- print(average) -->
+
+<!-- ``` -->
+
+
+<!-- In this example, the mean function will add up the numbers (5 + 10 + 15 + 20 + 25) and divide the sum by the total count (5 in this case), resulting in an average of 15. -->
+
+
+<!-- Functions can also generate data and objects. For example, there are functions that create random numbers. -->
+
+<!-- Here are few examples:  -->
+
+<!-- 1. The seq() function generates a sequence between two numbers. -->
+
+<!-- ```{r} -->
+<!-- seq(from = 1, to = 10, by = 1) -->
+<!-- seq(from = 1, to = 10, length.out = 5) -->
+<!-- ``` -->
+
+<!-- 2. The rnorm() function randomly draws 20 values from the normal  -->
+
+<!-- distribution with a mean of 0 and a standard deviation of 1. -->
+
+<!-- ```{r} -->
+<!-- rnorm(n = 20, mean = 0, sd = 1)  -->
+<!-- ``` -->
+
+<!-- 3. Functions can also generate graphics from objects.  -->
+
+<!-- Creates a histogram from the vector of normally distributed variables. -->
+
+<!-- ```{r} -->
+<!-- normally_distributed = rnorm(n = 20, mean = 0, sd = 1) -->
+<!-- hist(normally_distributed)  -->
+<!-- ``` -->
 
 
 -----
 
 <div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> Deutsch </div>
 
-# Wie funktioniert R?
 
-In R gibt es im Wesentlichen nur zwei Dinge: Objekte und Funktionen.
+<p style="font-family:monospace;color:red;font-size:280%"><br><br> Wie Funktioniert R?</p>
 
-## Objekte
+In R gibt es im Wesentlichen nur zwei Dinge: 
+
+1. **Objekte**
+
+2. **Funktionen**
+
+<p style="font-family:monospace;color:red;font-size:200%"> Objekte</p>
 
 Objekte sind Daten. Dies können beispielsweise Datensätze sein, aber auch einzelne Zahlen, ganze Modelle oder sogar Listen von verschiedenen Objekten. 
 
-Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.
-
-```{r}
-tehilla <- 54
-tehilla
-```
-
-
 Objekte haben auch Eigenschaften, die bestimmen, welche Funktionen (siehe unten) auf sie angewendet werden können. 
 
-Wenn ein Objekt beispielsweise vom Typ 'numeric' ist, können Sie es zu anderen 'numeric'-Objekten hinzufügen. 
+Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.
 
-Wenn ein Objekt jedoch ein 'string' ist, eine Zeichenkette, können Sie es nicht hinzufügen. 
+![R Objekte](img/scalar-vector-matrix.png)
 
-Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.
+<p style="font-family:monospace;color:blue;font-size:200%"> Ein Skalar </p>
 
+Ein Skalar ist in einfachen Worten eine einzelne Zahl oder ein einzelner Wert. In der Mathematik und Programmierung ist ein Skalar ein einzelnes Element, das keine Richtung oder Dimension hat. Zum Beispiel ist die Zahl 5 ein Skalar, da sie einfach eine einzelne Zahl darstellt, ohne eine bestimmte Richtung oder Größe in einem Raum oder einer Datenstruktur zu haben. Skalare werden oft in Berechnungen und Programmierungen verwendet, um einzelne Werte oder Datenpunkte darzustellen
 
 ```{r}
-age_obj <- 35
-age_obj_2 <- 1
-Ich_werde_nächstes_Jahr_X_sein <-  age_obj + age_obj_2
+tehilla = 54
+tehilla
+
+age_obj = 35
+age_obj_2 = 1
+Ich_werde_nächstes_Jahr_X_sein =  age_obj + age_obj_2
 Ich_werde_nächstes_Jahr_X_sein
 
 ```
 
 
-**Variablen**: In R ermöglicht es eine Variable, Datenwerte zu speichern. 
-
-Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können. 
-
-Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein.
-
-Beispiel:
+<p style="font-family:monospace;color:blue;font-size:200%"> Vektoren</p>
+    
+Ein Vektor ist eine grundlegende Datenstruktur in R, die Elemente des gleichen Typs enthält. Dies kann numerisch, character, logisch usw. sein.
+    
+Die Funktion c() wird verwendet, um Werte zu einem Vektor zusammenzuführen.
 
 ```{r}
-meine_variable <- 10
-meine_variable
+# Adding two numeric vectors element-wise
+vector1 <- c(1, 2, 3, 4, 5)
+vector2 <- c(6, 7, 8, 9, 10)
+result_vector <- vector1 + vector2
+print(result_vector)
 ```
 
 
-**Zuweisungen**: In R verwenden Sie das <- Symbol für Zuweisungen. 
 
-Dieses Symbol wird als Zuweisungsoperator bezeichnet. 
+<!-- **Variablen**: In R ermöglicht es eine Variable, Datenwerte zu speichern.  -->
 
-Der Wert auf der rechten Seite wird dem Namen auf der linken Seite zugewiesen.
+<!-- Denken Sie an sie als an einen benannten Speicher, den unsere Programme manipulieren können.  -->
 
+<!-- Der gespeicherte Wert kann eine Zahl, Text, eine Reihe von Zahlen oder jede andere Art von Daten sein. -->
 
-Beispiel:
+<!-- Beispiel: -->
 
-```{r}
-name <- "Tehilla"
-
-```
-
-**Wo Sie gespeicherte Variablen sehen können**:
-
-Wenn Sie R oder RStudio verwenden, können Sie die von Ihnen definierten Variablen auf verschiedene Arten anzeigen:
-
-In der R-Konsole geben Sie einfach den Namen der Variablen ein und drücken Sie Enter. Wenn Sie beispielsweise 'name' eingeben, wird "Tehilla" ausgegeben.
-
-In RStudio zeigt das Environment-Fenster (normalerweise oben rechts) eine Liste aller aktuellen Variablen, ihres Typs und ihres Werts an.
+<!-- ```{r} -->
+<!-- meine_variable = 10 -->
+<!-- meine_variable -->
+<!-- ``` -->
 
 
-![Stored Variables in R ](img/R_Interface_3.png)
+<!-- **Zuweisungen**: In R verwenden Sie das = Symbol für Zuweisungen.  -->
+
+<!-- Dieses Symbol wird als Zuweisungsoperator bezeichnet.  -->
+
+<!-- Der Wert auf der rechten Seite wird dem Namen auf der linken Seite zugewiesen. -->
 
 
-## Arten von R-Objekten
+<!-- Beispiel: -->
 
-    1. Vektoren:
-    
-    Ein Vektor ist eine grundlegende Datenstruktur in R, 
-    
-    die Elemente des gleichen Typs enthält. Dies kann numerisch, character, logisch usw. sein.
-    
-    Die Funktion c() wird verwendet, um Werte zu einem Vektor zusammenzuführen.
+<!-- ```{r} -->
+<!-- name = "Tehilla" -->
+
+<!-- ``` -->
+
+<!-- **Wo Sie gespeicherte Variablen sehen können**: -->
+
+<!-- Wenn Sie R oder RStudio verwenden, können Sie die von Ihnen definierten Variablen auf verschiedene Arten anzeigen: -->
+
+<!-- In der R-Konsole geben Sie einfach den Namen der Variablen ein und drücken Sie Enter. Wenn Sie beispielsweise 'name' eingeben, wird "Tehilla" ausgegeben. -->
+
+<!-- In RStudio zeigt das Environment-Fenster (normalerweise oben rechts) eine Liste aller aktuellen Variablen, ihres Typs und ihres Werts an. -->
+
+
+<!-- ![Stored Variables in R ](img/R_Interface_3.png) -->
+
+
+<p style="font-family:monospace;color:blue;font-size:200%"> Data Arten in R </p>
+
+![Data Types in R](img/data_types_R.png)
 
     Beispiel:
 
 ```{r}
-numerischer_vektor <- c(1, 2, 3, 4, 5)
-character_vektor <- c("Apfel", "Banane", "Kirsche")
+numerischer_vektor = c(1, 2, 3, 4, 5)
+character_vektor = c("Apfel", "Banane", "Kirsche")
 ```
 
 In R können Variablen Daten verschiedener Typen speichern. 
@@ -343,45 +375,49 @@ Diese Typen sind grundlegend und bestimmen die Art der Operationen, die auf die 
 
 Hier ist eine Übersicht über die häufigsten Datentypen (oder modes) in R:
 
-    1.1 Numerisch: Stellt Zahlen dar und kann entweder Ganzzahlen oder Dezimalzahlen sein.
+<p style="font-family:monospace;color:red;font-size:150%"> Numerisch</p>
+
+Stellt Zahlen dar und kann entweder Ganzzahlen oder Dezimalzahlen sein.
   
     Beispiel:
     
 ```{r}
-x <- 5    # numerisch, speziell eine Ganzzahl
-y <- 5.5  # numerisch, speziell eine Dezimalzahl
-z <- x*y  # numeric, specifically a double. a multiplication of x and y
+x = 5    # numerisch, speziell eine Ganzzahl
+y = 5.5  # numerisch, speziell eine Dezimalzahl
+z = x*y  # numeric, specifically a double. a multiplication of x and y
 typeof(z)
 ```
   
-    1.2 Character: Stellt Zeichenketten (Text) dar. 
+<p style="font-family:monospace;color:red;font-size:150%"> Character</p>
+
+Stellt Zeichenketten (Text) dar. 
     
-    Zeichenketten in R sind entweder von einfachen oder doppelten Anführungszeichen umschlossen.
+Zeichenketten in R sind entweder von einfachen oder doppelten Anführungszeichen umschlossen.
     
-    Beispiel:
+Beispiel:
     
 ```{r}
-name <- "John Doe"
+name = "John Doe"
 name
 
-name_empty <- "insert your name"
+name_empty = "insert your name"
 name_empty
 ```
     
-    
-    1.3 Logisch: Stellt boolesche Werte dar: TRUE oder FALSE. 
-    
-    Oft das Ergebnis logischer Bedingungen oder Operationen.
-    
-    
-    Beispiel:
-    
+  
+<p style="font-family:monospace;color:red;font-size:150%"> Logisch</p>
 
+Stellt boolesche Werte dar: TRUE oder FALSE. 
+    
+Oft das Ergebnis logischer Bedingungen oder Operationen.
+    
+Beispiel:
+    
 ```{r}
-flag <- TRUE
+flag = TRUE
 flag
 
-is_dog_a_cat <-  FALSE
+is_dog_a_cat =  FALSE
 is_dog_a_cat
 
 3>4
@@ -390,94 +426,136 @@ is_dog_a_cat
 ```
 
 
-    1.4 Ganzzahl: Ein Untertyp von numerisch. 
-    
-    Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden.
-  
-    Beispiel:
-```{r}
-anzahl <- 23L
-anzahl
-```
+<!--     1.4 Ganzzahl: Ein Untertyp von numerisch.  -->
+
+<!--     Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden. -->
+
+<!--     Beispiel: -->
+<!-- ```{r} -->
+<!-- anzahl = 23L -->
+<!-- anzahl -->
+<!-- ``` -->
 
 
-    1.5 Faktor: Kategoriale Daten werden oft als Faktoren in R dargestellt. 
+<p style="font-family:monospace;color:red;font-size:150%"> Faktor</p>
+
+Kategoriale Daten werden oft als Faktoren in R dargestellt. 
     
-    Faktoren können geordnet sein (wie "Niedrig", "Mittel", "Hoch") oder ungeordnet (wie "Männlich", "Weiblich"). 
+Faktoren können geordnet sein (wie "Niedrig", "Mittel", "Hoch") oder ungeordnet (wie "Männlich", "Weiblich"). 
     
-    Obwohl die Daten wie Zeichenketten aussehen können, werden Faktoren als Ganzzahlen gespeichert, und eine separate 
+Obwohl die Daten wie Zeichenketten aussehen können, werden Faktoren als Ganzzahlen gespeichert, und eine separate 
     
-    Lookup-Tabelle enthält die Zeichenwerte.
+<!-- Lookup-Tabelle enthält die Zeichenwerte. -->
   
-    Beispiel: 
+Beispiel: 
   
 ```{r}
-geschlecht <- factor(c("Männlich", "Weiblich", "Weiblich", "Männlich"))
+geschlecht = factor(c("Männlich", "Weiblich", "Weiblich", "Männlich"))
+
 geschlecht
 ```
 
-     1.6 Listen: Ein spezieller Typ, der verschiedene Arten von 
-     
-     Elementen wie Vektoren, Funktionen oder sogar andere Listen enthalten kann.
 
-    Beispiel:
+---
+
+<p style="font-family:monospace;color:blue;font-size:200%"> Matrix </p>
+
+**Definition:**
+
+Eine Matrix ist eine **geordnete Anordnung von Zahlen, Werten oder Elementen in Zeilen und Spalten**. Sie wird oft als rechteckige Tabelle dargestellt. 
+
+Eine Matrix hat zwei Hauptmerkmale:
+
+**Zeilen**: Die horizontalen Reihen in einer Matrix, die normalerweise numerisch oder alphanumerisch nummeriert oder beschriftet sind.
+
+**Spalten**: Die vertikalen Spalten in einer Matrix, die normalerweise numerisch oder alphanumerisch nummeriert oder beschriftet sind.
+
+
+Die Elemente in einer Matrix können Zahlen, Buchstaben, logische Werte oder andere Datentypen sein. 
+
+Matrizen werden in der linearen Algebra, Statistik und Datenanalyse häufig verwendet, um Daten zu organisieren, zu strukturieren und mathematische Operationen durchzuführen, wie zum Beispiel Multiplikation, Addition und Subtraktion. 
+
+Matrizen bieten eine effiziente Möglichkeit, Daten in einer tabellarischen Form zu verarbeiten und zu analysieren.
+
+#### Beispiel: Erstellen einer Matrix aus Vektoren
 
 ```{r}
-meine_liste <- list(name = "Alice", alter = 25, punkte = c(85, 90, 92))
+# Erstellen Sie zwei numerische Vektoren
+vektor1 <- c(1, 2, 3)
+vektor2 <- c(4, 5, 6)
+
+# Kombinieren Sie die Vektoren, um eine Matrix zu erstellen
+matrix1 <- cbind(vektor1, vektor2)
+print(matrix1)
+```
+
+
+---
+
+
+<p style="font-family:monospace;color:blue;font-size:200%"> Listen </p>
+
+Ein spezieller Typ, der **verschiedene Arten von Elementen** wie Vektoren, Funktionen oder sogar andere Listen enthalten kann.
+
+Beispiel:
+
+```{r}
+meine_liste = list(name = "Alice", alter = 25, punkte = c(85, 90, 92))
 meine_liste
 ```
 
 
-![Vectors](img/R_Interface_4.png)
+![Vectors](img/R_objs.png)
 
 ----
 
 
-## Functions
+<p style="font-family:monospace;color:blue;font-size:200%"> Funktionen </p>
 
-Funktionen verändern Objekte auf bestimmte Art und Weisen. 
+- Funktionen verändern Objekte auf bestimmte Art und Weisen. 
 
-Eine Funktion kann fast alles sein. 
+- Eine Funktion kann fast alles sein. 
+
+- Wenn ein Objekt beispielsweise vom Typ 'numeric' ist, können Sie es zu anderen 'numeric'-Objekten hinzufügen. 
+
+- Wenn ein Objekt jedoch ein 'string' ist, eine Zeichenkette, können Sie es nicht hinzufügen. 
+
+- Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.
+
 
 Für die Statistik benötigen wir vor allem Funktionen, die Daten transformieren (z.B., Zuordnen von Zeichenketten zu bestimmten Werten, Erstellen neuer Variablen, Laden von Datensätzen, Speichern von Datensätzen usw.) und Funktionen, die statistische Berechnungen durchführen (z.B., Berechnung von Mittelwerten, Durchführung von Regressionen usw.).
 
-![functions](img/Functions_cartoon.png)
+<!-- ![functions](img/Functions_cartoon.png) -->
 
 **Beispiel**:
 
-Hier ist ein unschuldiger Vektor... Er wird gleich seine Form ändern, indem er an eine Funktion übergeben wird.
+Hier ist eine Vektor. er wird gleich seine Form ändern, indem er an eine Funktion übergeben wird.
 
 ```{r}
 # Einen numerischen Vektor erstellen
-zahlen <- c(5, 10, 15, 20, 25)
+zahlen = c(5, 10, 15, 20, 25)
 
 # Die Funktion c() wird sehr oft verwendet. Sie fügt Elemente zu einem Vektor zusammen.
 zahlen
 ```
 
-Tatsächlich werden wir in R die Funktion "mean" verwenden, um den Durchschnitt oder arithmetischen 
+Wir werden in R die Funktion "mean" verwenden, um den Durchschnitt oder arithmetischen Mittelwert einer Menge numerischer Werte zu berechnen. 
 
-Mittelwert einer Menge numerischer Werte zu berechnen. 
-
-Sie summiert alle Zahlen in einem Datensatz 
-
-auf und teilt dann diese Summe durch die Gesamtanzahl der Zahlen. 
+Sie summiert alle Zahlen in einem Datensatz auf und teilt dann diese Summe durch die Gesamtanzahl der Zahlen. 
 
 Dadurch erhalten Sie einen einzigen Wert, der die zentrale Tendenz oder den typischen Wert der Daten darstellt.
 
 ```{r}
 # Den Mittelwert berechnen
-durchschnitt <- mean(zahlen)
+durchschnitt = mean(zahlen)
 
 # Das Ergebnis ausgeben
 print(durchschnitt)
 ```
 
-In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 25) addieren und die 
-Summe durch die Gesamtanzahl (in diesem Fall 5) teilen, was zu einem Durchschnitt von 15 führt.
+In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 25) addieren und die Summe durch die Gesamtanzahl (in diesem Fall 5) teilen, was zu einem Durchschnitt von 15 führt.
 
-Funktionen können auch Daten und Objekte generieren. 
-Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.
+Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.
 
 Hier sind einige Beispiele:
 
@@ -500,6 +578,198 @@ rnorm(n = 20, mean = 0, sd = 1)
 3. The hist() function creates a histogram from the vector of normally distributed variables. This is an example of how functions can also generate graphics from objects.
 
 ```{r}
-normalverteilt <- rnorm(n = 20, mean = 0, sd = 1)
+normalverteilt = rnorm(n = 20, mean = 0, sd = 1)
 hist(normalverteilt) 
 ```
+
+
+
+# Lets Get Down to Business
+
+#### Unten sind einige grundlegende Berechnungen und Zuweisungen in R Studio. Sie können diese Code-Schnipsel in der R Studio Skript ausführen, um die Ergebnisse zu sehen.
+
+#### Grundlegende arithmetische Operationen
+
+```{r}
+# Addition
+ergebnis_addition <- 5 + 3
+print(ergebnis_addition)
+
+# Subtraktion
+ergebnis_subtraktion <- 10 - 4
+print(ergebnis_subtraktion)
+
+# Multiplikation
+ergebnis_multiplikation <- 6 * 7
+print(ergebnis_multiplikation)
+
+# Division
+ergebnis_division <- 15 / 3
+print(ergebnis_division)
+
+# Potenzierung
+ergebnis_potenzierung <- 2^3
+print(ergebnis_potenzierung)
+```
+
+
+#### Variablenzuweisung und Verwendung
+
+```{r}
+# Werte Variablen zu
+x <- 5
+y <- 3
+
+# Berechnungen mit Variablen durchführen
+ergebnis_summe <- x + y
+ergebnis_differenz <- x - y
+
+# Ergebnisse ausgeben
+print(ergebnis_summe)
+print(ergebnis_differenz)
+```
+
+
+#### Arbeiten mit Vektoren. 
+
+
+In R sind Vektoren eine grundlegende Datenstruktur, die dazu dient, eine geordnete Sammlung von Werten desselben Datentyps zu speichern. Diese Werte können Zahlen, Zeichenfolgen oder andere Datentypen sein. Vektoren ermöglichen es, mehrere Datenpunkte in einer einzigen Variablen zu organisieren und zu verwalten.
+
+Ein Vektor kann erstellt werden, indem Sie die Funktion c() verwenden, die für "combine" steht. Zum Beispiel, mein_vektor <- c(1, 2, 3, 4, 5) erstellt einen Vektor namens mein_vektor, der die Zahlen 1 bis 5 enthält.
+
+Vektoren sind besonders nützlich, wenn Sie mit einer Gruppe von Datenpunkten arbeiten möchten, da sie es ermöglichen, Operationen auf alle Elemente des Vektors gleichzeitig anzuwenden. Sie können auch auf einzelne Elemente eines Vektors zugreifen, indem Sie ihren Index verwenden, wobei der Index des ersten Elements 1 ist
+
+```{r}
+# Vektoren erstellen
+vektor1 <- c(1, 2, 3, 4, 5)
+vektor2 <- c(6, 7, 8, 9, 10)
+
+# Vektoren elementweise addieren
+vektor_summe <- vektor1 + vektor2
+print(vektor_summe)
+
+# Vektoren elementweise multiplizieren
+vektor_produkt <- vektor1 * vektor2
+print(vektor_produkt)
+
+```
+
+
+
+#### Sequenzen generieren. 
+
+
+Eine Sequenz in R ist eine aufeinanderfolgende Abfolge von Zahlen. Sie kann verwendet werden, um eine Liste von Zahlen zu erstellen, die in einer bestimmten Reihenfolge angeordnet sind. Sequenzen sind nützlich, wenn Sie schnell eine Abfolge von Zahlen generieren müssen, ohne sie manuell eingeben zu müssen. 
+
+
+```{r}
+# Eine Sequenz von Zahlen generieren
+sequenz <- 1:10
+print(sequenz)
+
+# Eine Sequenz mit festgelegtem Schritt erstellen
+sequenz_schritt <- seq(1, 10, by = 2)
+print(sequenz_schritt)
+```
+
+
+#### Eingebaute Funktionen verwenden
+
+```{r}
+# Die Quadratwurzel berechnen
+sqrt_ergebnis <- sqrt(25)
+print(sqrt_ergebnis)
+
+# Den absoluten Wert berechnen
+absolutwert <- abs(-10)
+print(absolutwert)
+
+# Das Maximum und Minimum finden
+maximalwert <- max(3, 7, 1, 8, 5)
+minimalwert <- min(3, 7, 1, 8, 5)
+print(maximalwert)
+print(minimalwert)
+
+```
+
+
+
+<p style="font-family:monospace;color:green;font-size:200%"> Homework </p>
+
+
+1. Notenberechnung
+
+Erstelle einen numerischen Vektor mit dem Namen 'noten' für zehn Schüler. 
+
+Weise jeder Note eine Punktzahl von 1 bis 5 zu, wobei 1 die beste Note ist und 5 die schlechteste. 
+
+Berechne den Durchschnitt dieser Noten und gib ihn aus. 
+
+```{r}
+noten = c(1, 5, 3, 2, 4, 2, 3, 4, 1, 5, 6)
+Durchschnitt_noten = mean(noten)
+Durchschnitt_noten
+```
+
+
+**Hinweise**:
+
+  - Verwende die Funktion c(), um den Vektor noten zu erstellen.
+
+  - Um den Durchschnitt zu berechnen, verwende die Funktion mean(vector).
+
+  - Gib den Durchschnitt mit print(). 
+
+
+2. Benotung von Schülern
+
+Erstelle einen Vektor mit den Namen von fünf Schülern in Ihrer Klasse. Nenne den Vektor 'namen'.  
+
+```{r}
+namen = c("jake", "john", "clara", "manos", "tehilla",
+          "laura", "jenny", "carlos", "maria", "kate")
+```
+
+3. Klassenanwesenheit
+
+Erstelle einen logischen Vektor mit dem Namen 'anwesenheit', der anzeigt, welche Schüler an einem bestimmten Tag in der Schule anwesend waren (TRUE) und welche abwesend waren (FALSE). 
+
+```{r}
+anwesenheit = c(TRUE, TRUE, TRUE, TRUE, FALSE,
+                TRUE, TRUE, TRUE, TRUE, FALSE)
+```
+
+
+4. Notendiagramm erstellen
+
+Verwende den Vektor noten aus Aufgabe 1, um ein Balkendiagramm zu erstellen, das die Verteilung der Noten in den verschiedenen Fächern zeigt. 
+
+```{r}
+plot(noten, col='red',type='p', pch=19,lwd=2,cex=1.5,
+     main="This is my first graph",
+     col.main='blue',xlab="Students",ylab="Grades")
+```
+
+
+**Hinweise**:
+
+Verwende die Funktion plot(), um ein Streudiagram zu erstellen. Gib den Vektor noten als Argument an, z.B.: barplot(noten).
+
+Die Funktion plot() hat die folgende Argumente:
+
+1. **x**: Legt die Daten fest, die auf der x-Achse dargestellt werden sollen.
+
+2. **y**: Legt die Daten fest, die auf der y-Achse dargestellt werden sollen.
+
+3. **type**: Bestimmt den Typ des Diagramms, das erstellt werden soll, z.B. "p" für Punkte, "l" für Linien, "b" für beides (Punkte und Linien), "h" für Hochdichtelinien usw.
+
+4. **main**: Ermöglicht das Festlegen des Haupttitels des Diagramms.
+
+5. **xlab**: Legt die Beschriftung für die x-Achse fest.
+
+6. **ylab**: Legt die Beschriftung für die y-Achse fest.
+
+7. **xlim**: Setzt die Begrenzungen für die x-Achse.
+
+8. **ylim**: Setzt die Begrenzungen für die y-Achse.
+
