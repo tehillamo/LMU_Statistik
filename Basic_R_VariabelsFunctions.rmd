@@ -360,7 +360,7 @@ print(result_vector)
 
 <p style="font-family:monospace;color:blue;font-size:200%"> Data Arten in R </p>
 
-![Data Types in R](img/data_types_R.png)
+![Data Types in R](img/data_types_R.png){width=50%}
 
     Beispiel:
 
@@ -505,7 +505,7 @@ meine_liste
 ```
 
 
-![Vectors](img/R_objs.png)
+![Vectors](img/R_objs.png){width=70%}
 
 ----
 
