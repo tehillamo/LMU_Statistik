@@ -477,7 +477,7 @@ Matrizen werden in der linearen Algebra, Statistik und Datenanalyse häufig verw
 
 Matrizen bieten eine effiziente Möglichkeit, Daten in einer tabellarischen Form zu verarbeiten und zu analysieren.
 
-#### Beispiel: Erstellen einer Matrix aus Vektoren
+#### Beispiel: Erstellen einer Matrix aus Vektoren. 
 
 ```{r}
 # Erstellen Sie zwei numerische Vektoren
@@ -489,7 +489,7 @@ matrix1 <- cbind(vektor1, vektor2)
 print(matrix1)
 ```
 
-
+Funktion cbind für "columns bind" oder "Spalten zusammenfügen". Sie wird verwendet, um mehrere Vektoren, Matrizen oder Datenrahmen nach Spalten zu kombinieren oder zu konkatenieren. 
 ---
 
 
@@ -560,6 +560,15 @@ Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funkt
 Hier sind einige Beispiele:
 
 1. Die seq()-Funktion erzeugt eine Sequenz zwischen zwei Zahlen.
+Sie die folgende Argumente:
+
+    - "from" (von): Dieses Argument gibt den Startwert der Sequenz an. Es ist die erste Zahl in der generierten Sequenz.
+    
+    - "to" (bis): Hiermit legen Sie den Endwert der Sequenz fest. Dies ist die letzte Zahl in der generierten Sequenz.
+    
+    - "by" (Schrittweite): Die Schrittweite bestimmt den Abstand zwischen den aufeinanderfolgenden Zahlen in der Sequenz. Wenn nicht angegeben, wird die Standard-Schrittweite von 1 verwendet.
+
+Beispiel:
 
 ```{r}
 seq(from = 1, to = 10, by = 1)
@@ -572,13 +581,13 @@ seq(from = 1, to = 10, length.out = 5)
 mit einem Mittelwert von 0 und einer Standardabweichung von 1. 
 
 ```{r}
-rnorm(n = 20, mean = 0, sd = 1) 
+rnorm(n = 10, mean = 0, sd = 1) 
 ```
 
 3. Die Funktion hist() erstellt ein Histogramm aus dem Vektor normalverteilter Variablen. Dies ist ein Beispiel dafür, wie Funktionen auch Grafiken aus Objekten generieren können.
 
 ```{r}
-normalverteilt = rnorm(n = 20, mean = 0, sd = 1)
+normalverteilt = rnorm(n = 100, mean = 100, sd = 15)
 hist(normalverteilt) 
 ```
 
@@ -706,11 +715,11 @@ Weise jeder Note eine Punktzahl von 1 bis 5 zu, wobei 1 die beste Note ist und 5
 
 Berechne den Durchschnitt dieser Noten und gib ihn aus. 
 
-# ```{r}
-# noten = c(1, 5, 3, 2, 4, 2, 3, 4, 1, 5, 6)
-# Durchschnitt_noten = mean(noten)
-# Durchschnitt_noten
-# ```
+```{r echo=FALSE,results='hide'}
+noten = c(1, 5, 3, 2, 4, 2, 3, 4, 1, 5, 6)
+Durchschnitt_noten = mean(noten)
+Durchschnitt_noten
+```
 
 
 **Hinweise**:
@@ -726,30 +735,30 @@ Berechne den Durchschnitt dieser Noten und gib ihn aus.
 
 Erstelle einen Vektor mit den Namen von fünf Schülern in Ihrer Klasse. Nenne den Vektor 'namen'.  
 
-# ```{r}
-# namen = c("jake", "john", "clara", "manos", "tehilla",
-#           "laura", "jenny", "carlos", "maria", "kate")
-# ```
+```{r echo=FALSE,results='hide'}
+namen = c("jake", "john", "clara", "manos", "tehilla",
+           "laura", "jenny", "carlos", "maria", "kate")
+```
 
 3. Klassenanwesenheit
 
 Erstelle einen logischen Vektor mit dem Namen 'anwesenheit', der anzeigt, welche Schüler an einem bestimmten Tag in der Schule anwesend waren (TRUE) und welche abwesend waren (FALSE). 
 
-# ```{r}
-# anwesenheit = c(TRUE, TRUE, TRUE, TRUE, FALSE,
-#                 TRUE, TRUE, TRUE, TRUE, FALSE)
-# ```
+```{r echo=FALSE,results='hide'}
+anwesenheit = c(TRUE, TRUE, TRUE, TRUE, FALSE,
+                 TRUE, TRUE, TRUE, TRUE, FALSE)
+```
 
 
 4. Notendiagramm erstellen
 
 Verwende den Vektor noten aus Aufgabe 1, um ein Balkendiagramm zu erstellen, das die Verteilung der Noten in den verschiedenen Fächern zeigt. 
 
-# ```{r}
-# plot(noten, col='red',type='p', pch=19,lwd=2,cex=1.5,
-#      main="This is my first graph",
-#      col.main='blue',xlab="Students",ylab="Grades")
-# ```
+```{r echo=FALSE, results='hide', fig.show='hide'}
+      plot(noten, col='red',type='p', pch=19,lwd=2,cex=1.5,
+      main="This is my first graph",
+      col.main='blue',xlab="Students",ylab="Grades")
+```
 
 
 **Hinweise**:

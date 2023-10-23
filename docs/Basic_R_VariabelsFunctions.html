@@ -2503,7 +2503,7 @@ Matrix
 <p>Die Elemente in einer Matrix können Zahlen, Buchstaben, logische Werte oder andere Datentypen sein.</p>
 <p>Matrizen werden in der linearen Algebra, Statistik und Datenanalyse häufig verwendet, um Daten zu organisieren, zu strukturieren und mathematische Operationen durchzuführen, wie zum Beispiel Multiplikation, Addition und Subtraktion.</p>
 <p>Matrizen bieten eine effiziente Möglichkeit, Daten in einer tabellarischen Form zu verarbeiten und zu analysieren.</p>
-<h4 id="beispiel-erstellen-einer-matrix-aus-vektoren">Beispiel: Erstellen einer Matrix aus Vektoren</h4>
+<h4 id="beispiel-erstellen-einer-matrix-aus-vektoren.">Beispiel: Erstellen einer Matrix aus Vektoren.</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Erstellen Sie zwei numerische Vektoren</span></span>
@@ -2519,7 +2519,7 @@ Matrix
 [2,]       2       5
 [3,]       3       6</code></pre>
 </div>
-<hr />
+<h2 id="funktion-cbind-für-columns-bind-oder-spalten-zusammenfügen.-sie-wird-verwendet-um-mehrere-vektoren-matrizen-oder-datenrahmen-nach-spalten-zu-kombinieren-oder-zu-konkatenieren.">Funktion cbind für “columns bind” oder “Spalten zusammenfügen”. Sie wird verwendet, um mehrere Vektoren, Matrizen oder Datenrahmen nach Spalten zu kombinieren oder zu konkatenieren.</h2>
 <p style="font-family:monospace;color:blue;font-size:200%">
 Listen
 </p>
@@ -2585,8 +2585,15 @@ Funktionen
 <p>Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.</p>
 <p>Hier sind einige Beispiele:</p>
 <ol type="1">
-<li>Die seq()-Funktion erzeugt eine Sequenz zwischen zwei Zahlen.</li>
+<li><p>Die seq()-Funktion erzeugt eine Sequenz zwischen zwei Zahlen.
+Sie die folgende Argumente:</p>
+<ul>
+<li><p>“from” (von): Dieses Argument gibt den Startwert der Sequenz an. Es ist die erste Zahl in der generierten Sequenz.</p></li>
+<li><p>“to” (bis): Hiermit legen Sie den Endwert der Sequenz fest. Dies ist die letzte Zahl in der generierten Sequenz.</p></li>
+<li><p>“by” (Schrittweite): Die Schrittweite bestimmt den Abstand zwischen den aufeinanderfolgenden Zahlen in der Sequenz. Wenn nicht angegeben, wird die Standard-Schrittweite von 1 verwendet.</p></li>
+</ul></li>
 </ol>
+<p>Beispiel:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span>from <span class='op'>=</span> <span class='fl'>1</span>, to <span class='op'>=</span> <span class='fl'>10</span>, by <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre>
@@ -2603,19 +2610,17 @@ Funktionen
 <p>mit einem Mittelwert von 0 und einer Standardabweichung von 1.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> </span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>10</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> </span></code></pre>
 </div>
-<pre><code> [1]  1.8556058  0.9415803 -0.9375688  0.6395727 -0.7767648  0.4514507
- [7]  2.3164556  0.4025052 -0.1125788 -0.0378198  1.7161532  0.4256496
-[13] -1.3158211 -0.3759083 -0.6751599  0.1441480  0.1894523  1.0431519
-[19]  1.0578660  0.4729306</code></pre>
+<pre><code> [1]  0.3184186 -0.1814340  1.5966944  0.7658633  0.1854028  1.2360376
+ [7]  1.6645381 -0.8394178 -0.5975716 -0.9434103</code></pre>
 </div>
 <ol start="3" type="1">
 <li>Die Funktion hist() erstellt ein Histogramm aus dem Vektor normalverteilter Variablen. Dies ist ein Beispiel dafür, wie Funktionen auch Grafiken aus Objekten generieren können.</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>normalverteilt</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>normalverteilt</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>100</span>, mean <span class='op'>=</span> <span class='fl'>100</span>, sd <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>normalverteilt</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="Basic_R_VariabelsFunctions_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
@@ -2748,7 +2753,9 @@ Homework
 <p>Erstelle einen numerischen Vektor mit dem Namen ‘noten’ für zehn Schüler.</p>
 <p>Weise jeder Note eine Punktzahl von 1 bis 5 zu, wobei 1 die beste Note ist und 5 die schlechteste.</p>
 <p>Berechne den Durchschnitt dieser Noten und gib ihn aus.</p>
-<h1 id="r-noten-c1-5-3-2-4-2-3-4-1-5-6-durchschnitt_noten-meannoten-durchschnitt_noten"><code>{r} # noten = c(1, 5, 3, 2, 4, 2, 3, 4, 1, 5, 6) # Durchschnitt_noten = mean(noten) # Durchschnitt_noten #</code></h1>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p><strong>Hinweise</strong>:</p>
 <ul>
 <li><p>Verwende die Funktion c(), um den Vektor noten zu erstellen.</p></li>
@@ -2759,17 +2766,23 @@ Homework
 <li>Benotung von Schülern</li>
 </ol>
 <p>Erstelle einen Vektor mit den Namen von fünf Schülern in Ihrer Klasse. Nenne den Vektor ‘namen’.</p>
-<h1 id="r-namen-cjake-john-clara-manos-tehilla-laura-jenny-carlos-maria-kate"><code>{r} # namen = c("jake", "john", "clara", "manos", "tehilla", #           "laura", "jenny", "carlos", "maria", "kate") #</code></h1>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <ol start="3" type="1">
 <li>Klassenanwesenheit</li>
 </ol>
 <p>Erstelle einen logischen Vektor mit dem Namen ‘anwesenheit’, der anzeigt, welche Schüler an einem bestimmten Tag in der Schule anwesend waren (TRUE) und welche abwesend waren (FALSE).</p>
-<h1 id="r-anwesenheit-ctrue-true-true-true-false-true-true-true-true-false"><code>{r} # anwesenheit = c(TRUE, TRUE, TRUE, TRUE, FALSE, #                 TRUE, TRUE, TRUE, TRUE, FALSE) #</code></h1>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <ol start="4" type="1">
 <li>Notendiagramm erstellen</li>
 </ol>
 <p>Verwende den Vektor noten aus Aufgabe 1, um ein Balkendiagramm zu erstellen, das die Verteilung der Noten in den verschiedenen Fächern zeigt.</p>
-<h1 id="r-plotnoten-colredtypep-pch19lwd2cex1.5-mainthis-is-my-first-graph-col.mainbluexlabstudentsylabgrades"><code>{r} # plot(noten, col='red',type='p', pch=19,lwd=2,cex=1.5, #      main="This is my first graph", #      col.main='blue',xlab="Students",ylab="Grades") #</code></h1>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
 <p><strong>Hinweise</strong>:</p>
 <p>Verwende die Funktion plot(), um ein Streudiagram zu erstellen. Gib den Vektor noten als Argument an, z.B.: barplot(noten).</p>
 <p>Die Funktion plot() hat die folgende Argumente:</p>
