@@ -267,6 +267,10 @@ output: distill::distill_article
 
 <div style = "border: 5px solid;margin: auto;width: 50%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px"> Deutsch </div>
 
+In diesem Blog werden wir uns mit zwei grundlegenden Konzepten befassen, die die Grundlage jeder Programmiersprache bilden: Objekte und Funktionen. 
+
+**Objekte** sind die Behälter, die Informationen speichern und es uns ermöglichen, Daten zu speichern und zu manipulieren, während **Funktionen** die Werkzeuge sind, mit denen wir spezifische Aufgaben effizient ausführen können. 
+
 
 <p style="font-family:monospace;color:red;font-size:280%"><br><br> Wie Funktioniert R?</p>
 
