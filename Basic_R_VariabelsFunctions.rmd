@@ -1,5 +1,5 @@
 ---
-title: "Basic Concepts in R: Objects & Functions"
+title: "Basic Concepts in R: Objects"
 description: |
 #   A new article created using the Distill format.
 author:
