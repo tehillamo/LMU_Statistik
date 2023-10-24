@@ -525,9 +525,9 @@ levels(geschlecht)
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
-1. Verwende die folgende Liste von Früchten: Apfel, Banane, Erdbeere, Trauben, Orange, Kirsche, Himbeere, Pflaume, Mango, Zitrone
+Verwende die folgende Liste von Früchten: Apfel, Banane, Erdbeere, Trauben, Orange, Kirsche, Himbeere, Pflaume, Mango, Zitrone
 
-2. Erstelle einen Vektor namens 'frucht_farben', der die Farben dieser Früchte repräsentiert. 
+2. Erstelle einen Vektor namens 'frucht_farben', der die Farben dieser Früchte repräsentiert. Hinweis: Du wirst die folgende Struktur für deinen Vektor 'frucht_farben' benötigen (Faktor(c(frucht_farben)))
 
 Apfel: "Rot"
 Banane: "Gelb"
@@ -541,9 +541,11 @@ Mango: "Orange"
 Zitrone: "Gelb"
 
 
-3. Gib den erstellten Vektor 'frucht_farben' aus.
+3. print den erstellten Vektor 'frucht_farben'. 
 
 4. Verwende die levels()-Funktion auf deinem Vektor 'frucht_farben', um die eindeutigen Farbkategorien oder Faktoren im Vektor anzuzeigen.
+
+
 </div>
 
 
