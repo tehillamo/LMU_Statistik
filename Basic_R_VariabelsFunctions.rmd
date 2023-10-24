@@ -41,7 +41,6 @@ output: distill::distill_article
 <!-- Objects also have properties that determine which functions (see more below) can be applied to them. For example, if an object is of type 'numeric,' you can add it to other 'numeric' objects. However, if an object is a 'string,' which is a character string, you cannot add it. Many error messages result from attempting to apply functions to an incompatible data type. -->
 
 
-
 <!-- **Variables**: In R, a variable allows you to store data values. Think of it as a named storage that our programs can manipulate. The stored value can be a number, text, a series of numbers, or any other type of data. -->
 
 <!-- Example: -->
@@ -306,7 +305,7 @@ print(c("Ich werde, nächstes Jahr,", Ich_werde_nächstes_Jahr_X_sein, "Jahre al
 
 
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
 1. Setze eine Variable mit deinem Namen und weise einen Wert zu. Zum Beispiel: dein_name = "Lena".
@@ -337,7 +336,7 @@ print(result_vector)
 ```
 
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
 1. Erstelle einen Vektor dein_alter_und_freunde, der die aktuellen Alterswerte enthält. Zum Beispiel: dein_alter_und_freunde <- c(25, 30, 35, 40).
@@ -421,7 +420,7 @@ typeof(z)
 ```
   
   
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
 1. Erstelle eine Variable dein_alter und weise einen numerischen Wert zu, der dein aktuelles Alter repräsentiert. Dieses Mal soll das Alter präzise bis auf Dezimalstellen angegeben werden, um Monate zu berücksichtigen. Zum Beispiel: dein_alter <- 25.5 (25 Jahre und 6 Monate).
@@ -454,7 +453,7 @@ name_empty
     
 
   
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
 1. Erstelle eine Variable dein_name und weise einen Wert zu, der deinen Namen repräsentiert. Zum Beispiel: dein_name <- "Max Mustermann".
@@ -487,7 +486,7 @@ is_dog_a_cat
 3<4
 ```
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
 
@@ -523,7 +522,7 @@ geschlecht
 levels(geschlecht)
 ```
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
 1. Verwende die folgende Liste von Früchten: Apfel, Banane, Erdbeere, Trauben, Orange, Kirsche, Himbeere, Pflaume, Mango, Zitrone
@@ -653,6 +652,11 @@ In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 2
 
 ----
 
+
+
+<p style="font-family:monospace;color:pink;font-size:120%"> Hier sind einige Beispiele dafür, wie Funktionen Daten generieren können: </p>
+
+
 Oben haben wir gesehen, wie man die eingebaute Funktion mean() in R verwendet. 
 
 Wenn wir jedoch unsere eigene Funktion erstellen möchten, die genau dasselbe tut, müssen wir die folgenden Schritte ausführen:
@@ -682,7 +686,6 @@ calculate_mean <- function(vector) {
 Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.
 
 
-<p style="font-family:monospace;color:pink;font-size:120%"> Hier sind einige Beispiele dafür, wie Funktionen Daten generieren können: </p>
 
 1. Die seq()-Funktion erzeugt eine Sequenz zwischen zwei Zahlen.
 Sie die folgende Argumente:
