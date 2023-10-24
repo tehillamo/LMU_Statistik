@@ -339,13 +339,13 @@ print(result_vector)
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
-1. Erstelle einen Vektor dein_alter_und_freunde, der die aktuellen Alterswerte enthält. Zum Beispiel: dein_alter_und_freunde <- c(25, 30, 35, 40).
+1. Erstelle einen Vektor 'dein_alter_und_freunde', der die aktuellen Alterswerte enthält. Zum Beispiel: dein_alter_und_freunde <- c(25, 30, 35, 40).
 
-2. Erstelle einen weiteren Vektor eins_vector, der nur aus Einsen besteht und die gleiche Länge hat wie der Vektor dein_alter_und_freunde. 
+2. Erstelle einen weiteren Vektor 'eins_vector', der nur aus Einsen besteht und die gleiche Länge hat wie der Vektor 'dein_alter_und_freunde'. 
 
-3. Addiere die beiden Vektoren dein_alter_und_freunde und eins_vector elementweise, um die Alterswerte aller Freunde im nächsten Jahr zu berechnen. 
+3. Addiere die beiden Vektoren 'dein_alter_und_freunde' und 'eins_vector' elementweise, um die Alterswerte aller Freunde im nächsten Jahr zu berechnen. 
 
-4. Gib den Vektor freunde_alter_naechstes_jahr aus, um die Alterswerte aller Freunde im nächsten Jahr darzustellen. 
+4. Gib den Vektor 'freunde_alter_naechstes_jahr' aus, um die Alterswerte aller Freunde im nächsten Jahr darzustellen. 
 
 </div>
 
@@ -490,15 +490,15 @@ is_dog_a_cat
 Aufgabe: 
 
 
-1. Erstelle eine Variable zahl1 und weise ihr den Wert 8 zu.
+1. Erstelle eine Variable 'zahl1' und weise ihr den Wert 8 zu.
 
-2. Erstelle eine Variable zahl2 und weise ihr den Wert 4 zu.
+2. Erstelle eine Variable 'zahl2' und weise ihr den Wert 4 zu.
 
 3. Vergleiche die beiden Zahlen mithilfe von logischen Ausdrücken und berichte, welchen Ausgabewert du für jeden Vergleich erhältst. Zum Beispiel, überprüfe:
 
-    3.1. Ob zahl1 größer als zahl2 ist (zahl1 > zahl2) und berichte das Ergebnis.
-    3.2. Ob zahl1 gleich zahl2 ist (zahl1 == zahl2) und berichte das Ergebnis.
-    3.3. Ob zahl1 kleiner als zahl2 ist (zahl1 < zahl2) und berichte das Ergebnis.
+    3.1. Ob 'zahl1' größer als 'zahl2' ist (zahl1 > zahl2) und berichte das Ergebnis.
+    3.2. Ob 'zahl1' gleich 'zahl2' ist (zahl1 == zahl2) und berichte das Ergebnis.
+    3.3. Ob 'zahl1' kleiner als 'zahl2' ist (zahl1 < zahl2) und berichte das Ergebnis.
 </div>
 
 
@@ -720,7 +720,7 @@ hist(normalverteilt)
 
 
 
-# Lets Get Down to Business
+# Lasst uns wiederholen, was R für unsere definierten Objekte tun kann....
 
 #### Unten sind einige grundlegende Berechnungen und Zuweisungen in R Studio. Du kannst diese Code-Schnipsel in der R Studio Skript ausführen, um die Ergebnisse zu sehen.
 
