@@ -869,8 +869,9 @@ anwesenheit = c(TRUE, TRUE, TRUE, TRUE, FALSE,
                  TRUE, TRUE, TRUE, TRUE, FALSE)
 ```
 
+4. Verwende die cbind()-Funktion, um alle von dir erstellten Vektoren zu kombinieren. Stelle sicher, dass du alle Vektoren in einer einzigen Datenstruktur zusammenführen, um die gewünschten Ergebnisse zu erhalten
 
-4. Notendiagramm erstellen
+5. Notendiagramm erstellen
 
 Verwende den Vektor noten aus Aufgabe 1, um ein Balkendiagramm zu erstellen, das die Verteilung der Noten in den verschiedenen Fächern zeigt. 
 
