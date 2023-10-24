@@ -297,12 +297,28 @@ tehilla
 age_obj = 35
 age_obj_2 = 1
 Ich_werde_nächstes_Jahr_X_sein =  age_obj + age_obj_2
-Ich_werde_nächstes_Jahr_X_sein
-
+print(c("Ich werde, nächstes Jahr,", Ich_werde_nächstes_Jahr_X_sein, "Jahre alt"))
 ```
 
 
-<p style="font-family:monospace;color:blue;font-size:200%"> Vektoren</p>
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+Aufgabe: 
+
+1. Setze eine Variable mit deinem Namen und weise einen Wert zu. Zum Beispiel: dein_name = "Lena".
+
+2. Erstelle eine Variable für dein aktuelles Alter und weise einen Wert zu, z.B. dein_alter = 30.
+
+3. Erstelle eine weitere Variable, die dein Alter im nächsten Jahr repräsentiert. Du kannst dies durch Hinzufügen von 1 zu deinem aktuellen Alter erreichen. Zum Beispiel: dein_alter_naechstes_jahr = dein_alter + 1
+
+4. Gib die Nachricht aus, die dein aktuelles und zukünftiges Alter enthält. Verwende dazu den print() Befehl und die entsprechenden Variablen.
+
+</div>
+
+
+
+
+<p style="font-family:monospace;color:blue;font-size:200%"> <br>Vektoren</p>
     
 Ein Vektor ist eine grundlegende Datenstruktur in R, die Elemente des gleichen Typs enthält. Dies kann numerisch, character, logisch usw. sein.
     
@@ -317,6 +333,18 @@ print(result_vector)
 ```
 
 
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+Aufgabe: 
+
+1. Erstelle einen Vektor dein_alter_und_freunde, der die aktuellen Alterswerte enthält. Zum Beispiel: dein_alter_und_freunde <- c(25, 30, 35, 40).
+
+2. Erstelle einen weiteren Vektor eins_vector, der nur aus Einsen besteht und die gleiche Länge hat wie der Vektor dein_alter_und_freunde. 
+
+3. Addiere die beiden Vektoren dein_alter_und_freunde und eins_vector elementweise, um die Alterswerte aller Freunde im nächsten Jahr zu berechnen. 
+
+4. Gib den Vektor freunde_alter_naechstes_jahr aus, um die Alterswerte aller Freunde im nächsten Jahr darzustellen. 
+
+</div>
 
 <!-- **Variablen**: In R ermöglicht es eine Variable, Datenwerte zu speichern.  -->
 
@@ -358,7 +386,7 @@ print(result_vector)
 <!-- ![Stored Variables in R ](img/R_Interface_3.png) -->
 
 
-<p style="font-family:monospace;color:blue;font-size:200%"> Data Arten in R </p>
+<p style="font-family:monospace;color:blue;font-size:200%"> <br>Data Arten in R </p>
 
 ![Data Types in R](img/data_types_R.png){width=50%}
 
@@ -388,7 +416,23 @@ z = x*y  # numeric, specifically a double. a multiplication of x and y
 typeof(z)
 ```
   
-<p style="font-family:monospace;color:red;font-size:150%"> Character</p>
+  
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+Aufgabe: 
+
+1. Erstelle eine Variable dein_alter und weise einen numerischen Wert zu, der dein aktuelles Alter repräsentiert. Dieses Mal soll das Alter präzise bis auf Dezimalstellen angegeben werden, um Monate zu berücksichtigen. Zum Beispiel: dein_alter <- 25.5 (25 Jahre und 6 Monate).
+
+2. Erstelle eine weitere Variable alter_deines_freundes und weise einen numerischen Wert zu, der das Alter eines deiner Freunde repräsentiert, ebenfalls mit Dezimalstellen für Monate. Zum Beispiel: alter_deines_freundes <- 30.8 (30 Jahre und 9 Monate).
+
+3. Berechne das Produkt deines Alters und des Alters deines Freundes und weise das Ergebnis einer Variable produkt_der_alter zu. 
+
+4. Verwende die Funktion typeof() (wie im gegebenen Code) und gib den Datentyp der Variable produkt_der_alter aus, um zu überprüfen, welcher numerische Typ es ist. 
+</div>
+
+
+
+  
+<p style="font-family:monospace;color:red;font-size:150%"> <br>Character</p>
 
 Stellt Zeichenketten (Text) dar. 
     
@@ -404,8 +448,22 @@ name_empty = "insert your name"
 name_empty
 ```
     
+
   
-<p style="font-family:monospace;color:red;font-size:150%"> Logisch</p>
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+Aufgabe: 
+
+1. Erstelle eine Variable dein_name und weise einen Wert zu, der deinen Namen repräsentiert. Zum Beispiel: dein_name <- "Max Mustermann".
+
+2. Erstelle eine weitere Variable name_empty und weise einen Wert zu, der darauf hinweist, dass der Name einzufügen ist, ähnlich wie im gegebenen Code. Zum Beispiel: name_empty <- "Bitte trage deinen Namen ein".
+
+3. Gib den Wert der Variable dein_name aus, um deinen Namen darzustellen. Zum Beispiel: print(dein_name).
+
+</div>
+
+
+
+<p style="font-family:monospace;color:red;font-size:150%"> <br>Logisch</p>
 
 Stellt boolesche Werte dar: TRUE oder FALSE. 
     
@@ -425,19 +483,23 @@ is_dog_a_cat
 3<4
 ```
 
-
-<!--     1.4 Ganzzahl: Ein Untertyp von numerisch.  -->
-
-<!--     Es stellt speziell ganze Zahlen dar. Um eine Ganzzahl explizit zu definieren, können Sie das L-Suffix verwenden. -->
-
-<!--     Beispiel: -->
-<!-- ```{r} -->
-<!-- anzahl = 23L -->
-<!-- anzahl -->
-<!-- ``` -->
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+Aufgabe: 
 
 
-<p style="font-family:monospace;color:red;font-size:150%"> Faktor</p>
+1. Erstelle eine Variable zahl1 und weise ihr den Wert 8 zu.
+
+2. Erstelle eine Variable zahl2 und weise ihr den Wert 4 zu.
+
+3. Vergleiche die beiden Zahlen mithilfe von logischen Ausdrücken und berichte, welchen Ausgabewert du für jeden Vergleich erhältst. Zum Beispiel, überprüfe:
+
+    3.1. Ob zahl1 größer als zahl2 ist (zahl1 > zahl2) und berichte das Ergebnis.
+    3.2. Ob zahl1 gleich zahl2 ist (zahl1 == zahl2) und berichte das Ergebnis.
+    3.3. Ob zahl1 kleiner als zahl2 ist (zahl1 < zahl2) und berichte das Ergebnis.
+</div>
+
+
+<p style="font-family:monospace;color:red;font-size:150%"> <br>Faktor</p>
 
 Kategoriale Daten werden oft als Faktoren in R dargestellt. 
     
@@ -453,7 +515,35 @@ Beispiel:
 geschlecht = factor(c("Männlich", "Weiblich", "Weiblich", "Männlich"))
 
 geschlecht
+
+levels(geschlecht)
 ```
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:12px">
+Aufgabe: 
+
+1. Verwende die folgende Liste von Früchten: Apfel, Banane, Erdbeere, Trauben, Orange, Kirsche, Himbeere, Pflaume, Mango, Zitrone
+
+2. Erstelle einen Vektor namens 'frucht_farben', der die Farben dieser Früchte repräsentiert. 
+
+Apfel: "Rot"
+Banane: "Gelb"
+Erdbeere: "Rot"
+Trauben: "Grün"
+Orange: "Orange"
+Kirsche: "Rot"
+Himbeere: "Rot"
+Pflaume: "Violett"
+Mango: "Orange"
+Zitrone: "Gelb"
+
+
+3. Gib den erstellten Vektor 'frucht_farben' aus.
+
+4. Verwende die levels()-Funktion auf deinem Vektor 'frucht_farben', um die eindeutigen Farbkategorien oder Faktoren im Vektor anzuzeigen.
+</div>
+
+
 
 
 ---
@@ -489,7 +579,9 @@ matrix1 <- cbind(vektor1, vektor2)
 print(matrix1)
 ```
 
-Funktion cbind für "columns bind" oder "Spalten zusammenfügen". Sie wird verwendet, um mehrere Vektoren, Matrizen oder Datenrahmen nach Spalten zu kombinieren oder zu konkatenieren. 
+
+Funktion cbind stehts für "columns bind" oder "Spalten zusammenfügen". Sie wird verwendet, um mehrere Vektoren, Matrizen oder Datenrahmen nach Spalten zu kombinieren oder zu konkatenieren. 
+
 ---
 
 
@@ -527,7 +619,7 @@ Für die Statistik benötigen wir vor allem Funktionen, die Daten transformieren
 
 <!-- ![functions](img/Functions_cartoon.png) -->
 
-**Beispiel**:
+<p style="font-family:monospace;color:pink;font-size:120%"> Hier ist ein Beispiel dafür, wie Funktionen die Form und die Struktur Ihrer Daten ändern können:</p>
 
 Hier ist eine Vektor. er wird gleich seine Form ändern, indem er an eine Funktion übergeben wird.
 
@@ -555,9 +647,38 @@ print(durchschnitt)
 
 In diesem Beispiel wird die Mittelwert-Funktion die Zahlen (5 + 10 + 15 + 20 + 25) addieren und die Summe durch die Gesamtanzahl (in diesem Fall 5) teilen, was zu einem Durchschnitt von 15 führt.
 
+----
+
+Oben haben wir gesehen, wie man die eingebaute Funktion mean() in R verwendet. 
+
+Wenn wir jedoch unsere eigene Funktion erstellen möchten, die genau dasselbe tut, müssen wir die folgenden Schritte ausführen:
+
+
+Zuerst müssen wir eine Funktion definieren, indem wir function() verwenden, gefolgt von den Argumenten, die die Funktion akzeptiert. 
+
+In unserem Fall erwartet die Funktion einen Vektor als Argument. 
+
+Dann schreiben wir den Code, der innerhalb der Funktion ausgeführt wird, um den Durchschnitt zu berechnen. 
+
+Schließlich geben wir das Ergebnis mit return() zurück. 
+
+Auf diese Weise haben wir unsere eigene Funktion zur Berechnung des Durchschnitts erstellt, die genauso funktioniert wie mean(), aber wir haben die Kontrolle über den Prozess.
+
+
+```{r}
+calculate_mean <- function(vector) {
+  # Calculate the mean
+  result <- sum(vector) / length(vector)
+  
+  return(result)
+}
+```
+
+
 Funktionen können auch Daten und Objekte generieren. Zum Beispiel gibt es Funktionen, die Zufallszahlen erstellen.
 
-Hier sind einige Beispiele:
+
+<p style="font-family:monospace;color:pink;font-size:120%"> Hier sind einige Beispiele dafür, wie Funktionen Daten generieren können: </p>
 
 1. Die seq()-Funktion erzeugt eine Sequenz zwischen zwei Zahlen.
 Sie die folgende Argumente:
@@ -568,7 +689,6 @@ Sie die folgende Argumente:
     
     - "by" (Schrittweite): Die Schrittweite bestimmt den Abstand zwischen den aufeinanderfolgenden Zahlen in der Sequenz. Wenn nicht angegeben, wird die Standard-Schrittweite von 1 verwendet.
 
-Beispiel:
 
 ```{r}
 seq(from = 1, to = 10, by = 1)
