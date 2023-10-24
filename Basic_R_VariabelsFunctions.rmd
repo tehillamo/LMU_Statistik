@@ -314,7 +314,7 @@ Aufgabe:
 
 3. Erstelle eine weitere Variable, die dein Alter im nächsten Jahr repräsentiert. Du kannst dies durch Hinzufügen von 1 zu deinem aktuellen Alter erreichen. Zum Beispiel: dein_alter_naechstes_jahr = dein_alter + 1
 
-4. Gib die Nachricht aus, die dein aktuelles und zukünftiges Alter enthält. Verwende dazu den print() Befehl und die entsprechenden Variablen.
+4. Gib die Ausgabe (Output) aus, die dein aktuelles und zukünftiges Alter enthält. Verwende dazu den print() Befehl und die entsprechenden Variablen.
 
 </div>
 
@@ -345,7 +345,8 @@ Aufgabe:
 
 3. Addiere die beiden Vektoren 'dein_alter_und_freunde' und 'eins_vector' elementweise, um die Alterswerte aller Freunde im nächsten Jahr zu berechnen. 
 
-4. Gib den Vektor 'freunde_alter_naechstes_jahr' aus, um die Alterswerte aller Freunde im nächsten Jahr darzustellen. 
+4.Erstelle den Vektor 'alter_der_freunde_naechstes_jahr', um die Alterswerte aller Freunde im nächsten Jahr darzustellen and speichere diesen Vektor als 'Alter_der_Freunde_nächstes_Jahr'.
+
 
 </div>
 
@@ -429,7 +430,7 @@ Aufgabe:
 
 3. Berechne das Produkt deines Alters und des Alters deines Freundes und weise das Ergebnis einer Variable produkt_der_alter zu. 
 
-4. Verwende die Funktion typeof() (wie im gegebenen Code) und gib den Datentyp der Variable produkt_der_alter aus, um zu überprüfen, welcher numerische Typ es ist. 
+4. Verwende die Funktion typeof() (wie im gegebenen Code) und gib den Datentyp der Variable produkt_der_alter aus, um zu überprüfen, welcher numerische Typ es ist (Hint: "double" = "numeric". In R, "double" is used to represent both floating-point numbers and integers.). 
 </div>
 
 
@@ -842,7 +843,7 @@ Erstelle einen numerischen Vektor mit dem Namen 'noten' für zehn Schüler.
 
 Weise jeder Note eine Punktzahl von 1 bis 5 zu, wobei 1 die beste Note ist und 5 die schlechteste. 
 
-Berechne den Durchschnitt dieser Noten und gib ihn aus. 
+Berechne den Durchschnitt dieser Noten und gib die Ausgabe (Output) aus (use the print() function). 
 
 ```{r echo=FALSE,results='hide'}
 noten = c(1, 5, 3, 2, 4, 2, 3, 4, 1, 5, 6)
