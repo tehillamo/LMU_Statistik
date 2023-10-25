@@ -291,7 +291,10 @@ Objekte haben immer einen Namen und werden mit diesem Namen aufgerufen.
 
 <p style="font-family:monospace;color:blue;font-size:200%"> Ein Skalar </p>
 
-Ein Skalar ist in einfachen Worten eine einzelne Zahl oder ein einzelner Wert. In der Mathematik und Programmierung ist ein Skalar ein einzelnes Element, das keine Richtung oder Dimension hat. Zum Beispiel ist die Zahl 5 ein Skalar, da sie einfach eine einzelne Zahl darstellt, ohne eine bestimmte Richtung oder Größe in einem Raum oder einer Datenstruktur zu haben. Skalare werden oft in Berechnungen und Programmierungen verwendet, um einzelne Werte oder Datenpunkte darzustellen
+Ein Skalar ist in einfachen Worten eine einzelne Zahl oder ein einzelner Wert. In der Mathematik und Programmierung ist ein Skalar ein einzelnes Element, das keine Richtung oder Dimension hat. Zum Beispiel ist die Zahl 5 ein Skalar, da sie einfach eine einzelne Zahl darstellt, ohne eine bestimmte Richtung oder Größe in einem Raum oder einer Datenstruktur zu haben. Skalare werden oft in Berechnungen und Programmierungen verwendet, um einzelne Werte oder Datenpunkte darzustellen.
+
+<div style = "border: .5px solid;margin: auto;width: 80%;padding: 10px;text-align:center;background:#FBF18D;font-family: curier;font-size:16px">*p.s.
+In der Programmierung sind Zeichenketten (Strings) Abfolgen von Zeichen, wie Wörter oder Sätze. Um sie von anderen Datentypen wie Variablen oder Zahlen zu unterscheiden, müssen Zeichenketten in Anführungszeichen eingeschlossen sein (i.e., doppelte (" ")), um eine Zeichenkette zu definieren.</div>
 
 ```{r}
 tehilla = 54
@@ -308,13 +311,13 @@ print(c("Ich werde, nächstes Jahr,", Ich_werde_nächstes_Jahr_X_sein, "Jahre al
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
-1. Setze eine Variable mit deinem Namen und weise einen Wert zu. Zum Beispiel: dein_name = "Lena".
+1. Set a variable with your name and assign a value. For example: your_name = "Lena". 
 
-2. Erstelle eine Variable für dein aktuelles Alter und weise einen Wert zu, z.B. dein_alter = 30.
+2. Create a variable for your current age and assign a value, e.g., your_age = 30
 
-3. Erstelle eine weitere Variable, die dein Alter im nächsten Jahr repräsentiert. Du kannst dies durch Hinzufügen von 1 zu deinem aktuellen Alter erreichen. Zum Beispiel: dein_alter_naechstes_jahr = dein_alter + 1
+3. Create another variable that represents your age next year. You can achieve this by adding 1 to your current age. For example: your_age_next_year = your_age + 1
 
-4. Gib die Ausgabe (Output) aus, die dein aktuelles und zukünftiges Alter enthält. Verwende dazu den print() Befehl und die entsprechenden Variablen.
+4. Output the current and future age using the print() command and the respective variables.
 
 </div>
 
@@ -339,13 +342,13 @@ print(result_vector)
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
-1. Erstelle einen Vektor 'dein_alter_und_freunde', der die aktuellen Alterswerte enthält. Zum Beispiel: dein_alter_und_freunde <- c(25, 30, 35, 40).
+1. Create a vector 'your_age_and_friends' that contains the current age values. For example: your_age_and_friends <- c(25, 30, 35, 40).
 
-2. Erstelle einen weiteren Vektor 'eins_vector', der nur aus Einsen besteht und die gleiche Länge hat wie der Vektor 'dein_alter_und_freunde'. 
+2. Create another vector 'ones_vector' consisting solely of ones and having the same length as the vector 'your_age_and_friends'. 
 
-3. Addiere die beiden Vektoren 'dein_alter_und_freunde' und 'eins_vector' elementweise, um die Alterswerte aller Freunde im nächsten Jahr zu berechnen. 
+3. Add the two vectors 'your_age_and_friends' and 'ones_vector' element-wise to calculate the age values of all friends for next year.
 
-4.Erstelle den Vektor 'alter_der_freunde_naechstes_jahr', um die Alterswerte aller Freunde im nächsten Jahr darzustellen and speichere diesen Vektor als 'Alter_der_Freunde_nächstes_Jahr'.
+4.Create the vector 'age_of_friends_next_year' to represent the age values of all friends for next year, and save this vector as 'age_of_friends_next_year'.
 
 
 </div>
@@ -392,7 +395,7 @@ Aufgabe:
 
 <p style="font-family:monospace;color:blue;font-size:200%"> <br>Data Arten in R </p>
 
-![Data Types in R](img/data_types_R.png){width=50%}
+![Data Types in R](img/DataTypes_R.png){width=50%}
 
     Beispiel:
 
@@ -424,13 +427,14 @@ typeof(z)
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
-1. Erstelle eine Variable dein_alter und weise einen numerischen Wert zu, der dein aktuelles Alter repräsentiert. Dieses Mal soll das Alter präzise bis auf Dezimalstellen angegeben werden, um Monate zu berücksichtigen. Zum Beispiel: dein_alter <- 25.5 (25 Jahre und 6 Monate).
+1. Create a variable 'your_age' and assign a numerical value that represents your current age, including decimal places to account for months. For example: your_age = 25.5 (25 years and 6 months).
 
-2. Erstelle eine weitere Variable alter_deines_freundes und weise einen numerischen Wert zu, der das Alter eines deiner Freunde repräsentiert, ebenfalls mit Dezimalstellen für Monate. Zum Beispiel: alter_deines_freundes <- 30.8 (30 Jahre und 9 Monate).
+2. Create another variable 'friend_age' and assign a numerical value that represents the age of one of your friends, also including decimal places for months. For example: friend_age = 30.8 (30 years and 9 months).
 
-3. Berechne das Produkt deines Alters und des Alters deines Freundes und weise das Ergebnis einer Variable produkt_der_alter zu. 
+3. Calculate the product of your age and your friend's age, and assign the result to a variable 'product_of_ages'
 
-4. Verwende die Funktion typeof() (wie im gegebenen Code) und gib den Datentyp der Variable produkt_der_alter aus, um zu überprüfen, welcher numerische Typ es ist (Hint: "double" = "numeric". In R, "double" is used to represent both floating-point numbers and integers.). 
+4. Use the typeof() function (as shown in the provided code) to check the data type of the variable 'product_of_ages' and determine whether it is a 'double' (which is used in R to represent both floating-point numbers and integers).
+
 </div>
 
 
@@ -457,11 +461,11 @@ name_empty
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
-1. Erstelle eine Variable dein_name und weise einen Wert zu, der deinen Namen repräsentiert. Zum Beispiel: dein_name <- "Max Mustermann".
+1. Create a variable 'your_name' and assign a value that represents your name. For example: your_name <- "Max Mustermann".
 
-2. Erstelle eine weitere Variable name_empty und weise einen Wert zu, der darauf hinweist, dass der Name einzufügen ist, ähnlich wie im gegebenen Code. Zum Beispiel: name_empty <- "Bitte trage deinen Namen ein".
+2. Create another variable 'name_empty' and assign a value that indicates a name should be entered, similar to the provided code. For example: name_empty = "Please Insert Your Name"
 
-3. Gib den Wert der Variable dein_name aus, um deinen Namen darzustellen. Zum Beispiel: print(dein_name).
+3. Output the value of the variable 'your_name' to display your name. For example: print(your_name).
 
 </div>
 
@@ -491,15 +495,16 @@ is_dog_a_cat
 Aufgabe: 
 
 
-1. Erstelle eine Variable 'zahl1' und weise ihr den Wert 8 zu.
+1. Create a variable 'zahl1' and assign it the value 8.
 
-2. Erstelle eine Variable 'zahl2' und weise ihr den Wert 4 zu.
+2. Create a variable 'zahl2' and assign it the value 4.
 
-3. Vergleiche die beiden Zahlen mithilfe von logischen Ausdrücken und berichte, welchen Ausgabewert du für jeden Vergleich erhältst. Zum Beispiel, überprüfe:
+3. Compare the two numbers using logical expressions and report the output for each comparison. For example, check:
 
-    3.1. Ob 'zahl1' größer als 'zahl2' ist (zahl1 > zahl2) und berichte das Ergebnis.
-    3.2. Ob 'zahl1' gleich 'zahl2' ist (zahl1 == zahl2) und berichte das Ergebnis.
-    3.3. Ob 'zahl1' kleiner als 'zahl2' ist (zahl1 < zahl2) und berichte das Ergebnis.
+      3.1. Whether 'zahl1' is greater than 'zahl2' (zahl1 > zahl2) and report the result.
+      3.2. Whether 'zahl1' is equal to 'zahl2' (zahl1 == zahl2) and report the result.
+      3.3. Whether 'zahl1' is less than 'zahl2' (zahl1 < zahl2) and report the result."
+
 </div>
 
 
@@ -526,26 +531,22 @@ levels(geschlecht)
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 Aufgabe: 
 
-Verwende die folgende Liste von Früchten: Apfel, Banane, Erdbeere, Trauben, Orange, Kirsche, Himbeere, Pflaume, Mango, Zitrone
+1. Create a vector called 'fruit_colors' that represents the colors of these fruits. Note: You will need the following structure for your 'fruit_colors' vector (Factor(c(fruit_colors))):
 
-2. Erstelle einen Vektor namens 'frucht_farben', der die Farben dieser Früchte repräsentiert. Hinweis: Du wirst die folgende Struktur für deinen Vektor 'frucht_farben' benötigen (Faktor(c(frucht_farben)))
-
-Apfel: "Rot"
-Banane: "Gelb"
-Erdbeere: "Rot"
-Trauben: "Grün"
+Apple: "Red"
+Banana: "Yellow"
+Strawberry: "Red"
+Grapes: "Green"
 Orange: "Orange"
-Kirsche: "Rot"
-Himbeere: "Rot"
-Pflaume: "Violett"
+Cherry: "Red"
+Raspberry: "Red"
+Plum: "Purple"
 Mango: "Orange"
-Zitrone: "Gelb"
+Lemon: "Yellow"
 
+2. Print the created vector 'fruit_colors'.
 
-3. print den erstellten Vektor 'frucht_farben'. 
-
-4. Verwende die levels()-Funktion auf deinem Vektor 'frucht_farben', um die eindeutigen Farbkategorien oder Faktoren im Vektor anzuzeigen.
-
+3. Use the levels() function on your 'fruit_colors' vector to display the unique color categories or factors in the vector. Name it unique_colour. 
 
 </div>
 
