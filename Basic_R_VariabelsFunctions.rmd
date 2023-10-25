@@ -435,6 +435,8 @@ Aufgabe:
 
 4. Use the typeof() function (as shown in the provided code) to check the data type of the variable 'product_of_ages' and determine whether it is a 'double' (which is used in R to represent both floating-point numbers and integers).
 
+**Double = Numeric!**
+
 </div>
 
 
