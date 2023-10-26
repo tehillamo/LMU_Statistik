@@ -16,10 +16,8 @@ navbar:
           href: Basic_R.html
         - text: "Basics in R - Create Project"
           href: Basic_R_Project.html
-        # - text: "Basics in R - Variables & Functions"
-        #   href: Basic_R_introduction.html
         - text: "Basics in R - Variables"
-          href: Basic_R_VariabelsFunctions.html
+          href: Basic_R_Variabels_i.html
         - text: "Basics in R - Variables II & Functions"
           href: Basic_R_Functions_Repetitions.html
         - text: "Basics in R - Types of Data & Indexing"
