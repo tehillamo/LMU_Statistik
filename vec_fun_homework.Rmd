@@ -112,182 +112,182 @@ barplot(noten, main="Verteilung der Noten", xlab="Schüler", ylab="Noten", col="
 
 -----
 
-# Lösungen zu den Hausaufgaben
+<!-- # Lösungen zu den Hausaufgaben -->
 
 
-1. 
+<!-- 1.  -->
 
-## a) Addition
+<!-- ## a) Addition -->
 
-```{r}
-ergebnis_addition = 5 + 3
-print(ergebnis_addition)  # Ausgabe: 8
-```
-
-
-## b) Subtraktion
-
-```{r}
-ergebnis_subtraktion = 10 - 4
-print(ergebnis_subtraktion)  # Ausgabe: 6
-
-```
-
-## c) Multiplikation
-
-```{r}
-ergebnis_multiplikation = 6 * 7
-print(ergebnis_multiplikation)  # Ausgabe: 42
-```
+<!-- ```{r} -->
+<!-- ergebnis_addition = 5 + 3 -->
+<!-- print(ergebnis_addition)  # Ausgabe: 8 -->
+<!-- ``` -->
 
 
-## d) Division
+<!-- ## b) Subtraktion -->
 
-```{r}
-ergebnis_division = 15 / 3
-print(ergebnis_division)  # Ausgabe: 5
-```
+<!-- ```{r} -->
+<!-- ergebnis_subtraktion = 10 - 4 -->
+<!-- print(ergebnis_subtraktion)  # Ausgabe: 6 -->
 
+<!-- ``` -->
 
-# e) Potenzierung
+<!-- ## c) Multiplikation -->
 
-```{r}
-ergebnis_potenzierung = 2^3
-print(ergebnis_potenzierung)  # Ausgabe: 8
-```
-
-
-## 2. Variablenzuweisung und Verwendung
-
-```{r}
-# Variablenzuweisung
-x = 5
-y = 3
-
-# a) Summe
-ergebnis_summe = x + y
-print(ergebnis_summe)  # Ausgabe: 8
-
-# b) Differenz
-ergebnis_differenz = x - y
-print(ergebnis_differenz)  # Ausgabe: 2
-```
+<!-- ```{r} -->
+<!-- ergebnis_multiplikation = 6 * 7 -->
+<!-- print(ergebnis_multiplikation)  # Ausgabe: 42 -->
+<!-- ``` -->
 
 
-## 3. Arbeiten mit Vektoren
+<!-- ## d) Division -->
 
-```{r}
-# Vektoren erstellen
-vektor1 = c(1, 2, 3, 4, 5)
-vektor2 = c(6, 7, 8, 9, 10)
-
-# a) Vektoren elementweise addieren
-vektor_summe = vektor1 + vektor2
-print(vektor_summe)  # Ausgabe: 7 9 11 13 15
-
-# b) Vektoren elementweise multiplizieren
-vektor_produkt = vektor1 * vektor2
-print(vektor_produkt)  # Ausgabe: 6 14 24 36 50
-```
+<!-- ```{r} -->
+<!-- ergebnis_division = 15 / 3 -->
+<!-- print(ergebnis_division)  # Ausgabe: 5 -->
+<!-- ``` -->
 
 
-## 4. Sequenzen generieren
+<!-- # e) Potenzierung -->
 
-```{r}
-# a) Eine Sequenz von Zahlen generieren
-sequenz = 1:10
-print(sequenz)  # Ausgabe: 1 2 3 4 5 6 7 8 9 10
-
-# b) Eine Sequenz mit festgelegtem Schritt erstellen
-sequenz_schritt = seq(1, 10, by = 2)
-print(sequenz_schritt)  # Ausgabe: 1 3 5 7 9
-```
+<!-- ```{r} -->
+<!-- ergebnis_potenzierung = 2^3 -->
+<!-- print(ergebnis_potenzierung)  # Ausgabe: 8 -->
+<!-- ``` -->
 
 
-## 5. Eingebaute Funktionen verwenden
+<!-- ## 2. Variablenzuweisung und Verwendung -->
 
-```{r}
-# a) Die Quadratwurzel berechnen
-sqrt_ergebnis = sqrt(25)
-print(sqrt_ergebnis)  # Ausgabe: 5
+<!-- ```{r} -->
+<!-- # Variablenzuweisung -->
+<!-- x = 5 -->
+<!-- y = 3 -->
 
-# b) Den absoluten Wert berechnen
-absolutwert = abs(-10)
-print(absolutwert)  # Ausgabe: 10
+<!-- # a) Summe -->
+<!-- ergebnis_summe = x + y -->
+<!-- print(ergebnis_summe)  # Ausgabe: 8 -->
 
-# c) Das Maximum und Minimum finden
-maximalwert = max(3, 7, 1, 8, 5)
-minimalwert = min(3, 7, 1, 8, 5)
-print(maximalwert)  # Ausgabe: 8
-print(minimalwert)  # Ausgabe: 1
-```
+<!-- # b) Differenz -->
+<!-- ergebnis_differenz = x - y -->
+<!-- print(ergebnis_differenz)  # Ausgabe: 2 -->
+<!-- ``` -->
 
 
-## 6. Notenberechnung
+<!-- ## 3. Arbeiten mit Vektoren -->
 
-```{r}
-noten = c(1, 2, 3, 4, 1, 2, 3, 5, 4, 2)
-durchschnitt = mean(noten)
-print(durchschnitt)  # Beispiel Ausgabe: 2.7 (abhängig von den zugewiesenen Werten)
-```
+<!-- ```{r} -->
+<!-- # Vektoren erstellen -->
+<!-- vektor1 = c(1, 2, 3, 4, 5) -->
+<!-- vektor2 = c(6, 7, 8, 9, 10) -->
 
+<!-- # a) Vektoren elementweise addieren -->
+<!-- vektor_summe = vektor1 + vektor2 -->
+<!-- print(vektor_summe)  # Ausgabe: 7 9 11 13 15 -->
 
-## 7. Benotung von Schülern
-
-```{r}
-namen = c("Anna", "Ben", "Clara", "David", "Eva",
-          "Anabele", "Bejamin", "Chiara", "Dirk", "Evelin")
-print(namen)
-```
-
+<!-- # b) Vektoren elementweise multiplizieren -->
+<!-- vektor_produkt = vektor1 * vektor2 -->
+<!-- print(vektor_produkt)  # Ausgabe: 6 14 24 36 50 -->
+<!-- ``` -->
 
 
-## 8. Klassenanwesenheit
+<!-- ## 4. Sequenzen generieren -->
 
-```{r}
-anwesenheit = c(TRUE, FALSE, TRUE, TRUE, FALSE,
-                TRUE, FALSE, TRUE, TRUE, FALSE)
-print(anwesenheit)
-```
+<!-- ```{r} -->
+<!-- # a) Eine Sequenz von Zahlen generieren -->
+<!-- sequenz = 1:10 -->
+<!-- print(sequenz)  # Ausgabe: 1 2 3 4 5 6 7 8 9 10 -->
+
+<!-- # b) Eine Sequenz mit festgelegtem Schritt erstellen -->
+<!-- sequenz_schritt = seq(1, 10, by = 2) -->
+<!-- print(sequenz_schritt)  # Ausgabe: 1 3 5 7 9 -->
+<!-- ``` -->
+
+
+<!-- ## 5. Eingebaute Funktionen verwenden -->
+
+<!-- ```{r} -->
+<!-- # a) Die Quadratwurzel berechnen -->
+<!-- sqrt_ergebnis = sqrt(25) -->
+<!-- print(sqrt_ergebnis)  # Ausgabe: 5 -->
+
+<!-- # b) Den absoluten Wert berechnen -->
+<!-- absolutwert = abs(-10) -->
+<!-- print(absolutwert)  # Ausgabe: 10 -->
+
+<!-- # c) Das Maximum und Minimum finden -->
+<!-- maximalwert = max(3, 7, 1, 8, 5) -->
+<!-- minimalwert = min(3, 7, 1, 8, 5) -->
+<!-- print(maximalwert)  # Ausgabe: 8 -->
+<!-- print(minimalwert)  # Ausgabe: 1 -->
+<!-- ``` -->
+
+
+<!-- ## 6. Notenberechnung -->
+
+<!-- ```{r} -->
+<!-- noten = c(1, 2, 3, 4, 1, 2, 3, 5, 4, 2) -->
+<!-- durchschnitt = mean(noten) -->
+<!-- print(durchschnitt)  # Beispiel Ausgabe: 2.7 (abhängig von den zugewiesenen Werten) -->
+<!-- ``` -->
+
+
+<!-- ## 7. Benotung von Schülern -->
+
+<!-- ```{r} -->
+<!-- namen = c("Anna", "Ben", "Clara", "David", "Eva", -->
+<!--           "Anabele", "Bejamin", "Chiara", "Dirk", "Evelin") -->
+<!-- print(namen) -->
+<!-- ``` -->
 
 
 
-## 9. Vektoren kombinieren
+<!-- ## 8. Klassenanwesenheit -->
 
-
-## a) 
-
-```{r}
-daten = cbind(namen, noten, anwesenheit)
-print(daten)
-```
+<!-- ```{r} -->
+<!-- anwesenheit = c(TRUE, FALSE, TRUE, TRUE, FALSE, -->
+<!--                 TRUE, FALSE, TRUE, TRUE, FALSE) -->
+<!-- print(anwesenheit) -->
+<!-- ``` -->
 
 
 
-## b) Bonus - Mit matrix() Funktion:
-
-In diesem Fall müssen alle Daten numerisch oder charakterlich sein, weil eine Matrix nur Daten eines Typs speichern kann. Da anwesenheit ein logischer Vektor ist (TRUE/FALSE), werden wir ihn zu numerisch (1/0) konvertieren
-
-```{r}
-anwesenheit_num = as.numeric(anwesenheit)  # TRUE wird zu 1 und FALSE wird zu 0
-
-# Die Daten in einer Matrix speichern. Die ncol=3 gibt an, dass wir 3 Spalten haben wollen.
-daten_matrix = matrix(c(namen, noten, anwesenheit_num), 
-                      ncol = 3, nrow = 10)
-
-# Die Spaltennamen hinzufügen
-colnames(daten_matrix) = c("Namen", "Noten", "Anwesenheit")
-
-print(daten_matrix)
-```
+<!-- ## 9. Vektoren kombinieren -->
 
 
-10. Notendiagramm erstellen
+<!-- ## a)  -->
 
-```{r}
-barplot(noten, main = "Verteilung der Noten", 
-        xlab = "Schüler", 
-        ylab = "Note", 
-        col = "blue")
+<!-- ```{r} -->
+<!-- daten = cbind(namen, noten, anwesenheit) -->
+<!-- print(daten) -->
+<!-- ``` -->
 
-```
+
+
+<!-- ## b) Bonus - Mit matrix() Funktion: -->
+
+<!-- In diesem Fall müssen alle Daten numerisch oder charakterlich sein, weil eine Matrix nur Daten eines Typs speichern kann. Da anwesenheit ein logischer Vektor ist (TRUE/FALSE), werden wir ihn zu numerisch (1/0) konvertieren -->
+
+<!-- ```{r} -->
+<!-- anwesenheit_num = as.numeric(anwesenheit)  # TRUE wird zu 1 und FALSE wird zu 0 -->
+
+<!-- # Die Daten in einer Matrix speichern. Die ncol=3 gibt an, dass wir 3 Spalten haben wollen. -->
+<!-- daten_matrix = matrix(c(namen, noten, anwesenheit_num),  -->
+<!--                       ncol = 3, nrow = 10) -->
+
+<!-- # Die Spaltennamen hinzufügen -->
+<!-- colnames(daten_matrix) = c("Namen", "Noten", "Anwesenheit") -->
+
+<!-- print(daten_matrix) -->
+<!-- ``` -->
+
+
+<!-- 10. Notendiagramm erstellen -->
+
+<!-- ```{r} -->
+<!-- barplot(noten, main = "Verteilung der Noten",  -->
+<!--         xlab = "Schüler",  -->
+<!--         ylab = "Note",  -->
+<!--         col = "blue") -->
+
+<!-- ``` -->

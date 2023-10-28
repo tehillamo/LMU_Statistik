@@ -2295,216 +2295,123 @@ Verwende den Vektor ‘noten’ aus Aufgabe 1, um ein Balkendiagramm zu erstelle
 </tr>
 </tbody>
 </table>
-<h1 id="lösungen-zu-den-hausaufgaben">Lösungen zu den Hausaufgaben</h1>
-<ol type="1">
-<li></li>
-</ol>
-<h2 id="a-addition">a) Addition</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ergebnis_addition</span> <span class='op'>=</span> <span class='fl'>5</span> <span class='op'>+</span> <span class='fl'>3</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>ergebnis_addition</span><span class='op'>)</span>  <span class='co'># Ausgabe: 8</span></span></code></pre>
-</div>
-<pre><code>[1] 8</code></pre>
-</div>
-<h2 id="b-subtraktion">b) Subtraktion</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ergebnis_subtraktion</span> <span class='op'>=</span> <span class='fl'>10</span> <span class='op'>-</span> <span class='fl'>4</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>ergebnis_subtraktion</span><span class='op'>)</span>  <span class='co'># Ausgabe: 6</span></span></code></pre>
-</div>
-<pre><code>[1] 6</code></pre>
-</div>
-<h2 id="c-multiplikation">c) Multiplikation</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ergebnis_multiplikation</span> <span class='op'>=</span> <span class='fl'>6</span> <span class='op'>*</span> <span class='fl'>7</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>ergebnis_multiplikation</span><span class='op'>)</span>  <span class='co'># Ausgabe: 42</span></span></code></pre>
-</div>
-<pre><code>[1] 42</code></pre>
-</div>
-<h2 id="d-division">d) Division</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ergebnis_division</span> <span class='op'>=</span> <span class='fl'>15</span> <span class='op'>/</span> <span class='fl'>3</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>ergebnis_division</span><span class='op'>)</span>  <span class='co'># Ausgabe: 5</span></span></code></pre>
-</div>
-<pre><code>[1] 5</code></pre>
-</div>
-<h1 id="e-potenzierung">e) Potenzierung</h1>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ergebnis_potenzierung</span> <span class='op'>=</span> <span class='fl'>2</span><span class='op'>^</span><span class='fl'>3</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>ergebnis_potenzierung</span><span class='op'>)</span>  <span class='co'># Ausgabe: 8</span></span></code></pre>
-</div>
-<pre><code>[1] 8</code></pre>
-</div>
-<h2 id="variablenzuweisung-und-verwendung-1">2. Variablenzuweisung und Verwendung</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Variablenzuweisung</span></span>
-<span><span class='va'>x</span> <span class='op'>=</span> <span class='fl'>5</span></span>
-<span><span class='va'>y</span> <span class='op'>=</span> <span class='fl'>3</span></span>
-<span></span>
-<span><span class='co'># a) Summe</span></span>
-<span><span class='va'>ergebnis_summe</span> <span class='op'>=</span> <span class='va'>x</span> <span class='op'>+</span> <span class='va'>y</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>ergebnis_summe</span><span class='op'>)</span>  <span class='co'># Ausgabe: 8</span></span></code></pre>
-</div>
-<pre><code>[1] 8</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># b) Differenz</span></span>
-<span><span class='va'>ergebnis_differenz</span> <span class='op'>=</span> <span class='va'>x</span> <span class='op'>-</span> <span class='va'>y</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>ergebnis_differenz</span><span class='op'>)</span>  <span class='co'># Ausgabe: 2</span></span></code></pre>
-</div>
-<pre><code>[1] 2</code></pre>
-</div>
-<h2 id="arbeiten-mit-vektoren-1">3. Arbeiten mit Vektoren</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Vektoren erstellen</span></span>
-<span><span class='va'>vektor1</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
-<span><span class='va'>vektor2</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span>, <span class='fl'>7</span>, <span class='fl'>8</span>, <span class='fl'>9</span>, <span class='fl'>10</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'># a) Vektoren elementweise addieren</span></span>
-<span><span class='va'>vektor_summe</span> <span class='op'>=</span> <span class='va'>vektor1</span> <span class='op'>+</span> <span class='va'>vektor2</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>vektor_summe</span><span class='op'>)</span>  <span class='co'># Ausgabe: 7 9 11 13 15</span></span></code></pre>
-</div>
-<pre><code>[1]  7  9 11 13 15</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># b) Vektoren elementweise multiplizieren</span></span>
-<span><span class='va'>vektor_produkt</span> <span class='op'>=</span> <span class='va'>vektor1</span> <span class='op'>*</span> <span class='va'>vektor2</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>vektor_produkt</span><span class='op'>)</span>  <span class='co'># Ausgabe: 6 14 24 36 50</span></span></code></pre>
-</div>
-<pre><code>[1]  6 14 24 36 50</code></pre>
-</div>
-<h2 id="sequenzen-generieren-1">4. Sequenzen generieren</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># a) Eine Sequenz von Zahlen generieren</span></span>
-<span><span class='va'>sequenz</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>sequenz</span><span class='op'>)</span>  <span class='co'># Ausgabe: 1 2 3 4 5 6 7 8 9 10</span></span></code></pre>
-</div>
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># b) Eine Sequenz mit festgelegtem Schritt erstellen</span></span>
-<span><span class='va'>sequenz_schritt</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>10</span>, by <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>sequenz_schritt</span><span class='op'>)</span>  <span class='co'># Ausgabe: 1 3 5 7 9</span></span></code></pre>
-</div>
-<pre><code>[1] 1 3 5 7 9</code></pre>
-</div>
-<h2 id="eingebaute-funktionen-verwenden-1">5. Eingebaute Funktionen verwenden</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># a) Die Quadratwurzel berechnen</span></span>
-<span><span class='va'>sqrt_ergebnis</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>25</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>sqrt_ergebnis</span><span class='op'>)</span>  <span class='co'># Ausgabe: 5</span></span></code></pre>
-</div>
-<pre><code>[1] 5</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># b) Den absoluten Wert berechnen</span></span>
-<span><span class='va'>absolutwert</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>absolutwert</span><span class='op'>)</span>  <span class='co'># Ausgabe: 10</span></span></code></pre>
-</div>
-<pre><code>[1] 10</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># c) Das Maximum und Minimum finden</span></span>
-<span><span class='va'>maximalwert</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>7</span>, <span class='fl'>1</span>, <span class='fl'>8</span>, <span class='fl'>5</span><span class='op'>)</span></span>
-<span><span class='va'>minimalwert</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>7</span>, <span class='fl'>1</span>, <span class='fl'>8</span>, <span class='fl'>5</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>maximalwert</span><span class='op'>)</span>  <span class='co'># Ausgabe: 8</span></span></code></pre>
-</div>
-<pre><code>[1] 8</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>minimalwert</span><span class='op'>)</span>  <span class='co'># Ausgabe: 1</span></span></code></pre>
-</div>
-<pre><code>[1] 1</code></pre>
-</div>
-<h2 id="notenberechnung">6. Notenberechnung</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>noten</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>5</span>, <span class='fl'>4</span>, <span class='fl'>2</span><span class='op'>)</span></span>
-<span><span class='va'>durchschnitt</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>noten</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>durchschnitt</span><span class='op'>)</span>  <span class='co'># Beispiel Ausgabe: 2.7 (abhängig von den zugewiesenen Werten)</span></span></code></pre>
-</div>
-<pre><code>[1] 2.7</code></pre>
-</div>
-<h2 id="benotung-von-schülern">7. Benotung von Schülern</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>namen</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Anna"</span>, <span class='st'>"Ben"</span>, <span class='st'>"Clara"</span>, <span class='st'>"David"</span>, <span class='st'>"Eva"</span>,</span>
-<span>          <span class='st'>"Anabele"</span>, <span class='st'>"Bejamin"</span>, <span class='st'>"Chiara"</span>, <span class='st'>"Dirk"</span>, <span class='st'>"Evelin"</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>namen</span><span class='op'>)</span></span></code></pre>
-</div>
-<pre><code> [1] &quot;Anna&quot;    &quot;Ben&quot;     &quot;Clara&quot;   &quot;David&quot;   &quot;Eva&quot;     &quot;Anabele&quot;
- [7] &quot;Bejamin&quot; &quot;Chiara&quot;  &quot;Dirk&quot;    &quot;Evelin&quot; </code></pre>
-</div>
-<h2 id="klassenanwesenheit">8. Klassenanwesenheit</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>anwesenheit</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span>, <span class='cn'>TRUE</span>, <span class='cn'>TRUE</span>, <span class='cn'>FALSE</span>,</span>
-<span>                <span class='cn'>TRUE</span>, <span class='cn'>FALSE</span>, <span class='cn'>TRUE</span>, <span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>anwesenheit</span><span class='op'>)</span></span></code></pre>
-</div>
-<pre><code> [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
-</div>
-<h2 id="vektoren-kombinieren">9. Vektoren kombinieren</h2>
-<h2 id="a">a)</h2>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>daten</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>namen</span>, <span class='va'>noten</span>, <span class='va'>anwesenheit</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>daten</span><span class='op'>)</span></span></code></pre>
-</div>
-<pre><code>      namen     noten anwesenheit
- [1,] &quot;Anna&quot;    &quot;1&quot;   &quot;TRUE&quot;     
- [2,] &quot;Ben&quot;     &quot;2&quot;   &quot;FALSE&quot;    
- [3,] &quot;Clara&quot;   &quot;3&quot;   &quot;TRUE&quot;     
- [4,] &quot;David&quot;   &quot;4&quot;   &quot;TRUE&quot;     
- [5,] &quot;Eva&quot;     &quot;1&quot;   &quot;FALSE&quot;    
- [6,] &quot;Anabele&quot; &quot;2&quot;   &quot;TRUE&quot;     
- [7,] &quot;Bejamin&quot; &quot;3&quot;   &quot;FALSE&quot;    
- [8,] &quot;Chiara&quot;  &quot;5&quot;   &quot;TRUE&quot;     
- [9,] &quot;Dirk&quot;    &quot;4&quot;   &quot;TRUE&quot;     
-[10,] &quot;Evelin&quot;  &quot;2&quot;   &quot;FALSE&quot;    </code></pre>
-</div>
-<h2 id="b-bonus---mit-matrix-funktion">b) Bonus - Mit matrix() Funktion:</h2>
-<p>In diesem Fall müssen alle Daten numerisch oder charakterlich sein, weil eine Matrix nur Daten eines Typs speichern kann. Da anwesenheit ein logischer Vektor ist (TRUE/FALSE), werden wir ihn zu numerisch (1/0) konvertieren</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>anwesenheit_num</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>anwesenheit</span><span class='op'>)</span>  <span class='co'># TRUE wird zu 1 und FALSE wird zu 0</span></span>
-<span></span>
-<span><span class='co'># Die Daten in einer Matrix speichern. Die ncol=3 gibt an, dass wir 3 Spalten haben wollen.</span></span>
-<span><span class='va'>daten_matrix</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>namen</span>, <span class='va'>noten</span>, <span class='va'>anwesenheit_num</span><span class='op'>)</span>, </span>
-<span>                      ncol <span class='op'>=</span> <span class='fl'>3</span>, nrow <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'># Die Spaltennamen hinzufügen</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>daten_matrix</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Namen"</span>, <span class='st'>"Noten"</span>, <span class='st'>"Anwesenheit"</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>daten_matrix</span><span class='op'>)</span></span></code></pre>
-</div>
-<pre><code>      Namen     Noten Anwesenheit
- [1,] &quot;Anna&quot;    &quot;1&quot;   &quot;1&quot;        
- [2,] &quot;Ben&quot;     &quot;2&quot;   &quot;0&quot;        
- [3,] &quot;Clara&quot;   &quot;3&quot;   &quot;1&quot;        
- [4,] &quot;David&quot;   &quot;4&quot;   &quot;1&quot;        
- [5,] &quot;Eva&quot;     &quot;1&quot;   &quot;0&quot;        
- [6,] &quot;Anabele&quot; &quot;2&quot;   &quot;1&quot;        
- [7,] &quot;Bejamin&quot; &quot;3&quot;   &quot;0&quot;        
- [8,] &quot;Chiara&quot;  &quot;5&quot;   &quot;1&quot;        
- [9,] &quot;Dirk&quot;    &quot;4&quot;   &quot;1&quot;        
-[10,] &quot;Evelin&quot;  &quot;2&quot;   &quot;0&quot;        </code></pre>
-</div>
-<ol start="10" type="1">
-<li>Notendiagramm erstellen</li>
-</ol>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/graphics/barplot.html'>barplot</a></span><span class='op'>(</span><span class='va'>noten</span>, main <span class='op'>=</span> <span class='st'>"Verteilung der Noten"</span>, </span>
-<span>        xlab <span class='op'>=</span> <span class='st'>"Schüler"</span>, </span>
-<span>        ylab <span class='op'>=</span> <span class='st'>"Note"</span>, </span>
-<span>        col <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span></span></code></pre>
-</div>
-<p><img src="vec_fun_homework_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
-</div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!-- # Lösungen zu den Hausaufgaben -->
+<!-- 1.  -->
+<!-- ## a) Addition -->
+<!-- ```{r} -->
+<!-- ergebnis_addition = 5 + 3 -->
+<!-- print(ergebnis_addition)  # Ausgabe: 8 -->
+<!-- ``` -->
+<!-- ## b) Subtraktion -->
+<!-- ```{r} -->
+<!-- ergebnis_subtraktion = 10 - 4 -->
+<!-- print(ergebnis_subtraktion)  # Ausgabe: 6 -->
+<!-- ``` -->
+<!-- ## c) Multiplikation -->
+<!-- ```{r} -->
+<!-- ergebnis_multiplikation = 6 * 7 -->
+<!-- print(ergebnis_multiplikation)  # Ausgabe: 42 -->
+<!-- ``` -->
+<!-- ## d) Division -->
+<!-- ```{r} -->
+<!-- ergebnis_division = 15 / 3 -->
+<!-- print(ergebnis_division)  # Ausgabe: 5 -->
+<!-- ``` -->
+<!-- # e) Potenzierung -->
+<!-- ```{r} -->
+<!-- ergebnis_potenzierung = 2^3 -->
+<!-- print(ergebnis_potenzierung)  # Ausgabe: 8 -->
+<!-- ``` -->
+<!-- ## 2. Variablenzuweisung und Verwendung -->
+<!-- ```{r} -->
+<!-- # Variablenzuweisung -->
+<!-- x = 5 -->
+<!-- y = 3 -->
+<!-- # a) Summe -->
+<!-- ergebnis_summe = x + y -->
+<!-- print(ergebnis_summe)  # Ausgabe: 8 -->
+<!-- # b) Differenz -->
+<!-- ergebnis_differenz = x - y -->
+<!-- print(ergebnis_differenz)  # Ausgabe: 2 -->
+<!-- ``` -->
+<!-- ## 3. Arbeiten mit Vektoren -->
+<!-- ```{r} -->
+<!-- # Vektoren erstellen -->
+<!-- vektor1 = c(1, 2, 3, 4, 5) -->
+<!-- vektor2 = c(6, 7, 8, 9, 10) -->
+<!-- # a) Vektoren elementweise addieren -->
+<!-- vektor_summe = vektor1 + vektor2 -->
+<!-- print(vektor_summe)  # Ausgabe: 7 9 11 13 15 -->
+<!-- # b) Vektoren elementweise multiplizieren -->
+<!-- vektor_produkt = vektor1 * vektor2 -->
+<!-- print(vektor_produkt)  # Ausgabe: 6 14 24 36 50 -->
+<!-- ``` -->
+<!-- ## 4. Sequenzen generieren -->
+<!-- ```{r} -->
+<!-- # a) Eine Sequenz von Zahlen generieren -->
+<!-- sequenz = 1:10 -->
+<!-- print(sequenz)  # Ausgabe: 1 2 3 4 5 6 7 8 9 10 -->
+<!-- # b) Eine Sequenz mit festgelegtem Schritt erstellen -->
+<!-- sequenz_schritt = seq(1, 10, by = 2) -->
+<!-- print(sequenz_schritt)  # Ausgabe: 1 3 5 7 9 -->
+<!-- ``` -->
+<!-- ## 5. Eingebaute Funktionen verwenden -->
+<!-- ```{r} -->
+<!-- # a) Die Quadratwurzel berechnen -->
+<!-- sqrt_ergebnis = sqrt(25) -->
+<!-- print(sqrt_ergebnis)  # Ausgabe: 5 -->
+<!-- # b) Den absoluten Wert berechnen -->
+<!-- absolutwert = abs(-10) -->
+<!-- print(absolutwert)  # Ausgabe: 10 -->
+<!-- # c) Das Maximum und Minimum finden -->
+<!-- maximalwert = max(3, 7, 1, 8, 5) -->
+<!-- minimalwert = min(3, 7, 1, 8, 5) -->
+<!-- print(maximalwert)  # Ausgabe: 8 -->
+<!-- print(minimalwert)  # Ausgabe: 1 -->
+<!-- ``` -->
+<!-- ## 6. Notenberechnung -->
+<!-- ```{r} -->
+<!-- noten = c(1, 2, 3, 4, 1, 2, 3, 5, 4, 2) -->
+<!-- durchschnitt = mean(noten) -->
+<!-- print(durchschnitt)  # Beispiel Ausgabe: 2.7 (abhängig von den zugewiesenen Werten) -->
+<!-- ``` -->
+<!-- ## 7. Benotung von Schülern -->
+<!-- ```{r} -->
+<!-- namen = c("Anna", "Ben", "Clara", "David", "Eva", -->
+<!--           "Anabele", "Bejamin", "Chiara", "Dirk", "Evelin") -->
+<!-- print(namen) -->
+<!-- ``` -->
+<!-- ## 8. Klassenanwesenheit -->
+<!-- ```{r} -->
+<!-- anwesenheit = c(TRUE, FALSE, TRUE, TRUE, FALSE, -->
+<!--                 TRUE, FALSE, TRUE, TRUE, FALSE) -->
+<!-- print(anwesenheit) -->
+<!-- ``` -->
+<!-- ## 9. Vektoren kombinieren -->
+<!-- ## a)  -->
+<!-- ```{r} -->
+<!-- daten = cbind(namen, noten, anwesenheit) -->
+<!-- print(daten) -->
+<!-- ``` -->
+<!-- ## b) Bonus - Mit matrix() Funktion: -->
+<!-- In diesem Fall müssen alle Daten numerisch oder charakterlich sein, weil eine Matrix nur Daten eines Typs speichern kann. Da anwesenheit ein logischer Vektor ist (TRUE/FALSE), werden wir ihn zu numerisch (1/0) konvertieren -->
+<!-- ```{r} -->
+<!-- anwesenheit_num = as.numeric(anwesenheit)  # TRUE wird zu 1 und FALSE wird zu 0 -->
+<!-- # Die Daten in einer Matrix speichern. Die ncol=3 gibt an, dass wir 3 Spalten haben wollen. -->
+<!-- daten_matrix = matrix(c(namen, noten, anwesenheit_num),  -->
+<!--                       ncol = 3, nrow = 10) -->
+<!-- # Die Spaltennamen hinzufügen -->
+<!-- colnames(daten_matrix) = c("Namen", "Noten", "Anwesenheit") -->
+<!-- print(daten_matrix) -->
+<!-- ``` -->
+<!-- 10. Notendiagramm erstellen -->
+<!-- ```{r} -->
+<!-- barplot(noten, main = "Verteilung der Noten",  -->
+<!--         xlab = "Schüler",  -->
+<!--         ylab = "Note",  -->
+<!--         col = "blue") -->
+<!-- ``` -->
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
