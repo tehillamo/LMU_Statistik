@@ -10,8 +10,6 @@ navbar:
     - text: "Statistik I"
       href: statistik_i.html
       menu:
-        # - text: "Basic Concepts"
-        #   href: Basic_concepts.html
         - text: "Basics in R - Download R & R Studio"
           href: Basic_R.html
         - text: "Basics in R - Create Project"
@@ -20,14 +18,17 @@ navbar:
           href: Basic_R_Variabels_i.html
         - text: "Basics in R - Variables II & Functions"
           href: Basic_R_Functions_Repetitions.html
-        - text: "Basics in R - Types of Data & Indexing"
-          href: Basic_R_2.html
-        # - text: "Basics in R - Part 3"
-        #   href: Basic_R_3.html
-        # - text: "Basics in R - Part 4"
-        #   href: Basic_R_4.html
-        - text: "Statistical Tests - Distributions"
-          href: Basic_concepts_ii.html
+        - text: "Basics in R - Indexing & Filtering"
+          href: indexing_filtering.html
+        - text: "Basics in R - Indexing & Filtering"
+          href: indexing_filtering.html
+        # - text: "Statistical Tests - Distributions"
+        #   href: Basic_concepts_ii.html
+    - text: "Statistik I - Homework"
+      href: homework.html
+      menu: 
+        - text: "Homework - Session 3"
+          href: vec_fun_homework.html
     - text: "Statistik II"
       href: statistik_ii.html
       menu:

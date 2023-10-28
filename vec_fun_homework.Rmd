@@ -1,0 +1,293 @@
+---
+title: "Homework:  Functions & Objects"
+description: |
+#   A new article created using the Distill format.
+author:
+  - name: Tehilla Ostrovsky 
+#     url: https://example.com/norajones
+#     affiliation: Spacely Sprockets
+#     affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+# Hausaufgaben
+
+Nachdem wir uns in dieser Sitzung intensiv mit den Grundlagen von R und R Studio beschäftigt haben, ist es an der Zeit, das Gelernte zu vertiefen und zu üben. Hier sind einige Aufgaben, die dir helfen sollen, dich weiter mit den Inhalten vertraut zu machen.
+
+Natürlich! Hier sind die Aufgaben als ungelöste Aufgaben für die Hausaufgaben:
+
+
+## Part 1 - Grundlegende arithmetische Operationen
+
+1. Führe die folgenden arithmetischen Operationen in R Studio aus und gebe die Ergebnisse aus:
+
+a) Addiere 5 und 3.
+b) Subtrahiere 4 von 10.
+c) Multipliziere 6 mit 7.
+d) Teile 15 durch 3.
+e) Potenziere 2 mit 3.
+
+### 2. Variablenzuweisung und Verwendung
+Weise Werte den Variablen `x` und `y` zu. Verwende dann diese beiden Variablen, um:
+ 
+a) Ihre Summe zu berechnen.
+b) Ihre Differenz zu berechnen.
+c) Gib die Ergebnisse aus.
+
+### 3. Arbeiten mit Vektoren
+Erstelle zwei Vektoren. Der erste sollte die Zahlen 1 bis 5 und der zweite die Zahlen 6 bis 10 enthalten.
+
+a) Füge diese beiden Vektoren elementweise zusammen.
+b) Multipliziere diese beiden Vektoren elementweise.
+c) Gib beide Ergebnisse aus.
+
+### 4. Sequenzen generieren
+Generiere in R:
+
+a) Eine Sequenz von Zahlen von 1 bis 10.
+b) Eine Sequenz von Zahlen von 1 bis 10, aber in Schritten von 2.
+
+### 5. Eingebaute Funktionen verwenden
+Verwende die folgenden eingebauten Funktionen und gib das Ergebnis aus:
+
+a) Finde die Quadratwurzel von 25.
+b) Finde den absoluten Wert von -10.
+c) Finde den maximalen und den minimalen Wert aus der Liste: 3, 7, 1, 8, 5
+
+---
+# Part 2 
+
+### 1. Notenberechnung
+Erstelle einen numerischen Vektor namens 'noten' für zehn Schüler. Weise jeder Note eine Punktzahl von 1 bis 5 zu, wobei 1 die beste Note ist und 5 die schlechteste. Berechne dann den Durchschnitt dieser Noten und gib das Ergebnis mit der `print()` Funktion aus.
+
+
+```{r}
+# Beispielcode:
+noten = c(1, 5, 3, 2, 4, 2, 3, 4, 1, 5)
+durchschnitt = mean(noten)
+print(durchschnitt)
+```
+
+### 2. Benotung von Schülern
+Erstelle einen Vektor namens 'namen' mit den Namen von fünf Schülern deiner Klasse.
+
+```{r}
+# Beispielcode:
+namen = c("Anna", "Ben", "Clara", "David", "Eva")
+print(namen)
+```
+
+### 3. Klassenanwesenheit
+Erstelle einen logischen Vektor 'anwesenheit', der angibt, welche Schüler an einem bestimmten Tag anwesend waren (TRUE) und welche abwesend waren (FALSE).
+
+```{r}
+# Beispielcode:
+anwesenheit = c(TRUE, FALSE, TRUE, TRUE, FALSE)
+print(anwesenheit)
+```
+
+### 4. Vektoren kombinieren
+Verwende die `cbind()`-Funktion, um die Vektoren 'namen', 'noten' und 'anwesenheit' in einem Data Frame zu kombinieren.
+
+```{r}
+# Beispielcode:
+klassenliste = cbind(namen, noten, anwesenheit)
+print(klassenliste)
+```
+
+### 5. Notendiagramm erstellen
+Verwende den Vektor 'noten' aus Aufgabe 1, um ein Balkendiagramm zu erstellen, das die Verteilung der Noten zeigt.
+
+```{r}
+# Beispielcode:
+barplot(noten, main="Verteilung der Noten", xlab="Schüler", ylab="Noten", col="skyblue")
+```
+
+
+## Viel Erfolg!
+
+
+
+
+-----
+
+# Lösungen zu den Hausaufgaben
+
+
+1. 
+
+## a) Addition
+
+```{r}
+ergebnis_addition = 5 + 3
+print(ergebnis_addition)  # Ausgabe: 8
+```
+
+
+## b) Subtraktion
+
+```{r}
+ergebnis_subtraktion = 10 - 4
+print(ergebnis_subtraktion)  # Ausgabe: 6
+
+```
+
+## c) Multiplikation
+
+```{r}
+ergebnis_multiplikation = 6 * 7
+print(ergebnis_multiplikation)  # Ausgabe: 42
+```
+
+
+## d) Division
+
+```{r}
+ergebnis_division = 15 / 3
+print(ergebnis_division)  # Ausgabe: 5
+```
+
+
+# e) Potenzierung
+
+```{r}
+ergebnis_potenzierung = 2^3
+print(ergebnis_potenzierung)  # Ausgabe: 8
+```
+
+
+## 2. Variablenzuweisung und Verwendung
+
+```{r}
+# Variablenzuweisung
+x = 5
+y = 3
+
+# a) Summe
+ergebnis_summe = x + y
+print(ergebnis_summe)  # Ausgabe: 8
+
+# b) Differenz
+ergebnis_differenz = x - y
+print(ergebnis_differenz)  # Ausgabe: 2
+```
+
+
+## 3. Arbeiten mit Vektoren
+
+```{r}
+# Vektoren erstellen
+vektor1 = c(1, 2, 3, 4, 5)
+vektor2 = c(6, 7, 8, 9, 10)
+
+# a) Vektoren elementweise addieren
+vektor_summe = vektor1 + vektor2
+print(vektor_summe)  # Ausgabe: 7 9 11 13 15
+
+# b) Vektoren elementweise multiplizieren
+vektor_produkt = vektor1 * vektor2
+print(vektor_produkt)  # Ausgabe: 6 14 24 36 50
+```
+
+
+## 4. Sequenzen generieren
+
+```{r}
+# a) Eine Sequenz von Zahlen generieren
+sequenz = 1:10
+print(sequenz)  # Ausgabe: 1 2 3 4 5 6 7 8 9 10
+
+# b) Eine Sequenz mit festgelegtem Schritt erstellen
+sequenz_schritt = seq(1, 10, by = 2)
+print(sequenz_schritt)  # Ausgabe: 1 3 5 7 9
+```
+
+
+## 5. Eingebaute Funktionen verwenden
+
+```{r}
+# a) Die Quadratwurzel berechnen
+sqrt_ergebnis = sqrt(25)
+print(sqrt_ergebnis)  # Ausgabe: 5
+
+# b) Den absoluten Wert berechnen
+absolutwert = abs(-10)
+print(absolutwert)  # Ausgabe: 10
+
+# c) Das Maximum und Minimum finden
+maximalwert = max(3, 7, 1, 8, 5)
+minimalwert = min(3, 7, 1, 8, 5)
+print(maximalwert)  # Ausgabe: 8
+print(minimalwert)  # Ausgabe: 1
+```
+
+
+## 6. Notenberechnung
+
+```{r}
+noten = c(1, 2, 3, 4, 1, 2, 3, 5, 4, 2)
+durchschnitt = mean(noten)
+print(durchschnitt)  # Beispiel Ausgabe: 2.7 (abhängig von den zugewiesenen Werten)
+```
+
+
+## 7. Benotung von Schülern
+
+```{r}
+namen = c("Anna", "Ben", "Clara", "David", "Eva",
+          "Anabele", "Bejamin", "Chiara", "Dirk", "Evelin")
+print(namen)
+```
+
+
+
+## 8. Klassenanwesenheit
+
+```{r}
+anwesenheit = c(TRUE, FALSE, TRUE, TRUE, FALSE,
+                TRUE, FALSE, TRUE, TRUE, FALSE)
+print(anwesenheit)
+```
+
+
+
+## 9. Vektoren kombinieren
+
+
+## a) 
+
+```{r}
+daten = cbind(namen, noten, anwesenheit)
+print(daten)
+```
+
+
+
+## b) Bonus - Mit matrix() Funktion:
+
+In diesem Fall müssen alle Daten numerisch oder charakterlich sein, weil eine Matrix nur Daten eines Typs speichern kann. Da anwesenheit ein logischer Vektor ist (TRUE/FALSE), werden wir ihn zu numerisch (1/0) konvertieren
+
+```{r}
+anwesenheit_num = as.numeric(anwesenheit)  # TRUE wird zu 1 und FALSE wird zu 0
+
+# Die Daten in einer Matrix speichern. Die ncol=3 gibt an, dass wir 3 Spalten haben wollen.
+daten_matrix = matrix(c(namen, noten, anwesenheit_num), 
+                      ncol = 3, nrow = 10)
+
+# Die Spaltennamen hinzufügen
+colnames(daten_matrix) = c("Namen", "Noten", "Anwesenheit")
+
+print(daten_matrix)
+```
+
+
+10. Notendiagramm erstellen
+
+```{r}
+barplot(noten, main = "Verteilung der Noten", 
+        xlab = "Schüler", 
+        ylab = "Note", 
+        col = "blue")
+
+```
