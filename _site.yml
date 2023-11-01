@@ -16,12 +16,12 @@ navbar:
           href: Basic_R_Project.html
         - text: "Basics in R - Variables"
           href: Basic_R_Variabels_i.html
-        - text: "Basics in R - Variables II & Functions"
+        - text: "Basics in R - Variables II"
           href: Basic_R_Functions_Repetitions.html
         - text: "Basics in R - Indexing & Filtering"
           href: indexing_filtering.html
-        - text: "Basics in R - Indexing & Filtering"
-          href: indexing_filtering.html
+        - text: "Basics in R - Funtions"
+          href: functions.html
         # - text: "Statistical Tests - Distributions"
         #   href: Basic_concepts_ii.html
     - text: "Statistik I - Homework"

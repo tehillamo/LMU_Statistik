@@ -1,25 +1,313 @@
 ---
-title: "Untitled"
+title: "Basic Concepts in R: Indexing"
 description: |
-  A new article created using the Distill format.
+#   A new article created using the Distill format.
 author:
-  - name: Nora Jones 
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
+  - name: Tehilla Ostrovsky 
+#     url: https://example.com/norajones
+#     affiliation: Spacely Sprockets
+#     affiliation_url: https://example.com/spacelysprokets
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+
+
+Indexing in R ist ein wichtiges Konzept, das es uns ermöglicht, auf bestimmte Elemente oder Teilmengen von Daten in Vektoren, Matrizen und Datenrahmen zuzugreifen. 
+
+In diesem Blog werden wir die Indexing anhand von Beispielen für jede dieser Datenstrukturen (i.e., Objekte) behandeln.
+
+
+
+## Indexing a Vector:
+In R ist ein Vektor ein eindimensionales Array von Datenelementen (e.g., x = 3). Sie können einen Vektor 'indizieren', um auf bestimmte Elemente zuzugreifen, indem Sie eckige Klammern [] verwenden. Die Indexierung von Vektoren beginnt bei 1 (In anderen Programmiersprachen beginnt die 'Indexing' bei 0).
+
+Here's how to index a vector:
+
+
+```{r}
+# Create a vector
+my_vector = c(10, 20, 30, 40, 50)
+
+# Access the first element
+element_1 = my_vector[1]
+print(element_1)  # Output: 10
+
+# Access the third element
+element_3 = my_vector[3]
+print(element_3)  # Output: 30
+
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web. 
 
-Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
+Du kannst auch vektorisierte Indexing verwenden, um auf mehrere Elemente gleichzeitig zuzugreifen:
+
+```{r}
+# Access the first three elements
+elements_1_to_3 = my_vector[1:3]
+print(elements_1_to_3)  # Output: 10 20 30
+```
 
 
 
+## Indexing a Matrix:
 
+Eine Matrix ist ein zweidimensionales Array mit Zeilen und Spalten. 
+
+Du kannst Elemente einer Matrix 'indizieren', indem du die eckige Klammern mit Zeilen- und Spaltenindizes verwendest, die durch ein Komma getrennt sind.
+
+So indizierst du eine Matrix:
+
+```{r}
+# Create a matrix
+my_matrix = matrix(1:9, nrow = 3, ncol = 3)
+
+# Access the element in the second row and third column
+element_2_3 = my_matrix[2, 3]
+print(element_2_3)  # Output: 6
+```
+
+
+So 'indizierst' du eine Matrix:
+
+```{r}
+# Access the second row
+row_2 = my_matrix[2, ]
+print(row_2)  # Output: 4 5 6
+
+# Access the first column
+col_1 = my_matrix[, 1]
+print(col_1)  # Output: 1 2 3
+
+```
+
+
+
+## Indexing a DataFrame:
+Ein Data Frame ist eine zweidimensionale Datenstruktur in R, ähnlich wie eine Tabelle in einer Datenbank oder ein Excel Spreadsheet.  
+
+Du kannst ein Data Frame mit eckigen Klammern 'indizieren' und dabei die Zeilen- und Spaltennamen oder -indizes angeben.
+
+So wird ein Data Frame 'indiziert':
+
+```{r}
+# Create a data frame
+my_dataframe = data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Age = c(25, 30, 22),
+  Score = c(90, 85, 95)
+)
+
+# Access the 'Age' column using column name
+ages = my_dataframe$Age
+print(ages)  # Output: 25 30 22
+
+# Access the 'Score' column using double square brackets
+scores = my_dataframe[["Score"]]
+print(scores)  # Output: 90 85 95
+
+# Access the second row
+row_2 = my_dataframe[2, ]
+print(row_2)
+```
+
+
+
+# Indexing by condition
+Angenommen, du hast 'nen Data Frame namens 'my_dataframe' wie folgt:
+
+```{r}
+my_dataframe = data.frame(
+  Name = c("Alice", "Bob", "Charlie", "David"),
+  Age = c(25, 30, 22, 28),
+  Score = c(90, 85, 95, 88)
+)
+
+```
+
+
+
+Beispiel 1: Filtern von Zeilen basierend auf einer Bedingung.
+
+Angenommen, du möchtest die Zeilen filtern, in denen die 'Age'-Spalte größer als 25 ist. 
+
+Dafür kannst du die logische Indexing verwenden:
+
+```{r}
+# Create a logical condition
+condition = my_dataframe$Age > 25
+
+# Use the condition to filter rows
+filtered_dataframe = my_dataframe[condition, ]
+
+# Print the filtered data frame
+print(filtered_dataframe)
+
+```
+
+
+In diesem Beispiel haben wir eine logische Bedingung my_dataframe$Age > 25 erstellt, um zu überprüfen, ob die 'Age'-Spalte größer als 25 ist. Anschließend haben wir diese Bedingung verwendet, um die Zeilen zu filtern, wodurch ein neuer Data Frame entsteht, der nur die Zeilen enthält, bei denen die Bedingung TRUE ist. 
+
+---
+
+Beispiel 2: Kombinieren mehrerer Bedingungen
+Du kannst auch mehrere Bedingungen mithilfe von logischen Operatoren wie & (UND) und | (ODER) kombinieren. Zum Beispiel, wenn du Zeilen filtern möchtest, in denen 'Age' größer als 25 und 'Score' kleiner als 90 ist:
+
+
+```{r}
+# Create logical conditions
+condition_age = my_dataframe$Age > 25
+condition_score = my_dataframe$Score < 90
+
+# Combine conditions using &
+combined_condition = condition_age & condition_score
+
+# Use the combined condition to filter rows
+filtered_dataframe = my_dataframe[combined_condition, ]
+
+# Print the filtered data frame
+print(filtered_dataframe)
+
+```
+
+In diesem Beispiel haben wir zwei separate Bedingungen erstellt, sie mithilfe des &-Operators kombiniert, um eine combined_condition zu erstellen, und sie dann verwendet, um die Zeilen im Data Frame zu filtern. Nur die Zeile, in der beide Bedingungen TRUE sind, wird in das gefilterte Ergebnis aufgenommen.
+
+---
+
+
+## Important to know: 
+
+### In R, the '$' sign is used to access a specific column (variable) within a data frame or list. It allows you to extract or work with a single column of data from a larger data structure, such as a data frame, without having to reference the entire data frame each time.
+
+**Task 1: Access a Specific Element in a Matrix**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+1. Create a 3x3 numeric matrix named my_matrix with values (1 to 9).
+
+2. Use indexing to access and display the element in the second row and third column.
+
+3. Print the value of the accessed element.
+
+</div>
+
+```{r, echo=FALSE, results='hide'}
+# Create a 3x3 matrix
+my_matrix = matrix(1:9, nrow = 3, ncol = 3)
+
+# Access the element in the second row and third column
+element = my_matrix[2, 3]
+print(element)
+
+```
+
+**Task 2: Extract an Entire Row from a Matrix**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+1. Extend the 3x3 matrix from the previous task to include additional rows.
+
+2. Use indexing to extract and display the entire second row of the matrix.
+
+3. Print the extracted row to verify its contents.
+
+</div>
+
+
+```{r, echo=FALSE, results='hide'}
+# Extend the 3x3 matrix
+my_matrix = matrix(1:12, nrow = 4, ncol = 3)
+
+# Extract the entire second row
+second_row = my_matrix[2, ]
+print(second_row)
+
+```
+
+**Task 3: Extract a Column from a Matrix**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+
+1. Extend the 4x3 matrix from the previous task to include more columns.
+
+2. Use indexing to extract and display the entire third column of the matrix.
+
+3. Print the extracted column to ensure it contains the correct values.
+</div>
+
+
+```{r, echo=FALSE, results='hide'}
+# Extend the 4x3 matrix
+my_matrix = matrix(1:16, nrow = 4, ncol = 4)
+
+# Extract the third column
+third_column = my_matrix[, 3]
+print(third_column)
+```
+
+**Task 4: Access a Single Column in a Data Frame**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+
+1. Create a data frame named my_dataframe with two columns: 'Name' and 'Age'. For example:
+
+my_dataframe = data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Age = c(25, 30, 22)
+)
+
+2. Use the $ sign to access and print the 'Age' column.
+</div>
+
+```{r, echo=FALSE, results='hide'}
+# Access the 'Age' column
+ages = my_dataframe$Age
+print(ages)
+```
+
+
+**Task 5: Filter Rows Based on a Condition in a Data Frame**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+
+1. Add a new column named 'Salary' to the my_dataframe data frame with these salary values: 35000, 40000, 28000.
+
+2. Write code to filter and display only the rows where the 'Salary' is greater than 30000.
+
+3. Confirm that the filtering produces the expected result.
+
+</div>
+
+```{r, echo=FALSE, results='hide'}
+# Add 'Salary' column
+my_dataframe$Salary = c(35000, 40000, 28000, 45000)
+
+# Filter rows where 'Salary' > 30000
+filtered_dataframe = my_dataframe[my_dataframe$Salary > 30000, ]
+print(filtered_dataframe)
+```
+
+**Task 6: Access Multiple Columns in a Data Frame**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+1. Extend the my_dataframe data frame with a new column named 'Department.'. Use the '$' sign or cbind() to do so. 
+
+2. Use indexing to access and display both the 'Name' and 'Department' columns simultaneously.
+
+3. Print the selected columns to ensure you can access and view them.
+</div>
+
+
+```{r, echo=FALSE, results='hide'}
+# Extend the data frame with 'Department' column
+my_dataframe$Department <- c("HR", "Finance", "IT", "Hr")
+
+# Access and display 'Name' and 'Department' columns
+name_department <- my_dataframe[c("Name", "Department")]
+print(name_department)
+```
 

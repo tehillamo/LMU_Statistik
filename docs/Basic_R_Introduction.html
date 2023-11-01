@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-10-31"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-10-31"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-11-01"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-11-01"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Objects & Functions"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-10-31"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Objects & Functions"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-11-01"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R: Objects & Functions","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-10-31T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R: Objects & Functions","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-11-01T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2124,9 +2124,9 @@ Statistik I
 <a href="Basic_R.html">Basics in R - Download R &amp; R Studio</a>
 <a href="Basic_R_Project.html">Basics in R - Create Project</a>
 <a href="Basic_R_Variabels_i.html">Basics in R - Variables</a>
-<a href="Basic_R_Functions_Repetitions.html">Basics in R - Variables II &amp; Functions</a>
+<a href="Basic_R_Functions_Repetitions.html">Basics in R - Variables II</a>
 <a href="indexing_filtering.html">Basics in R - Indexing &amp; Filtering</a>
-<a href="indexing_filtering.html">Basics in R - Indexing &amp; Filtering</a>
+<a href="functions.html">Basics in R - Funtions</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2175,7 +2175,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-10-31
+<br/>2023-11-01
 </div>
 
 <div class="d-article">
@@ -2348,10 +2348,10 @@ $scores
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='co'># randomly draws 20 values from the normal distribution with a mean of 0 and SD of 1</span></span></code></pre>
 </div>
-<pre><code> [1] -0.04350726  2.38151529  1.54803111  1.55476200  0.05811123
- [6] -0.83977892  0.57112345  0.06604778  3.58465949 -1.93189555
-[11] -0.20283250  1.48371520 -2.09851640 -0.25964867  0.33406794
-[16] -0.21963759 -0.93177180 -0.12224022  1.33852842 -1.34833119</code></pre>
+<pre><code> [1] -2.61364347  0.78045190  0.04510507 -0.10848916 -0.39122431
+ [6] -1.68699950 -0.95270446  0.50741411  0.01881610 -1.41891037
+[11]  0.59817193  0.78637962 -0.13463305 -0.01638652  1.40914041
+[16]  0.39483870  1.21987513 -0.04507721  1.47948784 -0.07568379</code></pre>
 </div>
 <p>Functions can also generate graphics from objects.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2594,10 +2594,10 @@ $name
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0</span>, sd <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='co'># zieht zufällig 20 Werte aus der Normalverteilung mit einem Mittelwert von 0 und einer Standardabweichung von 1</span></span></code></pre>
 </div>
-<pre><code> [1] -0.97724766  1.44820167 -0.08585566 -1.57376980  1.29247616
- [6]  0.08446776  0.96704600  1.93911299  1.07987264 -0.35359353
-[11] -0.13492312 -0.98713243 -0.82170815  0.48953092 -0.29927746
-[16]  0.65825490  0.83240955  0.36346326 -0.39864566 -1.49792999</code></pre>
+<pre><code> [1]  0.71222821  0.44295423  0.75958731 -0.46887767 -0.17270998
+ [6]  0.68204990 -0.28157733 -0.96162257 -1.37765014  2.69758664
+[11] -1.69971506  0.02931665  1.93431434  0.83751088 -0.18534633
+[16]  0.53332918  1.78495624  0.18962782 -0.56908751  1.45189294</code></pre>
 </div>
 <p>Funktionen können auch Grafiken aus Objekten generieren.</p>
 <div class="layout-chunk" data-layout="l-body">
