@@ -273,7 +273,7 @@ print(ages)
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
 
-1. Add a new column named 'Salary' to the my_dataframe data frame with these salary values: 35000, 40000, 28000.
+1. Add a new column named 'Salary' to the my_dataframe data frame with these salary values: 35000, 40000, 28000, 45000.
 
 2. Write code to filter and display only the rows where the 'Salary' is greater than 30000.
 
