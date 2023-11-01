@@ -11,6 +11,11 @@ date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
+In diesem Blog werden wir uns damit beschäftigen, wie wir Objekte, insbesondere Vektoren, mit Funktionen manipulieren und verändern können.
+
+Mithilfe von verschiedenen Funktionen in R können Vektoren auf vielfältige Weise bearbeitet werden, sei es durch **Kombinieren**, **Filtern** oder **Anwenden von mathematischen Operationen**. 
+
+In der folgenden Diskussion werden wir uns mit den spezifischen Funktionen und Techniken befassen, die in R verfügbar sind, um Vektoren effizient zu manipulieren.
 
 <p style="font-family:monospace;color:blue;font-size:200%"> Funktionen </p>
 
