@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-11-01"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-11-01"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-11-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-11-02"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Indexing"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-11-01"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Indexing"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-11-02"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R: Indexing","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-11-01T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R: Indexing","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-11-02T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2126,7 +2126,7 @@ Statistik I
 <a href="Basic_R_Variabels_i.html">Basics in R - Variables</a>
 <a href="Basic_R_Functions_Repetitions.html">Basics in R - Variables II</a>
 <a href="indexing_filtering.html">Basics in R - Indexing &amp; Filtering</a>
-<a href="functions.html">Basics in R - Funtions</a>
+<a href="functions.html">Basics in R - Functions</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2175,7 +2175,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-11-01
+<br/>2023-11-02
 </div>
 
 <div class="d-article">
@@ -2303,26 +2303,41 @@ Statistik II
 </div>
 <p>In diesem Beispiel haben wir eine logische Bedingung my_dataframe$Age &gt; 25 erstellt, um zu überprüfen, ob die ‘Age’-Spalte größer als 25 ist. Anschließend haben wir diese Bedingung verwendet, um die Zeilen zu filtern, wodurch ein neuer Data Frame entsteht, der nur die Zeilen enthält, bei denen die Bedingung TRUE ist.</p>
 <hr />
-<p>Beispiel 2: Kombinieren mehrerer Bedingungen
-Du kannst auch mehrere Bedingungen mithilfe von logischen Operatoren wie &amp; (UND) und | (ODER) kombinieren. Zum Beispiel, wenn du Zeilen filtern möchtest, in denen ‘Age’ größer als 25 und ‘Score’ kleiner als 90 ist:</p>
+<p>Stellen wir uns vor, wir haben einen Datenrahmen namens “clothing”, der eine Liste verschiedener Kleidungsstücke, deren Farben und Preise enthält. Wir wollen Zeilen für alle Jeans extrahieren, die blau sind (oder die mehr als 35 EUR kosten). Hier ist ein Beispiel, wie du den Datenrahmen einrichten und die Operation durchführen könntest:</p>
+<p>Auch in diesem Beispiel: Wir können auch mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren wie &amp; (UND) und | (ODER). Zum Beispiel, wenn du Zeilen filtern möchtest, in denen ‘price’ größer als 35 und ‘color’ blau ist:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create logical conditions</span></span>
-<span><span class='va'>condition_age</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Age</span> <span class='op'>&gt;</span> <span class='fl'>25</span></span>
-<span><span class='va'>condition_score</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Score</span> <span class='op'>&lt;</span> <span class='fl'>90</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Creating a data frame with sample data</span></span>
+<span><span class='va'>clothing</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
+<span>  item <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"jeans"</span>, <span class='st'>"jeans"</span>, <span class='st'>"shirt"</span>, <span class='st'>"jeans"</span>, <span class='st'>"shirt"</span>, <span class='st'>"jeans"</span><span class='op'>)</span>,</span>
+<span>  color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"blue"</span>, <span class='st'>"black"</span>, <span class='st'>"blue"</span>, <span class='st'>"blue"</span>, <span class='st'>"red"</span>, <span class='st'>"green"</span><span class='op'>)</span>,</span>
+<span>  price <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>50</span>, <span class='fl'>60</span>, <span class='fl'>25</span>, <span class='fl'>70</span>, <span class='fl'>30</span>, <span class='fl'>55</span><span class='op'>)</span>,</span>
+<span>  stringsAsFactors <span class='op'>=</span> <span class='cn'>FALSE</span>  <span class='co'># This is to keep strings as characters</span></span>
+<span><span class='op'>)</span></span>
 <span></span>
-<span><span class='co'># Combine conditions using &amp;</span></span>
-<span><span class='va'>combined_condition</span> <span class='op'>=</span> <span class='va'>condition_age</span> <span class='op'>&amp;</span> <span class='va'>condition_score</span></span>
+<span><span class='co'># Define the condition for blue jeans</span></span>
+<span><span class='va'>condition</span> <span class='op'>=</span> <span class='va'>clothing</span><span class='op'>$</span><span class='va'>price</span> <span class='op'>&gt;</span> <span class='fl'>35</span></span>
+<span><span class='va'>condition_2</span> <span class='op'>=</span> <span class='va'>clothing</span><span class='op'>$</span><span class='va'>price</span> <span class='op'>&gt;</span> <span class='fl'>35</span> <span class='op'>&amp;</span> <span class='va'>clothing</span><span class='op'>$</span><span class='va'>color</span> <span class='op'>==</span> <span class='st'>"blue"</span></span>
 <span></span>
-<span><span class='co'># Use the combined condition to filter rows</span></span>
-<span><span class='va'>filtered_dataframe</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>combined_condition</span>, <span class='op'>]</span></span>
 <span></span>
-<span><span class='co'># Print the filtered data frame</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>filtered_dataframe</span><span class='op'>)</span></span></code></pre>
+<span><span class='co'># Use the condition to index the data frame and extract the rows</span></span>
+<span><span class='va'>expensive_jeans</span> <span class='op'>=</span> <span class='va'>clothing</span><span class='op'>[</span><span class='va'>condition</span>, <span class='op'>]</span></span>
+<span><span class='va'>expensive_Bluejeans</span> <span class='op'>=</span> <span class='va'>clothing</span><span class='op'>[</span><span class='va'>condition_2</span>, <span class='op'>]</span></span>
+<span></span>
+<span><span class='co'># Display the resulting subset of the data frame</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>expensive_jeans</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>   Name Age Score
-2   Bob  30    85
-4 David  28    88</code></pre>
+<pre><code>   item color price
+1 jeans  blue    50
+2 jeans black    60
+4 jeans  blue    70
+6 jeans green    55</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>expensive_Bluejeans</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>   item color price
+1 jeans  blue    50
+4 jeans  blue    70</code></pre>
 </div>
 <p>In diesem Beispiel haben wir zwei separate Bedingungen erstellt, sie mithilfe des &amp;-Operators kombiniert, um eine combined_condition zu erstellen, und sie dann verwendet, um die Zeilen im Data Frame zu filtern. Nur die Zeile, in der beide Bedingungen TRUE sind, wird in das gefilterte Ergebnis aufgenommen.</p>
 <hr />
@@ -2399,7 +2414,7 @@ Age = c(25, 30, 22)
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

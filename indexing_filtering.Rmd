@@ -150,23 +150,32 @@ In diesem Beispiel haben wir eine logische Bedingung my_dataframe$Age > 25 erste
 
 ---
 
-Beispiel 2: Kombinieren mehrerer Bedingungen
-Du kannst auch mehrere Bedingungen mithilfe von logischen Operatoren wie & (UND) und | (ODER) kombinieren. Zum Beispiel, wenn du Zeilen filtern möchtest, in denen 'Age' größer als 25 und 'Score' kleiner als 90 ist:
+Stellen wir uns vor, wir haben einen Datenrahmen namens "clothing", der eine Liste verschiedener Kleidungsstücke, deren Farben und Preise enthält. Wir wollen Zeilen für alle Jeans extrahieren, die blau sind (oder die mehr als 35 EUR kosten). Hier ist ein Beispiel, wie du den Datenrahmen einrichten und die Operation durchführen könntest:
+
+Auch in diesem Beispiel: Wir können auch mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren wie & (UND) und | (ODER). Zum Beispiel, wenn du Zeilen filtern möchtest, in denen 'price' größer als 35 und 'color' blau ist:
 
 
 ```{r}
-# Create logical conditions
-condition_age = my_dataframe$Age > 25
-condition_score = my_dataframe$Score < 90
+# Creating a data frame with sample data
+clothing = data.frame(
+  item = c("jeans", "jeans", "shirt", "jeans", "shirt", "jeans"),
+  color = c("blue", "black", "blue", "blue", "red", "green"),
+  price = c(50, 60, 25, 70, 30, 55),
+  stringsAsFactors = FALSE  # This is to keep strings as characters
+)
 
-# Combine conditions using &
-combined_condition = condition_age & condition_score
+# Define the condition for blue jeans
+condition = clothing$price > 35
+condition_2 = clothing$price > 35 & clothing$color == "blue"
 
-# Use the combined condition to filter rows
-filtered_dataframe = my_dataframe[combined_condition, ]
 
-# Print the filtered data frame
-print(filtered_dataframe)
+# Use the condition to index the data frame and extract the rows
+expensive_jeans = clothing[condition, ]
+expensive_Bluejeans = clothing[condition_2, ]
+
+# Display the resulting subset of the data frame
+print(expensive_jeans)
+print(expensive_Bluejeans)
 
 ```
 
