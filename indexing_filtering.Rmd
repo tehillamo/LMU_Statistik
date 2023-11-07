@@ -190,16 +190,19 @@ hist(my_dataframe[condition_wide, 2],
      )
 ```
 
-## yet another way to index/filter 
+## Indexing/Filtering by multiple conditions 
 
-Stellen wir uns vor, wir haben einen Datenrahmen namens "clothing", der eine Liste verschiedener Kleidungsstücke, deren Farben und Preise enthält. Wir wollen Zeilen für alle Jeans extrahieren, die blau sind (oder die mehr als 35 EUR kosten). Hier ist ein Beispiel, wie du den Datenrahmen einrichten und die Operation durchführen könntest:
+Stellen wir uns vor, wir wollen Zeilen für alle "Wide leg" Jeans extrahieren UND die mehr als 39 EUR kosten. Hier ist ein Beispiel, wie du den Datenrahmen einrichten und die Operation durchführen könntest:
 
-Auch in diesem Beispiel: Wir können auch mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren wie & (UND) und | (ODER). Zum Beispiel, wenn du Zeilen filtern möchtest, in denen 'price' größer als 59 und ein "wide leg" cut ist:
+Wir können mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren wie & (UND) und | (ODER). 
 
+Zum Beispiel, 
+
+(1) wenn du Zeilen filtern möchtest, in denen 'price' größer als 39 UND ein "wide leg" cut ist.
 ```{r}
 # condition that will select both wide cuts and those that cost more than 59Euro
 condition_wide_39 = my_dataframe$Cut == "wide leg" & my_dataframe$Price > 39
-print(condition_wide_39)
+head(condition_wide_39)
 
 data_wide_39 = my_dataframe[condition_wide_39,]
 
@@ -208,142 +211,135 @@ hist(data_wide_39[,2],
      main = paste("Histogram of > 39Euros & Wide-leg Cut"),
      xlab = "prices of 'wide-leg & price > 39' jeans"
      )
+```
 
+
+
+
+(2) wenn du Zeilen filtern möchtest, in denen 'price' größer als 39 ODER ein "wide leg" cut ist.
+
+```{r}
+# condition that will select both wide cuts and those that cost more than 59Euro
+condition_wide_or_39 = my_dataframe$Cut == "wide leg" | my_dataframe$Price > 39
+head(condition_wide_or_39)
+
+data_wide_or_39 = my_dataframe[condition_wide_or_39,]
+
+hist(data_wide_or_39[,2],
+     col = "lightblue", border = "#227FCE",
+     main = paste("Histogram of > 39Euros & Wide-leg Cut"),
+     xlab = "prices of 'wide-leg & price > 39' jeans"
+     )
 ```
 
 
 ---
 
 
-## Important to know: 
+#### Important to know: 
+In R, the '$' sign is used to access a specific column (variable) within a data frame or list. It allows you to extract or work with a single column of data from a larger data structure, such as a data frame, without having to reference the entire data frame each time.
 
-### In R, the '$' sign is used to access a specific column (variable) within a data frame or list. It allows you to extract or work with a single column of data from a larger data structure, such as a data frame, without having to reference the entire data frame each time.
-
-**Task 1: Access a Specific Element in a Matrix**
+**Task 1: Access a Specific Element in a Matrix/Dataframe**
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
-1. Create a 3x3 numeric matrix named my_matrix with values (1 to 9).
 
-2. Use indexing to access and display the element in the second row and third column.
+2. Use indexing to access and display the element in the second row and third column in the dataframe presented earlier in this blogpost.
 
 3. Print the value of the accessed element.
 
 </div>
 
 ```{r, echo=FALSE, results='hide'}
-# Create a 3x3 matrix
-my_matrix = matrix(1:9, nrow = 3, ncol = 3)
-
 # Access the element in the second row and third column
-element = my_matrix[2, 3]
+element = my_dataframe[2, 3]
 print(element)
 
 ```
 
-**Task 2: Extract an Entire Row from a Matrix**
+**Task 2: Extend and index a Matrix/Dataframe**
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
-1. Extend the 3x3 matrix from the previous task to include additional rows.
+1. Add another column to the dataframe, which represents the brand category. It will be the following vector: rep(c("expensive","top", "middle", "affordable", "cheap"), 120). *learn about that rep() does by typing ?rep in the console!
 
-2. Use indexing to extract and display the entire second row of the matrix.
-
-3. Print the extracted row to verify its contents.
+2. Use indexing to extract and display the first 10 rows of this dataframe and see if the rep() did what it was suppose to.
 
 </div>
 
 
 ```{r, echo=FALSE, results='hide'}
-# Extend the 3x3 matrix
-my_matrix = matrix(1:12, nrow = 4, ncol = 3)
+# Extend the dataframe
+my_dataframe$Brand = rep(c("expensive","top", "middle", "affordable", "cheap"), 120)
 
 # Extract the entire second row
-second_row = my_matrix[2, ]
-print(second_row)
-
+dataframe_first10rows = my_dataframe[1:10, ]
+print(dataframe_first10rows)
 ```
 
-**Task 3: Extract a Column from a Matrix**
+**Task 3: Extract rows in Matrix/Dataframe by condition**
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
+1. Extract the rows in the dataframe, which represents only the "affordable" category.
 
-1. Extend the 4x3 matrix from the previous task to include more columns.
+2. Print it.
 
-2. Use indexing to extract and display the entire third column of the matrix.
-
-3. Print the extracted column to ensure it contains the correct values.
+3. Bonus: create a histogram to show the distribution of the prices in this category
 </div>
 
 
 ```{r, echo=FALSE, results='hide'}
-# Extend the 4x3 matrix
-my_matrix = matrix(1:16, nrow = 4, ncol = 4)
+# Define condition
+condition_brandCategory = my_dataframe$Brand == "affordable"
 
-# Extract the third column
-third_column = my_matrix[, 3]
-print(third_column)
+# filter according to this condition
+filtered_cat = my_dataframe[condition_brandCategory,]
+
+# print the filtered dataset
+print(filtered_cat)
+
+# create a histogram
+hist(filtered_cat$Price)
 ```
 
-**Task 4: Access a Single Column in a Data Frame**
+**Task 4: Filter by multiple conditions**
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
+1. Extract the rows in the dataframe, which represents only the "cheap" category and where prices are below 30.
 
-1. Create a data frame named my_dataframe with two columns: 'Name' and 'Age'. For example:
+2. Print it.
 
-my_dataframe = data.frame(
-  Name = c("Alice", "Bob", "Charlie"),
-  Age = c(25, 30, 22)
-)
-
-2. Use the $ sign to access and print the 'Age' column.
-</div>
-
-```{r, echo=FALSE, results='hide'}
-# Access the 'Item Type' column
-itemType = my_dataframe$ItemType
-print(itemType)
-```
-
-
-**Task 5: Filter Rows Based on a Condition in a Data Frame**
-
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
-
-
-1. Add a new column named 'Salary' to the my_dataframe data frame with these salary values: 35000, 40000, 28000, 45000.
-
-2. Write code to filter and display only the rows where the 'Salary' is greater than 30000.
-
-3. Confirm that the filtering produces the expected result.
+3. Bonus: create a histogram to show the distribution of the prices in these two conditions. 
 
 </div>
 
 ```{r, echo=FALSE, results='hide'}
-# Add 'Salary' column
-my_dataframe$sale = rep(c(TRUE, FALSE), length(my_dataframe$ItemType)/2)
+# Define condition
+condition_brand_price = my_dataframe$Brand == "affordable" & my_dataframe$Price < 30
 
-# Filter rows where 'Salary' > 30000
-filtered_dataframe = my_dataframe[my_dataframe$sale == TRUE, ]
-print(filtered_dataframe)
+# filter according to this condition
+filtered_ctgs = my_dataframe[condition_brand_price,]
 
-hist(filtered_dataframe$Price,
-     col = "#FAC0CF", border = "#CE224E",
-     main = "Distribution of Prices of Jeans on Sale", xlab = "prices of jeans on sale")
+# print the filtered dataset
+print(filtered_ctgs)
 
+# create a histogram
+hist(filtered_ctgs$Price)
 ```
 
-**Task 6: Access Multiple Columns in a Data Frame**
+
+
+**Task 5: Add a column and index**
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
-1. Extend the my_dataframe data frame with a new column named 'Department.'. Use the '$' sign or cbind() to do so. 
+1. Extend the my_dataframe data frame with a new column named 'ID'. Use the '$' to do so. Hin: we have 600 rows in this dataframe. Use dim() to find our what the dimensions of this dataframe is to knwo how many rows we have.  
 
-2. Use indexing to access and display both the 'Name' and 'Department' columns simultaneously.
+2. Use indexing to access and display the first 100 rows.
 
-3. Print the selected columns to ensure you can access and view them.
+3. Print your results.
 </div>
 
 
