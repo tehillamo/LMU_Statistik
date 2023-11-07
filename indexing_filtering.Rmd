@@ -302,7 +302,7 @@ filtered_cat = my_dataframe[condition_brandCategory,]
 print(filtered_cat)
 
 # create a histogram
-hist(filtered_cat$Price)
+#hist(filtered_cat$Price)
 ```
 
 **Task 4: Filter by multiple conditions**
@@ -328,7 +328,7 @@ filtered_ctgs = my_dataframe[condition_brand_price,]
 print(filtered_ctgs)
 
 # create a histogram
-hist(filtered_ctgs$Price)
+# hist(filtered_ctgs$Price)
 ```
 
 

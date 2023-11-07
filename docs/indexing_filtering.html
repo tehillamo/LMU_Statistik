@@ -2259,28 +2259,28 @@ Statistik II
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>my_dataframe</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>  ItemType Price       Cut
-1    jeans    63      boot
-2    jeans    61       7/8
-3    jeans    47    skinny
-4    jeans    54  wide leg
-5    jeans    55 boyfriend
-6    jeans    76      boot</code></pre>
+1    jeans    68      boot
+2    jeans    75       7/8
+3    jeans    66    skinny
+4    jeans    37  wide leg
+5    jeans    26 boyfriend
+6    jeans    74      boot</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the second row</span></span>
 <span><span class='va'>row_2</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='fl'>2</span>, <span class='op'>]</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>row_2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>  ItemType Price Cut
-2    jeans    61 7/8</code></pre>
+2    jeans    75 7/8</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the entire first column</span></span>
 <span><span class='va'>col_2</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span> ,<span class='fl'>2</span><span class='op'>]</span></span>
 <span><span class='va'>col_2</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>50</span><span class='op'>]</span></span></code></pre>
 </div>
-<pre><code> [1]  63  61  47  54  55  76  57  72  48  51  48  61  33  17  45  68
-[17]  41  93  70  69  63  79  66  57  64  80 101  33  63 107  90  59
-[33]  53  61  28  79  71  90  62  -5  55  86  26  48  76  74  70  42
-[49]  47  49</code></pre>
+<pre><code> [1]  68  75  66  37  26  74  41  52  28  80  44 100  56  55  77  47
+[17]  51  35  83  72 104  28  70  57  39  61  47  65  81  70  67 101
+[33]  84  66  54  54  36  66  63  51  80  65  59  61  80 120  34  46
+[49]  32  33</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the 'Age' column using column name</span></span>
 <span><span class='va'>allCuts</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span></span>
@@ -2322,26 +2322,26 @@ Statistik II
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>my_dataframe_boot</span>, n <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span> <span class='co'># n stands for the number of top observations you wish to see out of the dataframe </span></span></code></pre>
 </div>
 <pre><code>   ItemType Price  Cut
-1     jeans    63 boot
-6     jeans    76 boot
-11    jeans    48 boot
-16    jeans    68 boot
-21    jeans    63 boot
-26    jeans    80 boot
-31    jeans    90 boot
-36    jeans    79 boot
-41    jeans    55 boot
-46    jeans    74 boot
-51    jeans    46 boot
-56    jeans    60 boot
-61    jeans    42 boot
-66    jeans    19 boot
-71    jeans    45 boot
-76    jeans    47 boot
-81    jeans    62 boot
-86    jeans    74 boot
-91    jeans    50 boot
-96    jeans    52 boot</code></pre>
+1     jeans    68 boot
+6     jeans    74 boot
+11    jeans    44 boot
+16    jeans    47 boot
+21    jeans   104 boot
+26    jeans    61 boot
+31    jeans    67 boot
+36    jeans    54 boot
+41    jeans    80 boot
+46    jeans   120 boot
+51    jeans    69 boot
+56    jeans    58 boot
+61    jeans    46 boot
+66    jeans    61 boot
+71    jeans    26 boot
+76    jeans    54 boot
+81    jeans    74 boot
+86    jeans    70 boot
+91    jeans    56 boot
+96    jeans    58 boot</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># bonus...lets see the distribution of the prices of boot cuts </span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_boot</span>, <span class='fl'>2</span><span class='op'>]</span>,</span>
@@ -2378,7 +2378,7 @@ Statistik II
 <span><span class='va'>condition_wide_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span> <span class='op'>==</span> <span class='st'>"wide leg"</span> <span class='op'>&amp;</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Price</span> <span class='op'>&gt;</span> <span class='fl'>39</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>condition_wide_39</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>[1] FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data_wide_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_wide_39</span>,<span class='op'>]</span></span>
 <span></span>
@@ -2399,7 +2399,7 @@ Statistik II
 <span><span class='va'>condition_wide_or_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span> <span class='op'>==</span> <span class='st'>"wide leg"</span> <span class='op'>|</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Price</span> <span class='op'>&gt;</span> <span class='fl'>39</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>condition_wide_or_39</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>[1] TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+<pre><code>[1]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data_wide_or_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_wide_or_39</span>,<span class='op'>]</span></span>
 <span></span>
@@ -2443,7 +2443,7 @@ Statistik II
 </ol>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="indexing_filtering_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+
 </div>
 <p><strong>Task 4: Filter by multiple conditions</strong></p>
 <div style="border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
@@ -2454,7 +2454,7 @@ Statistik II
 </ol>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="indexing_filtering_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+
 </div>
 <p><strong>Task 5: Add a column and index</strong></p>
 <div style="border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
