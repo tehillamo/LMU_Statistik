@@ -199,6 +199,8 @@ Wir können mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren w
 Zum Beispiel, 
 
 (1) wenn du Zeilen filtern möchtest, in denen 'price' größer als 39 UND ein "wide leg" cut ist.
+
+
 ```{r}
 # condition that will select both wide cuts and those that cost more than 59Euro
 condition_wide_39 = my_dataframe$Cut == "wide leg" & my_dataframe$Price > 39

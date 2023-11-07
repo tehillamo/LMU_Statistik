@@ -2131,16 +2131,6 @@ Statistik I
 </div>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-Statistik I - Homework
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="vec_fun_homework.html">Homework - Session 3</a>
-</div>
-</div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
 Statistik II
  
 <span class="down-arrow">&#x25BE;</span>
@@ -2269,28 +2259,28 @@ Statistik II
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>my_dataframe</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>  ItemType Price       Cut
-1    jeans    52      boot
-2    jeans    59       7/8
-3    jeans    68    skinny
-4    jeans    59  wide leg
-5    jeans    74 boyfriend
-6    jeans    90      boot</code></pre>
+1    jeans    63      boot
+2    jeans    61       7/8
+3    jeans    47    skinny
+4    jeans    54  wide leg
+5    jeans    55 boyfriend
+6    jeans    76      boot</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the second row</span></span>
 <span><span class='va'>row_2</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='fl'>2</span>, <span class='op'>]</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>row_2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>  ItemType Price Cut
-2    jeans    59 7/8</code></pre>
+2    jeans    61 7/8</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the entire first column</span></span>
 <span><span class='va'>col_2</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span> ,<span class='fl'>2</span><span class='op'>]</span></span>
 <span><span class='va'>col_2</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>50</span><span class='op'>]</span></span></code></pre>
 </div>
-<pre><code> [1]  52  59  68  59  74  90  53  32  30  81  53  63  54  58  22  50
-[17]  74  50  56  67  53  33  48  32  52  78  54  35  27  81  47  54
-[33]  46  65  31  28  41  75  72  79 111  38  74  47 103  52  49  69
-[49]  46  62</code></pre>
+<pre><code> [1]  63  61  47  54  55  76  57  72  48  51  48  61  33  17  45  68
+[17]  41  93  70  69  63  79  66  57  64  80 101  33  63 107  90  59
+[33]  53  61  28  79  71  90  62  -5  55  86  26  48  76  74  70  42
+[49]  47  49</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the 'Age' column using column name</span></span>
 <span><span class='va'>allCuts</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span></span>
@@ -2332,26 +2322,26 @@ Statistik II
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>my_dataframe_boot</span>, n <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span> <span class='co'># n stands for the number of top observations you wish to see out of the dataframe </span></span></code></pre>
 </div>
 <pre><code>   ItemType Price  Cut
-1     jeans    52 boot
-6     jeans    90 boot
-11    jeans    53 boot
-16    jeans    50 boot
-21    jeans    53 boot
-26    jeans    78 boot
-31    jeans    47 boot
-36    jeans    28 boot
-41    jeans   111 boot
-46    jeans    52 boot
-51    jeans    60 boot
-56    jeans    81 boot
-61    jeans   106 boot
-66    jeans    47 boot
-71    jeans    36 boot
-76    jeans    54 boot
-81    jeans    61 boot
-86    jeans    35 boot
-91    jeans    89 boot
-96    jeans    62 boot</code></pre>
+1     jeans    63 boot
+6     jeans    76 boot
+11    jeans    48 boot
+16    jeans    68 boot
+21    jeans    63 boot
+26    jeans    80 boot
+31    jeans    90 boot
+36    jeans    79 boot
+41    jeans    55 boot
+46    jeans    74 boot
+51    jeans    46 boot
+56    jeans    60 boot
+61    jeans    42 boot
+66    jeans    19 boot
+71    jeans    45 boot
+76    jeans    47 boot
+81    jeans    62 boot
+86    jeans    74 boot
+91    jeans    50 boot
+96    jeans    52 boot</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># bonus...lets see the distribution of the prices of boot cuts </span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_boot</span>, <span class='fl'>2</span><span class='op'>]</span>,</span>
@@ -2380,14 +2370,14 @@ Statistik II
 <p>Wir können mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren wie &amp; (UND) und | (ODER).</p>
 <p>Zum Beispiel,</p>
 <ol type="1">
-<li>wenn du Zeilen filtern möchtest, in denen ‘price’ größer als 39 UND ein “wide leg” cut ist.
+<li>wenn du Zeilen filtern möchtest, in denen ‘price’ größer als 39 UND ein “wide leg” cut ist.</li>
+</ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># condition that will select both wide cuts and those that cost more than 59Euro</span></span>
 <span><span class='va'>condition_wide_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span> <span class='op'>==</span> <span class='st'>"wide leg"</span> <span class='op'>&amp;</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Price</span> <span class='op'>&gt;</span> <span class='fl'>39</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>condition_wide_39</span><span class='op'>)</span></span></code></pre>
-</div></li>
-</ol>
+</div>
 <pre><code>[1] FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data_wide_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_wide_39</span>,<span class='op'>]</span></span>
