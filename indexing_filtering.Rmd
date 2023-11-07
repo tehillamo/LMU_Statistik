@@ -1,5 +1,5 @@
 ---
-title: "Basic Concepts in R: Indexing"
+title: "Basic Concepts in R: Indexing & Filtering"
 description: |
 #   A new article created using the Distill format.
 author:
@@ -16,6 +16,30 @@ output: distill::distill_article
 Indexing in R ist ein wichtiges Konzept, das es uns ermöglicht, auf bestimmte Elemente oder Teilmengen von Daten in Vektoren, Matrizen und Datenrahmen zuzugreifen. 
 
 In diesem Blog werden wir die Indexing anhand von Beispielen für jede dieser Datenstrukturen (i.e., Objekte) behandeln.
+
+Um unser Leben zu erleichtern und den Inhalt dieses Blogs verständlicher zu machen, werden wir ein alltägliches Beispiel verwenden. Das Beispiel basiert auf einem Datensatz (keine Sorge, es ist ein erfundener, den ich zum Zwecke dieses Blogs erstellt habe), der eine Liste von Kleidungsstücken enthält. Hier konzentrieren wir uns auf Jeans, die verschiedene Attribute aufweisen, über die wir indexieren können.
+
+
+In unserem Kleider-Datensatz können wir die "perfekte" Jeans suchen. Dafür wereden wir Indexierungsmethoden in R verwenden, um unsere Suche zu verfeinern und genau das zu finden, ohne jeden Eintrag einzeln durchsehen zu müssen.
+
+Durch die Verwendung von Indexierungsoperationen können wir beispielsweise alle Jeans einer bestimmten Preis herausfiltern. 
+
+Wir könnten auch komplexere Abfragen durchführen, wie das Suchen aller Jeans, die weniger als 50 Euro kosten.
+
+Im Verlauf dieses Blogs werden wir sehen, wie solche Indexierungen in R effizient durchgeführt werden können, sodass Sie die volle Kontrolle über Ihre Daten und deren Abfragen haben. 
+
+
+## Bonus 
+
+Zusätzlich, als Bonus und um zu veranschaulichen, wie wir vom Filtern und Indexieren zur Visualisierung übergehen, werden wir auch die Funktion hist() verwenden, um eine Histogramm-Grafik zu erstellen. 
+
+Dies wird nicht nur unser Datenverständnis vertiefen, sondern uns auch ermöglichen, unsere Daten zusammenzufassen und visuell darzustellen.
+
+Ein Histogramm ist eine großartige Möglichkeit, die Verteilung der Daten zu zeigen. Beispielsweise könnten wir ein Histogramm der Jeanspreise erstellen, um zu sehen, wie viele Jeans in verschiedene Preiskategorien fallen. 
+
+Dies kann besonders hilfreich sein, **um Muster in unseren Daten schnell zu erkennen**, wie etwa das Vorherrschen bestimmter Preisbereiche oder das Erkennen, ob es Ausreißer gibt.
+
+Indem wir die hist() Funktion auf unseren gefilterten Datensatz anwenden – zum Beispiel, nachdem wir alle Jeans einer bestimmten Marke ausgewählt haben – können wir die Verteilung der Attribute wie Preis oder Größe innerhalb dieser Auswahl betrachten. Dies bietet einen direkten Einblick in die Charakteristiken unserer Daten und unterstützt uns dabei, bessere Entscheidungen und Analysen zu treffen.
 
 
 
@@ -56,6 +80,9 @@ Eine Matrix ist ein zweidimensionales Array mit Zeilen und Spalten.
 
 Du kannst Elemente einer Matrix 'indizieren', indem du die eckige Klammern mit Zeilen- und Spaltenindizes verwendest, die durch ein Komma getrennt sind.
 
+
+<img src="img/Gif_indexing.gif"></img>
+
 So indizierst du eine Matrix:
 
 ```{r}
@@ -93,93 +120,97 @@ So wird ein Data Frame 'indiziert':
 ```{r}
 # Create a data frame
 my_dataframe = data.frame(
-  Name = c("Alice", "Bob", "Charlie"),
-  Age = c(25, 30, 22),
-  Score = c(90, 85, 95)
+  ItemType = rep(c("jeans"), 100),
+  Price = round(rnorm(100, 60, 20), digits = 0),
+  Cut = rep(c("boot", "7/8", "skinny", "wide leg", "boyfriend"), 120)
 )
 
-# Access the 'Age' column using column name
-ages = my_dataframe$Age
-print(ages)  # Output: 25 30 22
-
-# Access the 'Score' column using double square brackets
-scores = my_dataframe[["Score"]]
-print(scores)  # Output: 90 85 95
+# get a glimpse of the data
+head(my_dataframe)
 
 # Access the second row
 row_2 = my_dataframe[2, ]
 print(row_2)
+
+
+# Access the entire first column
+col_2 = my_dataframe[ ,2]
+col_2[1:50]
+
+
+# Access the 'Age' column using column name
+allCuts = my_dataframe$Cut
+allCuts[1:20]  # Output: 25 30 22
+
+# get the type of the Item Type 
+typeof(allCuts)
+
+# get the categories within Item Type
+levels(allCuts) # returns NUll....why?
+
+# turn the variable into factor 
+my_dataframe$Cut = factor(my_dataframe$Cut)
+
+
+# get the categories within Item Type
+levels(my_dataframe$Cut)
 ```
 
 
 
 # Indexing by condition
-Angenommen, du hast 'nen Data Frame namens 'my_dataframe' wie folgt:
+Angenommen, du hast einen Data Frame namens 'my_dataframe' wie folgt:
 
 ```{r}
-my_dataframe = data.frame(
-  Name = c("Alice", "Bob", "Charlie", "David"),
-  Age = c(25, 30, 22, 28),
-  Score = c(90, 85, 95, 88)
-)
+condition_boot = my_dataframe$Cut == "boot"
 
+my_dataframe_boot = my_dataframe[condition_boot,]
+
+#get a glimpse of the new dataframe using the head(). Use the ? mark to learn about the function head (or any other function)
+head(my_dataframe_boot, n = 20) # n stands for the number of top observations you wish to see out of the dataframe 
+
+
+# bonus...lets see the distribution of the prices of boot cuts 
+hist(my_dataframe[condition_boot, 2],
+      col = "lightblue", border = "#227FCE",
+     main = paste("Histogram of Boot-Cut Jeans"),
+     xlab = "prices of wide-leg jeans")
 ```
 
-
-
-Beispiel 1: Filtern von Zeilen basierend auf einer Bedingung.
-
-Angenommen, du möchtest die Zeilen filtern, in denen die 'Age'-Spalte größer als 25 ist. 
-
-Dafür kannst du die logische Indexing verwenden:
+### and a bonus filtering task
 
 ```{r}
-# Create a logical condition
-condition = my_dataframe$Age > 25
+# bonus...lets see the distribution of the prices of wide leg cuts looks similar....
+condition_wide = my_dataframe$Cut == "wide leg"
 
-# Use the condition to filter rows
-filtered_dataframe = my_dataframe[condition, ]
-
-# Print the filtered data frame
-print(filtered_dataframe)
-
+hist(my_dataframe[condition_wide, 2],
+     col = "lightblue", border = "black",
+     main = paste("Histogram of Wide-leg Jeans"),
+     xlab = "prices of wide-leg jeans"
+     )
 ```
 
-
-In diesem Beispiel haben wir eine logische Bedingung my_dataframe$Age > 25 erstellt, um zu überprüfen, ob die 'Age'-Spalte größer als 25 ist. Anschließend haben wir diese Bedingung verwendet, um die Zeilen zu filtern, wodurch ein neuer Data Frame entsteht, der nur die Zeilen enthält, bei denen die Bedingung TRUE ist. 
-
----
+## yet another way to index/filter 
 
 Stellen wir uns vor, wir haben einen Datenrahmen namens "clothing", der eine Liste verschiedener Kleidungsstücke, deren Farben und Preise enthält. Wir wollen Zeilen für alle Jeans extrahieren, die blau sind (oder die mehr als 35 EUR kosten). Hier ist ein Beispiel, wie du den Datenrahmen einrichten und die Operation durchführen könntest:
 
-Auch in diesem Beispiel: Wir können auch mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren wie & (UND) und | (ODER). Zum Beispiel, wenn du Zeilen filtern möchtest, in denen 'price' größer als 35 und 'color' blau ist:
-
+Auch in diesem Beispiel: Wir können auch mehrerer Bedingungen kombinieren mithilfe von logischen Operatoren wie & (UND) und | (ODER). Zum Beispiel, wenn du Zeilen filtern möchtest, in denen 'price' größer als 59 und ein "wide leg" cut ist:
 
 ```{r}
-# Creating a data frame with sample data
-clothing = data.frame(
-  item = c("jeans", "jeans", "shirt", "jeans", "shirt", "jeans"),
-  color = c("blue", "black", "blue", "blue", "red", "green"),
-  price = c(50, 60, 25, 70, 30, 55),
-  stringsAsFactors = FALSE  # This is to keep strings as characters
-)
+# condition that will select both wide cuts and those that cost more than 59Euro
+condition_wide_39 = my_dataframe$Cut == "wide leg" & my_dataframe$Price > 39
+print(condition_wide_39)
 
-# Define the condition for blue jeans
-condition = clothing$price > 35
-condition_2 = clothing$price > 35 & clothing$color == "blue"
+data_wide_39 = my_dataframe[condition_wide_39,]
 
-
-# Use the condition to index the data frame and extract the rows
-expensive_jeans = clothing[condition, ]
-expensive_Bluejeans = clothing[condition_2, ]
-
-# Display the resulting subset of the data frame
-print(expensive_jeans)
-print(expensive_Bluejeans)
+hist(data_wide_39[,2],
+     col = "lightblue", border = "#227FCE",
+     main = paste("Histogram of > 39Euros & Wide-leg Cut"),
+     xlab = "prices of 'wide-leg & price > 39' jeans"
+     )
 
 ```
 
-In diesem Beispiel haben wir zwei separate Bedingungen erstellt, sie mithilfe des &-Operators kombiniert, um eine combined_condition zu erstellen, und sie dann verwendet, um die Zeilen im Data Frame zu filtern. Nur die Zeile, in der beide Bedingungen TRUE sind, wird in das gefilterte Ergebnis aufgenommen.
 
 ---
 
@@ -271,9 +302,9 @@ my_dataframe = data.frame(
 </div>
 
 ```{r, echo=FALSE, results='hide'}
-# Access the 'Age' column
-ages = my_dataframe$Age
-print(ages)
+# Access the 'Item Type' column
+itemType = my_dataframe$ItemType
+print(itemType)
 ```
 
 
@@ -292,11 +323,16 @@ print(ages)
 
 ```{r, echo=FALSE, results='hide'}
 # Add 'Salary' column
-my_dataframe$Salary = c(35000, 40000, 28000, 45000)
+my_dataframe$sale = rep(c(TRUE, FALSE), length(my_dataframe$ItemType)/2)
 
 # Filter rows where 'Salary' > 30000
-filtered_dataframe = my_dataframe[my_dataframe$Salary > 30000, ]
+filtered_dataframe = my_dataframe[my_dataframe$sale == TRUE, ]
 print(filtered_dataframe)
+
+hist(filtered_dataframe$Price,
+     col = "#FAC0CF", border = "#CE224E",
+     main = "Distribution of Prices of Jeans on Sale", xlab = "prices of jeans on sale")
+
 ```
 
 **Task 6: Access Multiple Columns in a Data Frame**
@@ -312,11 +348,17 @@ print(filtered_dataframe)
 
 
 ```{r, echo=FALSE, results='hide'}
-# Extend the data frame with 'Department' column
-my_dataframe$Department <- c("HR", "Finance", "IT", "Hr")
+# Extend the data frame with 'item ID' column
+my_dataframe$ID <- c(1:600)
 
-# Access and display 'Name' and 'Department' columns
-name_department <- my_dataframe[c("Name", "Department")]
-print(name_department)
+# take a plimse of the data with the head() function
+
+head(my_dataframe)
+
+# Select only the ID 1-100
+id_1_100 <- my_dataframe[1:100, ]
+id_1_100 <- my_dataframe[1:100, ]
+
+print(id_1_100)
 ```
 
