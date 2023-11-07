@@ -24,11 +24,11 @@ navbar:
           href: functions.html
         # - text: "Statistical Tests - Distributions"
         #   href: Basic_concepts_ii.html
-    - text: "Statistik I - Homework"
-      href: homework.html
-      menu: 
-        - text: "Homework - Session 3"
-          href: vec_fun_homework.html
+    # - text: "Statistik I - Homework"
+    #   href: homework.html
+    #   menu: 
+    #     - text: "Homework - Session 3"
+    #       href: vec_fun_homework.html
     - text: "Statistik II"
       href: statistik_ii.html
       menu:
