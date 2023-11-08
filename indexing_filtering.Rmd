@@ -122,7 +122,7 @@ So wird ein Data Frame 'indiziert':
 my_dataframe = data.frame(
   ItemType = rep(c("jeans"), 100),
   Price = round(rnorm(100, 60, 20), digits = 0),
-  Cut = rep(c("boot", "7/8", "skinny", "wide leg", "boyfriend"), 120)
+  Cut = rep(c("boot", "7/8", "skinny", "wide leg", "boyfriend"), 20)
 )
 
 # get a glimpse of the data
