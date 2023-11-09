@@ -11,24 +11,19 @@ date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
-In diesem Blog werden wir uns damit beschäftigen, wie wir Objekte, insbesondere Vektoren, mit Funktionen manipulieren und verändern können.
+In diesem Blog werden wir uns damit beschäftigen, wie wir Objekte, wie z.B. Vektoren, mit Funktionen manipulieren und verändern können.
 
-Mithilfe von verschiedenen Funktionen in R können Vektoren auf vielfältige Weise bearbeitet werden, sei es durch **Kombinieren**, **Filtern** oder **Anwenden von mathematischen Operationen**. 
+**Funktionen** in R sind wie ein **persönlicher Assistent** in der Welt des Codes: 
 
-In der folgenden Diskussion werden wir uns mit den spezifischen Funktionen und Techniken befassen, die in R verfügbar sind, um Vektoren effizient zu manipulieren.
+--> Man **delegiert eine Aufgabe**, indem man ihnen **spezifische Anweisungen (Argumente)** gibt, und sie **liefern das fertige Produkt (Ausgabe)**, wodurch Ihnen die Mühe erspart bleibt, die eintönige Arbeit selbst zu erledigen. 
+
+
+
+In der folgenden Diskussion werden wir uns mit den spezifischen Funktionen befassen, die in R verfügbar sind, um Objekte effizient zu manipulieren.
+
+
 
 <p style="font-family:monospace;color:blue;font-size:200%"> Funktionen </p>
-
-- Funktionen verändern Objekte auf bestimmte Art und Weisen. 
-
-- Eine Funktion kann fast alles sein. 
-
-- Wenn ein Objekt beispielsweise vom Typ 'numeric' ist, kannst du es zu anderen 'numeric'-Objekten hinzufügen. 
-
-- Wenn ein Objekt jedoch ein 'string' ist, eine Zeichenkette, kannst du es nicht hinzufügen. 
-
-- Viele Fehlermeldungen resultieren aus dem Versuch, Funktionen auf einen unpassenden Datentyp anzuwenden.
-
 
 Für die Statistik benötigen wir vor allem Funktionen, die Daten transformieren (z.B., Zuordnen von Zeichenketten zu bestimmten Werten, Erstellen neuer Variablen, Laden von Datensätzen, Speichern von Datensätzen usw.) und Funktionen, die statistische Berechnungen durchführen (z.B., Berechnung von Mittelwerten, Durchführung von Regressionen usw.).
 
@@ -36,15 +31,31 @@ Für die Statistik benötigen wir vor allem Funktionen, die Daten transformieren
 
 <p style="font-family:monospace;color:pink;font-size:120%"> Hier ist ein Beispiel dafür, wie Funktionen die Form und die Struktur Ihrer Daten ändern können:</p>
 
-Hier ist eine Vektor. er wird gleich seine Form ändern, indem er an eine Funktion übergeben wird.
+Consider the "jokeGenerator" function:
 
 ```{r}
-# Einen numerischen Vektor erstellen
-zahlen = c(5, 10, 15, 20, 25)
+jokeGenerator <- function(name) {
+  return(paste("Why did", name, "get scared of the dataset? Because it had too many bytes!"))
+}
 
-# Die Funktion c() wird sehr oft verwendet. Sie fügt Elemente zu einem Vektor zusammen.
-zahlen
+jokeGenerator("the computer")
 ```
+
+
+And a bad joke.....
+
+
+```{r}
+schlechterWitzGenerator <- function(beruf) {
+  return(paste("Was sagt ein", beruf, "wenn er in R programmiert? 'Ich glaube, ich habe den Faden verloren!'"))
+}
+
+schlechterWitzGenerator("Statistiker")
+```
+
+
+
+# lets get down to business!
 
 Wir werden in R die Funktion "mean" verwenden, um den Durchschnitt oder arithmetischen Mittelwert einer Menge numerischer Werte zu berechnen. 
 
@@ -53,6 +64,9 @@ Sie summiert alle Zahlen in einem Datensatz auf und teilt dann diese Summe durch
 Dadurch erhalten Sie einen einzigen Wert, der die zentrale Tendenz oder den typischen Wert der Daten darstellt.
 
 ```{r}
+# ein vector
+zahlen = c(15, 23, 89, 66, 120)
+
 # Den Mittelwert berechnen
 durchschnitt = mean(zahlen)
 
