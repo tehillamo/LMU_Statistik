@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-11-07"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-11-07"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-11-11"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-11-11"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Indexing & Filtering"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-11-07"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Basic Concepts in R: Indexing & Filtering"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-11-11"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2102,7 +2102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Basic Concepts in R: Indexing & Filtering","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-11-07T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
+{"title":"Basic Concepts in R: Indexing & Filtering","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-11-11T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2126,7 +2126,7 @@ Statistik I
 <a href="Basic_R_Variabels_i.html">Basics in R - Variables</a>
 <a href="Basic_R_Functions_Repetitions.html">Basics in R - Variables II</a>
 <a href="indexing_filtering.html">Basics in R - Indexing &amp; Filtering</a>
-<a href="functions.html">Basics in R - Functions</a>
+<a href="data_analysis.html">Basics in R - Data Analysis</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2165,7 +2165,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-11-07
+<br/>2023-11-11
 </div>
 
 <div class="d-article">
@@ -2252,35 +2252,35 @@ Statistik II
 <span><span class='va'>my_dataframe</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
 <span>  ItemType <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"jeans"</span><span class='op'>)</span>, <span class='fl'>100</span><span class='op'>)</span>,</span>
 <span>  Price <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>60</span>, <span class='fl'>20</span><span class='op'>)</span>, digits <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>,</span>
-<span>  Cut <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"boot"</span>, <span class='st'>"7/8"</span>, <span class='st'>"skinny"</span>, <span class='st'>"wide leg"</span>, <span class='st'>"boyfriend"</span><span class='op'>)</span>, <span class='fl'>120</span><span class='op'>)</span></span>
+<span>  Cut <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"boot"</span>, <span class='st'>"7/8"</span>, <span class='st'>"skinny"</span>, <span class='st'>"wide leg"</span>, <span class='st'>"boyfriend"</span><span class='op'>)</span>, <span class='fl'>20</span><span class='op'>)</span></span>
 <span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'># get a glimpse of the data</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>my_dataframe</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>  ItemType Price       Cut
-1    jeans    68      boot
-2    jeans    75       7/8
-3    jeans    66    skinny
-4    jeans    37  wide leg
-5    jeans    26 boyfriend
-6    jeans    74      boot</code></pre>
+1    jeans    57      boot
+2    jeans    26       7/8
+3    jeans    74    skinny
+4    jeans    62  wide leg
+5    jeans   117 boyfriend
+6    jeans    66      boot</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the second row</span></span>
 <span><span class='va'>row_2</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='fl'>2</span>, <span class='op'>]</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>row_2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>  ItemType Price Cut
-2    jeans    75 7/8</code></pre>
+2    jeans    26 7/8</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the entire first column</span></span>
 <span><span class='va'>col_2</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span> ,<span class='fl'>2</span><span class='op'>]</span></span>
 <span><span class='va'>col_2</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>50</span><span class='op'>]</span></span></code></pre>
 </div>
-<pre><code> [1]  68  75  66  37  26  74  41  52  28  80  44 100  56  55  77  47
-[17]  51  35  83  72 104  28  70  57  39  61  47  65  81  70  67 101
-[33]  84  66  54  54  36  66  63  51  80  65  59  61  80 120  34  46
-[49]  32  33</code></pre>
+<pre><code> [1]  57  26  74  62 117  66  76 111  44  50  37  45  59  41  58  70
+[17]  86  13  35  71 109  37  40  91  31  86  35  15  48  89  61  59
+[33]  67  57 106  74  66  38  53  33  45  45  41  44  57  81  89  53
+[49]  91  83</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the 'Age' column using column name</span></span>
 <span><span class='va'>allCuts</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span></span>
@@ -2322,26 +2322,26 @@ Statistik II
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>my_dataframe_boot</span>, n <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span> <span class='co'># n stands for the number of top observations you wish to see out of the dataframe </span></span></code></pre>
 </div>
 <pre><code>   ItemType Price  Cut
-1     jeans    68 boot
-6     jeans    74 boot
-11    jeans    44 boot
-16    jeans    47 boot
-21    jeans   104 boot
-26    jeans    61 boot
-31    jeans    67 boot
-36    jeans    54 boot
-41    jeans    80 boot
-46    jeans   120 boot
-51    jeans    69 boot
-56    jeans    58 boot
-61    jeans    46 boot
-66    jeans    61 boot
-71    jeans    26 boot
-76    jeans    54 boot
-81    jeans    74 boot
-86    jeans    70 boot
-91    jeans    56 boot
-96    jeans    58 boot</code></pre>
+1     jeans    57 boot
+6     jeans    66 boot
+11    jeans    37 boot
+16    jeans    70 boot
+21    jeans   109 boot
+26    jeans    86 boot
+31    jeans    61 boot
+36    jeans    74 boot
+41    jeans    45 boot
+46    jeans    81 boot
+51    jeans    89 boot
+56    jeans    38 boot
+61    jeans    82 boot
+66    jeans    56 boot
+71    jeans    80 boot
+76    jeans    49 boot
+81    jeans   101 boot
+86    jeans    59 boot
+91    jeans    61 boot
+96    jeans    71 boot</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># bonus...lets see the distribution of the prices of boot cuts </span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_boot</span>, <span class='fl'>2</span><span class='op'>]</span>,</span>
@@ -2378,7 +2378,7 @@ Statistik II
 <span><span class='va'>condition_wide_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span> <span class='op'>==</span> <span class='st'>"wide leg"</span> <span class='op'>&amp;</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Price</span> <span class='op'>&gt;</span> <span class='fl'>39</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>condition_wide_39</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre><code>[1] FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data_wide_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_wide_39</span>,<span class='op'>]</span></span>
 <span></span>
@@ -2399,7 +2399,7 @@ Statistik II
 <span><span class='va'>condition_wide_or_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Cut</span> <span class='op'>==</span> <span class='st'>"wide leg"</span> <span class='op'>|</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Price</span> <span class='op'>&gt;</span> <span class='fl'>39</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>condition_wide_or_39</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>[1]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE</code></pre>
+<pre><code>[1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data_wide_or_39</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_wide_or_39</span>,<span class='op'>]</span></span>
 <span></span>
@@ -2427,7 +2427,7 @@ Statistik II
 <p><strong>Task 2: Extend and index a Matrix/Dataframe</strong></p>
 <div style="border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 <ol type="1">
-<li><p>Add another column to the dataframe, which represents the brand category. It will be the following vector: rep(c(“expensive”,“top”, “middle”, “affordable”, “cheap”), 120). *learn about that rep() does by typing ?rep in the console!</p></li>
+<li><p>Add another column to the dataframe, which represents the brand category. It will be the following vector: rep(c(“expensive”,“top”, “middle”, “affordable”, “cheap”), 20). *learn about that rep() does by typing ?rep in the console!</p></li>
 <li><p>Use indexing to extract and display the first 10 rows of this dataframe and see if the rep() did what it was suppose to.</p></li>
 </ol>
 </div>

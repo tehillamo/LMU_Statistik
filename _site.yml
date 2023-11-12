@@ -20,8 +20,10 @@ navbar:
           href: Basic_R_Functions_Repetitions.html
         - text: "Basics in R - Indexing & Filtering"
           href: indexing_filtering.html
-        - text: "Basics in R - Functions"
-          href: functions.html
+        - text: "Basics in R - Data Analysis"
+          href: data_analysis.html
+        # - text: "Basics in R - Functions"
+        #   href: functions.html
         # - text: "Statistical Tests - Distributions"
         #   href: Basic_concepts_ii.html
     # - text: "Statistik I - Homework"

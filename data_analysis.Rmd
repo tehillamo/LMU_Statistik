@@ -1,0 +1,124 @@
+---
+title: "Basic Concepts in R: Data Loading To Data Visualization"
+description: |
+#   A new article created using the Distill format.
+author:
+  - name: Tehilla Ostrovsky 
+#     url: https://example.com/norajones
+#     affiliation: Spacely Sprockets
+#     affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+# ENGLISH 
+
+
+In this blog, we will focus on analyzing a dataset of the best-selling movies between years XX and XX. 
+
+We will learn to read in a dataset, create histograms, and perform correlation tests using basic R functions, avoiding the tidyverse package. Let's dive in!
+
+
+## Step 1: Loading the Dataset
+
+To start, we need to load our dataset into R. 
+
+
+We will use a real dataset HollywoodMovies.csv (.csv is ...), which includes movie names, budgets, earnings, and country of origin for movies released between the specified years 2007-2013.
+
+# how to call in a dataset in R ?
+
+[link to the Github Repo](https://github.com/reisanar/datasets/blob/master/HollywoodMovies.csv)
+
+#### 1. click on the download button to download this dataset 
+
+<img src="img/Moview_dataSet.png"></img>
+
+
+#### 2. Whats in this dataset? Lets call it in.... we use the function read.csv(), which "Reads a file in table format and creates a data frame from it, with cases corresponding to lines and variables to fields in the file."
+
+```{r}
+movies <- read.csv("/Users/tmechera/Dropbox/PostDoc_LMU/LMU_Statistik_Website/HollywoodMovies.csv")
+```
+
+#### 3. Indexing and Creating Histograms
+Now, let's create histograms to visually analyze the budget and net earnings of these movies. We will use the hist() function, which is a straightforward way to create histograms in R.
+
+
+```{r}
+condition_budget = movies$Budget != "NA" 
+
+hist_budget = hist(movies[condition_budget, 13], 
+     main = "Histogram of Movie Budgets", 
+     xlab = "Budget in USD", 
+     col = "lightblue", border = "darkblue")
+
+hist_budget
+```
+
+
+```{r}
+condition_profit = movies$Profitability != "NA"
+
+hist_prof = hist(movies[condition_profit, 14], 
+     main = "Histogram of Movie Profitability", 
+     xlab = "Profitability in USD", 
+     col = "darkgreen", border = "green")
+hist_prof
+```
+
+# Correlation  
+
+Lets calculate the correlation between the budget of the movie and its profitability. 
+
+
+We will use the function cor.test(). which tests & measures the correlation between two variables. 
+
+Correlation is a statistical measure that expresses the extent to which two variables are linearly related (meaning they change together at a constant rate) 
+
+
+![correlation](img/correlation.png)
+
+```{r}
+library(scales)
+
+movies = na.omit(movies)
+
+my_colors <- rainbow(length(unique(movies$Genre)))
+
+my_colors_transparent <- sapply(my_colors, adjustcolor, alpha = 0.5)
+
+
+genre_colors_transparent <- my_colors_transparent[as.numeric(factor(movies$Genre))]
+
+
+# Scatter plot
+plot(jitter(movies$Budget), jitter(movies$Profitability),
+     pch = 19, xlim = c(0, 450), 
+     ylim = c(0, 10000), cex = 1, 
+     xlab = "Budget", ylab = "Profit",
+     col = genre_colors_transparent)
+
+# Legend
+legend("topright", cex = 0.6, pch = 19,
+       legend = levels(factor(movies$Genre)),
+       col = factor(levels(factor(movies$Genre))))
+
+```
+
+
+```{r}
+cor_budget_profit = cor.test(movies$Budget, movies$Profitability)
+```
+
+
+We can extract the correlation coefficient, which describes the strength of the relationship between two variables. 
+
+
+```{r}
+cor_budget_profit$estimate
+
+cor_budget_profit$p.value
+```
+
+

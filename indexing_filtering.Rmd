@@ -263,7 +263,7 @@ print(element)
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
-1. Add another column to the dataframe, which represents the brand category. It will be the following vector: rep(c("expensive","top", "middle", "affordable", "cheap"), 120). *learn about that rep() does by typing ?rep in the console!
+1. Add another column to the dataframe, which represents the brand category. It will be the following vector: rep(c("expensive","top", "middle", "affordable", "cheap"), 20). *learn about that rep() does by typing ?rep in the console!
 
 2. Use indexing to extract and display the first 10 rows of this dataframe and see if the rep() did what it was suppose to.
 
@@ -272,7 +272,7 @@ print(element)
 
 ```{r, echo=FALSE, results='hide'}
 # Extend the dataframe
-my_dataframe$Brand = rep(c("expensive","top", "middle", "affordable", "cheap"), 120)
+my_dataframe$Brand = rep(c("expensive","top", "middle", "affordable", "cheap"), 20)
 
 # Extract the entire second row
 dataframe_first10rows = my_dataframe[1:10, ]
@@ -347,7 +347,7 @@ print(filtered_ctgs)
 
 ```{r, echo=FALSE, results='hide'}
 # Extend the data frame with 'item ID' column
-my_dataframe$ID <- c(1:600)
+my_dataframe$ID <- c(1:100)
 
 # take a plimse of the data with the head() function
 
