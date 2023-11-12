@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-11-11"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-11-11"/>
+  <meta property="article:published" itemprop="datePublished" content="2023-11-12"/>
+  <meta property="article:created" itemprop="dateCreated" content="2023-11-12"/>
   <meta name="article:author" content="Tehilla Ostrovsky"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","css"]}},"value":[{"type":"character","attributes":{},"value":["Effectsize(s) in Simple Linear Regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-11-11"]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"character","attributes":{},"value":["my_css.css"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","css"]}},"value":[{"type":"character","attributes":{},"value":["Effectsize(s) in Simple Linear Regression"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Tehilla Ostrovsky"]}]}]},{"type":"character","attributes":{},"value":["2023-11-12"]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"character","attributes":{},"value":["my_css.css"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2103,7 +2103,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Effectsize(s) in Simple Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-11-11T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
+{"title":"Effectsize(s) in Simple Linear Regression","authors":[{"author":"Tehilla Ostrovsky","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-11-12T00:00:00.000+01:00","citationText":"Ostrovsky, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2127,6 +2127,7 @@ Statistik I
 <a href="Basic_R_Variabels_i.html">Basics in R - Variables</a>
 <a href="Basic_R_Functions_Repetitions.html">Basics in R - Variables II</a>
 <a href="indexing_filtering.html">Basics in R - Indexing &amp; Filtering</a>
+<a href="data_analysis.html">Basics in R - Data Analysis</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2165,7 +2166,7 @@ Statistik II
 <div class="d-byline">
   Tehilla Ostrovsky  
   
-<br/>2023-11-11
+<br/>2023-11-12
 </div>
 
 <div class="d-article">
@@ -2493,18 +2494,18 @@ lm(formula = Weight ~ Height, data = dat_rich)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--2.83157 -0.51590  0.04761  0.56409  1.73001 
+-2.38928 -0.54807 -0.05402  0.52387  2.18491 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) -12.84787    7.40807  -1.734    0.086 .  
-Height        0.77810    0.07399  10.516   &lt;2e-16 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 12.79619    9.57534   1.336    0.185    
+Height       0.52192    0.09574   5.451 3.74e-07 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.7983 on 98 degrees of freedom
-Multiple R-squared:  0.5302,    Adjusted R-squared:  0.5254 
-F-statistic: 110.6 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.9153 on 98 degrees of freedom
+Multiple R-squared:  0.2327,    Adjusted R-squared:  0.2248 
+F-statistic: 29.72 on 1 and 98 DF,  p-value: 3.738e-07</code></pre>
 </div>
 <h3 id="lets-plot-all-the-figures-we-need-to-judge-of-the-linear-regression-assumptions-are-met.">Lets plot all the figures we need to judge of the Linear regression assumptions are met.</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2566,24 +2567,24 @@ lm(formula = scaled_dat_rich$Weight ~ scaled_dat_rich$Height)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--2.44763 -0.44196  0.04138  0.48375  1.48945 
+-2.29424 -0.52910 -0.05363  0.50291  2.09918 
 
 Coefficients:
-                        Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)            0.0003455  0.0688949   0.005    0.996    
-scaled_dat_rich$Height 0.7276448  0.0692322  10.510   &lt;2e-16 ***
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)            0.000307   0.088005   0.003    0.997    
+scaled_dat_rich$Height 0.482464   0.088433   5.456 3.67e-07 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.6889 on 98 degrees of freedom
-Multiple R-squared:  0.5299,    Adjusted R-squared:  0.5251 
-F-statistic: 110.5 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.88 on 98 degrees of freedom
+Multiple R-squared:  0.233, Adjusted R-squared:  0.2251 
+F-statistic: 29.76 on 1 and 98 DF,  p-value: 3.667e-07</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint.lm</a></span><span class='op'>(</span><span class='va'>lm_z_2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>                            2.5 %    97.5 %
-(Intercept)            -0.1363741 0.1370652
-scaled_dat_rich$Height  0.5902558 0.8650338</code></pre>
+(Intercept)            -0.1743353 0.1749493
+scaled_dat_rich$Height  0.3069708 0.6579576</code></pre>
 </div>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
