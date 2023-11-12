@@ -117,8 +117,42 @@ We can extract the correlation coefficient, which describes the strength of the 
 
 ```{r}
 cor_budget_profit$estimate
+```
 
+In (very) non-technical terms, p.value (supposably) is the indication of whether our results (in this case it is the correlation) is of any meaning. 
+
+```{r}
 cor_budget_profit$p.value
 ```
+
+
+
+#### A bonus task. 
+
+we will use the lm() function to create a linear line over our plot to represents the relationship between the budget and the profitability of the movies. 
+
+```{r}
+# getting only values of the 
+condition_budget_Animation = movies$Genre == "Action"
+
+movies_animation = movies[condition_budget_Animation,]
+
+# building the model
+model_budget_animation = lm(movies_animation$Profitability ~ movies_animation$Budget)
+
+# lets exclude 
+
+# Scatter plot
+plot(jitter(movies_animation$Budget), jitter(movies_animation$Profitability),
+     pch = 19, 
+     #xlim = c(0, 450), 
+     #ylim = c(0, 10000), cex = 1, 
+     xlab = "Budget", ylab = "Profit",
+     col = genre_colors_transparent)
+
+abline(model_budget_animation, col = 4, lwd = 3)
+```
+
+
 
 

@@ -2308,10 +2308,39 @@ attr(,&quot;class&quot;)
 </div>
 <pre><code>       cor 
 -0.1415343 </code></pre>
+</div>
+<p>In (very) non-technical terms, p.value (supposably) is the indication of whether our results (in this case it is the correlation) is of any meaning.</p>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>cor_budget_profit</span><span class='op'>$</span><span class='va'>p.value</span></span></code></pre>
 </div>
 <pre><code>[1] 4.054042e-05</code></pre>
+</div>
+<h4 id="a-bonus-task.">A bonus task.</h4>
+<p>we will use the lm() function to create a linear line over our plot to represents the relationship between the budget and the profitability of the movies.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># getting only values of the </span></span>
+<span><span class='va'>condition_budget_Animation</span> <span class='op'>=</span> <span class='va'>movies</span><span class='op'>$</span><span class='va'>Genre</span> <span class='op'>==</span> <span class='st'>"Action"</span></span>
+<span></span>
+<span><span class='va'>movies_animation</span> <span class='op'>=</span> <span class='va'>movies</span><span class='op'>[</span><span class='va'>condition_budget_Animation</span>,<span class='op'>]</span></span>
+<span></span>
+<span><span class='co'># building the model</span></span>
+<span><span class='va'>model_budget_animation</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>movies_animation</span><span class='op'>$</span><span class='va'>Profitability</span> <span class='op'>~</span> <span class='va'>movies_animation</span><span class='op'>$</span><span class='va'>Budget</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># lets exclude </span></span>
+<span></span>
+<span><span class='co'># Scatter plot</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/jitter.html'>jitter</a></span><span class='op'>(</span><span class='va'>movies_animation</span><span class='op'>$</span><span class='va'>Budget</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/jitter.html'>jitter</a></span><span class='op'>(</span><span class='va'>movies_animation</span><span class='op'>$</span><span class='va'>Profitability</span><span class='op'>)</span>,</span>
+<span>     pch <span class='op'>=</span> <span class='fl'>19</span>, </span>
+<span>     <span class='co'>#xlim = c(0, 450), </span></span>
+<span>     <span class='co'>#ylim = c(0, 10000), cex = 1, </span></span>
+<span>     xlab <span class='op'>=</span> <span class='st'>"Budget"</span>, ylab <span class='op'>=</span> <span class='st'>"Profit"</span>,</span>
+<span>     col <span class='op'>=</span> <span class='va'>genre_colors_transparent</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='va'>model_budget_animation</span>, col <span class='op'>=</span> <span class='fl'>4</span>, lwd <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="data_analysis_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
