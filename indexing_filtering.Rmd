@@ -252,7 +252,7 @@ In R, the '$' sign is used to access a specific column (variable) within a data 
 
 </div>
 
-```{r, echo=FALSE}
+```{r, }
 # Access the element in the second row and third column
 element = my_dataframe[2, 3]
 print(element)
@@ -270,7 +270,7 @@ print(element)
 </div>
 
 
-```{r, echo=FALSE}
+```{r, }
 # Extend the dataframe
 my_dataframe$Brand = rep(c("expensive","top", "middle", "affordable", "cheap"), 20)
 
@@ -291,7 +291,7 @@ print(dataframe_first10rows)
 </div>
 
 
-```{r, echo=FALSE}
+```{r, }
 # Define condition
 condition_brandCategory = my_dataframe$Brand == "affordable"
 
@@ -317,7 +317,7 @@ print(filtered_cat)
 
 </div>
 
-```{r, echo=FALSE}
+```{r, }
 # Define condition
 condition_brand_price = my_dataframe$Brand == "affordable" & my_dataframe$Price < 30
 
@@ -345,7 +345,7 @@ print(filtered_ctgs)
 </div>
 
 
-```{r, echo=FALSE}
+```{r, }
 # Extend the data frame with 'item ID' column
 my_dataframe$ID <- c(1:100)
 

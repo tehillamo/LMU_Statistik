@@ -2422,7 +2422,13 @@ Statistik II
 </ol>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Access the element in the second row and third column</span></span>
+<span><span class='va'>element</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>]</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>element</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] 7/8
+Levels: 7/8 boot boyfriend skinny wide leg</code></pre>
 </div>
 <p><strong>Task 2: Extend and index a Matrix/Dataframe</strong></p>
 <div style="border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
@@ -2432,7 +2438,25 @@ Statistik II
 </ol>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Extend the dataframe</span></span>
+<span><span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Brand</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"expensive"</span>,<span class='st'>"top"</span>, <span class='st'>"middle"</span>, <span class='st'>"affordable"</span>, <span class='st'>"cheap"</span><span class='op'>)</span>, <span class='fl'>20</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># Extract the entire second row</span></span>
+<span><span class='va'>dataframe_first10rows</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='op'>]</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>dataframe_first10rows</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>   ItemType Price       Cut      Brand
+1     jeans    57      boot  expensive
+2     jeans    26       7/8        top
+3     jeans    74    skinny     middle
+4     jeans    62  wide leg affordable
+5     jeans   117 boyfriend      cheap
+6     jeans    66      boot  expensive
+7     jeans    76       7/8        top
+8     jeans   111    skinny     middle
+9     jeans    44  wide leg affordable
+10    jeans    50 boyfriend      cheap</code></pre>
 </div>
 <p><strong>Task 3: Extract rows in Matrix/Dataframe by condition</strong></p>
 <div style="border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
@@ -2443,7 +2467,41 @@ Statistik II
 </ol>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Define condition</span></span>
+<span><span class='va'>condition_brandCategory</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Brand</span> <span class='op'>==</span> <span class='st'>"affordable"</span></span>
+<span></span>
+<span><span class='co'># filter according to this condition</span></span>
+<span><span class='va'>filtered_cat</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_brandCategory</span>,<span class='op'>]</span></span>
+<span></span>
+<span><span class='co'># print the filtered dataset</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>filtered_cat</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>   ItemType Price      Cut      Brand
+4     jeans    62 wide leg affordable
+9     jeans    44 wide leg affordable
+14    jeans    41 wide leg affordable
+19    jeans    35 wide leg affordable
+24    jeans    91 wide leg affordable
+29    jeans    48 wide leg affordable
+34    jeans    57 wide leg affordable
+39    jeans    53 wide leg affordable
+44    jeans    44 wide leg affordable
+49    jeans    91 wide leg affordable
+54    jeans    12 wide leg affordable
+59    jeans    63 wide leg affordable
+64    jeans    52 wide leg affordable
+69    jeans    54 wide leg affordable
+74    jeans    52 wide leg affordable
+79    jeans    57 wide leg affordable
+84    jeans    52 wide leg affordable
+89    jeans   114 wide leg affordable
+94    jeans    60 wide leg affordable
+99    jeans    64 wide leg affordable</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># create a histogram</span></span>
+<span><span class='co'>#hist(filtered_cat$Price)</span></span></code></pre>
+</div>
 </div>
 <p><strong>Task 4: Filter by multiple conditions</strong></p>
 <div style="border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
@@ -2454,7 +2512,22 @@ Statistik II
 </ol>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Define condition</span></span>
+<span><span class='va'>condition_brand_price</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Brand</span> <span class='op'>==</span> <span class='st'>"affordable"</span> <span class='op'>&amp;</span> <span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>Price</span> <span class='op'>&lt;</span> <span class='fl'>30</span></span>
+<span></span>
+<span><span class='co'># filter according to this condition</span></span>
+<span><span class='va'>filtered_ctgs</span> <span class='op'>=</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='va'>condition_brand_price</span>,<span class='op'>]</span></span>
+<span></span>
+<span><span class='co'># print the filtered dataset</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>filtered_ctgs</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>   ItemType Price      Cut      Brand
+54    jeans    12 wide leg affordable</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># create a histogram</span></span>
+<span><span class='co'># hist(filtered_ctgs$Price)</span></span></code></pre>
+</div>
 </div>
 <p><strong>Task 5: Add a column and index</strong></p>
 <div style="border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
@@ -2465,9 +2538,131 @@ Statistik II
 </ol>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Extend the data frame with 'item ID' column</span></span>
+<span><span class='va'>my_dataframe</span><span class='op'>$</span><span class='va'>ID</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># take a plimse of the data with the head() function</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>my_dataframe</span><span class='op'>)</span></span></code></pre>
 </div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<pre><code>  ItemType Price       Cut      Brand ID
+1    jeans    57      boot  expensive  1
+2    jeans    26       7/8        top  2
+3    jeans    74    skinny     middle  3
+4    jeans    62  wide leg affordable  4
+5    jeans   117 boyfriend      cheap  5
+6    jeans    66      boot  expensive  6</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Select only the ID 1-100</span></span>
+<span><span class='va'>id_1_100</span> <span class='op'>&lt;-</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span>, <span class='op'>]</span></span>
+<span><span class='va'>id_1_100</span> <span class='op'>&lt;-</span> <span class='va'>my_dataframe</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span>, <span class='op'>]</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>id_1_100</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>    ItemType Price       Cut      Brand  ID
+1      jeans    57      boot  expensive   1
+2      jeans    26       7/8        top   2
+3      jeans    74    skinny     middle   3
+4      jeans    62  wide leg affordable   4
+5      jeans   117 boyfriend      cheap   5
+6      jeans    66      boot  expensive   6
+7      jeans    76       7/8        top   7
+8      jeans   111    skinny     middle   8
+9      jeans    44  wide leg affordable   9
+10     jeans    50 boyfriend      cheap  10
+11     jeans    37      boot  expensive  11
+12     jeans    45       7/8        top  12
+13     jeans    59    skinny     middle  13
+14     jeans    41  wide leg affordable  14
+15     jeans    58 boyfriend      cheap  15
+16     jeans    70      boot  expensive  16
+17     jeans    86       7/8        top  17
+18     jeans    13    skinny     middle  18
+19     jeans    35  wide leg affordable  19
+20     jeans    71 boyfriend      cheap  20
+21     jeans   109      boot  expensive  21
+22     jeans    37       7/8        top  22
+23     jeans    40    skinny     middle  23
+24     jeans    91  wide leg affordable  24
+25     jeans    31 boyfriend      cheap  25
+26     jeans    86      boot  expensive  26
+27     jeans    35       7/8        top  27
+28     jeans    15    skinny     middle  28
+29     jeans    48  wide leg affordable  29
+30     jeans    89 boyfriend      cheap  30
+31     jeans    61      boot  expensive  31
+32     jeans    59       7/8        top  32
+33     jeans    67    skinny     middle  33
+34     jeans    57  wide leg affordable  34
+35     jeans   106 boyfriend      cheap  35
+36     jeans    74      boot  expensive  36
+37     jeans    66       7/8        top  37
+38     jeans    38    skinny     middle  38
+39     jeans    53  wide leg affordable  39
+40     jeans    33 boyfriend      cheap  40
+41     jeans    45      boot  expensive  41
+42     jeans    45       7/8        top  42
+43     jeans    41    skinny     middle  43
+44     jeans    44  wide leg affordable  44
+45     jeans    57 boyfriend      cheap  45
+46     jeans    81      boot  expensive  46
+47     jeans    89       7/8        top  47
+48     jeans    53    skinny     middle  48
+49     jeans    91  wide leg affordable  49
+50     jeans    83 boyfriend      cheap  50
+51     jeans    89      boot  expensive  51
+52     jeans    85       7/8        top  52
+53     jeans    64    skinny     middle  53
+54     jeans    12  wide leg affordable  54
+55     jeans    67 boyfriend      cheap  55
+56     jeans    38      boot  expensive  56
+57     jeans    59       7/8        top  57
+58     jeans    81    skinny     middle  58
+59     jeans    63  wide leg affordable  59
+60     jeans    66 boyfriend      cheap  60
+61     jeans    82      boot  expensive  61
+62     jeans    46       7/8        top  62
+63     jeans    98    skinny     middle  63
+64     jeans    52  wide leg affordable  64
+65     jeans    53 boyfriend      cheap  65
+66     jeans    56      boot  expensive  66
+67     jeans    78       7/8        top  67
+68     jeans    80    skinny     middle  68
+69     jeans    54  wide leg affordable  69
+70     jeans    69 boyfriend      cheap  70
+71     jeans    80      boot  expensive  71
+72     jeans    56       7/8        top  72
+73     jeans    60    skinny     middle  73
+74     jeans    52  wide leg affordable  74
+75     jeans    70 boyfriend      cheap  75
+76     jeans    49      boot  expensive  76
+77     jeans    90       7/8        top  77
+78     jeans    56    skinny     middle  78
+79     jeans    57  wide leg affordable  79
+80     jeans    78 boyfriend      cheap  80
+81     jeans   101      boot  expensive  81
+82     jeans    68       7/8        top  82
+83     jeans   102    skinny     middle  83
+84     jeans    52  wide leg affordable  84
+85     jeans    70 boyfriend      cheap  85
+86     jeans    59      boot  expensive  86
+87     jeans   104       7/8        top  87
+88     jeans    54    skinny     middle  88
+89     jeans   114  wide leg affordable  89
+90     jeans    69 boyfriend      cheap  90
+91     jeans    61      boot  expensive  91
+92     jeans    51       7/8        top  92
+93     jeans    46    skinny     middle  93
+94     jeans    60  wide leg affordable  94
+95     jeans    49 boyfriend      cheap  95
+96     jeans    71      boot  expensive  96
+97     jeans    81       7/8        top  97
+98     jeans    60    skinny     middle  98
+99     jeans    64  wide leg affordable  99
+100    jeans    69 boyfriend      cheap 100</code></pre>
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
