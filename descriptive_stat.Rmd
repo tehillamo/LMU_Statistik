@@ -1,0 +1,312 @@
+---
+title: "Basic Concepts in R: Descriptive Statistics"
+description: |
+#   A new article created using the Distill format.
+author:
+  - name: Tehilla Ostrovsky 
+#     url: https://example.com/norajones
+#     affiliation: Spacely Sprockets
+#     affiliation_url: https://example.com/spacelysprokets
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+
+In diesem Blog konzentrieren wir uns auf zwei grundlegende Konzepte, die das Rückgrat der statistischen Analyse bilden: **Deskriptive Statistik** und **Inferenzstatistik**.
+
+Diese beiden dienen unterschiedlichen Zwecken.
+
+# Deskriptive Statistik
+
+Deskriptive Statistik beinhaltet das Zusammenfassen und Organisieren von Daten, sodass sie leicht verstanden werden können.
+
+Im Wesentlichen geht es darum, das im Datensatz Beobachtete zu beschreiben.
+
+Diese Statistiken beschreiben die grundlegenden Merkmale eines Datensatzes und bieten einfache Zusammenfassungen über die Stichprobe und die Maße.
+
+# Inferenzstatistik
+
+Inferenzstatistik beinhaltet die Verwendung einer Stichprobe von Daten, um Schlussfolgerungen oder Vorhersagen über eine größere Population zu treffen.
+
+Sie geht über das bloße Beschreiben der Stichprobendaten hinaus, um Verallgemeinerungen über die Population zu machen, aus der die Stichprobe gezogen wurde.
+
+<div style = "border: 5px solid;margin: auto;width: 90%;padding: 10px;text-align:center;background:yellow;font-family: curier;font-size:20px">
+Zusammenfassend kann man sagen, dass deskriptive Statistiken das Zusammenfassen und Beschreiben der Merkmale eines Datensatzes beinhalten, während Inferenzstatistiken diese Daten verwenden, um Vorhersagen, Entscheidungen und Schlussfolgerungen über eine größere Population oder zukünftige Trends zu treffen.
+</div>
+
+### Let's get down to business....
+
+In unserer bevorstehenden Analyse konzentrieren wir uns auf einen sorgfältig kuratierten Datensatz der meistverkauften Filme, die zwischen den Jahren 2007 und 2013 veröffentlicht wurden.
+
+## Lerne deinen Datensatz kennen...
+
+**Schritt 1**: Laden des Datensatzes
+
+Zunächst müssen wir unseren Datensatz in R laden.
+
+Wir verwenden einen echten Datensatz HollywoodMovies.csv (.csv ist ...), der Filmtitel, Budgets, Einnahmen und Herkunftsländer für Filme enthält, die in den angegebenen Jahren 2007-2013 veröffentlicht wurden.
+
+# Wie ruft man einen Datensatz in R auf?
+
+[Link zum Github Repo](https://github.com/reisanar/datasets/blob/master/HollywoodMovies.csv)
+
+**1.** Klicke auf die Schaltfläche Herunterladen, um diesen Datensatz herunterzuladen
+
+<img src="img/Moview_dataSet.png"></img>
+
+**2.** Was ist in diesem Datensatz? Lass es uns aufrufen.... 
+
+Wir verwenden die Funktion read.csv(), die "eine Datei im Tabellenformat liest und daraus einen Datenrahmen erstellt, wobei die Fälle den Zeilen und die Variablen den Feldern in der Datei entsprechen."
+
+```{r}
+movies <- read.csv("/Users/tmechera/Dropbox/PostDoc_LMU/LMU_Statistik_Website/HollywoodMovies.csv")
+```
+
+
+Columns of the Dataset:
+
+**Movie**: The title of the movie. This is the primary identifier for each entry in our dataset.
+
+**LeadStudio**: The production studio responsible for the movie. This helps in analyzing studio-wise performance and trends in the industry.
+
+
+**RottenTomatoes**: The Rotten Tomatoes score for each movie, representing the percentage of positive reviews from critics. It's a crucial metric for understanding critical reception.
+
+
+**AudienceScore**: This score reflects the average rating given by the audience, usually on a scale of 1 to 100. It offers a direct insight into viewer preferences and acceptance.
+
+**Story**: A brief description or category of the movie's storyline, which can be used to analyze the popularity of different types of stories.
+
+
+**Genre**: The genre(s) of the movie. This is important for understanding genre-specific trends and preferences.
+
+
+**TheatersOpenWeek**: The number of theaters in which the movie was released during its opening week. This indicates the scale of its initial release.
+
+
+**OpeningWeekend**: The box office collection of the movie during its opening weekend. 
+A critical metric for gauging initial audience interest and marketing effectiveness.
+
+
+**BOAvgOpenWeekend**: Average box office earnings per theater during the opening weekend. This provides a more nuanced view of the movie's initial success.
+
+**DomesticGross**: Total box office collection within the movie's country of origin.
+
+
+**ForeignGross**: Total box office collection in international markets.
+
+
+**WorldGross**: Combined global box office collections, a key indicator of a movie's worldwide success.
+
+
+**Budget**: The estimated production and marketing budget of the movie. This helps in evaluating the financial planning behind the movie.
+
+
+**Profitability**: An index or calculation based on the movie's earnings versus its budget, offering a direct measure of its financial success.
+
+
+**OpenProfit**: Profitability during the opening weekend, providing an early indicator of the movie's commercial performance.
+
+**Year**: The year of the movie's release, crucial for analyzing trends over time.
+
+
+### Wir beginnen mit der deskriptiven Statistik.
+
+## Definitionen statistischer Begriffe
+
+1. **Mittelwert:** 
+   - **Definition:** Der Mittelwert, oft als Durchschnitt bezeichnet, ist ein Maß für die zentrale Tendenz. Er wird berechnet, indem alle Werte in einem Datensatz addiert und dann durch die Anzahl der Werte geteilt werden.
+   - **Formel:** Wenn Sie eine Menge von Werten `X = {x1, x2, ..., xn}` haben, wird der Mittelwert (μ) als `μ = (Σxi) / n` berechnet, wobei `Σ` die Summation darstellt und `n` die Anzahl der Werte im Datensatz ist.
+
+2. **Median:** 
+   - **Definition:** Der Median ist der mittlere Wert in einem Datensatz, wenn die Werte in aufsteigender oder absteigender Reihenfolge angeordnet sind. Bei einer ungeraden Anzahl von Beobachtungen ist der Median die mittlere Zahl. Bei einer geraden Anzahl von Beobachtungen ist der Median der Durchschnitt der beiden mittleren Zahlen.
+   - **Berechnung:** Für einen in aufsteigender Reihenfolge sortierten Datensatz `X`, wenn `n` ungerade ist, ist der Median der Wert an der Position `(n+1)/2`. Wenn `n` gerade ist, ist der Median der Durchschnitt der Werte an den Positionen `n/2` und `n/2 + 1`.
+
+3. **Modus:**
+   - **Definition:** Der Modus ist der Wert, der am häufigsten in einem Datensatz vorkommt. Ein Datensatz kann einen Modus (unimodal), mehr als einen Modus (bimodal oder multimodal) oder überhaupt keinen Modus haben.
+   - **Identifikation:** In einem Datensatz `X` ist der Modus der Wert bzw. die Werte, der/die am häufigsten vorkommt/vorkommen. Im Gegensatz zu Mittelwert und Median kann der Modus auch bei nominellen (kategorischen) Daten verwendet werden.
+
+4. **Relative Häufigkeit:**
+   - **Definition:** Die relative Häufigkeit ist ein Maß für die Anzahl der Male, die ein bestimmter Wert oder eine Kategorie in einem Datensatz im Verhältnis zur Gesamtzahl der Werte oder Beobachtungen vorkommt. Sie wird oft als Bruchteil oder Prozentsatz ausgedrückt.
+   - **Berechnung:** Für einen Wert `x` in einem Datensatz wird die relative Häufigkeit als `f/n` berechnet, wobei `f` die Häufigkeit von `x` (die Anzahl der Male, die `x` im Datensatz vorkommt) und `n` die Gesamtzahl der Beobachtungen im Datensatz ist.
+
+
+```{r}
+#install.packages("modeest")
+library(modeest)  # for mode calculation
+# Calculate Mean
+mean_budget <- mean(movies$Budget, na.rm = TRUE)
+
+# Calculate Median
+median_budget <- median(movies$Budget, na.rm = TRUE)
+
+# Calculate Mode (using modeest package)
+mode_budget <- mfv(movies$Budget, na_rm = TRUE)
+
+# Display the results
+print(paste("Mean Budget:", mean_budget))
+print(paste("Median Budget:", median_budget))
+print(paste("Mode Budget:", mode_budget))
+```
+
+
+Wir können zusätzlich die Frequenzen innerhalb unserer Daten erforschen. Dieser Ansatz bietet eine weitere Methode, um unseren Datensatz und seine Variablen zu charakterisieren.
+
+### Absolute Häufigkeit
+
+1. **Definition:** 
+   - Die absolute Häufigkeit bezieht sich auf die Anzahl der Male, dass ein bestimmter Wert oder eine Kategorie in einem Datensatz vorkommt. Es handelt sich um eine einfache Zählung von Vorkommen ohne jegliche Normalisierung oder Vergleich zur Gesamtgröße des Datensatzes.
+
+2. **Beispiel:**  
+   - Wenn Sie einen Datensatz von Filmgenres haben und es gibt 30 Actionfilme, dann ist die absolute Häufigkeit der Actionfilme 30.
+
+### Relative Häufigkeit
+
+1. **Definition:** 
+   - Die relative Häufigkeit ist der Anteil oder Prozentsatz der Male, dass ein Wert oder eine Kategorie in einem Datensatz im Verhältnis zur Gesamtzahl der Beobachtungen erscheint. Sie wird berechnet, indem die absolute Häufigkeit einer Kategorie durch die Gesamtzahl der Datenpunkte geteilt wird.
+
+2. **Beispiel:** 
+   - Wenn Sie einen Datensatz von Filmgenres mit insgesamt 100 Filmen haben und 30 davon sind Actionfilme, wird die relative Häufigkeit der Actionfilme als `30 / 100 = 0,3` oder 30% berechnet.
+
+```{r}
+# Erstellen Sie eine Tabelle der relativen Häufigkeiten für eine kategoriale Variable wie Genre
+freq_genre <- table(movies$Genre)
+relative_freq_genre = prop.table(freq_genre)
+
+print("Relative Häufigkeit der Genres:")
+print(round(relative_freq_genre, digit = 2))
+```
+
+
+# Tasks 
+
+**Task 1: Extract the needed columns**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+    1. Extract the 'Name' and 'Profitability' Columns.
+    
+    2. Assign these two columns to the object "profit_df"
+    
+    3. Display the first few rows using head()
+
+</div>
+
+
+
+```{r echo=FALSE, results='hide'}
+# Assuming 'dataset' is your data frame
+profit_df = movies[, c(1,14)]
+head(profit_df)
+```
+
+
+**Task 2: Create a Histogram of Profitability**
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+
+
+    1. Visualize the distribution of the 'Profitability' column.
+    
+    Use the hist() function to create a histogram of the 'Profitability' column. 
+    
+    -- Example can be seen in the blog on Indexing & Filtering
+    
+</div>  
+
+
+```{r echo=FALSE, results='hide'}
+# Create a histogram of the 'Profitability' column
+hist(profit_df$Profitability, 
+     main="Histogram of Profitability", xlab="Profitability",
+     col = "lightblue", border = "#227FCE")
+
+```
+
+
+**Task 3: Calculate the Mean of Profitability**
+
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+    1. Calculate the Mean of Profitability.
+    
+    Use the mean() function to calculate the mean of the 'Profitability' column. 
+    
+    Ensuring to handle any missing values with the na.rm = TRUE argument inside the mean() fucntion.
+    
+</div>
+
+```{r echo=FALSE, results='hide'}
+# Calculate the mean of the 'Profitability' column
+mean_profitability <- mean(profit_df$Profitability, na.rm = TRUE)
+mean_profitability
+
+```
+
+
+**Task 4: Calculate the Median of Profitability**
+
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+    1. Use the median() function to calculate the median of the 'Profitability' column, again handling missing values appropriately.
+
+</div>
+
+
+```{r echo=FALSE, results='hide'}
+# Calculate the median of the 'Profitability' column
+median_profitability <- median(profit_df$Profitability, na.rm = TRUE)
+median_profitability
+
+```
+
+
+**Task 5: create a frequency table for this column**
+
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+
+
+</div>
+
+
+
+**Bonus Task: Annotate the Histogram with Mean and Median**
+
+
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+    
+    1. Extract only the open profits that were <2000 from the original dataset (i.e., movies).
+    
+    2. Create a Histogramm of this data. 
+    
+    3. Add the mean and median of this column to the histogram you created. 
+    
+    Instructions: using the abline() function (to know exactly what it does, type ?abline in the console and read the help page on the bottom-left side of your Rstudio). This will visually represent how the mean and median relate to the distribution.
+
+</div>
+
+
+```{r}
+condition_Max2000 = movies$OpenProfit < 400
+movies_Max2000 = movies[condition_Max2000,]
+  
+mean_openProfit = mean(movies_Max2000$OpenProfit, na.rm = TRUE)
+median_openProfit = median(movies_Max2000$OpenProfit, na.rm = TRUE)
+# Re-create the histogram
+hist(movies_Max2000$OpenProfit, 
+     main="Histogram of Open Profitability (< 400) with Mean and Median",
+     xlab="Profitability (<400)", breaks = 100,
+     border = "purple", col = "#C3B1E1")
+
+# Add a vertical line for the mean
+abline(v = mean_openProfit, col = "red", lwd = 2)
+
+# Add a vertical line for the median
+abline(v = median_openProfit, col = "black", lwd = 2)
+
+```
+

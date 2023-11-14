@@ -16,8 +16,6 @@ output: distill::distill_article
 
 In this blog, we will focus on analyzing a dataset of the best-selling movies between years XX and XX. 
 
-We will learn to read in a dataset, create histograms, and perform correlation tests using basic R functions, avoiding the tidyverse package. Let's dive in!
-
 
 ## Step 1: Loading the Dataset
 
