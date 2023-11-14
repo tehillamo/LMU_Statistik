@@ -203,7 +203,7 @@ head(profit_df)
 
 **Task 2: Create a Histogram of Profitability**
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 98%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
 
 
