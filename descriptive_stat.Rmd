@@ -126,10 +126,6 @@ A critical metric for gauging initial audience interest and marketing effectiven
    - **Definition:** Der Modus ist der Wert, der am häufigsten in einem Datensatz vorkommt. Ein Datensatz kann einen Modus (unimodal), mehr als einen Modus (bimodal oder multimodal) oder überhaupt keinen Modus haben.
    - **Identifikation:** In einem Datensatz `X` ist der Modus der Wert bzw. die Werte, der/die am häufigsten vorkommt/vorkommen. Im Gegensatz zu Mittelwert und Median kann der Modus auch bei nominellen (kategorischen) Daten verwendet werden.
 
-4. **Relative Häufigkeit:**
-   - **Definition:** Die relative Häufigkeit ist ein Maß für die Anzahl der Male, die ein bestimmter Wert oder eine Kategorie in einem Datensatz im Verhältnis zur Gesamtzahl der Werte oder Beobachtungen vorkommt. Sie wird oft als Bruchteil oder Prozentsatz ausgedrückt.
-   - **Berechnung:** Für einen Wert `x` in einem Datensatz wird die relative Häufigkeit als `f/n` berechnet, wobei `f` die Häufigkeit von `x` (die Anzahl der Male, die `x` im Datensatz vorkommt) und `n` die Gesamtzahl der Beobachtungen im Datensatz ist.
-
 
 ```{r}
 #install.packages("modeest")
