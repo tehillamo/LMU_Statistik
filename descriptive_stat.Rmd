@@ -173,6 +173,67 @@ print("Relative Häufigkeit der Genres:")
 print(round(relative_freq_genre, digit = 2))
 ```
 
+# Streuungsmassen 
+
+# Verständnis von Varianz und Standardabweichung in der Datenanalyse
+
+## Einführung
+
+In diesem Beitrag werden wir zwei grundlegende statistische Konzepte erkunden: Varianz und Standardabweichung. Wir werden verstehen, wie sie berechnet werden, ihre Bedeutung und wie sie miteinander zusammenhängen.
+
+## Was ist Varianz?
+
+Varianz ist ein statistisches Maß, das anzeigt, wie sehr die Zahlen in einem Datensatz vom Mittelwert (Durchschnitt) des Satzes abweichen.
+
+## Warum ist Varianz wichtig?
+
+Varianz hilft uns, die Diversität oder Variabilität in unseren Daten zu verstehen. Sie ist besonders nützlich, um Datensätze zu vergleichen und zu sehen, welcher eine größere Streuung aufweist.
+
+## Varianz in R berechnen
+
+Hier ist, wie du die Varianz in R berechnen kannst:
+
+```{r variance_calculation}
+# Datensätze definieren
+setA = c(4, 4, 4, 4, 4)
+setB = c(1, 3, 5, 7, 9)
+
+#Mittelwert berechnen
+
+mean_SetA = mean(setA)
+mean_SetB = mean(setB)
+
+# Varianz berechnen
+varianzA = var(setA)
+varianzB = var(setB)
+
+# Varianzen anzeigen
+varianzA
+varianzB
+```
+
+
+## Verständnis der Standardabweichung
+
+Die Standardabweichung wird aus der Varianz abgeleitet und gibt die Streuung der Daten in denselben Einheiten wie die Daten selbst an.
+
+## Standardabweichung in R berechnen
+
+Du kannst die Standardabweichung in R basierend auf der Varianz berechnen:
+
+
+```{r}
+# Standardabweichung berechnen
+stdAbwA <- sqrt(varianzA)
+stdAbwB <- sqrt(varianzB)
+
+# Standardabweichungen anzeigen
+stdAbwA
+stdAbwB
+```
+
+
+
 
 # Tasks 
 
@@ -221,25 +282,39 @@ hist_prof = hist(profit_df$Profitability,
 ```
 
 
-**Task 3: Calculate the Mean of Profitability**
+**Task 3: Calculate the Mean and the variance (as well as the standard deviation) of Profitability**
 
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
     1. Calculate the Mean of Profitability.
     
-    Use the mean() function to calculate the mean of the 'Profitability' column. 
+    Use the mean() function to calculate the mean of the
     
-    Ensuring to handle any missing values with the na.rm = TRUE argument 
-    inside the mean() fucntion.
+    'Profitability' column. 
+    
+    Ensuring to handle any missing values with the 
+    
+    na.rm = TRUE argument inside the mean() fucntion.
     
 </div>
 
 ```{r echo=FALSE, results='hide'}
 # Calculate the mean of the 'Profitability' column
-mean_profitability <- mean(profit_df$Profitability, na.rm = TRUE)
+mean_profitability = mean(profit_df$Profitability, na.rm = TRUE)
 mean_profitability
 
+mode_profitability = mfv(profit_df$Profitability, na_rm = TRUE)
+mode_profitability
+
+print(paste("mode of profitability is: ", mode_profitability))
+
+var_profitability = var(profit_df$Profitability, na.rm = TRUE)
+print(paste("variance of profitability is: ", var_profitability))
+
+
+sd_profitability = sqrt(var_profitability)
+print(paste("sd of profitability is: ", sd_profitability))
 ```
 
 
@@ -297,7 +372,8 @@ relative_freq_studios[23]
 
 <div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
     
-    1. Extract only the open profits that were <2000 from the original dataset (i.e., movies).
+    1. Extract only the open profits that were <2000 from the original 
+    dataset (i.e., movies).
     
     2. Create a Histogramm of this data. 
     
