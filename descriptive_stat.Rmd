@@ -178,7 +178,7 @@ print(round(relative_freq_genre, digit = 2))
 
 **Task 1: Extract the needed columns**
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 70%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
     1. Extract the 'Name' and 'Profitability' Columns.
     
@@ -214,7 +214,7 @@ head(profit_df)
 
 ```{r echo=FALSE, results='hide'}
 # Create a histogram of the 'Profitability' column
-hist(profit_df$Profitability, 
+hist_prof = hist(profit_df$Profitability, 
      main="Histogram of Profitability", xlab="Profitability",
      col = "lightblue", border = "#227FCE")
 
@@ -230,7 +230,8 @@ hist(profit_df$Profitability,
     
     Use the mean() function to calculate the mean of the 'Profitability' column. 
     
-    Ensuring to handle any missing values with the na.rm = TRUE argument inside the mean() fucntion.
+    Ensuring to handle any missing values with the na.rm = TRUE argument 
+    inside the mean() fucntion.
     
 </div>
 
@@ -247,7 +248,8 @@ mean_profitability
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
-    1. Use the median() function to calculate the median of the 'Profitability' column, again handling missing values appropriately.
+    1. Use the median() function to calculate the median of the 'Profitability' 
+    column, again handling missing values appropriately.
 
 </div>
 
@@ -265,6 +267,26 @@ median_profitability
 
 <div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
+    Create a frequncy table of the 'LeadStudio' column. 
+    
+    Bonus:
+    Which of the studio is the most popular one? 
+    Use the which.max() function to find out. The output is the 
+    location of the studio in the frequncy table. Use indexing to 
+    extract it!
+
+```{r echo=FALSE, results='hide'}
+# Erstellen Sie eine Tabelle der relativen Häufigkeiten für eine kategoriale Variable wie Genre
+freq_studio = table(movies$LeadStudio)
+relative_freq_studios = prop.table(freq_studio)
+
+print("Relative Häufigkeit der Studios:")
+print(round(relative_freq_studios, digit = 0))
+
+# bonus
+which.max(relative_freq_studios)
+relative_freq_studios[23]
+```
 
 </div>
 
@@ -273,7 +295,7 @@ median_profitability
 **Bonus Task: Annotate the Histogram with Mean and Median**
 
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
     
     1. Extract only the open profits that were <2000 from the original dataset (i.e., movies).
     
@@ -281,21 +303,28 @@ median_profitability
     
     3. Add the mean and median of this column to the histogram you created. 
     
-    Instructions: using the abline() function (to know exactly what it does, type ?abline in the console and read the help page on the bottom-left side of your Rstudio). This will visually represent how the mean and median relate to the distribution.
+    Instructions: using the abline() function 
+    (to know exactly what it does, type ?abline 
+    in the console and read the help page on the bottom-left side of your Rstudio). 
+    
+    This will visually represent how the mean and 
+    median relate to the distribution.
 
 </div>
 
 
-```{r}
+```{r echo=FALSE, results='hide'}
+
 condition_Max2000 = movies$OpenProfit < 400
 movies_Max2000 = movies[condition_Max2000,]
   
 mean_openProfit = mean(movies_Max2000$OpenProfit, na.rm = TRUE)
 median_openProfit = median(movies_Max2000$OpenProfit, na.rm = TRUE)
+
 # Re-create the histogram
-hist(movies_Max2000$OpenProfit, 
-     main="Histogram of Open Profitability (< 400) with Mean and Median",
-     xlab="Profitability (<400)", breaks = 100,
+hist_openProf = hist(movies_Max2000$OpenProfit, 
+     main = "Histogram of Open Profitability (< 400) with Mean and Median",
+     xlab = "Profitability (<400)", breaks = 100,
      border = "purple", col = "#C3B1E1")
 
 # Add a vertical line for the mean
