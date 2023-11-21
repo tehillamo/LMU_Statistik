@@ -323,7 +323,10 @@ print(paste("sd of profitability is: ", sd_profitability))
 
 <div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
-    1. Use the median() function to calculate the median of the 'Profitability' 
+    1. Use the median() function to calculate the 
+    
+    median of the 'Profitability' 
+    
     column, again handling missing values appropriately.
 
 </div>
@@ -345,10 +348,17 @@ median_profitability
     Create a frequncy table of the 'LeadStudio' column. 
     
     Bonus:
+    
     Which of the studio is the most popular one? 
-    Use the which.max() function to find out. The output is the 
-    location of the studio in the frequncy table. Use indexing to 
-    extract it!
+    
+    Use the which.max() function to find out. 
+    
+    The output is the location of the studio 
+    
+    in the frequncy table. Use indexing to extract it!
+
+</div>
+
 
 ```{r echo=FALSE, results='hide'}
 # Erstellen Sie eine Tabelle der relativen Häufigkeiten für eine kategoriale Variable wie Genre
@@ -363,7 +373,6 @@ which.max(relative_freq_studios)
 relative_freq_studios[23]
 ```
 
-</div>
 
 
 
@@ -377,13 +386,20 @@ relative_freq_studios[23]
     
     2. Create a Histogramm of this data. 
     
-    3. Add the mean and median of this column to the histogram you created. 
+    3. Add the mean and median of this column to 
+    
+    the histogram you created. 
     
     Instructions: using the abline() function 
-    (to know exactly what it does, type ?abline 
-    in the console and read the help page on the bottom-left side of your Rstudio). 
+    
+    to know exactly what it does, type ?abline 
+    
+    in the console and read the help page on the
+    
+    bottom-left side of your Rstudio). 
     
     This will visually represent how the mean and 
+    
     median relate to the distribution.
 
 </div>
