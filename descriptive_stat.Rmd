@@ -285,7 +285,7 @@ hist_prof = hist(profit_df$Profitability,
 **Task 3: Calculate the Mean and the variance (as well as the standard deviation) of Profitability**
 
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
     1. Calculate the Mean of Profitability.
     
@@ -321,7 +321,7 @@ print(paste("sd of profitability is: ", sd_profitability))
 **Task 4: Calculate the Median of Profitability**
 
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
     1. Use the median() function to calculate the median of the 'Profitability' 
     column, again handling missing values appropriately.
@@ -340,7 +340,7 @@ median_profitability
 **Task 5: create a frequency table for this column**
 
 
-<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
     Create a frequncy table of the 'LeadStudio' column. 
     
