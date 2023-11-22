@@ -204,8 +204,8 @@ mean_SetA = mean(setA)
 mean_SetB = mean(setB)
 
 # Varianz berechnen
-varianzA = var(setA)
-varianzB = var(setB)
+varianzA = sum((setA - mean_SetA)^2)/length(setA)
+varianzB = sum((setB - mean_SetB)^2)/length(setB)
 
 # Varianzen anzeigen
 varianzA
@@ -309,7 +309,7 @@ mode_profitability
 
 print(paste("mode of profitability is: ", mode_profitability))
 
-var_profitability = var(profit_df$Profitability, na.rm = TRUE)
+var_profitability = sum(profit_df$Profitability - (mean(profit_df$Profitability, na.rm = TRUE))^2)/length(profit_df$Profitability)
 print(paste("variance of profitability is: ", var_profitability))
 
 
@@ -381,7 +381,7 @@ relative_freq_studios[23]
 
 <div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
     
-    1. Extract only the open profits that were <2000 from the original 
+    1. Extract only the open profits that were <400 from the original 
     dataset (i.e., movies).
     
     2. Create a Histogramm of this data. 
@@ -407,14 +407,14 @@ relative_freq_studios[23]
 
 ```{r echo=FALSE, results='hide'}
 
-condition_Max2000 = movies$OpenProfit < 400
-movies_Max2000 = movies[condition_Max2000,]
+condition_Max400 = movies$OpenProfit < 400
+movies_Max400 = movies[condition_Max400,]
   
-mean_openProfit = mean(movies_Max2000$OpenProfit, na.rm = TRUE)
-median_openProfit = median(movies_Max2000$OpenProfit, na.rm = TRUE)
+mean_openProfit = mean(movies_Max400$OpenProfit, na.rm = TRUE)
+median_openProfit = median(movies_Max400$OpenProfit, na.rm = TRUE)
 
 # Re-create the histogram
-hist_openProf = hist(movies_Max2000$OpenProfit, 
+hist_openProf = hist(movies_Max400$OpenProfit, 
      main = "Histogram of Open Profitability (< 400) with Mean and Median",
      xlab = "Profitability (<400)", breaks = 100,
      border = "purple", col = "#C3B1E1")
