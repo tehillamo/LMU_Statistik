@@ -248,7 +248,7 @@ stdAbwB
 
 **Task 1: Extract the needed columns**
 
-<div style = "border: 1px solid;margin: auto;width: 70%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 90%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
     1. Extract the 'Name' and 'Profitability' Columns.
     
@@ -269,13 +269,17 @@ head(profit_df)
 
 **Task 2: Create a Histogram of Profitability**
 
-<div style = "border: 1px solid;margin: auto;width: 98%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
+<div style = "border: 1px solid;margin: auto;width: 100%;padding: 10px;text-align:left;background:#DBF9FC;font-family: curier;font-size:15px">
 
 
 
-    1. Visualize the distribution of the 'Profitability' column.
+    1. Visualize the distribution of the 
     
-    Use the hist() function to create a histogram of the 'Profitability' column. 
+    'Profitability' column.
+    
+    Use the hist() function to create a 
+    
+    histogram of the 'Profitability' column. 
     
     -- Example can be seen in the blog on Indexing & Filtering
     
