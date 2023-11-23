@@ -117,6 +117,9 @@ A critical metric for gauging initial audience interest and marketing effectiven
 1. **Mittelwert:** 
    - **Definition:** Der Mittelwert, oft als Durchschnitt bezeichnet, ist ein Maß für die zentrale Tendenz. Er wird berechnet, indem alle Werte in einem Datensatz addiert und dann durch die Anzahl der Werte geteilt werden.
    - **Formel:** Wenn Sie eine Menge von Werten `X = {x1, x2, ..., xn}` haben, wird der Mittelwert (μ) als `μ = (Σxi) / n` berechnet, wobei `Σ` die Summation darstellt und `n` die Anzahl der Werte im Datensatz ist.
+   
+$\overline{x} = \frac {\sum_{i=1}^n x_i}{n}$
+
 
 2. **Median:** 
    - **Definition:** Der Median ist der mittlere Wert in einem Datensatz, wenn die Werte in aufsteigender oder absteigender Reihenfolge angeordnet sind. Bei einer ungeraden Anzahl von Beobachtungen ist der Median die mittlere Zahl. Bei einer geraden Anzahl von Beobachtungen ist der Median der Durchschnitt der beiden mittleren Zahlen.
@@ -166,7 +169,7 @@ Wir können zusätzlich die Frequenzen innerhalb unserer Daten erforschen. Diese
 
 ```{r}
 # Erstellen Sie eine Tabelle der relativen Häufigkeiten für eine kategoriale Variable wie Genre
-freq_genre <- table(movies$Genre)
+freq_genre = table(movies$Genre)
 relative_freq_genre = prop.table(freq_genre)
 
 print("Relative Häufigkeit der Genres:")
@@ -184,6 +187,9 @@ In diesem Beitrag werden wir zwei grundlegende statistische Konzepte erkunden: V
 ## Was ist Varianz?
 
 Varianz ist ein statistisches Maß, das anzeigt, wie sehr die Zahlen in einem Datensatz vom Mittelwert (Durchschnitt) des Satzes abweichen.
+
+$S^2 = \frac {\sum_{i=1}^n (x_i - \overline{X})^2}{n}$
+
 
 ## Warum ist Varianz wichtig?
 
@@ -218,6 +224,9 @@ varianzB
 Die Standardabweichung wird aus der Varianz abgeleitet und gibt die Streuung der Daten in denselben Einheiten wie die Daten selbst an.
 
 ## Standardabweichung in R berechnen
+
+$sd = \sqrt{S^2}$
+
 
 Du kannst die Standardabweichung in R basierend auf der Varianz berechnen:
 
