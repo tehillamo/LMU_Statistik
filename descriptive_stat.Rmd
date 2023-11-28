@@ -260,7 +260,7 @@ stdAbwB
 
 
 
-```{r echo=FALSE, results='hide'}
+```{r }
 # Assuming 'dataset' is your data frame
 profit_df = movies[, c(1,14)]
 head(profit_df)
@@ -286,7 +286,7 @@ head(profit_df)
 </div>  
 
 
-```{r echo=FALSE, results='hide'}
+```{r }
 # Create a histogram of the 'Profitability' column
 hist_prof = hist(profit_df$Profitability, 
      main="Histogram of Profitability", xlab="Profitability",
@@ -312,7 +312,7 @@ hist_prof = hist(profit_df$Profitability,
     
 </div>
 
-```{r echo=FALSE, results='hide'}
+```{r }
 # Calculate the mean of the 'Profitability' column
 mean_profitability = mean(profit_df$Profitability, na.rm = TRUE)
 mean_profitability
@@ -345,7 +345,7 @@ print(paste("sd of profitability is: ", sd_profitability))
 </div>
 
 
-```{r echo=FALSE, results='hide'}
+```{r }
 # Calculate the median of the 'Profitability' column
 median_profitability <- median(profit_df$Profitability, na.rm = TRUE)
 median_profitability
@@ -373,13 +373,13 @@ median_profitability
 </div>
 
 
-```{r echo=FALSE, results='hide'}
+```{r }
 # Erstellen Sie eine Tabelle der relativen Häufigkeiten für eine kategoriale Variable wie Genre
 freq_studio = table(movies$LeadStudio)
 relative_freq_studios = prop.table(freq_studio)
 
-print("Relative Häufigkeit der Studios:")
-print(round(relative_freq_studios, digit = 0))
+print("Relative Häufigkeit der Studios (nur die ersten 6 Zeilen):")
+print(head(round(relative_freq_studios, digit = 0)))
 
 # bonus
 which.max(relative_freq_studios)
@@ -418,7 +418,7 @@ relative_freq_studios[23]
 </div>
 
 
-```{r echo=FALSE, results='hide'}
+```{r }
 
 condition_Max400 = movies$OpenProfit < 400
 movies_Max400 = movies[condition_Max400,]
