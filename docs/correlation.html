@@ -2201,16 +2201,6 @@ cov_{x,y} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{n}
 <h2 id="korrelation-vs.-kausalität">Korrelation vs. Kausalität</h2>
 <p>Es ist entscheidend zu verstehen, dass Korrelation keine Kausalität impliziert. Zwei Variablen können korreliert sein, ohne eine Ursache-Wirkungs-Beziehung zu haben.</p>
 <h2 id="berechnung-der-korrelation-in-r">Berechnung der Korrelation in R</h2>
-<p>Jetzt berechnen wir die Korrelation in R mit der Funktion <code>cor()</code>.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span><span class='op'>)</span></span>
-<span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span><span class='op'>)</span></span>
-<span><span class='va'>korrelation</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></span>
-<span><span class='va'>korrelation</span></span></code></pre>
-</div>
-<pre><code>[1] 1</code></pre>
-</div>
 <p>Schritt-für-Schritt-Beispiel: Manuelle Berechnung der Korrelation</p>
 <p>Lassen Sie uns den Korrelationskoeffizienten manuell berechnen, um den zugrundeliegenden Prozess zu verstehen:</p>
 <ol type="1">
@@ -2254,10 +2244,10 @@ cov_{x,y} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{n}
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>summe_der_produkte</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>abweichungen</span><span class='op'>)</span></span>
 <span><span class='va'>n</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></span>
-<span><span class='va'>korrelation_manuell</span> <span class='op'>=</span> <span class='va'>summe_der_produkte</span> <span class='op'>/</span> <span class='va'>n</span></span>
+<span><span class='va'>korrelation_manuell</span> <span class='op'>=</span> <span class='va'>summe_der_produkte</span></span>
 <span><span class='va'>korrelation_manuell</span></span></code></pre>
 </div>
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] 10</code></pre>
 </div>
 <hr />
 <h2 id="daten-normalisieren-mit-z-standardisierung">Daten normalisieren mit Z-Standardisierung</h2>
@@ -2332,7 +2322,7 @@ Z = \frac{(120 - 100)}{15} \approx 1.33
 <h3 id="interpretation">Interpretation</h3>
 <p><strong>Marias Leistung:</strong> Ein Z-Wert von 0,67 zeigt, dass Marias IQ überdurchschnittlich ist. Sie punktet besser als ein bedeutender Teil ihrer Altersgenossen, befindet sich aber nicht im extrem hohen Bereich.</p>
 <p><strong>Johns Leistung:</strong> Johns Z-Wert von 1,33 platziert ihn in einem höheren Prozentbereich, was darauf hindeutet, dass sein IQ im Vergleich zu seinen Altersgenossen deutlich über dem Durchschnitt liegt.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

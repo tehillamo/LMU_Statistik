@@ -53,16 +53,6 @@ Es ist entscheidend zu verstehen, dass Korrelation keine Kausalität impliziert.
 
 ## Berechnung der Korrelation in R
 
-Jetzt berechnen wir die Korrelation in R mit der Funktion `cor()`.
-
-```{r}
-x <- c(1, 2, 3, 4, 5)
-y <- c(2, 3, 4, 5, 6)
-korrelation <- cor(x, y)
-korrelation
-```
-
-
 Schritt-für-Schritt-Beispiel: Manuelle Berechnung der Korrelation
 
 Lassen Sie uns den Korrelationskoeffizienten manuell berechnen, um den zugrundeliegenden Prozess zu verstehen:
@@ -96,7 +86,7 @@ abweichungen
 ```{r}
 summe_der_produkte = sum(abweichungen)
 n = length(x)
-korrelation_manuell = summe_der_produkte / n
+korrelation_manuell = summe_der_produkte
 korrelation_manuell
 ```
 
