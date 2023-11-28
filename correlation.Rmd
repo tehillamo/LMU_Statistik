@@ -27,9 +27,13 @@ cor_{xy} = \sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})
 $$
 
 Wo:
+
 - \( r_{xy} \) der Korrelationskoeffizient zwischen \( x \) und \( y \) ist.
+
 - \( x_i \) und \( y_i \) einzelne Stichprobenpunkte sind.
+
 - \( \bar{x} \) und \( \bar{y} \) die Mittelwerte von \( x \) und \( y \) sind.
+
 - \( n \) die Anzahl der Stichprobenpunkte ist.
 
 ## Was ist Kovarianz?
