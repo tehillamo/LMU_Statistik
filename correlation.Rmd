@@ -34,8 +34,6 @@ Wo:
 
 - \( \bar{x} \) und \( \bar{y} \) die Mittelwerte von \( x \) und \( y \) sind.
 
-- \( n \) die Anzahl der Stichprobenpunkte ist.
-
 ## Was ist Kovarianz?
 
 Kovarianz ist ein Maß, das angibt, wie sehr zwei Zufallsvariablen zusammen variieren. Sie wird berechnet als:
