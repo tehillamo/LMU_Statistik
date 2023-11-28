@@ -76,7 +76,9 @@ y = c(2, 3, 4, 5, 6)
 
 ```{r}
 mean_x = mean(x)
+mean_x
 mean_y = mean(y)
+mean_y
 ```
 
 
@@ -84,6 +86,7 @@ mean_y = mean(y)
 
 ```{r}
 abweichungen = (x - mean_x) * (y - mean_y)
+abweichungen
 ```
 
 4. Korrelation berechnen
