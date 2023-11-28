@@ -2232,22 +2232,36 @@ cov_{x,y} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{n}
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>abweichungen</span> <span class='op'>=</span> <span class='op'>(</span><span class='va'>x</span> <span class='op'>-</span> <span class='va'>mean_x</span><span class='op'>)</span> <span class='op'>*</span> <span class='op'>(</span><span class='va'>y</span> <span class='op'>-</span> <span class='va'>mean_y</span><span class='op'>)</span></span>
-<span><span class='va'>abweichungen</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>abweichungen_x</span> <span class='op'>=</span> <span class='va'>x</span> <span class='op'>-</span> <span class='va'>mean_x</span></span>
+<span><span class='va'>abweichungen_y</span> <span class='op'>=</span> <span class='va'>y</span> <span class='op'>-</span> <span class='va'>mean_y</span></span></code></pre>
 </div>
-<pre><code>[1] 4 1 0 1 4</code></pre>
 </div>
 <ol start="4" type="1">
 <li>Korrelation berechnen</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>summe_der_produkte</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>abweichungen</span><span class='op'>)</span></span>
-<span><span class='va'>n</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></span>
-<span><span class='va'>korrelation_manuell</span> <span class='op'>=</span> <span class='va'>summe_der_produkte</span></span>
-<span><span class='va'>korrelation_manuell</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>sum_abweichung</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>abweichungen_x</span><span class='op'>)</span><span class='op'>*</span><span class='op'>(</span><span class='va'>abweichungen_y</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>cor_manu</span> <span class='op'>=</span> <span class='va'>sum_abweichung</span><span class='op'>/</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>cor_manu</span>  <span class='op'>=</span> <span class='va'>cor_manu</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>cor_manu</span></span></code></pre>
 </div>
-<pre><code>[1] 10</code></pre>
+<pre><code>[1] 0.8</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  x and y
+t = 82191237, df = 3, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 1 1
+sample estimates:
+cor 
+  1 </code></pre>
 </div>
 <hr />
 <h2 id="daten-normalisieren-mit-z-standardisierung">Daten normalisieren mit Z-Standardisierung</h2>

@@ -77,17 +77,20 @@ mean_y
 3. Abweichung vom Mittelwert und Produkte berechnen
 
 ```{r}
-abweichungen = (x - mean_x) * (y - mean_y)
-abweichungen
+abweichungen_x = x - mean_x
+abweichungen_y = y - mean_y
 ```
 
 4. Korrelation berechnen
 
 ```{r}
-summe_der_produkte = sum(abweichungen)
-n = length(x)
-korrelation_manuell = summe_der_produkte
-korrelation_manuell
+sum_abweichung = sum((abweichungen_x)*(abweichungen_y))
+cor_manu = sum_abweichung/(sd(x) * sd(y))
+cor_manu  = cor_manu / length(x)
+
+cor_manu
+
+cor.test(x,y)
 ```
 
 -------
