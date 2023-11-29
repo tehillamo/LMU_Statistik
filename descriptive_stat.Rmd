@@ -59,7 +59,7 @@ Wir verwenden einen echten Datensatz HollywoodMovies.csv (.csv ist ...), der Fil
 Wir verwenden die Funktion read.csv(), die "eine Datei im Tabellenformat liest und daraus einen Datenrahmen erstellt, wobei die Fälle den Zeilen und die Variablen den Feldern in der Datei entsprechen."
 
 ```{r}
-movies <- read.csv("/Users/tmechera/Dropbox/PostDoc_LMU/LMU_Statistik_Website/HollywoodMovies.csv")
+movies <- read.csv("/Users/tmechera/Dropbox/PostDoc_LMU/Teaching/LMU_Statistik_Website/HollywoodMovies.csv")
 ```
 
 

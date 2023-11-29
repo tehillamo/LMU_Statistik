@@ -36,7 +36,7 @@ We will use a real dataset HollywoodMovies.csv (.csv is ...), which includes mov
 #### 2. Whats in this dataset? Lets call it in.... we use the function read.csv(), which "Reads a file in table format and creates a data frame from it, with cases corresponding to lines and variables to fields in the file."
 
 ```{r}
-movies <- read.csv("/Users/tmechera/Dropbox/PostDoc_LMU/LMU_Statistik_Website/HollywoodMovies.csv")
+movies <- read.csv("/Users/tmechera/Dropbox/PostDoc_LMU/Teaching/LMU_Statistik_Website/HollywoodMovies.csv")
 ```
 
 #### 3. Indexing and Creating Histograms
