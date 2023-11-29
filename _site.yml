@@ -22,8 +22,8 @@ navbar:
           href: indexing_filtering.html
         - text: "Basics in R - Descriptive Statistics"
           href: descriptive_stat.html
-        - text: "Basics in R - Descriptive Statistics II"
-          href: correlation.html
+        # - text: "Basics in R - Descriptive Statistics II"
+        #   href: correlation.html
         # - text: "Basics in R - Functions"
         #   href: functions.html
         # - text: "Statistical Tests - Distributions"
