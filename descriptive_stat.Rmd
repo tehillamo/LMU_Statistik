@@ -322,11 +322,11 @@ mode_profitability
 
 print(paste("mode of profitability is: ", mode_profitability))
 
-var_profitability = sum(profit_df$Profitability - (mean(profit_df$Profitability, na.rm = TRUE))^2)/length(profit_df$Profitability)
+var_profitability = sum(profit_df$Profitability - (mean(profit_df$Profitability, na.rm = TRUE))^2, na.rm = TRUE)/length(profit_df$Profitability)
 print(paste("variance of profitability is: ", var_profitability))
 
 
-sd_profitability = sqrt(var_profitability)
+sd_profitability = sqrt(abs(var_profitability))
 print(paste("sd of profitability is: ", sd_profitability))
 ```
 
